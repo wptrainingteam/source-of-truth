@@ -27,7 +27,7 @@ WordPress 7.2 brings a fresh starting point with Ipsum, a minimal new default th
 
 Much of this release fills in gaps. Dozens of Core blocks pick up design tools they were missing, from backgrounds and shadows to minimum widths and duotone. Responsive styles and interactive states from 7.1 reach more controls, and Global Styles can now style form elements, custom duotone palettes, and Navigation Link states.
 
-Collaboration inside the editor keeps improving, too. Notes move into a margin beside the canvas, where they stay visible while you work, and people you mention get an email.
+Collaboration inside the editor keeps improving, too. Notes move into a margin beside the canvas, where they stay visible while you work, and you can react to feedback with an emoji.
 
 Beyond the headliners, writing in the editor gets smoother with a long list of small fixes, and developers get public APIs for responsive controls, Interactivity API additions, and new components.
 
