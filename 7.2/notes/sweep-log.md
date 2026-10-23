@@ -20,6 +20,7 @@ Newest first.
 * Secrets API: "A proposed" → "A new". Committed Oct 13 ([5744bc5](https://github.com/WordPress/wordpress-develop/commit/5744bc5), Fixes #66187); `wp_set_secret()`, `wp_get_secret()` and `wp_delete_secret()` are in the commit.
 * AI embeddings: bundled PHP AI Client 1.4.0 → 1.5.0 (`AiClient::VERSION` in [d6a40f4](https://github.com/WordPress/wordpress-develop/commit/d6a40f4), Fixes #65638, Oct 13). Cleared the "if it lands" note.
 * SVG icons in the admin: cleared the review note. Committed Oct 19 ([5832f82](https://github.com/WordPress/wordpress-develop/commit/5832f82), #65089).
+* Global Styles: removed "marks blocks that have custom styles with a dot". #84657 (Gutenberg 24.3, in the Beta 1 pin) removed the dot; the **Customized** filter from #81373 stays.
 * Ipsum: committed Oct 22 ([8f7616e](https://github.com/WordPress/wordpress-develop/commit/8f7616e)), after Beta 1, so it arrives in Beta 2. Note updated; the Playground check stays.
 * Admin accessibility, application passwords, `wp_kses()`: working notes now record each ticket's status (see proposals).
 

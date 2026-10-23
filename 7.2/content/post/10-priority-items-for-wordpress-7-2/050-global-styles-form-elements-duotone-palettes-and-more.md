@@ -8,7 +8,7 @@ Global Styles can now style more of the elements that make up your site. Citatio
 
 You can also create your own duotone palettes in a new **Duotone** tab instead of relying only on the theme's ([#81605](https://github.com/WordPress/gutenberg/pull/81605)). Elements like links, buttons, and headings are now listed alongside blocks in Global Styles ([#81645](https://github.com/WordPress/gutenberg/pull/81645)), and element screens preview the state you're styling, such as hover ([#83787](https://github.com/WordPress/gutenberg/pull/83787)).
 
-When you're tracking down a stray style, Global Styles also marks blocks that have custom styles with a dot and lets you filter the list to show only those blocks ([#81373](https://github.com/WordPress/gutenberg/pull/81373)).
+When you're tracking down a stray style, Global Styles also lets you filter the list to show only blocks that have custom styles ([#81373](https://github.com/WordPress/gutenberg/pull/81373)).
 
 In the block inspector, controls now show the values a block inherits from Global Styles instead of appearing empty, so you can see what you're overriding before you change anything ([#82840](https://github.com/WordPress/gutenberg/pull/82840)).
 
