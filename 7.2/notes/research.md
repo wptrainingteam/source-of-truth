@@ -506,3 +506,15 @@ The roadmap says this work happens in the AI plugin and may not land in 7.2.
 | Unicode email addresses | 🔍 Conflict: [changeset 62482](https://core.trac.wordpress.org/changeset/62482/) committed June 10 with `@since 7.1.0` and no revert shown, but your punted list marks it ❌ and [#31992](https://core.trac.wordpress.org/ticket/31992) is still open. Check whether it shipped in 7.1. | [Call for testing](https://make.wordpress.org/core/2026/06/10/call-for-testing-unicode-email-addresses/) |
 
 ---
+
+## Beta 1 candidates not in the draft (sweep Oct 23)
+
+The [Beta 1 announcement](https://wordpress.org/news/2026/10/wordpress-7-2-beta-1-is-ready-for-download-and-testing/) lists these, and each has commits on wordpress-develop trunk before Beta 1 (Oct 20, 15:30 UTC) unless noted. None is in the post yet.
+
+* **On This Day:** the Oct 20 commit adds an "On This Day" section to the Activity widget ([051f9dc](https://github.com/WordPress/wordpress-develop/commit/051f9dc), [#65116](https://core.trac.wordpress.org/ticket/65116)). The Beta 1 post calls it a new widget; the code makes it a section of the existing Activity widget. Supersedes the "likely punt again" note above.
+* **Client-side uploads in the Media Library and media modal** ([9fbaa2d](https://github.com/WordPress/wordpress-develop/commit/9fbaa2d), Oct 20, [#65661](https://core.trac.wordpress.org/ticket/65661)).
+* **Random content redirects** via `?random` ([757cb9c](https://github.com/WordPress/wordpress-develop/commit/757cb9c), Oct 16, [#64498](https://core.trac.wordpress.org/ticket/64498)). A first version was committed Sep 21 and reverted Sep 23.
+* **Abilities API:** new `core/settings-get` ([b6512b1](https://github.com/WordPress/wordpress-develop/commit/b6512b1), [#64605](https://core.trac.wordpress.org/ticket/64605)), `core/users-query` ([39981fd](https://github.com/WordPress/wordpress-develop/commit/39981fd), [#64657](https://core.trac.wordpress.org/ticket/64657)) and `core/content-query` ([213ecca](https://github.com/WordPress/wordpress-develop/commit/213ecca), [#66268](https://core.trac.wordpress.org/ticket/66268)) abilities. `core/content-query` changed after Beta 1 (author filter, Oct 22–23).
+* **Interactivity API `data-wp-html` server-side processing** ([3effce4](https://github.com/WordPress/wordpress-develop/commit/3effce4), [f64aa5a](https://github.com/WordPress/wordpress-develop/commit/f64aa5a), [#66246](https://core.trac.wordpress.org/ticket/66246)).
+* **Script and style concatenation retired** ([cc891ab](https://github.com/WordPress/wordpress-develop/commit/cc891ab) off by default Oct 13, [cc60bcd](https://github.com/WordPress/wordpress-develop/commit/cc60bcd) retired Oct 19, [#57548](https://core.trac.wordpress.org/ticket/57548)). Supersedes the "Future Release" note above.
+* **Global Styles "Customized" filter** ([#84657](https://github.com/WordPress/gutenberg/pull/84657)) and the usability PRs [#84656](https://github.com/WordPress/gutenberg/pull/84656), [#84649](https://github.com/WordPress/gutenberg/pull/84649): named in the Beta 1 post, not yet researched.

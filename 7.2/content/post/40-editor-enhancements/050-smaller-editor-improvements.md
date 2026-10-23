@@ -9,9 +9,8 @@ flags: [edit]
 * New posts no longer get published with an `auto-draft` slug ([#83518](https://github.com/WordPress/gutenberg/pull/83518)).
 * The starter patterns modal can filter patterns by category ([#81396](https://github.com/WordPress/gutenberg/pull/81396)).
 * The Command Palette has a **View post** command ([#66720](https://github.com/WordPress/gutenberg/pull/66720)).
-* In the inserter, "My patterns" is now "Site patterns," with a filter by author ([#84680](https://github.com/WordPress/gutenberg/pull/84680)). <!-- 🔍 Merged after Gutenberg 24.2 (Oct 16–19); confirm it's in Beta 1. -->
-* Restoring a revision first saves any unsaved changes as their own revision, so nothing is lost ([#84590](https://github.com/WordPress/gutenberg/pull/84590)), and the browser backup notice shows the backup's date before you restore it ([#84735](https://github.com/WordPress/gutenberg/pull/84735)). <!-- 🔍 Merged after Gutenberg 24.2 (Oct 16–19); confirm it's in Beta 1. -->
-* Snackbar notices with an action, like **Undo**, stay on screen longer ([#84842](https://github.com/WordPress/gutenberg/pull/84842)). <!-- 🔍 Merged after Gutenberg 24.2 (Oct 16–19); confirm it's in Beta 1. -->
+* In the inserter, "My patterns" is now "Site patterns," with a filter by author ([#84680](https://github.com/WordPress/gutenberg/pull/84680)).
+* Restoring a revision first saves any unsaved changes as their own revision, so nothing is lost ([#84590](https://github.com/WordPress/gutenberg/pull/84590)), and the browser backup notice shows the backup's date before you restore it ([#84735](https://github.com/WordPress/gutenberg/pull/84735)).
+* Snackbar notices with an action, like **Undo**, stay on screen longer ([#84842](https://github.com/WordPress/gutenberg/pull/84842)).
 * The inserter opens faster and doesn't re-render every item when the selection changes ([#83437](https://github.com/WordPress/gutenberg/pull/83437), [#83284](https://github.com/WordPress/gutenberg/pull/83284)).
 * **Select all** in List View is much faster on long posts: on a post with 1,000 blocks, it dropped from 16.8 seconds to 0.4 seconds ([#81210](https://github.com/WordPress/gutenberg/pull/81210)).
-* The post editor and widgets editors now use your admin color scheme ([#81112](https://github.com/WordPress/gutenberg/pull/81112)). <!-- 🔍 On hold: 23.8 straddled 7.1 and 7.2; confirm this wasn't already in 7.1. -->

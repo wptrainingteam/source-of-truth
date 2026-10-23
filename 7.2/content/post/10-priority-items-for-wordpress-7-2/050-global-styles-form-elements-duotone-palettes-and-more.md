@@ -6,7 +6,7 @@ flags: [check, visuals]
 
 Global Styles can now style more of the elements that make up your site. Citations, text inputs, and select dropdowns get typography and color controls ([#80852](https://github.com/WordPress/gutenberg/pull/80852)), and themes can style `<label>` elements through `theme.json` ([#81160](https://github.com/WordPress/gutenberg/pull/81160)). Search, comment, and plugin forms can now match the rest of your design without custom CSS.
 
-You can also create your own duotone palettes in a new **Duotone** tab instead of relying only on the theme's ([#81605](https://github.com/WordPress/gutenberg/pull/81605)). Elements like links, buttons, and headings are now listed alongside blocks in Global Styles ([#81645](https://github.com/WordPress/gutenberg/pull/81645)), and element screens preview the state you're styling, such as hover ([#83787](https://github.com/WordPress/gutenberg/pull/83787)). <!-- 🔍 Merged after Gutenberg 24.2 (Oct 16–19); confirm it's in Beta 1. -->
+You can also create your own duotone palettes in a new **Duotone** tab instead of relying only on the theme's ([#81605](https://github.com/WordPress/gutenberg/pull/81605)). Elements like links, buttons, and headings are now listed alongside blocks in Global Styles ([#81645](https://github.com/WordPress/gutenberg/pull/81645)), and element screens preview the state you're styling, such as hover ([#83787](https://github.com/WordPress/gutenberg/pull/83787)).
 
 When you're tracking down a stray style, Global Styles also marks blocks that have custom styles with a dot and lets you filter the list to show only those blocks ([#81373](https://github.com/WordPress/gutenberg/pull/81373)).
 

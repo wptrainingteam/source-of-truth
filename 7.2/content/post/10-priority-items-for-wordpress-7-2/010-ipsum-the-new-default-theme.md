@@ -12,4 +12,4 @@ The theme is still in development, so expect changes during the beta period. You
 
 Read the announcement: [Introducing Ipsum, the new default theme](https://make.wordpress.org/core/2026/09/16/introducing-ipsum-the-new-default-theme/)
 
-<!-- 🔍 Confirm Ipsum is committed to Core for Beta 1, and that the Playground link loads. 🎨 Screenshot plus style variation grid. -->
+<!-- Committed to Core Oct 22 (8f7616e), after Beta 1, and now WP_DEFAULT_THEME; first in Beta 2. 🔍 Confirm the Playground link loads. 🎨 Screenshot plus style variation grid. -->

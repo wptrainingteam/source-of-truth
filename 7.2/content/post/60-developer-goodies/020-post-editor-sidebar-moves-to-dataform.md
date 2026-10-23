@@ -8,4 +8,4 @@ The post and page settings sidebar is now built on DataForm, the same form syste
 
 Read more: [Call for testing: DataForm editor inspector](https://make.wordpress.org/core/2026/09/17/call-for-testing-dataform-editor-inspector/)
 
-<!-- 🔍 Stabilized on Oct 19 (#85081), after Gutenberg 24.2. Confirm it's in Beta 1, and check what happened to `PluginPostExcerpt` and the `editor.PostFeaturedImage` filter (#83133). -->
+<!-- In Beta 1 and on by default (#85081, a soft stabilization: the old inspector components stay until RC). 🔍 Check what happened to `PluginPostExcerpt` and the `editor.PostFeaturedImage` filter (#83133). -->

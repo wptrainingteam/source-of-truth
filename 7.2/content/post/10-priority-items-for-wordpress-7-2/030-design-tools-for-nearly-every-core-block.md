@@ -11,7 +11,7 @@ Across Gutenberg 24.1 and 24.2, contributors switched on existing design tools f
 * **Minimum width and height:** Heading, Columns, Buttons, Embed, Gallery, and more ([#83580](https://github.com/WordPress/gutenberg/pull/83580), [#83895](https://github.com/WordPress/gutenberg/pull/83895)).
 * **Link, heading, and button colors:** Accordion, Tabs, Quote, Details, Post Template ([#83390](https://github.com/WordPress/gutenberg/pull/83390), [#83371](https://github.com/WordPress/gutenberg/pull/83371)).
 * **Duotone:** Gallery, Video, and Media & Text ([#83978](https://github.com/WordPress/gutenberg/pull/83978), [#83979](https://github.com/WordPress/gutenberg/pull/83979), [#83981](https://github.com/WordPress/gutenberg/pull/83981)).
-* **Fit text:** Post Title, Site Title, Site Tagline, and Poetry ([#83036](https://github.com/WordPress/gutenberg/pull/83036), [#82074](https://github.com/WordPress/gutenberg/pull/82074), [#83980](https://github.com/WordPress/gutenberg/pull/83980)). <!-- 🔍 Post Title (#83036) merged Oct 19; confirm it's in Beta 1. -->
+* **Fit text:** Post Title, Site Title, Site Tagline, and Poetry ([#83036](https://github.com/WordPress/gutenberg/pull/83036), [#82074](https://github.com/WordPress/gutenberg/pull/82074), [#83980](https://github.com/WordPress/gutenberg/pull/83980)).
 
 The Group block can also set separate horizontal and vertical gaps in flex and grid layouts ([#81476](https://github.com/WordPress/gutenberg/pull/81476)).
 

@@ -37,14 +37,14 @@ WordPress 7.2 is scheduled for release on December 8, 2026.
 
 ### Resources
 
-* Help Test WordPress 7.2 🔍
+* [Help Test WordPress 7.2](https://make.wordpress.org/test/2026/10/20/help-test-wordpress-7-2/)
 * Follow along with [Dev Notes published](https://make.wordpress.org/core/tag/dev-notes+7-2/).
 * WordPress 7.2 Field Guide (expected at RC 1) 🔍
 * [Roadmap to 7.2](https://make.wordpress.org/core/2026/09/18/roadmap-to-7-2/)
 * [WordPress 7.2 Development Cycle](https://make.wordpress.org/core/7-2/)
 * **What's new for developers:** [September](https://developer.wordpress.org/news/2026/09/whats-new-for-developers-september-2026/), [October](https://developer.wordpress.org/news/2026/10/whats-new-for-developers-october-2026/)
 
-This release consists of features from the Gutenberg plugin versions 23.7 – 24.2 🔍. Here are the release posts of those plugin releases: [23.7](https://make.wordpress.org/core/2026/08/06/whats-new-in-gutenberg-23-7-05-august/) | [23.8](https://make.wordpress.org/core/2026/08/19/whats-new-in-gutenberg-23-8-19-august/) | [23.9](https://make.wordpress.org/core/2026/09/02/whats-new-in-gutenberg-23-9-2-september/) | [24.0](https://make.wordpress.org/core/2026/09/16/whats-new-in-gutenberg-24-0-16-september/) | [24.1](https://make.wordpress.org/core/2026/09/30/whats-new-in-gutenberg-24-1-30-september/) | [24.2](https://make.wordpress.org/core/2026/10/14/whats-new-in-gutenberg-24-2-14-october/). Later Gutenberg releases contain bug fixes, backported to the WordPress 7.2 release branch.
+This release consists of features from the Gutenberg plugin versions 23.7 – 24.3. Here are the release posts of those plugin releases: [23.7](https://make.wordpress.org/core/2026/08/06/whats-new-in-gutenberg-23-7-05-august/) | [23.8](https://make.wordpress.org/core/2026/08/19/whats-new-in-gutenberg-23-8-19-august/) | [23.9](https://make.wordpress.org/core/2026/09/02/whats-new-in-gutenberg-23-9-2-september/) | [24.0](https://make.wordpress.org/core/2026/09/16/whats-new-in-gutenberg-24-0-16-september/) | [24.1](https://make.wordpress.org/core/2026/09/30/whats-new-in-gutenberg-24-1-30-september/) | [24.2](https://make.wordpress.org/core/2026/10/14/whats-new-in-gutenberg-24-2-14-october/). <!-- 🔍 Add the 24.3 release post link once 24.3 is out (Beta 1 shipped 24.3 RC1). --> Later Gutenberg releases contain bug fixes, backported to the WordPress 7.2 release branch.
 
 ### Assets ✏️
 

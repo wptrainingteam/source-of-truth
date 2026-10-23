@@ -21,8 +21,3 @@ A new background-clip block support controls how far a block's background extend
 
 <!-- 🔍 On hold: confirm what the UI exposes (gradient text?), which blocks opt in, and that it's in 7.2. Rewrite or remove. -->
 
-#### Turn off the responsive and state editing UI 🔍
-
-Two editor settings let you hide the new styling UI from users: `responsiveEditingEnabled` hides the **Responsive styles** option, and `blockStatesEditingEnabled` hides the hover, focus, and active state controls ([#80814](https://github.com/WordPress/gutenberg/pull/80814), [#80956](https://github.com/WordPress/gutenberg/pull/80956), [#81058](https://github.com/WordPress/gutenberg/pull/81058)). Both only affect the UI. Styles that are already saved keep rendering.
-
-<!-- 🔍 On hold: the 7.1 Source of Truth already covers `responsiveEditingEnabled`. Check whether `blockStatesEditingEnabled` shipped in 7.1 too; keep only what's new in 7.2. -->
