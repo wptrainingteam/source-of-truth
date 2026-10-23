@@ -1,9 +1,6 @@
 ---
-title: Application password improvements
-tags: [site admin, enterprise]
-flags: [check]
+title: Email notice for new application passwords
+tags: [site admin, enterprise, plugin author]
 ---
 
-Application passwords get security hardening and UX refinements: an email notification when a new one is created ([#63927](https://core.trac.wordpress.org/ticket/63927)), safer handling of `default_role` values ([#46744](https://core.trac.wordpress.org/ticket/46744)), and better environment detection on sites without HTTPS ([#57388](https://core.trac.wordpress.org/ticket/57388)).
-
-<!-- 🔍 Status Oct 23: #63927 committed (032936f, Sep 10), #57388 committed (4b2afb9, Oct 5), #46744 still has an open patch after Beta 1. #66009 (UX) couldn't be read. Rewrite proposed in a PR. -->
+Users now get an email when an application password is added to their account, so they notice one they didn't create. Plugins can change the email with the `wp_application_password_created_email` filter or turn it off with the `wp_send_application_password_created_email` filter ([#63927](https://core.trac.wordpress.org/ticket/63927)).
