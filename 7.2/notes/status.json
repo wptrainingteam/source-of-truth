@@ -1,0 +1,3353 @@
+{
+	"checked_at": "2026-10-23T14:34:04.100Z",
+	"release": "7.2",
+	"refs": {
+		"WordPress/gutenberg#83786": {
+			"type": "pr",
+			"title": "Notes: Move floating notes into a canvas margin",
+			"state": "merged",
+			"merged_at": "2026-10-05T06:24:07Z",
+			"closed_at": "2026-10-05T06:24:07Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/020-notes-move-into-the-canvas-margin.md"
+			]
+		},
+		"WordPress/gutenberg#83852": {
+			"type": "pr",
+			"title": "Notes: Scroll floating notes with the canvas",
+			"state": "merged",
+			"merged_at": "2026-10-05T07:00:14Z",
+			"closed_at": "2026-10-05T07:00:14Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Bug"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/020-notes-move-into-the-canvas-margin.md"
+			]
+		},
+		"WordPress/gutenberg#83768": {
+			"type": "pr",
+			"title": "Notes: Add show and hide options for floating notes",
+			"state": "merged",
+			"merged_at": "2026-09-30T04:01:07Z",
+			"closed_at": "2026-09-30T04:01:07Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/020-notes-move-into-the-canvas-margin.md"
+			]
+		},
+		"WordPress/gutenberg#83988": {
+			"type": "pr",
+			"title": "Notes: Add Undo to deleted note snackbar",
+			"state": "merged",
+			"merged_at": "2026-10-05T07:35:54Z",
+			"closed_at": "2026-10-05T07:35:54Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/020-notes-move-into-the-canvas-margin.md"
+			]
+		},
+		"WordPress/gutenberg#84110": {
+			"type": "pr",
+			"title": "Notes: Preserve unsent note and reply drafts",
+			"state": "merged",
+			"merged_at": "2026-10-06T14:50:05Z",
+			"closed_at": "2026-10-06T14:50:05Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Bug"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/020-notes-move-into-the-canvas-margin.md"
+			]
+		},
+		"WordPress/gutenberg#79606": {
+			"type": "pr",
+			"title": "Notes: Email users mentioned in a note",
+			"state": "merged",
+			"merged_at": "2026-08-04T06:13:55Z",
+			"closed_at": "2026-08-04T06:13:55Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Feature",
+				"Backported to WP Core"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/020-notes-move-into-the-canvas-margin.md"
+			]
+		},
+		"WordPress/gutenberg#76767": {
+			"type": "pr",
+			"title": "Add emoji reactions to notes ❤️ 🎉 😄 👀 🚀 ",
+			"state": "merged",
+			"merged_at": "2026-10-16T23:37:37Z",
+			"closed_at": "2026-10-16T23:37:37Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/020-notes-move-into-the-canvas-margin.md"
+			]
+		},
+		"WordPress/gutenberg#84635": {
+			"type": "pr",
+			"title": "Notes: Make the \"Add note\" toolbar button add-only and drop the avatars",
+			"state": "merged",
+			"merged_at": "2026-10-19T08:30:21Z",
+			"closed_at": "2026-10-19T08:30:21Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/020-notes-move-into-the-canvas-margin.md"
+			]
+		},
+		"WordPress/gutenberg#80578": {
+			"type": "pr",
+			"title": "Improve how notes highlight and connect to content",
+			"state": "merged",
+			"merged_at": "2026-10-19T13:48:49Z",
+			"closed_at": "2026-10-19T13:48:49Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/020-notes-move-into-the-canvas-margin.md"
+			]
+		},
+		"WordPress/gutenberg#80015": {
+			"type": "issue",
+			"title": "Notes iteration for WordPress 7.2",
+			"state": "open",
+			"merged_at": null,
+			"closed_at": null,
+			"milestone": null,
+			"labels": [
+				"[Type] Iteration"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/020-notes-move-into-the-canvas-margin.md"
+			]
+		},
+		"WordPress/gutenberg#83203": {
+			"type": "pr",
+			"title": "Buttons: Add background image, size, and gradient support",
+			"state": "merged",
+			"merged_at": "2026-09-21T12:53:45Z",
+			"closed_at": "2026-09-21T12:53:45Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/030-design-tools-for-nearly-every-core-block.md"
+			]
+		},
+		"WordPress/gutenberg#83226": {
+			"type": "pr",
+			"title": "Heading: Add background image, size, and gradient support",
+			"state": "merged",
+			"merged_at": "2026-09-21T06:24:12Z",
+			"closed_at": "2026-09-21T06:24:12Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/030-design-tools-for-nearly-every-core-block.md"
+			]
+		},
+		"WordPress/gutenberg#83926": {
+			"type": "pr",
+			"title": "Paragraph: Add shadow support",
+			"state": "merged",
+			"merged_at": "2026-10-02T05:32:50Z",
+			"closed_at": "2026-10-02T05:32:50Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/030-design-tools-for-nearly-every-core-block.md"
+			]
+		},
+		"WordPress/gutenberg#83045": {
+			"type": "pr",
+			"title": "Heading: Add shadow support",
+			"state": "merged",
+			"merged_at": "2026-09-17T08:47:08Z",
+			"closed_at": "2026-09-17T08:47:08Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/030-design-tools-for-nearly-every-core-block.md"
+			]
+		},
+		"WordPress/gutenberg#83580": {
+			"type": "pr",
+			"title": "Heading: Add minimum width and height support",
+			"state": "merged",
+			"merged_at": "2026-09-29T04:58:44Z",
+			"closed_at": "2026-09-29T04:58:44Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/030-design-tools-for-nearly-every-core-block.md"
+			]
+		},
+		"WordPress/gutenberg#83895": {
+			"type": "pr",
+			"title": "Columns: Add minimum width and height support",
+			"state": "merged",
+			"merged_at": "2026-10-02T03:50:03Z",
+			"closed_at": "2026-10-02T03:50:03Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/030-design-tools-for-nearly-every-core-block.md"
+			]
+		},
+		"WordPress/gutenberg#83390": {
+			"type": "pr",
+			"title": "Tabs: Add link, heading, and button colour support",
+			"state": "merged",
+			"merged_at": "2026-09-23T09:03:04Z",
+			"closed_at": "2026-09-23T09:03:04Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/030-design-tools-for-nearly-every-core-block.md"
+			]
+		},
+		"WordPress/gutenberg#83371": {
+			"type": "pr",
+			"title": "Accordion Item: Add link, heading, and button colour support",
+			"state": "merged",
+			"merged_at": "2026-09-23T03:40:51Z",
+			"closed_at": "2026-09-23T03:40:51Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/030-design-tools-for-nearly-every-core-block.md"
+			]
+		},
+		"WordPress/gutenberg#83978": {
+			"type": "pr",
+			"title": "Gallery: Add duotone support",
+			"state": "merged",
+			"merged_at": "2026-10-05T05:13:00Z",
+			"closed_at": "2026-10-05T05:13:00Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/030-design-tools-for-nearly-every-core-block.md"
+			]
+		},
+		"WordPress/gutenberg#83979": {
+			"type": "pr",
+			"title": "Video: Add duotone support",
+			"state": "merged",
+			"merged_at": "2026-10-06T07:12:59Z",
+			"closed_at": "2026-10-06T07:12:59Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/030-design-tools-for-nearly-every-core-block.md"
+			]
+		},
+		"WordPress/gutenberg#83981": {
+			"type": "pr",
+			"title": "Media & Text: Add duotone support",
+			"state": "merged",
+			"merged_at": "2026-10-05T01:22:17Z",
+			"closed_at": "2026-10-05T01:22:17Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/030-design-tools-for-nearly-every-core-block.md"
+			]
+		},
+		"WordPress/gutenberg#83036": {
+			"type": "pr",
+			"title": "Post Title: Add fit text support",
+			"state": "merged",
+			"merged_at": "2026-10-19T02:20:39Z",
+			"closed_at": "2026-10-19T02:20:39Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/030-design-tools-for-nearly-every-core-block.md"
+			]
+		},
+		"WordPress/gutenberg#82074": {
+			"type": "pr",
+			"title": "Site title: Add fit-text support.",
+			"state": "merged",
+			"merged_at": "2026-08-28T07:25:40Z",
+			"closed_at": "2026-08-28T07:25:40Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/030-design-tools-for-nearly-every-core-block.md"
+			]
+		},
+		"WordPress/gutenberg#83980": {
+			"type": "pr",
+			"title": "Poetry: Add fit text support",
+			"state": "merged",
+			"merged_at": "2026-10-06T07:00:49Z",
+			"closed_at": "2026-10-06T07:00:49Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/030-design-tools-for-nearly-every-core-block.md"
+			]
+		},
+		"WordPress/gutenberg#81476": {
+			"type": "pr",
+			"title": "Enable axial gap for Group and restrict to flex and grid layouts.",
+			"state": "merged",
+			"merged_at": "2026-08-18T01:18:57Z",
+			"closed_at": "2026-08-18T01:18:57Z",
+			"milestone": "Gutenberg 23.9",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/030-design-tools-for-nearly-every-core-block.md"
+			]
+		},
+		"WordPress/gutenberg#76525": {
+			"type": "issue",
+			"title": "Block Supports and design tools follow-up",
+			"state": "open",
+			"merged_at": null,
+			"closed_at": null,
+			"milestone": null,
+			"labels": [
+				"[Type] Tracking Issue"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/030-design-tools-for-nearly-every-core-block.md"
+			]
+		},
+		"WordPress/gutenberg#83094": {
+			"type": "pr",
+			"title": "Enable setting position within viewport states",
+			"state": "merged",
+			"merged_at": "2026-09-23T08:12:51Z",
+			"closed_at": "2026-09-23T08:12:51Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/040-responsive-styles-and-states-round-two.md"
+			]
+		},
+		"WordPress/gutenberg#83539": {
+			"type": "pr",
+			"title": "Enable style state-specific custom CSS",
+			"state": "merged",
+			"merged_at": "2026-10-12T04:33:14Z",
+			"closed_at": "2026-10-12T04:33:14Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/040-responsive-styles-and-states-round-two.md"
+			]
+		},
+		"WordPress/gutenberg#82003": {
+			"type": "pr",
+			"title": "Enable Gallery columns and crop controls in viewport states",
+			"state": "merged",
+			"merged_at": "2026-08-28T06:30:52Z",
+			"closed_at": "2026-08-28T06:30:52Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/040-responsive-styles-and-states-round-two.md"
+			]
+		},
+		"WordPress/gutenberg#82233": {
+			"type": "pr",
+			"title": "Enable viewport state values for Gallery aspect ratio",
+			"state": "merged",
+			"merged_at": "2026-09-15T14:50:52Z",
+			"closed_at": "2026-09-15T14:50:53Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/040-responsive-styles-and-states-round-two.md"
+			]
+		},
+		"WordPress/gutenberg#83451": {
+			"type": "pr",
+			"title": "Global Styles: Add pseudo-state controls for Navigation Link",
+			"state": "merged",
+			"merged_at": "2026-09-29T08:40:14Z",
+			"closed_at": "2026-09-29T08:40:14Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/040-responsive-styles-and-states-round-two.md"
+			]
+		},
+		"WordPress/gutenberg#82741": {
+			"type": "pr",
+			"title": "Public API for supporting viewport states in custom controls",
+			"state": "merged",
+			"merged_at": "2026-09-21T19:48:34Z",
+			"closed_at": "2026-09-21T19:48:34Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement",
+				"Needs Dev Note",
+				"has dev note"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/040-responsive-styles-and-states-round-two.md"
+			]
+		},
+		"WordPress/gutenberg#80388": {
+			"type": "issue",
+			"title": "Responsive style states for blocks - 7.2 tasks",
+			"state": "closed",
+			"merged_at": null,
+			"closed_at": "2026-10-20T23:26:18Z",
+			"milestone": null,
+			"labels": [
+				"[Type] Iteration"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/040-responsive-styles-and-states-round-two.md"
+			]
+		},
+		"WordPress/gutenberg#80852": {
+			"type": "pr",
+			"title": "Global Styles: Expose additional elements in Typography and Colors",
+			"state": "merged",
+			"merged_at": "2026-08-14T10:16:08Z",
+			"closed_at": "2026-08-14T10:16:08Z",
+			"milestone": "Gutenberg 23.9",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/050-global-styles-form-elements-duotone-palettes-and-more.md"
+			]
+		},
+		"WordPress/gutenberg#81160": {
+			"type": "pr",
+			"title": "Global styles: Register <label> as element",
+			"state": "merged",
+			"merged_at": "2026-08-18T09:05:25Z",
+			"closed_at": "2026-08-18T09:05:25Z",
+			"milestone": "Gutenberg 23.9",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/050-global-styles-form-elements-duotone-palettes-and-more.md"
+			]
+		},
+		"WordPress/gutenberg#81605": {
+			"type": "pr",
+			"title": "Global Styles: Allow editing duotone palettes",
+			"state": "merged",
+			"merged_at": "2026-08-21T01:31:07Z",
+			"closed_at": "2026-08-21T01:31:07Z",
+			"milestone": "Gutenberg 23.9",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/050-global-styles-form-elements-duotone-palettes-and-more.md"
+			]
+		},
+		"WordPress/gutenberg#81645": {
+			"type": "pr",
+			"title": "Global Styles: List elements alongside blocks",
+			"state": "merged",
+			"merged_at": "2026-10-19T19:50:34Z",
+			"closed_at": "2026-10-19T19:50:34Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/050-global-styles-form-elements-duotone-palettes-and-more.md"
+			]
+		},
+		"WordPress/gutenberg#83787": {
+			"type": "pr",
+			"title": "Global Styles: Preview the selected state on element screens",
+			"state": "merged",
+			"merged_at": "2026-10-19T20:21:38Z",
+			"closed_at": "2026-10-19T20:21:38Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/050-global-styles-form-elements-duotone-palettes-and-more.md"
+			]
+		},
+		"WordPress/gutenberg#81373": {
+			"type": "pr",
+			"title": "Global Styles: filter and indicate blocks that have custom styles",
+			"state": "merged",
+			"merged_at": "2026-08-18T04:32:15Z",
+			"closed_at": "2026-08-18T04:32:15Z",
+			"milestone": "Gutenberg 23.9",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/050-global-styles-form-elements-duotone-palettes-and-more.md"
+			]
+		},
+		"WordPress/gutenberg#82840": {
+			"type": "pr",
+			"title": "Block Inspector: Stabilize display of inherited global styles and keep UI changes behind experiment",
+			"state": "merged",
+			"merged_at": "2026-09-15T07:00:17Z",
+			"closed_at": "2026-09-15T07:00:17Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/050-global-styles-form-elements-duotone-palettes-and-more.md"
+			]
+		},
+		"WordPress/gutenberg#34198": {
+			"type": "issue",
+			"title": "Form elements in Global Styles - iteration for WP 7.2",
+			"state": "open",
+			"merged_at": null,
+			"closed_at": null,
+			"milestone": null,
+			"labels": [
+				"[Type] Enhancement",
+				"[Type] Iteration"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/050-global-styles-form-elements-duotone-palettes-and-more.md"
+			]
+		},
+		"WordPress/gutenberg#82520": {
+			"type": "issue",
+			"title": "Block Inspector: Display inherited Global Styles and local overrides (7.2)",
+			"state": "open",
+			"merged_at": null,
+			"closed_at": null,
+			"milestone": null,
+			"labels": [
+				"[Type] Iteration"
+			],
+			"draft": false,
+			"files": [
+				"content/post/10-priority-items-for-wordpress-7-2/050-global-styles-form-elements-duotone-palettes-and-more.md"
+			]
+		},
+		"WordPress/gutenberg#81728": {
+			"type": "pr",
+			"title": "Block Library: Add Description List block",
+			"state": "open",
+			"merged_at": null,
+			"closed_at": null,
+			"milestone": null,
+			"labels": [
+				"[Type] Feature"
+			],
+			"draft": false,
+			"files": [
+				"content/post/20-new-blocks/010-description-list-block.md"
+			]
+		},
+		"WordPress/gutenberg#4880": {
+			"type": "issue",
+			"title": "Block for description list",
+			"state": "open",
+			"merged_at": null,
+			"closed_at": null,
+			"milestone": "Future",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/20-new-blocks/010-description-list-block.md"
+			]
+		},
+		"WordPress/gutenberg#80318": {
+			"type": "pr",
+			"title": "Table of Contents: render front-end list from current post headings",
+			"state": "merged",
+			"merged_at": "2026-07-16T15:24:27Z",
+			"closed_at": "2026-07-16T15:24:27Z",
+			"milestone": "Gutenberg 23.7",
+			"labels": [
+				"[Type] Feature"
+			],
+			"draft": false,
+			"files": [
+				"content/post/20-new-blocks/020-table-of-contents-block.md"
+			]
+		},
+		"WordPress/gutenberg#80404": {
+			"type": "pr",
+			"title": "Stop saving Table of Contents output",
+			"state": "merged",
+			"merged_at": "2026-08-17T11:45:57Z",
+			"closed_at": "2026-08-17T11:45:57Z",
+			"milestone": "Gutenberg 23.9",
+			"labels": [
+				"[Type] Code Quality"
+			],
+			"draft": false,
+			"files": [
+				"content/post/20-new-blocks/020-table-of-contents-block.md"
+			]
+		},
+		"WordPress/gutenberg#80844": {
+			"type": "pr",
+			"title": "Table of Contents: Replace \"Convert to static list\" with confirmed \"Detach\" action",
+			"state": "merged",
+			"merged_at": "2026-07-30T05:49:07Z",
+			"closed_at": "2026-07-30T05:49:07Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/20-new-blocks/020-table-of-contents-block.md"
+			]
+		},
+		"WordPress/gutenberg#42229": {
+			"type": "issue",
+			"title": "Stabilize the Table of Contents Block",
+			"state": "open",
+			"merged_at": null,
+			"closed_at": null,
+			"milestone": null,
+			"labels": [
+				"[Type] Tracking Issue"
+			],
+			"draft": false,
+			"files": [
+				"content/post/20-new-blocks/020-table-of-contents-block.md"
+			]
+		},
+		"WordPress/gutenberg#83438": {
+			"type": "pr",
+			"title": "Gallery: Add Order By controls for static gallery, consolidate controls in settings sidebar",
+			"state": "merged",
+			"merged_at": "2026-09-28T07:21:13Z",
+			"closed_at": "2026-09-28T07:21:13Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/010-gallery-sort-shuffle-and-a-grid-variation.md"
+			]
+		},
+		"WordPress/gutenberg#81909": {
+			"type": "pr",
+			"title": "Try adding a Grid block variation to Gallery",
+			"state": "merged",
+			"merged_at": "2026-08-28T05:08:09Z",
+			"closed_at": "2026-08-28T05:08:09Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/010-gallery-sort-shuffle-and-a-grid-variation.md"
+			]
+		},
+		"WordPress/gutenberg#80727": {
+			"type": "pr",
+			"title": "Dynamic Gallery: Rename toolbar button to Detach and add a modal explaining what will happen",
+			"state": "merged",
+			"merged_at": "2026-07-28T06:10:57Z",
+			"closed_at": "2026-07-28T06:10:57Z",
+			"milestone": "Gutenberg 23.7",
+			"labels": [
+				"[Type] Bug",
+				"Backported to WP Core"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/010-gallery-sort-shuffle-and-a-grid-variation.md"
+			]
+		},
+		"WordPress/gutenberg#80665": {
+			"type": "pr",
+			"title": "Gallery: make dynamic mode conversion a single undo level",
+			"state": "merged",
+			"merged_at": "2026-07-24T05:50:46Z",
+			"closed_at": "2026-07-24T05:50:46Z",
+			"milestone": "Gutenberg 23.7",
+			"labels": [
+				"[Type] Bug",
+				"Backported to WP Core"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/010-gallery-sort-shuffle-and-a-grid-variation.md"
+			]
+		},
+		"WordPress/gutenberg#78898": {
+			"type": "pr",
+			"title": "Gallery Lightbox: Prevent image click from closing the dialog when navigation is enabled",
+			"state": "merged",
+			"merged_at": "2026-09-30T10:38:35Z",
+			"closed_at": "2026-09-30T10:38:35Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/010-gallery-sort-shuffle-and-a-grid-variation.md"
+			]
+		},
+		"WordPress/gutenberg#81370": {
+			"type": "issue",
+			"title": "WordPress 7.2: Dynamic galleries and media inserter",
+			"state": "open",
+			"merged_at": null,
+			"closed_at": null,
+			"milestone": null,
+			"labels": [
+				"[Type] Enhancement",
+				"[Type] Iteration"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/010-gallery-sort-shuffle-and-a-grid-variation.md"
+			]
+		},
+		"WordPress/gutenberg#83408": {
+			"type": "pr",
+			"title": "Navigation: Search every entity type from the link UI",
+			"state": "merged",
+			"merged_at": "2026-10-01T15:26:22Z",
+			"closed_at": "2026-10-01T15:26:22Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/020-navigation-one-search-for-every-link.md"
+			]
+		},
+		"WordPress/gutenberg#83652": {
+			"type": "pr",
+			"title": "Navigation: List allowed blocks in the link UI search results",
+			"state": "merged",
+			"merged_at": "2026-10-02T15:24:00Z",
+			"closed_at": "2026-10-02T15:24:00Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/020-navigation-one-search-for-every-link.md"
+			]
+		},
+		"WordPress/gutenberg#83407": {
+			"type": "pr",
+			"title": "Core Data: Rank link suggestions by type, and stop discarding merged results",
+			"state": "merged",
+			"merged_at": "2026-10-01T14:37:01Z",
+			"closed_at": "2026-10-01T14:37:01Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Bug"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/020-navigation-one-search-for-every-link.md"
+			]
+		},
+		"WordPress/gutenberg#82375": {
+			"type": "pr",
+			"title": "Update navigation link block name, use a default variation for custom link",
+			"state": "merged",
+			"merged_at": "2026-09-08T02:27:04Z",
+			"closed_at": "2026-09-08T02:27:04Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/020-navigation-one-search-for-every-link.md"
+			]
+		},
+		"WordPress/gutenberg#84005": {
+			"type": "pr",
+			"title": "Navigation: Edit links in a popover from the sidebar List View",
+			"state": "merged",
+			"merged_at": "2026-10-16T13:10:03Z",
+			"closed_at": "2026-10-16T13:10:03Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/020-navigation-one-search-for-every-link.md"
+			]
+		},
+		"WordPress/gutenberg#84003": {
+			"type": "pr",
+			"title": "Site Editor: Show the inserter for an empty Navigation Menu in the sidebar",
+			"state": "merged",
+			"merged_at": "2026-10-19T16:10:56Z",
+			"closed_at": "2026-10-19T16:10:56Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/020-navigation-one-search-for-every-link.md"
+			]
+		},
+		"WordPress/gutenberg#83506": {
+			"type": "pr",
+			"title": "Navigation Link: Apply \"Open in new tab\" from the link popover",
+			"state": "merged",
+			"merged_at": "2026-10-19T00:33:32Z",
+			"closed_at": "2026-10-19T00:33:32Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Bug"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/020-navigation-one-search-for-every-link.md"
+			]
+		},
+		"WordPress/gutenberg#77069": {
+			"type": "issue",
+			"title": "Improve Navigation Editing for 7.2",
+			"state": "closed",
+			"merged_at": null,
+			"closed_at": "2026-10-19T19:40:54Z",
+			"milestone": null,
+			"labels": [
+				"[Type] Iteration"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/020-navigation-one-search-for-every-link.md"
+			]
+		},
+		"WordPress/gutenberg#82367": {
+			"type": "pr",
+			"title": "Icons: Support keyword-based search in the icons registry",
+			"state": "merged",
+			"merged_at": "2026-09-29T11:31:13Z",
+			"closed_at": "2026-09-29T11:31:13Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/030-icon-block-search-by-keyword.md"
+			]
+		},
+		"WordPress/gutenberg#83884": {
+			"type": "pr",
+			"title": "Icons: Add keywords to icon manifest",
+			"state": "merged",
+			"merged_at": "2026-10-06T12:38:00Z",
+			"closed_at": "2026-10-06T12:38:00Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/030-icon-block-search-by-keyword.md"
+			]
+		},
+		"WordPress/gutenberg#80730": {
+			"type": "pr",
+			"title": "Block bindings: add support to `icon` attribute of `core/icon`",
+			"state": "merged",
+			"merged_at": "2026-10-07T09:23:47Z",
+			"closed_at": "2026-10-07T09:23:47Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/030-icon-block-search-by-keyword.md"
+			]
+		},
+		"WordPress/gutenberg#83262": {
+			"type": "pr",
+			"title": "Columns: Remove the column count slider",
+			"state": "merged",
+			"merged_at": "2026-09-25T10:05:26Z",
+			"closed_at": "2026-09-25T10:05:26Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#81802": {
+			"type": "pr",
+			"title": "Add transform to Row for Columns block",
+			"state": "merged",
+			"merged_at": "2026-08-20T05:11:58Z",
+			"closed_at": "2026-08-20T05:11:58Z",
+			"milestone": "Gutenberg 23.9",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#30166": {
+			"type": "pr",
+			"title": "Button: Only open the link popover on explicit user action",
+			"state": "merged",
+			"merged_at": "2026-09-30T10:31:37Z",
+			"closed_at": "2026-09-30T10:31:37Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#82751": {
+			"type": "pr",
+			"title": "Cover Block: Add a Media section to the block inspector panel",
+			"state": "merged",
+			"merged_at": "2026-09-23T08:56:21Z",
+			"closed_at": "2026-09-23T08:56:21Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#82593": {
+			"type": "pr",
+			"title": "Media & Text Block: Add a Media section to the block inspector panel",
+			"state": "merged",
+			"merged_at": "2026-09-15T09:33:00Z",
+			"closed_at": "2026-09-15T09:33:01Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#82420": {
+			"type": "pr",
+			"title": "feat: Introduce 'Add Media' in the block controls for media-text block",
+			"state": "merged",
+			"merged_at": "2026-09-04T09:45:42Z",
+			"closed_at": "2026-09-04T09:45:42Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#83337": {
+			"type": "pr",
+			"title": "Video, Cover: Don't autoplay in the editor when reduced motion is preferred",
+			"state": "merged",
+			"merged_at": "2026-09-29T05:30:55Z",
+			"closed_at": "2026-09-29T05:30:55Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#83452": {
+			"type": "pr",
+			"title": "Cover: Don't autoplay embedded background videos when reduced motion is preferred",
+			"state": "merged",
+			"merged_at": "2026-09-29T07:00:07Z",
+			"closed_at": "2026-09-29T07:00:07Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#82411": {
+			"type": "pr",
+			"title": "List: indent and outdent multi-selected items with Tab",
+			"state": "merged",
+			"merged_at": "2026-09-04T14:44:46Z",
+			"closed_at": "2026-09-04T14:44:46Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#82460": {
+			"type": "pr",
+			"title": "List: indent and outdent a fully selected list item with Tab",
+			"state": "merged",
+			"merged_at": "2026-09-04T17:58:18Z",
+			"closed_at": "2026-09-04T17:58:18Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#68002": {
+			"type": "pr",
+			"title": "List: Add Align Support",
+			"state": "merged",
+			"merged_at": "2026-08-24T02:14:21Z",
+			"closed_at": "2026-08-24T02:14:21Z",
+			"milestone": "Gutenberg 23.9",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#81743": {
+			"type": "pr",
+			"title": "Tabs: make inactive panel content findable in page",
+			"state": "merged",
+			"merged_at": "2026-08-25T07:20:37Z",
+			"closed_at": "2026-08-25T07:20:37Z",
+			"milestone": "Gutenberg 23.9",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#82387": {
+			"type": "pr",
+			"title": "Query Loop: Rename the \"Keyword\" filter to \"Search terms\" and add help text",
+			"state": "merged",
+			"merged_at": "2026-09-03T17:06:53Z",
+			"closed_at": "2026-09-03T17:06:53Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#81441": {
+			"type": "pr",
+			"title": "Playlist: Add bulk track metadata editing",
+			"state": "merged",
+			"merged_at": "2026-08-21T21:36:13Z",
+			"closed_at": "2026-08-21T21:36:13Z",
+			"milestone": "Gutenberg 23.9",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#77743": {
+			"type": "pr",
+			"title": "Improve Math Inline and Block UI",
+			"state": "merged",
+			"merged_at": "2026-09-10T07:51:41Z",
+			"closed_at": "2026-09-10T07:51:41Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#80500": {
+			"type": "pr",
+			"title": "Math: Use ValidatedTextareaControl for LaTeX input",
+			"state": "merged",
+			"merged_at": "2026-07-23T07:03:00Z",
+			"closed_at": "2026-07-23T07:03:00Z",
+			"milestone": "Gutenberg 23.7",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#80847": {
+			"type": "pr",
+			"title": "Page List: Rename the Edit action to Detach and confirm it in a dialog",
+			"state": "merged",
+			"merged_at": "2026-07-30T06:00:54Z",
+			"closed_at": "2026-07-30T06:00:54Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#82230": {
+			"type": "pr",
+			"title": "Background image: support setting the image from a URL",
+			"state": "merged",
+			"merged_at": "2026-09-01T01:53:18Z",
+			"closed_at": "2026-09-01T01:53:18Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#82600": {
+			"type": "pr",
+			"title": "Block alignment: List unavailable wide and full alignments instead of hiding them",
+			"state": "merged",
+			"merged_at": "2026-09-11T05:50:39Z",
+			"closed_at": "2026-09-11T05:50:39Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/30-improved-blocks-and-block-handling/040-general-quality-of-life-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#81532": {
+			"type": "pr",
+			"title": "Block editor: add an inserter to the parent selector",
+			"state": "merged",
+			"merged_at": "2026-08-14T05:09:28Z",
+			"closed_at": "2026-08-14T05:09:28Z",
+			"milestone": "Gutenberg 23.9",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/010-fewer-paper-cuts-while-writing.md"
+			]
+		},
+		"WordPress/gutenberg#63484": {
+			"type": "pr",
+			"title": "Writing flow: select next block on Enter key",
+			"state": "merged",
+			"merged_at": "2026-08-13T01:41:08Z",
+			"closed_at": "2026-08-13T01:41:08Z",
+			"milestone": "Gutenberg 23.9",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/010-fewer-paper-cuts-while-writing.md"
+			]
+		},
+		"WordPress/gutenberg#58913": {
+			"type": "pr",
+			"title": "Allow rich text formatting across blocks",
+			"state": "merged",
+			"merged_at": "2026-10-13T04:36:21Z",
+			"closed_at": "2026-10-13T04:36:21Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Feature"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/010-fewer-paper-cuts-while-writing.md"
+			]
+		},
+		"WordPress/gutenberg#81542": {
+			"type": "pr",
+			"title": "Re-enable editableRoot for multi-selection on mobile web",
+			"state": "merged",
+			"merged_at": "2026-09-11T22:48:04Z",
+			"closed_at": "2026-09-11T22:48:04Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/010-fewer-paper-cuts-while-writing.md"
+			]
+		},
+		"WordPress/gutenberg#83276": {
+			"type": "pr",
+			"title": "Block Editor: Show the in-between inserter on wrapped lines",
+			"state": "merged",
+			"merged_at": "2026-09-22T05:06:41Z",
+			"closed_at": "2026-09-22T05:06:41Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Bug"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/010-fewer-paper-cuts-while-writing.md"
+			]
+		},
+		"WordPress/gutenberg#82314": {
+			"type": "pr",
+			"title": "Tab trap escape hatch: leave/enter the canvas with Escape/Enter",
+			"state": "merged",
+			"merged_at": "2026-09-03T20:57:10Z",
+			"closed_at": "2026-09-03T20:57:11Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/010-fewer-paper-cuts-while-writing.md"
+			]
+		},
+		"WordPress/gutenberg#74040": {
+			"type": "pr",
+			"title": "Format library: visualise non-breaking spaces",
+			"state": "merged",
+			"merged_at": "2026-08-28T00:59:09Z",
+			"closed_at": "2026-08-28T00:59:09Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/010-fewer-paper-cuts-while-writing.md"
+			]
+		},
+		"WordPress/gutenberg#84737": {
+			"type": "pr",
+			"title": "Mark non-breaking spaces with a red dot and add a button to replace them",
+			"state": "merged",
+			"merged_at": "2026-10-19T02:02:34Z",
+			"closed_at": "2026-10-19T02:02:34Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/010-fewer-paper-cuts-while-writing.md"
+			]
+		},
+		"WordPress/gutenberg#81602": {
+			"type": "pr",
+			"title": "Drag a multi-selection by pressing anywhere inside it",
+			"state": "merged",
+			"merged_at": "2026-10-19T01:56:05Z",
+			"closed_at": "2026-10-19T01:56:05Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/010-fewer-paper-cuts-while-writing.md"
+			]
+		},
+		"WordPress/gutenberg#81453": {
+			"type": "issue",
+			"title": "Block Editor Paper Cuts 📄🩸",
+			"state": "open",
+			"merged_at": null,
+			"closed_at": null,
+			"milestone": null,
+			"labels": [
+				"[Type] Iteration"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/010-fewer-paper-cuts-while-writing.md"
+			]
+		},
+		"WordPress/gutenberg#81805": {
+			"type": "pr",
+			"title": "Media editor: restore original image in modal",
+			"state": "merged",
+			"merged_at": "2026-10-06T01:34:26Z",
+			"closed_at": "2026-10-06T01:34:26Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/020-media-editor-restore-the-original-image.md"
+			]
+		},
+		"WordPress/gutenberg#81803": {
+			"type": "pr",
+			"title": "Media: track the original attachment id for edited images",
+			"state": "merged",
+			"merged_at": "2026-10-05T11:09:57Z",
+			"closed_at": "2026-10-05T11:09:57Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/020-media-editor-restore-the-original-image.md"
+			]
+		},
+		"WordPress/gutenberg#81977": {
+			"type": "pr",
+			"title": "Media: Attach unattached media to the current post on save/publish",
+			"state": "merged",
+			"merged_at": "2026-09-01T06:58:35Z",
+			"closed_at": "2026-09-01T06:58:35Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/020-media-editor-restore-the-original-image.md"
+			]
+		},
+		"WordPress/gutenberg#84851": {
+			"type": "pr",
+			"title": "Media: Skip auto-attach on save when attachment pages are enabled",
+			"state": "merged",
+			"merged_at": "2026-10-16T01:12:17Z",
+			"closed_at": "2026-10-16T01:12:18Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Bug"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/020-media-editor-restore-the-original-image.md"
+			]
+		},
+		"WordPress/gutenberg#84890": {
+			"type": "pr",
+			"title": "Media auto-attach: For published posts, only attach newly added image ids",
+			"state": "merged",
+			"merged_at": "2026-10-19T01:47:28Z",
+			"closed_at": "2026-10-19T01:47:29Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Bug"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/020-media-editor-restore-the-original-image.md"
+			]
+		},
+		"WordPress/gutenberg#80385": {
+			"type": "pr",
+			"title": "Generate animated image sub-sizes by default",
+			"state": "merged",
+			"merged_at": "2026-10-16T18:03:13Z",
+			"closed_at": "2026-10-16T18:03:14Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Enhancement",
+				"Needs Dev Note"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/020-media-editor-restore-the-original-image.md"
+			]
+		},
+		"WordPress/gutenberg#80389": {
+			"type": "issue",
+			"title": "WordPress 7.2 Iteration: Media Editor Modal",
+			"state": "open",
+			"merged_at": null,
+			"closed_at": null,
+			"milestone": null,
+			"labels": [
+				"[Type] Iteration"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/020-media-editor-restore-the-original-image.md"
+			]
+		},
+		"WordPress/gutenberg#82586": {
+			"type": "pr",
+			"title": "Editor: Render change diffs in the post title in revisions",
+			"state": "merged",
+			"merged_at": "2026-09-09T05:06:06Z",
+			"closed_at": "2026-09-09T05:06:06Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/030-visual-revisions-polish.md"
+			]
+		},
+		"WordPress/gutenberg#80579": {
+			"type": "pr",
+			"title": "Editor: Merge adjacent revision inline diffs",
+			"state": "merged",
+			"merged_at": "2026-09-27T06:01:36Z",
+			"closed_at": "2026-09-27T06:01:36Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Bug"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/030-visual-revisions-polish.md"
+			]
+		},
+		"WordPress/gutenberg#80856": {
+			"type": "pr",
+			"title": "Global Styles: Switch the revisions screen to the DataViews pickerActivity layout",
+			"state": "merged",
+			"merged_at": "2026-09-22T17:52:21Z",
+			"closed_at": "2026-09-22T17:52:21Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/030-visual-revisions-polish.md"
+			]
+		},
+		"WordPress/gutenberg#79120": {
+			"type": "issue",
+			"title": "Visual Revisions: post-7.0 polish",
+			"state": "open",
+			"merged_at": null,
+			"closed_at": null,
+			"milestone": null,
+			"labels": [
+				"[Type] Iteration"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/030-visual-revisions-polish.md"
+			]
+		},
+		"WordPress/gutenberg#79934": {
+			"type": "pr",
+			"title": "Visual revisions: add shareable urls",
+			"state": "merged",
+			"merged_at": "2026-08-03T17:05:52Z",
+			"closed_at": "2026-08-03T17:05:52Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Enhancement",
+				"Backported to WP Core"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/030-visual-revisions-polish.md"
+			]
+		},
+		"WordPress/gutenberg#80314": {
+			"type": "pr",
+			"title": "Visual revisions: Add a code diff view inside the editor",
+			"state": "merged",
+			"merged_at": "2026-08-03T15:01:40Z",
+			"closed_at": "2026-08-03T15:01:40Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/030-visual-revisions-polish.md"
+			]
+		},
+		"WordPress/gutenberg#76470": {
+			"type": "pr",
+			"title": "Editor: clarify save failure notices",
+			"state": "merged",
+			"merged_at": "2026-08-04T14:38:46Z",
+			"closed_at": "2026-08-04T14:38:46Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/040-clearer-error-screens.md"
+			]
+		},
+		"WordPress/gutenberg#82496": {
+			"type": "pr",
+			"title": "Editor: add copy option for save failures & a \"show/hide details\" button",
+			"state": "merged",
+			"merged_at": "2026-10-17T01:00:48Z",
+			"closed_at": "2026-10-17T01:00:48Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/040-clearer-error-screens.md"
+			]
+		},
+		"WordPress/gutenberg#81642": {
+			"type": "pr",
+			"title": "Editor: Surface debugging details in the ErrorBoundary",
+			"state": "merged",
+			"merged_at": "2026-08-20T11:05:46Z",
+			"closed_at": "2026-08-20T11:05:46Z",
+			"milestone": "Gutenberg 23.9",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/040-clearer-error-screens.md"
+			]
+		},
+		"WordPress/gutenberg#82486": {
+			"type": "pr",
+			"title": "Site Editor: Add a root error boundary to prevent a blank screen",
+			"state": "merged",
+			"merged_at": "2026-09-06T05:02:56Z",
+			"closed_at": "2026-09-06T05:02:56Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/040-clearer-error-screens.md"
+			]
+		},
+		"WordPress/gutenberg#82976": {
+			"type": "pr",
+			"title": "Editor: Gather the View group of the Options menu into submenus",
+			"state": "merged",
+			"merged_at": "2026-09-25T09:15:11Z",
+			"closed_at": "2026-09-25T09:15:11Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/050-smaller-editor-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#83323": {
+			"type": "pr",
+			"title": "Editor: Use SearchableSelect for the post author field",
+			"state": "merged",
+			"merged_at": "2026-09-23T17:50:25Z",
+			"closed_at": "2026-09-23T17:50:25Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/050-smaller-editor-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#83518": {
+			"type": "pr",
+			"title": "Editor: Fix new posts being published with the `auto-draft` slug",
+			"state": "merged",
+			"merged_at": "2026-09-25T09:09:05Z",
+			"closed_at": "2026-09-25T09:09:05Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Bug"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/050-smaller-editor-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#81396": {
+			"type": "pr",
+			"title": "Add category filtering to the start page options patterns modal",
+			"state": "merged",
+			"merged_at": "2026-09-17T14:55:53Z",
+			"closed_at": "2026-09-17T14:55:53Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/050-smaller-editor-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#66720": {
+			"type": "pr",
+			"title": "Add command: View post",
+			"state": "merged",
+			"merged_at": "2026-08-19T14:02:58Z",
+			"closed_at": "2026-08-19T14:02:58Z",
+			"milestone": "Gutenberg 23.9",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/050-smaller-editor-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#84680": {
+			"type": "pr",
+			"title": "Patterns: Rename the inserter's \"My patterns\" to \"Site patterns\" and add an author filter",
+			"state": "merged",
+			"merged_at": "2026-10-19T10:55:11Z",
+			"closed_at": "2026-10-19T10:55:11Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/050-smaller-editor-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#84590": {
+			"type": "pr",
+			"title": "Editor restoreRevisions: if there are unsaved changes, save these as a revision before restoring a revision",
+			"state": "merged",
+			"merged_at": "2026-10-19T05:53:12Z",
+			"closed_at": "2026-10-19T05:53:12Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Bug"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/050-smaller-editor-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#84735": {
+			"type": "pr",
+			"title": "Show the browser backup's date and compare it before restoring",
+			"state": "merged",
+			"merged_at": "2026-10-16T16:47:26Z",
+			"closed_at": "2026-10-16T16:47:26Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/050-smaller-editor-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#84842": {
+			"type": "pr",
+			"title": "Snackbar: Keep snackbars with an action on screen longer",
+			"state": "merged",
+			"merged_at": "2026-10-16T09:15:49Z",
+			"closed_at": "2026-10-16T09:15:49Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/050-smaller-editor-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#83437": {
+			"type": "pr",
+			"title": "Inserter: Manage roving tab index to skip re-rendering every item",
+			"state": "merged",
+			"merged_at": "2026-09-24T06:29:24Z",
+			"closed_at": "2026-09-24T06:29:24Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Performance"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/050-smaller-editor-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#83284": {
+			"type": "pr",
+			"title": "Inserter: Stop re-rendering the block list on block selection change",
+			"state": "merged",
+			"merged_at": "2026-09-28T14:21:55Z",
+			"closed_at": "2026-09-28T14:21:55Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Performance"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/050-smaller-editor-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#81210": {
+			"type": "pr",
+			"title": "Block Editor: Fix Select all freezing on large posts",
+			"state": "merged",
+			"merged_at": "2026-08-05T15:41:55Z",
+			"closed_at": "2026-08-05T15:41:55Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Performance"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/050-smaller-editor-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#81112": {
+			"type": "pr",
+			"title": "Post editor: Add ThemeProvider for admin color schemes",
+			"state": "merged",
+			"merged_at": "2026-08-04T15:22:39Z",
+			"closed_at": "2026-08-04T15:22:39Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Bug",
+				"Backported to WP Core"
+			],
+			"draft": false,
+			"files": [
+				"content/post/40-editor-enhancements/050-smaller-editor-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#82723": {
+			"type": "issue",
+			"title": "Omnibar: WP 7.2 Iteration Issue",
+			"state": "open",
+			"merged_at": null,
+			"closed_at": null,
+			"milestone": null,
+			"labels": [
+				"[Type] Iteration"
+			],
+			"draft": false,
+			"files": [
+				"content/post/50-admin-workflow-updates/010-svg-icons-replace-dashicons-in-the-admin.md"
+			]
+		},
+		"trac#65089": {
+			"type": "trac",
+			"source": "github-mirror",
+			"state": "fixed",
+			"milestone": null,
+			"last_commit": "2026-10-19",
+			"commits": [
+				{
+					"date": "2026-10-19",
+					"subject": "Administration: Replace Dashicons in admin bar and sidebar with wp-icons.",
+					"fixes": true,
+					"sha": "5832f82974"
+				}
+			],
+			"prs": [
+				{
+					"number": 13551,
+					"state": "closed",
+					"title": "Icons: Add a reserved `_builtin` collection"
+				},
+				{
+					"number": 12270,
+					"state": "closed",
+					"title": "Admin: replace dashicons in admin bar and sidebar with @wordpress/icons"
+				}
+			],
+			"files": [
+				"content/post/50-admin-workflow-updates/010-svg-icons-replace-dashicons-in-the-admin.md"
+			]
+		},
+		"trac#50486": {
+			"type": "trac",
+			"source": "github-mirror",
+			"state": "fixed",
+			"milestone": null,
+			"last_commit": "2026-09-26",
+			"commits": [
+				{
+					"date": "2026-09-26",
+					"subject": "Improve the Settings admin notices implementation.",
+					"fixes": false,
+					"sha": "aaea5ab069"
+				},
+				{
+					"date": "2026-10-14",
+					"subject": "Admin: Revert admin notices accessibility fixes.",
+					"fixes": false,
+					"sha": "9a91a39929"
+				},
+				{
+					"date": "2026-10-10",
+					"subject": "Admin: Admin notice accessibility improvements.",
+					"fixes": true,
+					"sha": "1c277e1bbe"
+				}
+			],
+			"prs": [
+				{
+					"number": 14223,
+					"state": "closed",
+					"title": "Omits notices that are hidden from count."
+				},
+				{
+					"number": 14177,
+					"state": "closed",
+					"title": "Tests: Add unit test coverage for WP_Admin_Notice_Collector"
+				},
+				{
+					"number": 13671,
+					"state": "closed",
+					"title": "Admin notices accessibility"
+				},
+				{
+					"number": 11923,
+					"state": "closed",
+					"title": "Administration: Improve admin notices accessibility."
+				},
+				{
+					"number": 1160,
+					"state": "closed",
+					"title": "4.2 branch: Build/Test Tools backports"
+				},
+				{
+					"number": 1159,
+					"state": "closed",
+					"title": "4.3 branch: Build/Test Tools backports"
+				},
+				{
+					"number": 1158,
+					"state": "closed",
+					"title": "4.4 branch: Build/Test Tools backports"
+				},
+				{
+					"number": 1157,
+					"state": "closed",
+					"title": "4.5 branch: Build/Test Tools backports"
+				},
+				{
+					"number": 1154,
+					"state": "closed",
+					"title": "4.6 branch: Build/Test Tools backports"
+				},
+				{
+					"number": 1153,
+					"state": "closed",
+					"title": "4.7 branch: Build/Test Tools backports"
+				}
+			],
+			"files": [
+				"content/post/50-admin-workflow-updates/020-admin-accessibility-improvements.md"
+			]
+		},
+		"trac#50699": {
+			"type": "trac",
+			"source": "github-mirror",
+			"state": "fixed",
+			"milestone": null,
+			"last_commit": "2026-10-11",
+			"commits": [
+				{
+					"date": "2026-10-11",
+					"subject": "Admin: Add screen option to turn off moving meta boxes.",
+					"fixes": true,
+					"sha": "6718bd330e"
+				},
+				{
+					"date": "2020-10-17",
+					"subject": "Administration: Fix a coding standards issue after [49179].",
+					"fixes": false,
+					"sha": "b1833128fe"
+				},
+				{
+					"date": "2020-10-27",
+					"subject": "Revert the improvenents to arranging of postboxes/metaboxes, [49179]. The current patch fixes about half a dozen problems, but seems more general improvements are needed to how Screen Options work.",
+					"fixes": false,
+					"sha": "1a0a55df8c"
+				},
+				{
+					"date": "2020-10-17",
+					"subject": "Fix and improve arranging of postboxes/metaboxes:",
+					"fixes": false,
+					"sha": "6a2ef2d5b2"
+				}
+			],
+			"prs": [
+				{
+					"number": 12339,
+					"state": "open",
+					"title": "Administration: Improve dashboard meta box control visuals"
+				},
+				{
+					"number": 12180,
+					"state": "closed",
+					"title": "Administration: Add box reordering toggle to Screen Options."
+				},
+				{
+					"number": 12627,
+					"state": "closed",
+					"title": "Administration: Add box reordering toggle to Screen Options."
+				}
+			],
+			"files": [
+				"content/post/50-admin-workflow-updates/020-admin-accessibility-improvements.md"
+			]
+		},
+		"trac#52399": {
+			"type": "trac",
+			"source": "github-mirror",
+			"state": "patch-open",
+			"milestone": null,
+			"last_commit": null,
+			"commits": [],
+			"prs": [
+				{
+					"number": 14230,
+					"state": "open",
+					"title": "Widgets: Reveal widget edit links on keyboard focus"
+				},
+				{
+					"number": 12686,
+					"state": "open",
+					"title": "Widgets: Keep the widget Edit/Add text link visible when JavaScript is available"
+				},
+				{
+					"number": 2064,
+					"state": "closed",
+					"title": "Add full support for valid directory names (Trac 54596)"
+				}
+			],
+			"files": [
+				"content/post/50-admin-workflow-updates/020-admin-accessibility-improvements.md"
+			]
+		},
+		"trac#66015": {
+			"type": "trac",
+			"source": "github-mirror",
+			"state": "patch-open",
+			"milestone": null,
+			"last_commit": null,
+			"commits": [],
+			"prs": [
+				{
+					"number": 13682,
+					"state": "open",
+					"title": "Axe core test revisions page"
+				},
+				{
+					"number": 13348,
+					"state": "open",
+					"title": "Add axe-core automated accessibility tests"
+				}
+			],
+			"files": [
+				"content/post/50-admin-workflow-updates/020-admin-accessibility-improvements.md"
+			]
+		},
+		"trac#63927": {
+			"type": "trac",
+			"source": "github-mirror",
+			"state": "fixed",
+			"milestone": null,
+			"last_commit": "2026-10-09",
+			"commits": [
+				{
+					"date": "2026-10-09",
+					"subject": "Users: Fix the admin email placeholder in the Application Password Created email notification.",
+					"fixes": false,
+					"sha": "7f15640e14"
+				},
+				{
+					"date": "2026-09-10",
+					"subject": "Application Passwords: Send email notification when an application password is added.",
+					"fixes": true,
+					"sha": "032936fe3e"
+				}
+			],
+			"prs": [
+				{
+					"number": 14118,
+					"state": "open",
+					"title": "Users: Fix the admin email placeholder and slashed name in the application password created email"
+				},
+				{
+					"number": 14721,
+					"state": "open",
+					"title": "Tests: Add tests for the application password created email"
+				},
+				{
+					"number": 9795,
+					"state": "closed",
+					"title": "Send email notification when an application password is added"
+				}
+			],
+			"files": [
+				"content/post/50-admin-workflow-updates/030-application-password-improvements.md"
+			]
+		},
+		"trac#46744": {
+			"type": "trac",
+			"source": "github-mirror",
+			"state": "patch-open",
+			"milestone": null,
+			"last_commit": null,
+			"commits": [],
+			"prs": [
+				{
+					"number": 12977,
+					"state": "open",
+					"title": "#46744 Prevent the default role from being set to a privileged role when user registration is open"
+				}
+			],
+			"files": [
+				"content/post/50-admin-workflow-updates/030-application-password-improvements.md"
+			]
+		},
+		"trac#57388": {
+			"type": "trac",
+			"source": "github-mirror",
+			"state": "fixed",
+			"milestone": null,
+			"last_commit": "2026-10-05",
+			"commits": [
+				{
+					"date": "2026-10-05",
+					"subject": "Application Passwords: Clarify environment type required for non-SSL support.",
+					"fixes": true,
+					"sha": "4b2afb9d69"
+				}
+			],
+			"prs": [
+				{
+					"number": 13954,
+					"state": "closed",
+					"title": "Application Passwords: Clarify that the environment type must be `loc…"
+				}
+			],
+			"files": [
+				"content/post/50-admin-workflow-updates/030-application-password-improvements.md"
+			]
+		},
+		"WordPress/gutenberg#79584": {
+			"type": "pr",
+			"title": "Add textShadow typography support and UI",
+			"state": "merged",
+			"merged_at": "2026-09-10T00:41:11Z",
+			"closed_at": "2026-09-10T00:41:11Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement",
+				"Needs Dev Note"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/010-global-styles-and-theme-json.md"
+			]
+		},
+		"WordPress/gutenberg#80583": {
+			"type": "pr",
+			"title": "Global Styles: kebab-case preset slugs when converting references to custom properties",
+			"state": "merged",
+			"merged_at": "2026-08-04T15:58:38Z",
+			"closed_at": "2026-08-04T15:58:38Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Bug"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/010-global-styles-and-theme-json.md"
+			]
+		},
+		"WordPress/gutenberg#82024": {
+			"type": "pr",
+			"title": "Block Library: Allow themes to override the padding added via background color",
+			"state": "merged",
+			"merged_at": "2026-09-03T09:16:43Z",
+			"closed_at": "2026-09-03T09:16:43Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/010-global-styles-and-theme-json.md"
+			]
+		},
+		"WordPress/gutenberg#77141": {
+			"type": "pr",
+			"title": "Block Supports: Add background-clip block support infrastructure",
+			"state": "merged",
+			"merged_at": "2026-09-28T00:59:12Z",
+			"closed_at": "2026-09-28T00:59:12Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/010-global-styles-and-theme-json.md"
+			]
+		},
+		"WordPress/gutenberg#77142": {
+			"type": "pr",
+			"title": "Block Supports: Add background-clip block support UI",
+			"state": "merged",
+			"merged_at": "2026-10-13T05:37:50Z",
+			"closed_at": "2026-10-13T05:37:50Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/010-global-styles-and-theme-json.md"
+			]
+		},
+		"WordPress/gutenberg#80814": {
+			"type": "pr",
+			"title": "Add a responsiveEditingEnabled editor setting to hide the Responsive styles option",
+			"state": "merged",
+			"merged_at": "2026-07-29T04:13:10Z",
+			"closed_at": "2026-07-29T04:13:10Z",
+			"milestone": "Gutenberg 23.7",
+			"labels": [
+				"[Type] Enhancement",
+				"has dev note",
+				"Backported to WP Core"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/010-global-styles-and-theme-json.md"
+			]
+		},
+		"WordPress/gutenberg#80956": {
+			"type": "pr",
+			"title": "Add opt-out for block style state controls",
+			"state": "merged",
+			"merged_at": "2026-07-31T03:58:36Z",
+			"closed_at": "2026-07-31T03:58:36Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Enhancement",
+				"Needs Dev Note",
+				"Backported to WP Core"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/010-global-styles-and-theme-json.md"
+			]
+		},
+		"WordPress/gutenberg#81058": {
+			"type": "pr",
+			"title": "Rename blockStatesEnabled setting to blockStatesEditingEnabled",
+			"state": "merged",
+			"merged_at": "2026-08-03T00:35:00Z",
+			"closed_at": "2026-08-03T00:35:00Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Code Quality",
+				"Backported to WP Core"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/010-global-styles-and-theme-json.md"
+			]
+		},
+		"WordPress/gutenberg#85081": {
+			"type": "pr",
+			"title": "Editor: Stabilize the DataForm-based inspector",
+			"state": "merged",
+			"merged_at": "2026-10-19T18:06:53Z",
+			"closed_at": "2026-10-19T18:06:53Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/020-post-editor-sidebar-moves-to-dataform.md"
+			]
+		},
+		"WordPress/gutenberg#84078": {
+			"type": "pr",
+			"title": "Fields API: Add the server-side registry and REST route",
+			"state": "merged",
+			"merged_at": "2026-10-07T09:06:24Z",
+			"closed_at": "2026-10-07T09:06:25Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/030-dataviews-dataform-and-the-fields-api.md"
+			]
+		},
+		"WordPress/gutenberg#80830": {
+			"type": "pr",
+			"title": "DataViews: Add `time` field type and control",
+			"state": "merged",
+			"merged_at": "2026-08-04T08:31:01Z",
+			"closed_at": "2026-08-04T08:31:01Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/030-dataviews-dataform-and-the-fields-api.md"
+			]
+		},
+		"WordPress/gutenberg#79329": {
+			"type": "pr",
+			"title": "DataViews: Make grid and table item preview aspect ratio configurable",
+			"state": "merged",
+			"merged_at": "2026-08-05T12:00:50Z",
+			"closed_at": "2026-08-05T12:00:50Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/030-dataviews-dataform-and-the-fields-api.md"
+			]
+		},
+		"WordPress/gutenberg#81604": {
+			"type": "pr",
+			"title": "DataViews: Add an aspect ratio toggle for grid layouts",
+			"state": "merged",
+			"merged_at": "2026-08-25T04:03:38Z",
+			"closed_at": "2026-08-25T04:03:38Z",
+			"milestone": "Gutenberg 23.9",
+			"labels": [
+				"[Type] Experimental"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/030-dataviews-dataform-and-the-fields-api.md"
+			]
+		},
+		"WordPress/gutenberg#77942": {
+			"type": "pr",
+			"title": "Support `isAny` and `isNone` filter operators for numeric fields.",
+			"state": "merged",
+			"merged_at": "2026-09-04T15:05:26Z",
+			"closed_at": "2026-09-04T15:05:26Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/030-dataviews-dataform-and-the-fields-api.md"
+			]
+		},
+		"WordPress/gutenberg#84660": {
+			"type": "pr",
+			"title": "Core Actions: Register the core actions on the server",
+			"state": "merged",
+			"merged_at": "2026-10-16T10:59:03Z",
+			"closed_at": "2026-10-16T10:59:03Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/030-dataviews-dataform-and-the-fields-api.md"
+			]
+		},
+		"WordPress/gutenberg#84643": {
+			"type": "pr",
+			"title": "Actions API: Extract the core actions into the `@wordpress/core-actions` script modules",
+			"state": "merged",
+			"merged_at": "2026-10-15T23:54:48Z",
+			"closed_at": "2026-10-15T23:54:48Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Code Quality"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/030-dataviews-dataform-and-the-fields-api.md"
+			]
+		},
+		"WordPress/gutenberg#81228": {
+			"type": "issue",
+			"title": "DataViews, DataViewsPicker, DataForm, Fields in WordPress 7.2",
+			"state": "open",
+			"merged_at": null,
+			"closed_at": null,
+			"milestone": null,
+			"labels": [
+				"Needs Dev Note",
+				"[Type] Iteration"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/030-dataviews-dataform-and-the-fields-api.md"
+			]
+		},
+		"WordPress/gutenberg#83092": {
+			"type": "pr",
+			"title": "Interactivity API: Add a data-wp-html directive",
+			"state": "merged",
+			"merged_at": "2026-10-05T12:39:12Z",
+			"closed_at": "2026-10-05T12:39:12Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"Needs Dev Note",
+				"[Type] Feature"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/040-interactivity-api.md"
+			]
+		},
+		"WordPress/gutenberg#83280": {
+			"type": "pr",
+			"title": "Interactivity API Router: Add reactive navigation lifecycle and initiator API",
+			"state": "merged",
+			"merged_at": "2026-10-05T05:16:10Z",
+			"closed_at": "2026-10-05T05:16:10Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Feature"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/040-interactivity-api.md"
+			]
+		},
+		"WordPress/gutenberg#83078": {
+			"type": "issue",
+			"title": "Interactivity API for WordPress 7.2",
+			"state": "open",
+			"merged_at": null,
+			"closed_at": null,
+			"milestone": null,
+			"labels": [
+				"[Type] Iteration"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/040-interactivity-api.md"
+			]
+		},
+		"WordPress/gutenberg#80027": {
+			"type": "pr",
+			"title": "Blocks: Support static block templates in block type settings",
+			"state": "merged",
+			"merged_at": "2026-08-05T16:59:33Z",
+			"closed_at": "2026-08-05T16:59:33Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/050-block-api-changes.md"
+			]
+		},
+		"WordPress/gutenberg#83394": {
+			"type": "pr",
+			"title": "PHP-only blocks: Detect enums in array attributes",
+			"state": "merged",
+			"merged_at": "2026-09-23T10:57:25Z",
+			"closed_at": "2026-09-23T10:57:25Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Bug"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/050-block-api-changes.md"
+			]
+		},
+		"WordPress/gutenberg#83171": {
+			"type": "pr",
+			"title": "Block Editor: Remove the deprecated `__experimentalGroup` prop",
+			"state": "merged",
+			"merged_at": "2026-09-20T23:51:51Z",
+			"closed_at": "2026-09-20T23:51:51Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Code Quality",
+				"Needs Dev Note"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/050-block-api-changes.md"
+			]
+		},
+		"WordPress/gutenberg#81231": {
+			"type": "pr",
+			"title": "Block editor: render a real default block in place of the default appender",
+			"state": "merged",
+			"merged_at": "2026-08-12T00:15:13Z",
+			"closed_at": "2026-08-12T00:15:13Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/050-block-api-changes.md"
+			]
+		},
+		"WordPress/gutenberg#81564": {
+			"type": "pr",
+			"title": "Editor: Refactor the Options menu to use the Menu component",
+			"state": "merged",
+			"merged_at": "2026-09-01T15:05:07Z",
+			"closed_at": "2026-09-01T15:05:07Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement",
+				"Needs Dev Note"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/060-plugin-menu-items-and-apifetch.md"
+			]
+		},
+		"WordPress/gutenberg#82321": {
+			"type": "pr",
+			"title": "Editor: Refactor the View menu to use the Menu component",
+			"state": "merged",
+			"merged_at": "2026-09-04T06:02:21Z",
+			"closed_at": "2026-09-04T06:02:21Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/060-plugin-menu-items-and-apifetch.md"
+			]
+		},
+		"WordPress/gutenberg#79325": {
+			"type": "pr",
+			"title": "api-fetch: Resolve to null for a 200 response with an empty body",
+			"state": "merged",
+			"merged_at": "2026-09-09T11:40:43Z",
+			"closed_at": "2026-09-09T11:40:43Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/060-plugin-menu-items-and-apifetch.md"
+			]
+		},
+		"WordPress/gutenberg#82408": {
+			"type": "pr",
+			"title": "API Fetch: Add unregister to remove a registered middleware",
+			"state": "merged",
+			"merged_at": "2026-09-07T14:54:03Z",
+			"closed_at": "2026-09-07T14:54:04Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/060-plugin-menu-items-and-apifetch.md"
+			]
+		},
+		"WordPress/gutenberg#82553": {
+			"type": "pr",
+			"title": "API Fetch: Expose defaultFetchHandler so overrides can restore it",
+			"state": "merged",
+			"merged_at": "2026-09-08T05:04:57Z",
+			"closed_at": "2026-09-08T05:04:57Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/060-plugin-menu-items-and-apifetch.md"
+			]
+		},
+		"WordPress/gutenberg#79560": {
+			"type": "pr",
+			"title": "Menu: Add UI component",
+			"state": "merged",
+			"merged_at": "2026-08-19T12:49:07Z",
+			"closed_at": "2026-08-19T12:49:07Z",
+			"milestone": "Gutenberg 23.9",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/070-components-and-icons.md"
+			]
+		},
+		"WordPress/gutenberg#82213": {
+			"type": "pr",
+			"title": "UI: Add CheckboxControl",
+			"state": "merged",
+			"merged_at": "2026-09-07T11:36:32Z",
+			"closed_at": "2026-09-07T11:36:32Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/070-components-and-icons.md"
+			]
+		},
+		"WordPress/gutenberg#83143": {
+			"type": "pr",
+			"title": "UI: Add RadioGroupControl",
+			"state": "merged",
+			"merged_at": "2026-09-22T04:22:11Z",
+			"closed_at": "2026-09-22T04:22:11Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/070-components-and-icons.md"
+			]
+		},
+		"WordPress/gutenberg#83146": {
+			"type": "pr",
+			"title": "UI: Add SwitchControl component",
+			"state": "merged",
+			"merged_at": "2026-09-21T13:25:20Z",
+			"closed_at": "2026-09-21T13:25:20Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Feature"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/070-components-and-icons.md"
+			]
+		},
+		"WordPress/gutenberg#80979": {
+			"type": "pr",
+			"title": "SearchableSelectControl: Add to @wordpress/ui",
+			"state": "merged",
+			"merged_at": "2026-09-24T07:03:56Z",
+			"closed_at": "2026-09-24T07:03:56Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/070-components-and-icons.md"
+			]
+		},
+		"WordPress/gutenberg#81337": {
+			"type": "pr",
+			"title": "UI: Add `Calendar` and `RangeCalendar`, moved from `components` private APIs",
+			"state": "merged",
+			"merged_at": "2026-08-11T11:50:43Z",
+			"closed_at": "2026-08-11T11:50:43Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/070-components-and-icons.md"
+			]
+		},
+		"WordPress/gutenberg#81343": {
+			"type": "pr",
+			"title": "Keycodes: Make `withIgnoreIMEEvents` a public API",
+			"state": "merged",
+			"merged_at": "2026-08-07T14:38:45Z",
+			"closed_at": "2026-08-07T14:38:45Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Code Quality"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/070-components-and-icons.md"
+			]
+		},
+		"WordPress/gutenberg#81294": {
+			"type": "pr",
+			"title": "New `kebab-case` package: extract utility and migrate private API calls",
+			"state": "merged",
+			"merged_at": "2026-08-10T06:47:34Z",
+			"closed_at": "2026-08-10T06:47:34Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Code Quality"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/070-components-and-icons.md"
+			]
+		},
+		"WordPress/gutenberg#82634": {
+			"type": "pr",
+			"title": "Icons: Allow icons to ship to WordPress Core without exposing them in the Icon block ",
+			"state": "merged",
+			"merged_at": "2026-09-11T13:15:15Z",
+			"closed_at": "2026-09-11T13:15:15Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/080-icon-collections-private-icons-and-core-admin.md"
+			]
+		},
+		"WordPress/gutenberg#83277": {
+			"type": "pr",
+			"title": "Icons: Move the public property from icons to collections",
+			"state": "merged",
+			"merged_at": "2026-09-22T10:18:35Z",
+			"closed_at": "2026-09-22T10:18:35Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/080-icon-collections-private-icons-and-core-admin.md"
+			]
+		},
+		"WordPress/gutenberg#83261": {
+			"type": "pr",
+			"title": "Icons: Add a core-admin collection for the admin interface",
+			"state": "merged",
+			"merged_at": "2026-09-23T09:16:31Z",
+			"closed_at": "2026-09-23T09:16:31Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/080-icon-collections-private-icons-and-core-admin.md"
+			]
+		},
+		"WordPress/gutenberg#85072": {
+			"type": "pr",
+			"title": "Icons: Ship popular icons to `core-admin` collection",
+			"state": "merged",
+			"merged_at": "2026-10-19T14:26:06Z",
+			"closed_at": "2026-10-19T14:26:06Z",
+			"milestone": "Gutenberg 24.3",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/080-icon-collections-private-icons-and-core-admin.md"
+			]
+		},
+		"WordPress/gutenberg#82774": {
+			"type": "pr",
+			"title": "Icon block: Don't render non-public icons on the frontend",
+			"state": "merged",
+			"merged_at": "2026-09-23T09:55:49Z",
+			"closed_at": "2026-09-23T09:55:49Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/080-icon-collections-private-icons-and-core-admin.md"
+			]
+		},
+		"WordPress/gutenberg#78812": {
+			"type": "pr",
+			"title": "Icons: Redraw 64 icons to be stroke-based.",
+			"state": "merged",
+			"merged_at": "2026-09-01T12:10:12Z",
+			"closed_at": "2026-09-01T12:10:12Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/090-deprecations-and-breaking-changes.md"
+			]
+		},
+		"WordPress/gutenberg#82754": {
+			"type": "pr",
+			"title": "Stroke icons: final batch, 96 icons",
+			"state": "merged",
+			"merged_at": "2026-09-15T12:03:23Z",
+			"closed_at": "2026-09-15T12:03:23Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/090-deprecations-and-breaking-changes.md"
+			]
+		},
+		"WordPress/gutenberg#82379": {
+			"type": "pr",
+			"title": "Components: deprecate Badge",
+			"state": "merged",
+			"merged_at": "2026-09-29T09:37:35Z",
+			"closed_at": "2026-09-29T09:37:35Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/090-deprecations-and-breaking-changes.md"
+			]
+		},
+		"WordPress/gutenberg#83040": {
+			"type": "pr",
+			"title": "Components: Deprecate Divider",
+			"state": "merged",
+			"merged_at": "2026-09-18T08:57:14Z",
+			"closed_at": "2026-09-18T08:57:14Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/090-deprecations-and-breaking-changes.md"
+			]
+		},
+		"WordPress/gutenberg#83347": {
+			"type": "pr",
+			"title": "Components: Deprecate ResponsiveWrapper",
+			"state": "merged",
+			"merged_at": "2026-09-22T11:43:40Z",
+			"closed_at": "2026-09-22T11:43:40Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/090-deprecations-and-breaking-changes.md"
+			]
+		},
+		"WordPress/gutenberg#83273": {
+			"type": "pr",
+			"title": "Components: Deprecate Scrollable",
+			"state": "merged",
+			"merged_at": "2026-09-22T04:23:06Z",
+			"closed_at": "2026-09-22T04:23:06Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/090-deprecations-and-breaking-changes.md"
+			]
+		},
+		"WordPress/gutenberg#83344": {
+			"type": "pr",
+			"title": "Components: Deprecate ZStack",
+			"state": "merged",
+			"merged_at": "2026-09-23T06:56:59Z",
+			"closed_at": "2026-09-23T06:56:59Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/090-deprecations-and-breaking-changes.md"
+			]
+		},
+		"WordPress/gutenberg#83269": {
+			"type": "pr",
+			"title": "Components: Deprecate Elevation",
+			"state": "merged",
+			"merged_at": "2026-09-21T12:18:02Z",
+			"closed_at": "2026-09-21T12:18:02Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Enhancement"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/090-deprecations-and-breaking-changes.md"
+			]
+		},
+		"WordPress/gutenberg#80931": {
+			"type": "pr",
+			"title": "Components: Deprecate Animate",
+			"state": "merged",
+			"merged_at": "2026-08-05T19:23:45Z",
+			"closed_at": "2026-08-05T19:23:45Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Code Quality",
+				"has dev note"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/090-deprecations-and-breaking-changes.md"
+			]
+		},
+		"WordPress/gutenberg#80943": {
+			"type": "pr",
+			"title": "Components: Deprecate Surface",
+			"state": "merged",
+			"merged_at": "2026-07-31T21:30:37Z",
+			"closed_at": "2026-07-31T21:30:37Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Code Quality",
+				"has dev note"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/090-deprecations-and-breaking-changes.md"
+			]
+		},
+		"WordPress/gutenberg#82947": {
+			"type": "pr",
+			"title": "Components: Deprecate the private Menu API",
+			"state": "merged",
+			"merged_at": "2026-09-24T13:52:01Z",
+			"closed_at": "2026-09-24T13:52:01Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Code Quality"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/090-deprecations-and-breaking-changes.md"
+			]
+		},
+		"WordPress/gutenberg#84098": {
+			"type": "pr",
+			"title": "Interactivity API: Remove expired deprecated behaviors",
+			"state": "merged",
+			"merged_at": "2026-10-06T11:21:14Z",
+			"closed_at": "2026-10-06T11:21:14Z",
+			"milestone": "Gutenberg 24.2",
+			"labels": [
+				"[Type] Code Quality",
+				"Needs Dev Note"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/090-deprecations-and-breaking-changes.md"
+			]
+		},
+		"WordPress/gutenberg#79186": {
+			"type": "pr",
+			"title": "Make `@wordpress/reusable-blocks` a no-op compatibility package",
+			"state": "merged",
+			"merged_at": "2026-08-27T08:20:31Z",
+			"closed_at": "2026-08-27T08:20:31Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Code Quality"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/090-deprecations-and-breaking-changes.md"
+			]
+		},
+		"WordPress/gutenberg#81430": {
+			"type": "pr",
+			"title": "DataViews: Move the rich text control into the editor package",
+			"state": "merged",
+			"merged_at": "2026-08-11T15:47:11Z",
+			"closed_at": "2026-08-11T15:47:11Z",
+			"milestone": "Gutenberg 23.8",
+			"labels": [
+				"[Type] Bug"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/090-deprecations-and-breaking-changes.md"
+			]
+		},
+		"WordPress/gutenberg#82398": {
+			"type": "pr",
+			"title": "Fix: Footnote IDs can start with a digit and break CSS selectors",
+			"state": "merged",
+			"merged_at": "2026-09-04T09:39:58Z",
+			"closed_at": "2026-09-04T09:39:58Z",
+			"milestone": "Gutenberg 24.0",
+			"labels": [
+				"[Type] Bug"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/090-deprecations-and-breaking-changes.md"
+			]
+		},
+		"WordPress/gutenberg#82401": {
+			"type": "pr",
+			"title": "Fix: Default block gap is ignored in the editor for themes without block gap support",
+			"state": "merged",
+			"merged_at": "2026-09-15T19:40:06Z",
+			"closed_at": "2026-09-15T19:40:06Z",
+			"milestone": "Gutenberg 24.1",
+			"labels": [
+				"[Type] Bug"
+			],
+			"draft": false,
+			"files": [
+				"content/post/60-developer-goodies/090-deprecations-and-breaking-changes.md"
+			]
+		},
+		"trac#66187": {
+			"type": "trac",
+			"source": "github-mirror",
+			"state": "fixed",
+			"milestone": null,
+			"last_commit": "2026-10-14",
+			"commits": [
+				{
+					"date": "2026-10-14",
+					"subject": "Security: Use `str_starts_with()` in the Secrets API test mocks.",
+					"fixes": false,
+					"sha": "2995d9665a"
+				},
+				{
+					"date": "2026-10-14",
+					"subject": "Security: Use `str_contains()` and `str_starts_with()` in the Secrets API.",
+					"fixes": false,
+					"sha": "7a47d39442"
+				},
+				{
+					"date": "2026-10-21",
+					"subject": "Security: Keep the previous secret version when a value is saved unchanged.",
+					"fixes": false,
+					"sha": "92c174186c"
+				},
+				{
+					"date": "2026-10-13",
+					"subject": "Security: Introduce the Secrets API.",
+					"fixes": true,
+					"sha": "5744bc5803"
+				}
+			],
+			"prs": [
+				{
+					"number": 14270,
+					"state": "open",
+					"title": "Code Quality: Use `str_contains()` and `str_starts_with()` in the Secrets API"
+				},
+				{
+					"number": 14773,
+					"state": "open",
+					"title": "Secrets API: Mark internal helper functions as private."
+				},
+				{
+					"number": 13759,
+					"state": "closed",
+					"title": "Secrets API: encrypted, versioned storage for credentials"
+				}
+			],
+			"files": [
+				"content/post/60-developer-goodies/100-secrets-api.md"
+			]
+		},
+		"trac#66208": {
+			"type": "trac",
+			"source": "github-mirror",
+			"state": "commits",
+			"milestone": null,
+			"last_commit": "2026-10-09",
+			"commits": [
+				{
+					"date": "2026-10-09",
+					"subject": "KSES: Normalize all block delimiters.",
+					"fixes": false,
+					"sha": "7f6eac8a9f"
+				},
+				{
+					"date": "2026-10-09",
+					"subject": "KSES: Only serialize non-empty block JSON attributes.",
+					"fixes": false,
+					"sha": "fd20633048"
+				},
+				{
+					"date": "2026-10-15",
+					"subject": "Tests: Fix Block Bindings unsafe HTML test.",
+					"fixes": false,
+					"sha": "4b2b478948"
+				}
+			],
+			"prs": [
+				{
+					"number": 14770,
+					"state": "open",
+					"title": "KSES: Preserve escaped shortcode brackets in text nodes"
+				},
+				{
+					"number": 14120,
+					"state": "closed",
+					"title": "KSES: Normalize closing block delimiter names."
+				},
+				{
+					"number": 14136,
+					"state": "closed",
+					"title": "KSES: Only serialize non-empty attributes."
+				},
+				{
+					"number": 14092,
+					"state": "closed",
+					"title": "Tests: Make Block Bindings unsafe HTML test independent of KSES text handling"
+				},
+				{
+					"number": 13271,
+					"state": "closed",
+					"title": "KSES: Reimplement with Tag Processor"
+				}
+			],
+			"files": [
+				"content/post/60-developer-goodies/110-wp-kses-rebuilt-on-the-html-api.md"
+			]
+		},
+		"trac#65638": {
+			"type": "trac",
+			"source": "github-mirror",
+			"state": "fixed",
+			"milestone": null,
+			"last_commit": "2026-10-13",
+			"commits": [
+				{
+					"date": "2026-10-13",
+					"subject": "AI: Introduce support for generating embeddings",
+					"fixes": true,
+					"sha": "d6a40f472c"
+				}
+			],
+			"prs": [
+				{
+					"number": 13291,
+					"state": "closed",
+					"title": "AI: Catch Throwables in shared AI client builders"
+				},
+				{
+					"number": 12530,
+					"state": "closed",
+					"title": "AI: Update PHP AI Client to 1.5.0 and introduce WP_AI_Client_Embedding_Builder"
+				}
+			],
+			"files": [
+				"content/post/60-developer-goodies/120-ai-embeddings-in-the-php-ai-client.md"
+			]
+		}
+	},
+	"signals": {
+		"gutenberg_releases": [
+			{
+				"tag": "v24.3.0-rc.1",
+				"date": "2026-10-20",
+				"prerelease": true
+			},
+			{
+				"tag": "v24.2.0",
+				"date": "2026-10-14",
+				"prerelease": false
+			},
+			{
+				"tag": "v24.2.0-rc.1",
+				"date": "2026-10-07",
+				"prerelease": true
+			},
+			{
+				"tag": "v24.1.0",
+				"date": "2026-09-30",
+				"prerelease": false
+			},
+			{
+				"tag": "v24.1.0-rc.1",
+				"date": "2026-09-23",
+				"prerelease": true
+			},
+			{
+				"tag": "v24.0.0",
+				"date": "2026-09-16",
+				"prerelease": false
+			}
+		],
+		"dev_notes": [
+			{
+				"title": "NO_BACKSLASH_ESCAPES SQL mode is now turned off by default in WordPress 7.2",
+				"link": "https://make.wordpress.org/core/2026/10/09/no_backslash_escapes-sql-mode-is-now-turned-off-by-default-in-wordpress-7-2/",
+				"date": "2026-10-09"
+			}
+		],
+		"release_posts": [
+			{
+				"title": "Dev Chat Agenda – October 21, 2026",
+				"link": "https://make.wordpress.org/core/2026/10/21/dev-chat-agenda-oct-21-2026/",
+				"date": "2026-10-21"
+			},
+			{
+				"title": "Dev Chat Agenda – October 14, 2026",
+				"link": "https://make.wordpress.org/core/2026/10/14/dev-chat-agenda-oct-14-2026/",
+				"date": "2026-10-14"
+			},
+			{
+				"title": "NO_BACKSLASH_ESCAPES SQL mode is now turned off by default in WordPress 7.2",
+				"link": "https://make.wordpress.org/core/2026/10/09/no_backslash_escapes-sql-mode-is-now-turned-off-by-default-in-wordpress-7-2/",
+				"date": "2026-10-09"
+			},
+			{
+				"title": "Dev Chat Agenda – October 7, 2026",
+				"link": "https://make.wordpress.org/core/2026/10/07/dev-chat-agenda-oct-07-2026/",
+				"date": "2026-10-07"
+			},
+			{
+				"title": "WordPress 7.2 Release Party Schedule",
+				"link": "https://make.wordpress.org/core/2026/10/06/wordpress-7-2-release-party-schedule/",
+				"date": "2026-10-06"
+			},
+			{
+				"title": "Dev Chat Agenda – September 30, 2026",
+				"link": "https://make.wordpress.org/core/2026/09/30/dev-chat-agenda-sep-30-2026/",
+				"date": "2026-09-30"
+			},
+			{
+				"title": "Dev Chat summary: September 23, 2026",
+				"link": "https://make.wordpress.org/core/2026/09/24/summary-dev-chat-september-23-2026/",
+				"date": "2026-09-24"
+			},
+			{
+				"title": "Dev Chat Agenda – September 23, 2026",
+				"link": "https://make.wordpress.org/core/2026/09/22/dev-chat-agenda-sep-23-2026/",
+				"date": "2026-09-22"
+			},
+			{
+				"title": "Roadmap to 7.2",
+				"link": "https://make.wordpress.org/core/2026/09/18/roadmap-to-7-2/",
+				"date": "2026-09-18"
+			},
+			{
+				"title": "Introducing Ipsum, the new default theme",
+				"link": "https://make.wordpress.org/core/2026/09/16/introducing-ipsum-the-new-default-theme/",
+				"date": "2026-09-16"
+			},
+			{
+				"title": "Dev Chat Agenda – September 16, 2026",
+				"link": "https://make.wordpress.org/core/2026/09/16/dev-chat-agenda-sep-16-2026/",
+				"date": "2026-09-16"
+			},
+			{
+				"title": "Dev Chat summary: September 9, 2026",
+				"link": "https://make.wordpress.org/core/2026/09/10/summary-dev-chat-september-9-2026/",
+				"date": "2026-09-10"
+			},
+			{
+				"title": "Bug Scrub Schedule for WordPress 7.2",
+				"link": "https://make.wordpress.org/core/2026/09/09/bug-scrub-schedule-for-wordpress-7-2/",
+				"date": "2026-09-09"
+			},
+			{
+				"title": "Announcing the WordPress 7.2 Release Squad",
+				"link": "https://make.wordpress.org/core/2026/09/09/announcing-the-wordpress-7-2-release-squad/",
+				"date": "2026-09-09"
+			},
+			{
+				"title": "Dev Chat Agenda – September 9, 2026",
+				"link": "https://make.wordpress.org/core/2026/09/09/dev-chat-agenda-sep-09-2026/",
+				"date": "2026-09-09"
+			},
+			{
+				"title": "Dev Chat summary: September 2, 2026",
+				"link": "https://make.wordpress.org/core/2026/09/02/summary-dev-chat-september-2-2026/",
+				"date": "2026-09-02"
+			},
+			{
+				"title": "Dev Chat Agenda – September 2, 2026",
+				"link": "https://make.wordpress.org/core/2026/09/02/dev-chat-agenda-sep-02-2026/",
+				"date": "2026-09-02"
+			},
+			{
+				"title": "Dev Chat Agenda – August 26, 2026",
+				"link": "https://make.wordpress.org/core/2026/08/25/dev-chat-agenda-aug-26-2026/",
+				"date": "2026-08-25"
+			},
+			{
+				"title": "Dev Chat summary: August 18, 2026",
+				"link": "https://make.wordpress.org/core/2026/08/18/summary-dev-chat-august-18-2026/",
+				"date": "2026-08-18"
+			},
+			{
+				"title": "Dev Chat Agenda – August 18, 2026",
+				"link": "https://make.wordpress.org/core/2026/08/17/dev-chat-agenda-aug-18-2026/",
+				"date": "2026-08-17"
+			}
+		]
+	}
+}
