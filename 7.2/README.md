@@ -3,8 +3,8 @@
 The source for the WordPress 7.2 Source of Truth. Every push to `trunk` that changes this
 directory rebuilds the site on Spacefast.
 
-- Live post: `sot.json` → `spacefast.liveUrl` (reader link: `spacefast.shareLink`)
-- Draft review copy, with working notes and hidden items: `/draft/` (reviewer link: `spacefast.draftLink`)
+- Live post: `sot.json` → `spacefast.liveUrl` (reader link: in Spacefast, ID in `spacefast.shareLinkId`)
+- Draft review copy, with working notes and hidden items: `/draft/` (reviewer link: ID in `spacefast.draftLinkId`)
 
 ## Working on it
 
@@ -37,10 +37,10 @@ npm run status         # re-check every linked PR and Trac ticket
 
 Tick these off as you go. The full steps are in the skill's README, section 5.
 
-- [ ] Release directory committed and pushed
-- [ ] Spacefast site created (`sot.json` → `spacefast.space`)
-- [ ] Autodeploy connected (`sf git connect`, root directory `7.2`, production branch `trunk`)
-- [ ] Reader and reviewer share links created, and the reader link checked against `/draft/`
-- [ ] Status workflow ran once (`gh workflow run "Status 7.2"`)
+- [x] Release directory committed and pushed
+- [x] Spacefast site created (`sot.json` → `spacefast.space`)
+- [x] Autodeploy connected (`sf git connect`, root directory `7.2`, production branch `trunk`)
+- [x] Reader and reviewer share links created, and the reader link checked against `/draft/`
+- [x] Status workflow ran once (`gh workflow run "Status 7.2"`)
 - [ ] Scheduled sweep routine created (daily from Beta 1)
 - [ ] At final release: routine and Status workflow turned off
