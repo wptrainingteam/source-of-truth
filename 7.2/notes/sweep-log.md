@@ -25,7 +25,7 @@ Newest first.
 
 **Resolved questions:** Gutenberg range (23.7–24.3); Secrets API (7.2, committed Oct 13); DataForm inspector (on by default since #85081, a soft stabilization: old components stay until RC); Description List PR (#81728, still open, now a blessed-or-punt question); which 23.8 items shipped in 7.1 (shareable revision URLs, mention emails, `responsiveEditingEnabled` and `blockStatesEditingEnabled` did; the code diff view didn't). Navigation Link's new name: it was "Custom Link" in 7.1 and is "Navigation Link" in 7.2, with Custom Link as the default variation (#82375).
 
-**Proposed:** rewrites of the admin accessibility, application password and `wp_kses()` items (PRs below).
+**Proposed:** [#1](https://github.com/wptrainingteam/source-of-truth/pull/1) admin accessibility (only #50699 landed; the #50486 fix was reverted), [#2](https://github.com/wptrainingteam/source-of-truth/pull/2) application passwords (only the email landed; #57388 was docs only), [#3](https://github.com/wptrainingteam/source-of-truth/pull/3) `wp_kses()` is opt-in in 7.2 (legacy parser is the default in trunk), [#4](https://github.com/wptrainingteam/source-of-truth/pull/4) Overview: swap the mention-email clause for emoji reactions.
 
 **Not yet drafted:** seven Beta 1 features with commits that the post doesn't cover (On This Day, Media Library client-side uploads, random content redirects, Abilities API, Interactivity API `data-wp-html`, script concatenation retired, Global Styles "Customized" filter). Facts and links in `research.md`.
 
