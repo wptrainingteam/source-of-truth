@@ -509,7 +509,7 @@ The roadmap says this work happens in the AI plugin and may not land in 7.2.
 
 ## Beta 1 candidates not in the draft (sweep Oct 23)
 
-The [Beta 1 announcement](https://wordpress.org/news/2026/10/wordpress-7-2-beta-1-is-ready-for-download-and-testing/) lists these, and each has commits on wordpress-develop trunk before Beta 1 (Oct 20, 15:30 UTC) unless noted. None is in the post yet.
+The [Beta 1 announcement](https://wordpress.org/news/2026/10/wordpress-7-2-beta-1-is-ready-for-download-and-testing/) lists these, and each has commits on wordpress-develop trunk before Beta 1 (Oct 20, 15:30 UTC) unless noted. Each is drafted as a proposal PR (#5–#11), and the Customized filter was already covered by the Global Styles item.
 
 * **On This Day:** the Oct 20 commit adds an "On This Day" section to the Activity widget ([051f9dc](https://github.com/WordPress/wordpress-develop/commit/051f9dc), [#65116](https://core.trac.wordpress.org/ticket/65116)). The Beta 1 post calls it a new widget; the code makes it a section of the existing Activity widget. Supersedes the "likely punt again" note above.
 * **Client-side uploads in the Media Library and media modal** ([9fbaa2d](https://github.com/WordPress/wordpress-develop/commit/9fbaa2d), Oct 20, [#65661](https://core.trac.wordpress.org/ticket/65661)).

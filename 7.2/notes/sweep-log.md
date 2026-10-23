@@ -28,7 +28,7 @@ Newest first.
 
 **Proposed:** [#1](https://github.com/wptrainingteam/source-of-truth/pull/1) admin accessibility (only #50699 landed; the #50486 fix was reverted), [#2](https://github.com/wptrainingteam/source-of-truth/pull/2) application passwords (only the email landed; #57388 was docs only), [#3](https://github.com/wptrainingteam/source-of-truth/pull/3) `wp_kses()` is opt-in in 7.2 (legacy parser is the default in trunk), [#4](https://github.com/wptrainingteam/source-of-truth/pull/4) Overview: swap the mention-email clause for emoji reactions.
 
-**Not yet drafted:** seven Beta 1 features with commits that the post doesn't cover (On This Day, Media Library client-side uploads, random content redirects, Abilities API, Interactivity API `data-wp-html`, script concatenation retired, Global Styles "Customized" filter). Facts and links in `research.md`.
+**Also proposed (Beta 1 features the post didn't cover):** [#5](https://github.com/wptrainingteam/source-of-truth/pull/5) On This Day, [#6](https://github.com/wptrainingteam/source-of-truth/pull/6) Media Library client-side uploads, [#7](https://github.com/wptrainingteam/source-of-truth/pull/7) random content URLs, [#8](https://github.com/wptrainingteam/source-of-truth/pull/8) new abilities, [#9](https://github.com/wptrainingteam/source-of-truth/pull/9) server-side `data-wp-html`, [#10](https://github.com/wptrainingteam/source-of-truth/pull/10) script and style concatenation retired, [#11](https://github.com/wptrainingteam/source-of-truth/pull/11) autosave failure feedback.
 
 ## **Sweep: October 19 (day before Beta 1)**
 
