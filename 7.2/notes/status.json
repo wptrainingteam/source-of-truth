@@ -1,5 +1,5 @@
 {
-	"checked_at": "2026-10-23T14:34:04.100Z",
+	"checked_at": "2026-10-24T11:05:56.443Z",
 	"release": "7.2",
 	"refs": {
 		"WordPress/gutenberg#83786": {
@@ -71,22 +71,6 @@
 			"milestone": "Gutenberg 24.2",
 			"labels": [
 				"[Type] Bug"
-			],
-			"draft": false,
-			"files": [
-				"content/post/10-priority-items-for-wordpress-7-2/020-notes-move-into-the-canvas-margin.md"
-			]
-		},
-		"WordPress/gutenberg#79606": {
-			"type": "pr",
-			"title": "Notes: Email users mentioned in a note",
-			"state": "merged",
-			"merged_at": "2026-08-04T06:13:55Z",
-			"closed_at": "2026-08-04T06:13:55Z",
-			"milestone": "Gutenberg 23.8",
-			"labels": [
-				"[Type] Feature",
-				"Backported to WP Core"
 			],
 			"draft": false,
 			"files": [
@@ -1583,22 +1567,6 @@
 				"content/post/40-editor-enhancements/030-visual-revisions-polish.md"
 			]
 		},
-		"WordPress/gutenberg#79934": {
-			"type": "pr",
-			"title": "Visual revisions: add shareable urls",
-			"state": "merged",
-			"merged_at": "2026-08-03T17:05:52Z",
-			"closed_at": "2026-08-03T17:05:52Z",
-			"milestone": "Gutenberg 23.8",
-			"labels": [
-				"[Type] Enhancement",
-				"Backported to WP Core"
-			],
-			"draft": false,
-			"files": [
-				"content/post/40-editor-enhancements/030-visual-revisions-polish.md"
-			]
-		},
 		"WordPress/gutenberg#80314": {
 			"type": "pr",
 			"title": "Visual revisions: Add a code diff view inside the editor",
@@ -1852,22 +1820,6 @@
 				"content/post/40-editor-enhancements/050-smaller-editor-improvements.md"
 			]
 		},
-		"WordPress/gutenberg#81112": {
-			"type": "pr",
-			"title": "Post editor: Add ThemeProvider for admin color schemes",
-			"state": "merged",
-			"merged_at": "2026-08-04T15:22:39Z",
-			"closed_at": "2026-08-04T15:22:39Z",
-			"milestone": "Gutenberg 23.8",
-			"labels": [
-				"[Type] Bug",
-				"Backported to WP Core"
-			],
-			"draft": false,
-			"files": [
-				"content/post/40-editor-enhancements/050-smaller-editor-improvements.md"
-			]
-		},
 		"WordPress/gutenberg#82723": {
 			"type": "issue",
 			"title": "Omnibar: WP 7.2 Iteration Issue",
@@ -1898,6 +1850,11 @@
 				}
 			],
 			"prs": [
+				{
+					"number": 14548,
+					"state": "open",
+					"title": "Administration: Use SVG icons in the At a Glance dashboard widget"
+				},
 				{
 					"number": 13551,
 					"state": "closed",
@@ -2253,56 +2210,6 @@
 			"milestone": "Gutenberg 24.3",
 			"labels": [
 				"[Type] Enhancement"
-			],
-			"draft": false,
-			"files": [
-				"content/post/60-developer-goodies/010-global-styles-and-theme-json.md"
-			]
-		},
-		"WordPress/gutenberg#80814": {
-			"type": "pr",
-			"title": "Add a responsiveEditingEnabled editor setting to hide the Responsive styles option",
-			"state": "merged",
-			"merged_at": "2026-07-29T04:13:10Z",
-			"closed_at": "2026-07-29T04:13:10Z",
-			"milestone": "Gutenberg 23.7",
-			"labels": [
-				"[Type] Enhancement",
-				"has dev note",
-				"Backported to WP Core"
-			],
-			"draft": false,
-			"files": [
-				"content/post/60-developer-goodies/010-global-styles-and-theme-json.md"
-			]
-		},
-		"WordPress/gutenberg#80956": {
-			"type": "pr",
-			"title": "Add opt-out for block style state controls",
-			"state": "merged",
-			"merged_at": "2026-07-31T03:58:36Z",
-			"closed_at": "2026-07-31T03:58:36Z",
-			"milestone": "Gutenberg 23.8",
-			"labels": [
-				"[Type] Enhancement",
-				"Needs Dev Note",
-				"Backported to WP Core"
-			],
-			"draft": false,
-			"files": [
-				"content/post/60-developer-goodies/010-global-styles-and-theme-json.md"
-			]
-		},
-		"WordPress/gutenberg#81058": {
-			"type": "pr",
-			"title": "Rename blockStatesEnabled setting to blockStatesEditingEnabled",
-			"state": "merged",
-			"merged_at": "2026-08-03T00:35:00Z",
-			"closed_at": "2026-08-03T00:35:00Z",
-			"milestone": "Gutenberg 23.8",
-			"labels": [
-				"[Type] Code Quality",
-				"Backported to WP Core"
 			],
 			"draft": false,
 			"files": [
