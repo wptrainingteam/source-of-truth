@@ -1,5 +1,5 @@
 {
-	"checked_at": "2026-10-25T11:05:58.753Z",
+	"checked_at": "2026-10-26T11:07:37.727Z",
 	"release": "7.2",
 	"refs": {
 		"WordPress/gutenberg#83786": {
@@ -3053,6 +3053,11 @@
 				}
 			],
 			"prs": [
+				{
+					"number": 14841,
+					"state": "open",
+					"title": "KSES: Remove NOSCRIPT elements without discarding the content that follows them"
+				},
 				{
 					"number": 14770,
 					"state": "open",

@@ -1,6 +1,6 @@
 # Status report
 
-Checked 188 refs (gh cli). Previous run: 2026-10-24T11:05:56.443Z
+Checked 188 refs (gh cli). Previous run: 2026-10-25T11:05:58.753Z
 
 ## Ref changes (0)
 (none)
@@ -18,7 +18,7 @@ trac#63927 fixed — last commit 2026-10-09: Users: Fix the admin email placehol
 trac#46744 patch-open — PRs #12977 open
 trac#57388 fixed — last commit 2026-10-05: Application Passwords: Clarify environment type required for non-SSL support. — PRs #13954 closed
 trac#66187 fixed — last commit 2026-10-14: Security: Use `str_starts_with()` in the Secrets API test mocks. — PRs #14270 open, #14773 open, #13759 closed
-trac#66208 commits — last commit 2026-10-09: KSES: Normalize all block delimiters. — PRs #14770 open, #14120 closed, #14136 closed, #14092 closed, #13271 closed
+trac#66208 commits — last commit 2026-10-09: KSES: Normalize all block delimiters. — PRs #14841 open, #14770 open, #14120 closed, #14136 closed, #14092 closed, #13271 closed
 trac#65638 fixed — last commit 2026-10-13: AI: Introduce support for generating embeddings — PRs #13291 closed, #12530 closed
 
 ## New dev notes (0)
