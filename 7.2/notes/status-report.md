@@ -1,15 +1,15 @@
 # Status report
 
-Checked 188 refs (gh cli). Previous run: 2026-10-25T11:05:58.753Z
+Checked 188 refs (gh cli). Previous run: 2026-10-26T11:07:37.727Z
 
-## Ref changes (0)
-(none)
+## Ref changes (1)
+CHANGED WordPress/gutenberg#81370 state: open → closed — content/post/30-improved-blocks-and-block-handling/010-gallery-sort-shuffle-and-a-grid-variation.md
 
 ## Open, unmerged PRs in the post
 WordPress/gutenberg#81728 Block Library: Add Description List block — content/post/20-new-blocks/010-description-list-block.md
 
 ## Trac tickets
-trac#65089 fixed — last commit 2026-10-19: Administration: Replace Dashicons in admin bar and sidebar with wp-icons. — PRs #14548 open, #13551 closed, #12270 closed
+trac#65089 fixed — last commit 2026-10-19: Administration: Replace Dashicons in admin bar and sidebar with wp-icons. — PRs #14974 closed, #14903 closed, #14548 closed, #13551 closed, #12270 closed
 trac#50486 fixed — last commit 2026-09-26: Improve the Settings admin notices implementation. — PRs #14223 closed, #14177 closed, #13671 closed, #11923 closed, #1160 closed, #1159 closed, #1158 closed, #1157 closed, #1154 closed, #1153 closed
 trac#50699 fixed — last commit 2026-10-11: Admin: Add screen option to turn off moving meta boxes. — PRs #12339 open, #12180 closed, #12627 closed
 trac#52399 patch-open — PRs #14230 open, #12686 open, #2064 closed

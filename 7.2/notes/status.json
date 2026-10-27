@@ -1,5 +1,5 @@
 {
-	"checked_at": "2026-10-26T11:07:37.727Z",
+	"checked_at": "2026-10-27T11:07:01.084Z",
 	"release": "7.2",
 	"refs": {
 		"WordPress/gutenberg#83786": {
@@ -790,9 +790,9 @@
 		"WordPress/gutenberg#81370": {
 			"type": "issue",
 			"title": "WordPress 7.2: Dynamic galleries and media inserter",
-			"state": "open",
+			"state": "closed",
 			"merged_at": null,
-			"closed_at": null,
+			"closed_at": "2026-10-27T02:32:42Z",
 			"milestone": null,
 			"labels": [
 				"[Type] Enhancement",
@@ -1439,7 +1439,8 @@
 			"closed_at": "2026-09-01T06:58:35Z",
 			"milestone": "Gutenberg 24.0",
 			"labels": [
-				"[Type] Enhancement"
+				"[Type] Enhancement",
+				"has dev note"
 			],
 			"draft": false,
 			"files": [
@@ -1847,12 +1848,28 @@
 					"subject": "Administration: Replace Dashicons in admin bar and sidebar with wp-icons.",
 					"fixes": true,
 					"sha": "5832f82974"
+				},
+				{
+					"date": "2026-10-27",
+					"subject": "Administration: Map Dashicons to replacement icons from the icon library manifest.",
+					"fixes": false,
+					"sha": "45552748e4"
 				}
 			],
 			"prs": [
 				{
+					"number": 14974,
+					"state": "closed",
+					"title": "[POC] Only replace the Dashicons of core menu items with SVG icons"
+				},
+				{
+					"number": 14903,
+					"state": "closed",
+					"title": "Administration: Map Dashicons to their replacement icons from the icon library manifest"
+				},
+				{
 					"number": 14548,
-					"state": "open",
+					"state": "closed",
 					"title": "Administration: Use SVG icons in the At a Glance dashboard widget"
 				},
 				{
