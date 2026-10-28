@@ -1,5 +1,5 @@
 {
-	"checked_at": "2026-10-27T11:07:01.084Z",
+	"checked_at": "2026-10-28T11:05:48.630Z",
 	"release": "7.2",
 	"refs": {
 		"WordPress/gutenberg#83786": {
@@ -1868,6 +1868,11 @@
 					"title": "Administration: Map Dashicons to their replacement icons from the icon library manifest"
 				},
 				{
+					"number": 14999,
+					"state": "open",
+					"title": "Toolbar: Show only the SVG icon when a node also draws a Dashicon"
+				},
+				{
 					"number": 14548,
 					"state": "closed",
 					"title": "Administration: Use SVG icons in the At a Glance dashboard widget"
@@ -3178,6 +3183,11 @@
 		],
 		"release_posts": [
 			{
+				"title": "Dev Chat Agenda – October 28, 2026",
+				"link": "https://make.wordpress.org/core/2026/10/28/dev-chat-agenda-oct-28-2026/",
+				"date": "2026-10-28"
+			},
+			{
 				"title": "Dev Chat Agenda – October 21, 2026",
 				"link": "https://make.wordpress.org/core/2026/10/21/dev-chat-agenda-oct-21-2026/",
 				"date": "2026-10-21"
@@ -3271,11 +3281,6 @@
 				"title": "Dev Chat summary: August 18, 2026",
 				"link": "https://make.wordpress.org/core/2026/08/18/summary-dev-chat-august-18-2026/",
 				"date": "2026-08-18"
-			},
-			{
-				"title": "Dev Chat Agenda – August 18, 2026",
-				"link": "https://make.wordpress.org/core/2026/08/17/dev-chat-agenda-aug-18-2026/",
-				"date": "2026-08-17"
 			}
 		]
 	}
