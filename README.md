@@ -2,7 +2,7 @@
 
 One site holds every WordPress Source of Truth. Each release lives in `releases/<version>/` as
 Markdown plus a `release.json`, and `npm run build` turns all of them into one static site in
-`dist/`: a page per release at `/<major>-<minor>/` (for example `/7-1/`), with the newest also at `/`.
+`dist/`: a page per release at `/<major>-<minor>/` (for example `/7-1/`), with the newest also at `/`. The canonical base URL for canonical links, `robots.txt` and the sitemap is `baseUrl` in `site.json`.
 
 ## Releases
 

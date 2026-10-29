@@ -16,7 +16,34 @@ const REPO = resolve( fileURLToPath( new URL( '..', import.meta.url ) ) );
 const layoutDir = ( repo, dir, meta ) => ( meta.layout === 'own' ? join( dir, 'layout' ) : join( repo, 'layouts', meta.layout || 'generic' ) );
 const assets = ( dir ) => readdirSync( dir ).filter( ( f ) => /\.(js|css)$/.test( f ) );
 
-export function build( repo = REPO, outDir = join( repo, 'dist' ) ) {
+const readBaseUrl = ( repo ) => JSON.parse( readFileSync( join( repo, 'site.json' ), 'utf8' ) ).baseUrl.replace( /\/+$/, '' );
+
+const robots = ( baseUrl ) => [ 'GPTBot', 'ClaudeBot', 'Google-Extended', 'CCBot' ].map( ( b ) => `User-agent: ${ b }\nDisallow: /\n` ).join( '\n' )
+	+ `\nUser-agent: *\nAllow: /\n\nSitemap: ${ baseUrl }/sitemap.xml\n`;
+
+const sitemap = ( baseUrl, entries ) => `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${ entries.map( ( { slug, lastmod } ) => `  <url><loc>${ baseUrl }/${ slug }/</loc>${ lastmod ? `<lastmod>${ lastmod }</lastmod>` : '' }</url>` ).join( '\n' ) }
+</urlset>
+`;
+
+// The generic layout's head, styles and footer around the shared header and a short message.
+function notFound( layoutHtml, header, newest ) {
+	const body = `<body>
+${ header }
+<div class="wrap">
+  <h1>Page not found</h1>
+  <p><a href="/${ newest.slug }/">Go to WordPress ${ newest.version }</a></p>
+</div>
+</body>
+</html>
+`;
+	return layoutHtml
+		.replace( '<!-- sot:head -->', '<title>Page not found</title>' )
+		.replace( /<body>[\s\S]*$/, body );
+}
+
+export function build( repo = REPO, outDir = join( repo, 'dist' ), baseUrl = readBaseUrl( repo ) ) {
 	const releases = listReleases( repo );
 	const all = releases.map( ( { version, slug } ) => ( { version, slug } ) );
 
@@ -28,7 +55,7 @@ export function build( repo = REPO, outDir = join( repo, 'dist' ) ) {
 		if ( ! existsSync( file ) ) throw new Error( `Release ${ r.version }: no layout at ${ file }` );
 		let html;
 		try {
-			html = renderPage( readFileSync( file, 'utf8' ), { ...meta, version: r.version }, structure, renderHeader( r.version, all ) );
+			html = renderPage( readFileSync( file, 'utf8' ), { ...meta, version: r.version }, structure, renderHeader( r.version, all ), baseUrl );
 		} catch ( e ) {
 			throw new Error( `Release ${ r.version }: ${ e.message }` );
 		}
@@ -36,7 +63,7 @@ export function build( repo = REPO, outDir = join( repo, 'dist' ) ) {
 		if ( leaks.length ) {
 			throw new Error( `Release ${ r.version }: ${ leaks.length } leak(s) in the rendered page:\n${ leaks.map( ( l ) => `  …${ l.replace( /\s+/g, ' ' ) }…` ).join( '\n' ) }` );
 		}
-		return { ...r, html, lDir };
+		return { ...r, html, lDir, lastmod: meta.updated || meta.published || '' };
 	} );
 
 	rmSync( outDir, { recursive: true, force: true } );
@@ -49,6 +76,15 @@ export function build( repo = REPO, outDir = join( repo, 'dist' ) ) {
 	};
 	rendered.forEach( ( page ) => write( join( outDir, page.slug ), page ) );
 	if ( rendered[ 0 ] ) write( outDir, rendered[ 0 ] );
+	if ( rendered[ 0 ] ) {
+		const generic = readFileSync( join( repo, 'layouts', 'generic', 'layout.html' ), 'utf8' );
+		const page404 = notFound( generic, renderHeader( rendered[ 0 ].version, all ), rendered[ 0 ] );
+		const leaks = findLeaks( page404 );
+		if ( leaks.length ) throw new Error( `404 page: ${ leaks.length } leak(s)` );
+		writeFileSync( join( outDir, '404.html' ), page404 );
+	}
+	writeFileSync( join( outDir, 'robots.txt' ), robots( baseUrl ) );
+	writeFileSync( join( outDir, 'sitemap.xml' ), sitemap( baseUrl, rendered ) );
 	return { pages };
 }
 

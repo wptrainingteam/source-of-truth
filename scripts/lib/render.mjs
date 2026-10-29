@@ -52,7 +52,7 @@ function model( structure ) {
 
 const words = ( ...texts ) => texts.join( ' ' ).split( /\s+/ ).filter( ( w ) => /[\p{L}\p{N}]/u.test( plain( w ) ) ).length;
 
-export function renderPage( layoutHtml, meta, structure, header ) {
+export function renderPage( layoutHtml, meta, structure, header, baseUrl = '' ) {
 	const slug = versionSlug( meta.version );
 	const sections = model( structure );
 	const items = sections.flatMap( ( s ) => s.items );
@@ -64,10 +64,16 @@ export function renderPage( layoutHtml, meta, structure, header ) {
 		return p.length > 160 ? p.slice( 0, 157 ).replace( /\s+\S*$/, '' ) + '…' : p;
 	} )();
 
+	const url = `${ baseUrl.replace( /\/+$/, '' ) }/${ slug }/`;
 	const head = [
 		`<title>${ esc( meta.title ) }</title>`,
 		description ? `<meta name="description" content="${ esc( description ) }">` : '',
-		`<link rel="canonical" href="/${ slug }/">`,
+		`<link rel="canonical" href="${ esc( url ) }">`,
+		`<meta property="og:url" content="${ esc( url ) }">`,
+		`<meta property="og:title" content="${ esc( meta.title ) }">`,
+		description ? `<meta property="og:description" content="${ esc( description ) }">` : '',
+		'<meta property="og:type" content="article">',
+		'<meta property="og:site_name" content="WordPress Source of Truth">',
 	].filter( Boolean ).join( '\n' );
 
 	const count = words( structure.intro, ...sections.flatMap( ( s ) => [ s.title, s.body, ...s.items.flatMap( ( it ) => [ it.title, it.body ] ) ] ) );

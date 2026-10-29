@@ -18,7 +18,8 @@ const META = {
 };
 const structure = () => split( post );
 const header = renderHeader( '7.2', [ { version: '7.2', slug: '7-2' }, { version: '7.1', slug: '7-1' } ] );
-const render = ( s = structure(), meta = META ) => renderPage( layout, meta, s, header );
+const BASE = 'https://example.test';
+const render = ( s = structure(), meta = META ) => renderPage( layout, meta, s, header, BASE );
 
 test( 'one <section class="section"> per section, in order', () => {
 	const s = structure();
@@ -83,7 +84,7 @@ test( 'hero, byline and resources', () => {
 	assert.match( out, /Written by <a href="https:\/\/example.com\/justin">Justin Tadlock<\/a> · Updated October 23, 2026 · \d+ minute read \([\d,]+ words\)/ );
 	assert.match( out, /href="https:\/\/make.wordpress.org\/core\/7-2\/"/ );
 	assert.match( out, /href="https:\/\/make.wordpress.org\/core\/tag\/dev-notes\+7-2\/"/ );
-	assert.match( out, /<link rel="canonical" href="\/7-2\/">/ );
+	assert.match( out, /<link rel="canonical" href="https:\/\/example.test\/7-2\/">/ );
 	assert.match( out, /<title>WordPress 7\.2 Source of Truth<\/title>/ );
 	assert.ok( ! out.includes( 'Originally published' ) );
 } );
@@ -183,4 +184,19 @@ test( 'links to the original post anchors point on-page when the id exists', () 
 	assert.match( out, /<a href="#inherits-tags">Mixed<\/a>/ );
 	assert.match( out, /<a href="http:\/\/gutenbergtimes.com\/wordpress-7-2-source-of-truth#not-here">gone<\/a>/ );
 	assert.match( out, /<a href="https:\/\/example.com\/page\/#plugin-hook">elsewhere<\/a>/ );
+} );
+
+test( 'head carries absolute canonical and Open Graph tags', () => {
+	const out = render();
+	const head = out.slice( 0, out.indexOf( '</head>' ) );
+	const desc = head.match( /<meta name="description" content="([^"]*)">/ )[ 1 ];
+	assert.ok( desc );
+	assert.match( head, /<meta property="og:url" content="https:\/\/example.test\/7-2\/">/ );
+	assert.match( head, /<meta property="og:title" content="WordPress 7\.2 Source of Truth">/ );
+	assert.ok( head.includes( `<meta property="og:description" content="${ desc }">` ) );
+	assert.match( head, /<meta property="og:type" content="article">/ );
+	assert.match( head, /<meta property="og:site_name" content="WordPress Source of Truth">/ );
+	assert.ok( ! head.includes( 'og:image' ) );
+	assert.equal( ( out.match( /<h1>/g ) || [] ).length, 1 );
+	assert.match( out, /<html lang="en">/ );
 } );
