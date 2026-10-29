@@ -13,6 +13,15 @@ test( 'stripComments removes plain and Google-escaped comments', () => {
 	assert.equal( stripComments( 'a \\<\\!-- x \\--\\> b' ), 'a  b' );
 } );
 
+test( 'stripComments treats Google-autocorrected closers as closers', () => {
+	assert.equal( stripComments( 'a <!-- x \u2013> b' ), 'a  b' );
+	assert.equal( stripComments( 'a \\<\\!-- x \u2013\\> b' ), 'a  b' );
+	assert.equal( stripComments( 'a <!-- x \u2014> b' ), 'a  b' );
+	assert.equal( stripComments( 'a <!-- x \u2192 b' ), 'a  b' );
+	assert.equal( stripComments( '<!-- x \u2192\n### Next item' ), '\n### Next item' );
+	assert.equal( stripComments( '<!-- x \u2013> keep <!-- y --> end' ), ' keep  end' );
+} );
+
 test( 'findLeaks reports markers and comments with context', () => {
 	assert.deepEqual( findLeaks( '<p>ok</p>' ), [] );
 	assert.equal( findLeaks( '<p>New 🙏</p>' ).length, 1 );

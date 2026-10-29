@@ -164,3 +164,9 @@ test( 'the post\'s own Table of Contents and reading time are not intro', () => 
 	assert.match( keep.intro, /Roadmap/ );
 	assert.match( keep.intro, /Elsewhere/ );
 } );
+
+test( 'a comment closed with an autocorrected en dash keeps the next H3 item', () => {
+	const md = unescapeGoogle( '## **Blocks** \\[blocks\\]\n\n### First\n\nBody one. \\<\\!-- note \u2013\\>\n\n### Second\n\nBody two. <!-- later -->\n\n### Third\n\nBody three.\n' );
+	const out = split( md );
+	assert.deepEqual( out.sections[ 0 ].items.map( ( i ) => i.title ), [ 'First', 'Second', 'Third' ] );
+} );

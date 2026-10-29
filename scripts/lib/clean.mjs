@@ -16,9 +16,10 @@ export function stripMarkers( s ) {
 		.trim();
 }
 
-// Plain comments and Google's escaped form (\<\!-- ... \--\>).
+// Plain comments and Google's escaped form (\<\!-- ... \--\>). Google Docs sometimes
+// autocorrects the closer to an en dash, em dash (\u2013> / \u2014>) or an arrow (\u2192).
 export function stripComments( s ) {
-	return s.replace( /\\?<\\?!--[\s\S]*?\\?--\\?>/g, '' );
+	return s.replace( /\\?<\\?!--[\s\S]*?(?:\\?(?:--|\u2013|\u2014)\\?>|\u2192)/g, '' );
 }
 
 export function findLeaks( html ) {
