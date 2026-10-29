@@ -127,7 +127,7 @@ If a check needs a sign-in you don't have, such as Spacefast, say so and don't g
 - **One release never changes another's output.** Importing or re-importing 7.3 leaves 7.2's page
   alone, apart from the header's version list.
 - **Never touch `7.2/` or `.github/workflows/status-7-2.yml`** in the clone. They belong to
-  `wp-source-of-truth`.
+  the tracking skills, `wp-source-of-truth` and `wp-sot-scan`.
 - **Run `npm test` and `npm run build` before every commit.**
 - **Never create a branch** without asking. Commit on `trunk`.
 

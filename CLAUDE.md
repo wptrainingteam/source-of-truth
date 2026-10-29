@@ -26,7 +26,9 @@ The Source of Truth skills live in `.claude/skills/`. Edit them here, not in a p
 ## Rules
 
 - Run `npm test` and `npm run build` before every commit.
-- Never modify `7.2/` or `.github/workflows/status-7-2.yml`.
+- `7.2/` and `.github/workflows/status-7-2.yml` belong to the tracking skills
+  (`wp-source-of-truth` and `wp-sot-scan`). Only those skills write there. Site work never
+  modifies them.
 - Commit messages describe the change. No AI co-author or "generated with" lines.
 - In interactive sessions, confirm with a person before pushing to `trunk` and before any
   Spacefast action.
