@@ -1,0 +1,9 @@
+---
+title: Dedicated Identity section
+slug: dedicated-identity-section
+tags: [site admin, theme builder, end user]
+---
+
+A new **Appearance > Editor > Identity** screen consolidates your site’s logo, favicon, title, and tagline into one easy-to-find location, with inline editing so you can crop and adjust images right there. This eliminates hunting through **Settings** or digging into templates just to update foundational branding. For new site builders especially, it makes setting up your site’s identity quick and straightforward. Existing site owners have an intuitive place to update the data.  ([76264](https://github.com/WordPress/gutenberg/pull/76264), [76116](https://github.com/WordPress/gutenberg/pull/76116))
+
+<figure class="wp-block-image size-full"><img data-recalc-dims="1" loading="lazy" decoding="async" width="683" height="588" data-attachment-id="46349" data-permalink="https://gutenbergtimes.com/wordpress-7-1-source-of-truth/identity-section-in-site-editor-wp-7-1/" data-orig-file="https://i0.wp.com/gutenbergtimes.com/wp-content/uploads/2026/07/Identity-section-in-site-editor-wp-7-1.png?fit=683%2C588&amp;ssl=1" data-orig-size="683,588" data-comments-opened="1" data-image-title="Identity-section-in-site-editor-wp-7-1" data-image-description="" data-image-caption="" data-large-file="https://i0.wp.com/gutenbergtimes.com/wp-content/uploads/2026/07/Identity-section-in-site-editor-wp-7-1.png?fit=683%2C588&amp;ssl=1" src="https://i0.wp.com/gutenbergtimes.com/wp-content/uploads/2026/07/Identity-section-in-site-editor-wp-7-1.png?resize=683%2C588&amp;ssl=1" alt="" class="wp-image-46349" srcset="https://i0.wp.com/gutenbergtimes.com/wp-content/uploads/2026/07/Identity-section-in-site-editor-wp-7-1.png?w=683&amp;ssl=1 683w, https://i0.wp.com/gutenbergtimes.com/wp-content/uploads/2026/07/Identity-section-in-site-editor-wp-7-1.png?resize=300%2C258&amp;ssl=1 300w" sizes="auto, (max-width: 683px) 100vw, 683px"></figure>

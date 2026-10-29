@@ -1,0 +1,23 @@
+{
+	"version": "7.1",
+	"title": "WordPress 7.1 Source of Truth",
+	"releaseDate": "",
+	"gutenbergRange": "22.7 – 23.6",
+	"author": {
+		"name": "Birgit Pauli-Haack",
+		"url": "https://gutenbergtimes.com/author/admin/"
+	},
+	"published": "2026-08-12",
+	"updated": "2026-10-29",
+	"source": {
+		"type": "gutenbergtimes",
+		"id": "46291",
+		"url": "https://gutenbergtimes.com/wordpress-7-1-source-of-truth/"
+	},
+	"layout": "generic",
+	"milestones": {
+		"beta1": "",
+		"rc1": "",
+		"final": ""
+	}
+}

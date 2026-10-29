@@ -1,0 +1,2 @@
+**March 19th, 2024:** Performance metrics updated in [light of new data](https://github.com/WordPress/gutenberg/issues/57935) and [this comment on one of the metrics](https://github.com/WordPress/gutenberg/issues/58028#issuecomment-2007633881)
+**March 25th:** Release delay and Font library updates [in line with a change in schedule](https://make.wordpress.org/core/2024/03/25/wordpress-6-5-release-delayed-1-week/).

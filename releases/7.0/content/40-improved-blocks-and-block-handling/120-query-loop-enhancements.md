@@ -1,0 +1,9 @@
+---
+title: Query Loop Enhancements
+slug: query-loop-enhancements
+tags: [all]
+---
+
+Query loops now support excluding terms. When the block is locked it now hides design change and choose pattern options. [#73790](https://github.com/WordPress/gutenberg/pull/73790), [#74160](https://github.com/WordPress/gutenberg/pull/74160)
+
+<figure class="wp-block-image size-full"><img data-recalc-dims="1" loading="lazy" decoding="async" width="1135" height="918" data-attachment-id="44986" data-permalink="https://gutenbergtimes.com/wordpress-7-0-source-of-truth/exclude-terms-query-block/" data-orig-file="https://i0.wp.com/gutenbergtimes.com/wp-content/uploads/2026/03/Exclude-Terms-Query-block.png?fit=1135%2C918&amp;ssl=1" data-orig-size="1135,918" data-comments-opened="1" data-image-title="Exclude-Terms-Query-block" data-image-description="" data-image-caption="" data-large-file="https://i0.wp.com/gutenbergtimes.com/wp-content/uploads/2026/03/Exclude-Terms-Query-block.png?fit=1024%2C828&amp;ssl=1" src="https://i0.wp.com/gutenbergtimes.com/wp-content/uploads/2026/03/Exclude-Terms-Query-block.png?resize=1135%2C918&amp;ssl=1" alt="" class="wp-image-44986" srcset="https://i0.wp.com/gutenbergtimes.com/wp-content/uploads/2026/03/Exclude-Terms-Query-block.png?w=1135&amp;ssl=1 1135w, https://i0.wp.com/gutenbergtimes.com/wp-content/uploads/2026/03/Exclude-Terms-Query-block.png?resize=300%2C243&amp;ssl=1 300w, https://i0.wp.com/gutenbergtimes.com/wp-content/uploads/2026/03/Exclude-Terms-Query-block.png?resize=768%2C621&amp;ssl=1 768w, https://i0.wp.com/gutenbergtimes.com/wp-content/uploads/2026/03/Exclude-Terms-Query-block.png?resize=1024%2C828&amp;ssl=1 1024w, https://i0.wp.com/gutenbergtimes.com/wp-content/uploads/2026/03/Exclude-Terms-Query-block.png?resize=1080%2C874&amp;ssl=1 1080w" sizes="auto, (max-width: 1000px) 100vw, 1000px"></figure>

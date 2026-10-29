@@ -1,0 +1,23 @@
+{
+	"version": "6.8",
+	"title": "WordPress 6.8 Source of Truth",
+	"releaseDate": "",
+	"gutenbergRange": "",
+	"author": {
+		"name": "Birgit Pauli-Haack",
+		"url": "https://gutenbergtimes.com/author/admin/"
+	},
+	"published": "2025-03-25",
+	"updated": "2026-10-29",
+	"source": {
+		"type": "gutenbergtimes",
+		"id": "38037",
+		"url": "https://gutenbergtimes.com/source-of-truth-wordpress-6-8/"
+	},
+	"layout": "generic",
+	"milestones": {
+		"beta1": "",
+		"rc1": "",
+		"final": ""
+	}
+}

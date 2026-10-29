@@ -1,0 +1,23 @@
+{
+	"version": "6.2",
+	"title": "WordPress 6.2 Source of Truth",
+	"releaseDate": "",
+	"gutenbergRange": "",
+	"author": {
+		"name": "Anne McCarthy",
+		"url": "https://nomad.blog/author/annezazu/"
+	},
+	"published": "2023-03-01",
+	"updated": "2026-10-29",
+	"source": {
+		"type": "nomadblog",
+		"id": "14761",
+		"url": "https://nomad.blog/2023/03/01/wordpress-6-2-source-of-truth/"
+	},
+	"layout": "generic",
+	"milestones": {
+		"beta1": "",
+		"rc1": "",
+		"final": ""
+	}
+}

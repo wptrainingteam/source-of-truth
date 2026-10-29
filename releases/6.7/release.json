@@ -1,0 +1,23 @@
+{
+	"version": "6.7",
+	"title": "WordPress 6.7 Source of Truth",
+	"releaseDate": "",
+	"gutenbergRange": "",
+	"author": {
+		"name": "Anne McCarthy",
+		"url": "https://gutenbergtimes.com/author/anne/"
+	},
+	"published": "2024-10-18",
+	"updated": "2026-10-29",
+	"source": {
+		"type": "gutenbergtimes",
+		"id": "30495",
+		"url": "https://gutenbergtimes.com/6-7-source-of-truth/"
+	},
+	"layout": "generic",
+	"milestones": {
+		"beta1": "",
+		"rc1": "",
+		"final": ""
+	}
+}
