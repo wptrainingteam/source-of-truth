@@ -124,3 +124,63 @@ test( 'header lists versions newest first with the current one selected', () => 
 	assert.match( h, /<noscript>[\s\S]*href="\/7-2\/"[\s\S]*href="\/7-1\/"[\s\S]*<\/noscript>/ );
 	assert.match( h, /class="brand-mark"[^>]*>7\.1</ );
 } );
+
+const mini = () => ( {
+	intro: 'Intro text.',
+	changelog: '',
+	punted: '',
+	sections: [
+		{ title: 'Admin things', slug: 'admin-things', tags: [ 'site admin', 'end user' ], body: '', items: [
+			{ title: 'Plugin hook', slug: 'plugin-hook', tags: [ 'plugin author' ], flags: [], body: 'See [the other one](https://gutenbergtimes.com/wordpress-7-2-source-of-truth/#inherits-tags) and [gone](http://gutenbergtimes.com/wordpress-7-2-source-of-truth#not-here).' },
+			{ title: 'Inherits tags', slug: 'inherits-tags', tags: [], flags: [], body: 'Back to [hook](https://gutenbergtimes.com/wordpress-7-2-source-of-truth#plugin-hook) or [suffixed](https://gutenbergtimes.com/wordpress-7-2-source-of-truth/#plugin-hook-plugin-author) or [Mixed](https://gutenbergtimes.com/wordpress-7-2-source-of-truth/#Inherits-Tags) or [elsewhere](https://example.com/page/#plugin-hook).' },
+		] },
+		{ title: 'Untagged', slug: 'untagged', tags: [], body: '', items: [
+			{ title: 'Dev item', slug: 'dev-item', tags: [ 'developer' ], flags: [], body: 'Body.' },
+		] },
+	],
+} );
+const POST_META = { ...META, published: '2026-08-12', updated: '2026-09-01', source: { type: 'gutenbergtimes', id: '1', url: 'https://gutenbergtimes.com/wordpress-7-2-source-of-truth/' } };
+
+test( 'published posts show Published and the post modified date, never the import date', () => {
+	const out = render( mini(), POST_META );
+	assert.match( out, /Written by <a [^>]*>Justin Tadlock<\/a> · Published August 12, 2026 · Updated September 1, 2026 · \d+ minute read/ );
+	const same = render( mini(), { ...POST_META, updated: '2026-08-12' } );
+	assert.match( same, /· Published August 12, 2026 · \d+ minute read/ );
+	assert.ok( ! /Updated/.test( same.match( /<p class="byline">[\s\S]*?<\/p>/ )[ 0 ] ) );
+} );
+
+test( 'Doc releases keep Updated in the byline', () => {
+	const out = render( mini(), META );
+	assert.match( out, /· Updated October 23, 2026 · / );
+	assert.ok( ! out.includes( 'Published' ) );
+} );
+
+test( 'a tagged section matches its own tags and its items tags', () => {
+	const out = render( mini(), POST_META );
+	assert.match( out, /<section class="section" id="admin-things" data-tags="site admin,end user,plugin author"/ );
+	assert.match( out, /<section class="section" id="untagged" data-tags="developer"/ );
+} );
+
+test( 'item chips show only the item own tags; inherited tags stay in data-tags', () => {
+	const out = render( mini(), POST_META );
+	const art = out.match( /<article class="item" id="inherits-tags"[\s\S]*?<\/article>/ )[ 0 ];
+	assert.match( art, /data-tags="site admin,end user"/ );
+	assert.ok( ! art.includes( 'class="tags"' ) );
+	const hook = out.match( /<article class="item" id="plugin-hook"[\s\S]*?<\/article>/ )[ 0 ];
+	assert.match( hook, /<p class="tags">\[plugin author\]<\/p>/ );
+} );
+
+test( 'section tag chips come after the section heading', () => {
+	const out = render( mini(), POST_META );
+	assert.match( out, /<section class="section" id="admin-things"[^>]*>\s*<h2 class="h2">Admin things<\/h2>\s*<p class="tags">\[site admin\] \[end user\]<\/p>/ );
+} );
+
+test( 'links to the original post anchors point on-page when the id exists', () => {
+	const out = render( mini(), POST_META );
+	assert.match( out, /<a href="#inherits-tags">the other one<\/a>/ );
+	assert.match( out, /<a href="#plugin-hook">hook<\/a>/ );
+	assert.match( out, /<a href="#plugin-hook">suffixed<\/a>/ );
+	assert.match( out, /<a href="#inherits-tags">Mixed<\/a>/ );
+	assert.match( out, /<a href="http:\/\/gutenbergtimes.com\/wordpress-7-2-source-of-truth#not-here">gone<\/a>/ );
+	assert.match( out, /<a href="https:\/\/example.com\/page\/#plugin-hook">elsewhere<\/a>/ );
+} );

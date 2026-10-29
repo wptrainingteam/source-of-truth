@@ -1,6 +1,7 @@
 // Fills a layout's <!-- sot:* --> slots with one release's content.
 import { marked } from 'marked';
 import { versionSlug } from './versions.mjs';
+import { slugify } from './clean.mjs';
 
 export const esc = ( s ) => String( s ).replace( /[&<>"']/g, ( c ) => ( { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ c ] ) );
 
@@ -40,9 +41,11 @@ function model( structure ) {
 	return structure.sections.map( ( sec ) => {
 		const items = sec.items
 			.filter( ( it ) => ! it.flags.includes( 'punted' ) )
-			.map( ( it ) => ( { ...it, tags: it.tags.length ? it.tags : sec.tags } ) );
-		// A section matches when any of its items does; one untagged item makes it match everyone.
-		const tags = sec.tags.length || items.some( ( it ) => ! it.tags.length ) ? sec.tags : [ ...new Set( items.flatMap( ( it ) => it.tags ) ) ];
+			.map( ( it ) => ( { ...it, ownTags: it.tags, tags: it.tags.length ? it.tags : sec.tags } ) );
+		// A section matches its own tags and any of its items' tags. Untagged, one untagged item makes it match everyone.
+		const itemTags = items.flatMap( ( it ) => it.tags );
+		const tags = sec.tags.length ? [ ...new Set( [ ...sec.tags, ...itemTags ] ) ]
+			: items.some( ( it ) => ! it.tags.length ) ? sec.tags : [ ...new Set( itemTags ) ];
 		return { ...sec, id: id( sec.slug, 'section' ), tags, ownTags: sec.tags, items: items.map( ( it ) => ( { ...it, id: id( it.slug, 'item' ) } ) ) };
 	} );
 }
@@ -70,7 +73,9 @@ export function renderPage( layoutHtml, meta, structure, header ) {
 	const count = words( structure.intro, ...sections.flatMap( ( s ) => [ s.title, s.body, ...s.items.flatMap( ( it ) => [ it.title, it.body ] ) ] ) );
 	const byline = [
 		meta.author?.name ? `Written by ${ meta.author.url ? `<a href="${ esc( meta.author.url ) }">${ esc( meta.author.name ) }</a>` : esc( meta.author.name ) }` : '',
-		meta.updated ? `Updated ${ esc( longDate( meta.updated ) ) }` : '',
+		// A published post shows its own dates; the import date is not an update to the post.
+		isPost && meta.published ? `Published ${ esc( longDate( meta.published ) ) }` : '',
+		meta.updated && ! ( isPost && meta.updated === meta.published ) ? `Updated ${ esc( longDate( meta.updated ) ) }` : '',
 		`${ Math.ceil( count / 200 ) } minute read (${ count.toLocaleString( 'en-US' ) } words)`,
 	].filter( Boolean ).join( ' · ' );
 	const eyebrow = `WORDPRESS ${ esc( meta.version ) }${ meta.releaseDate ? ` · ${ meta.published ? 'RELEASED' : 'SHIPS' } ${ esc( meta.releaseDate.toUpperCase() ) }` : '' }`;
@@ -121,12 +126,12 @@ ${ s.items.map( ( it ) => `      <li><a href="#${ it.id }"><span>${ esc( plain( 
 </ol>`;
 
 	const sectionsHtml = sections.map( ( s ) => `<section class="section" id="${ s.id }" data-tags="${ esc( s.tags.join( ',' ) ) }" data-title="${ esc( s.title ) }">
-  ${ tagLine( s.ownTags ) }
   <h2 class="h2">${ inline( s.title ) }</h2>
+  ${ tagLine( s.ownTags ) }
   ${ s.body ? `<div class="prose">${ md( s.body ) }</div>` : '' }
 ${ s.items.map( ( it ) => `  <article class="item" id="${ it.id }" data-tags="${ esc( it.tags.join( ',' ) ) }" data-title="${ esc( plain( it.title ) ) }">
     <h3>${ inline( it.title ) }</h3>
-    ${ tagLine( it.tags ) }
+    ${ tagLine( it.ownTags ) }
     <div class="prose">${ md( it.body ) }</div>
   </article>` ).join( '\n' ) }
 </section>` ).join( '\n' );
@@ -168,5 +173,27 @@ ${ links.map( ( [ href, b, s ] ) => `    <a href="${ esc( href ) }"><b>${ esc( b
 		}
 		out = out.split( slot ).join( html );
 	}
-	return out;
+	return localAnchors( out, meta.source?.url, sections );
+}
+
+// Links to an anchor in the original post point at the same spot on this page when it exists here.
+const bare = ( url ) => url.replace( /^https?:\/\//i, '' ).replace( /\/$/, '' );
+function localAnchors( html, sourceUrl, sections ) {
+	if ( ! sourceUrl ) return html;
+	const base = bare( sourceUrl.split( '#' )[ 0 ] );
+	const ids = new Set( [ ...html.matchAll( /\bid="([^"]+)"/g ) ].map( ( m ) => m[ 1 ] ) );
+	// Published posts often slug the heading with its tag line: "#<heading>-<tags>".
+	const suffixed = new Map();
+	for ( const el of sections.flatMap( ( s ) => [ s, ...s.items ] ) ) {
+		for ( const t of [ el.ownTags, el.tags ] ) if ( t.length ) suffixed.set( `${ el.id }-${ slugify( t.join( ' ' ) ) }`, el.id );
+	}
+	return html.replace( /href="([^"#]*)#([^"]+)"/g, ( m, url, frag ) => {
+		if ( bare( url ) !== base ) return m;
+		let decoded = frag;
+		try {
+			decoded = decodeURIComponent( frag );
+		} catch {}
+		const target = [ decoded, slugify( decoded ) ].find( ( f ) => ids.has( f ) ) ?? suffixed.get( decoded.toLowerCase() ) ?? suffixed.get( slugify( decoded ) );
+		return target ? `href="#${ target }"` : m;
+	} );
 }

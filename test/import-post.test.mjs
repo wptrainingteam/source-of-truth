@@ -37,7 +37,7 @@ test( 'htmlToMarkdown unbolds tag lines as published posts write them', () => {
 
 test( 'importPost writes releases/<version> from the fixture', () => {
 	const repo = tmp();
-	const r = importPost( post, { repo, url: URL_GT, ...author } );
+	const r = importPost( { ...post, modified: '2026-10-22T08:00:00' }, { repo, url: URL_GT, ...author } );
 	assert.equal( r.version, '7.1' );
 	assert.equal( r.sections, 1 );
 	assert.equal( r.items, 2 );
@@ -46,7 +46,7 @@ test( 'importPost writes releases/<version> from the fixture', () => {
 	assert.equal( meta.releaseDate, 'December 8, 2026' );
 	assert.equal( meta.gutenbergRange, '22.0 – 22.9' );
 	assert.equal( meta.published, '2026-10-20' );
-	assert.match( meta.updated, /^\d{4}-\d{2}-\d{2}$/ );
+	assert.equal( meta.updated, '2026-10-22' );
 	assert.deepEqual( meta.author, { name: 'Birgit Pauli-Haack', url: 'https://gutenbergtimes.com/author/bph/' } );
 	assert.deepEqual( meta.source, { type: 'gutenbergtimes', id: '4242', url: URL_GT } );
 	assert.deepEqual( structure.sections.map( ( s ) => s.title ), [ 'Command Palette everywhere' ] );
@@ -69,4 +69,23 @@ test( 'importPost uses nomadblog for nomad.blog URLs', () => {
 
 test( 'importPost throws when the title has no version', () => {
 	assert.throws( () => importPost( { ...post, title: { rendered: 'Hello' } }, { repo: tmp(), url: URL_GT, ...author } ), /version/i );
+} );
+
+test( 'importPost leaves updated empty when the post has no modified date, never the import date', () => {
+	const repo = tmp();
+	importPost( post, { repo, url: URL_GT, ...author } );
+	const { meta } = readRelease( join( repo, 'releases/7.1' ) );
+	assert.equal( meta.updated, '' );
+} );
+
+test( 'htmlToMarkdown drops script elements, also inside kept figures', () => {
+	const md = htmlToMarkdown( '<figure class="wp-block-video"><iframe src="https://video.wordpress.com/embed/x"></iframe><script src="https://v0.wordpress.com/js/next/videopress-iframe.js?m=1"></script></figure><p>Hi</p><script>alert(1)</script>', URL_GT );
+	assert.ok( ! /<script|videopress-iframe|alert/.test( md ) );
+	assert.ok( md.includes( '<iframe src="https://video.wordpress.com/embed/x"></iframe>' ) );
+} );
+
+test( 'htmlToMarkdown drops blob: images and the figure they leave empty', () => {
+	const md = htmlToMarkdown( '<figure class="wp-block-image"><img decoding="async" src="blob:https://gutenbergtimes.com/e88" alt=""></figure><p>Text <img src="blob:https://x/1" alt="b"> <img src="/a.png" alt="A"></p>', URL_GT );
+	assert.ok( ! /blob:|<figure/.test( md ) );
+	assert.match( md, /https:\/\/gutenbergtimes\.com\/a\.png/ );
 } );

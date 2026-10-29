@@ -28,3 +28,6 @@ One site, built from `releases/<version>/` into `dist/`. Read `README.md` for th
 - Commit messages describe the change. No AI co-author or "generated with" lines.
 - In interactive sessions, confirm with a person before pushing to `trunk` and before any
   Spacefast action.
+- In non-interactive runs (scheduled or cloud), push to `trunk` only if `npm test` and
+  `npm run build` pass and the diff touches only `releases/<version>/` for the release being
+  updated. Otherwise stop and report what happened without pushing.

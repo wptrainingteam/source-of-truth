@@ -52,7 +52,8 @@ export function importDoc( markdown, { repo = REPO, docId = '', docUrl = '' } = 
 
 	const meta = {
 		version, title: `WordPress ${ version } Source of Truth`, updated: new Date().toISOString().slice( 0, 10 ),
-		source: { type: 'gdoc', id: docId, url: docUrl }, milestones,
+		// Only set what is known, so importing a downloaded file keeps a stored Doc ID.
+		source: { type: 'gdoc', ...( docId && { id: docId } ), ...( docUrl && { url: docUrl } ) }, milestones,
 	};
 	Object.assign( meta, facts );
 	writeRelease( join( repo, 'releases', version ), structure, meta );

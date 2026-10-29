@@ -12,7 +12,12 @@ import { writeRelease } from '../lib/release-io.mjs';
 const REPO = resolve( fileURLToPath( new URL( '../..', import.meta.url ) ) );
 
 export function htmlToMarkdown( html, baseUrl ) {
-	const abs = html.replace( /\b(src|href)=(["'])([^"']*)\2/gi, ( m, attr, q, val ) => {
+	// Scripts (videopress loaders repeated inside kept figures) and blob: images never work for a reader.
+	const kept = html
+		.replace( /<script\b[^>]*>[\s\S]*?<\/script>/gi, '' )
+		.replace( /<img\b[^>]*\bsrc=(["'])blob:[^"']*\1[^>]*>/gi, '' )
+		.replace( /<figure\b[^>]*>\s*<\/figure>/gi, '' );
+	const abs = kept.replace( /\b(src|href)=(["'])([^"']*)\2/gi, ( m, attr, q, val ) => {
 		try {
 			return `${ attr }=${ q }${ new URL( val, baseUrl ).href }${ q }`;
 		} catch {
@@ -41,7 +46,8 @@ export function importPost( restPost, { repo = REPO, url, authorName = '', autho
 	const meta = {
 		version,
 		title: `WordPress ${ version } Source of Truth`,
-		updated: new Date().toISOString().slice( 0, 10 ),
+		// The post's own last-modified date; the import date is not an update to the post.
+		updated: restPost.modified?.slice( 0, 10 ) ?? '',
 		published: restPost.date.slice( 0, 10 ),
 		author: { name: authorName, url: authorUrl },
 		...parseReleaseFacts( markdown ),

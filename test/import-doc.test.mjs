@@ -91,3 +91,11 @@ test( 'milestones come only from the Notes tab', () => {
 	const meta = JSON.parse( readFileSync( join( repo, 'releases/7.2/release.json' ), 'utf8' ) );
 	assert.equal( meta.milestones.final, '2026-12-08' );
 } );
+
+test( 'importing from a file without a Doc ID keeps the stored source id and url', () => {
+	const repo = tmp();
+	importDoc( fixture, { repo, docId: 'abc', docUrl: 'https://docs.google.com/document/d/abc/edit' } );
+	importDoc( fixture, { repo } );
+	const meta = JSON.parse( readFileSync( join( repo, 'releases/7.2/release.json' ), 'utf8' ) );
+	assert.deepEqual( meta.source, { type: 'gdoc', id: 'abc', url: 'https://docs.google.com/document/d/abc/edit' } );
+} );
