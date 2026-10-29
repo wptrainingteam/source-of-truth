@@ -89,3 +89,21 @@ test( 'htmlToMarkdown drops blob: images and the figure they leave empty', () =>
 	assert.ok( ! /blob:|<figure/.test( md ) );
 	assert.match( md, /https:\/\/gutenbergtimes\.com\/a\.png/ );
 } );
+
+test( 'htmlToMarkdown leaves href inside pre/code blocks alone', () => {
+	const md = htmlToMarkdown( '<pre><code>&lt;a href="#"&gt;&lt;/a&gt;</code></pre>', URL_GT );
+	assert.ok( md.includes( 'href="#"' ) );
+	assert.ok( ! md.includes( 'gutenbergtimes.com' ) );
+} );
+
+test( 'htmlToMarkdown leaves src inside inline code alone', () => {
+	const md = htmlToMarkdown( '<p>Use <code>&lt;img src="/x.png"&gt;</code> here</p>', URL_GT );
+	assert.ok( md.includes( '/x.png' ) );
+	assert.ok( ! md.includes( 'gutenbergtimes.com' ) );
+} );
+
+test( 'htmlToMarkdown still makes links and images outside code absolute', () => {
+	const md = htmlToMarkdown( '<p><a href="/about/">About</a> <img src="/wp-content/a.png" alt="A"> <code>x()</code></p>', URL_GT );
+	assert.ok( md.includes( 'https://gutenbergtimes.com/about/' ) );
+	assert.ok( md.includes( 'https://gutenbergtimes.com/wp-content/a.png' ) );
+} );

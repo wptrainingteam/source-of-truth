@@ -17,13 +17,16 @@ export function htmlToMarkdown( html, baseUrl ) {
 		.replace( /<script\b[^>]*>[\s\S]*?<\/script>/gi, '' )
 		.replace( /<img\b[^>]*\bsrc=(["'])blob:[^"']*\1[^>]*>/gi, '' )
 		.replace( /<figure\b[^>]*>\s*<\/figure>/gi, '' );
-	const abs = kept.replace( /\b(src|href)=(["'])([^"']*)\2/gi, ( m, attr, q, val ) => {
+	// Code samples must stay verbatim, so mask pre/code regions while links are made absolute.
+	const masked = [];
+	const unmasked = kept.replace( /<(pre|code)\b[^>]*>[\s\S]*?<\/\1>/gi, ( m ) => `\u0000${ masked.push( m ) - 1 }\u0000` );
+	const abs = unmasked.replace( /\b(src|href)=(["'])([^"']*)\2/gi, ( m, attr, q, val ) => {
 		try {
 			return `${ attr }=${ q }${ new URL( val, baseUrl ).href }${ q }`;
 		} catch {
 			return m;
 		}
-	} );
+	} ).replace( /\u0000(\d+)\u0000/g, ( m, i ) => masked[ i ] );
 	const td = new TurndownService( { headingStyle: 'atx', codeBlockStyle: 'fenced' } );
 	td.keep( [ 'kbd', 'iframe', 'video', 'figure' ] );
 	// Keep "[end user] [site admin]" tag lines readable by split().
