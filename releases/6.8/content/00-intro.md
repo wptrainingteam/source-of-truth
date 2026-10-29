@@ -2,14 +2,6 @@ Ahead of WordPress 6.8 Beta release and in absence of Anne McCarthy, we publish 
 
 With me, I mean all the collaborators on this post: Krupal Lakhia, Justin Tadlock, Jonathan Bossenger, and JuanMa Garrido.
 
-Estimated reading time
-
-15–23 minutes
-
-at
-
-3,569 words
-
 _Note: As always, what’s shared here is being actively pursued, but doesn’t necessarily mean each will make it into the final release of WordPress 6.8._
 
 [WordPress 6.8](https://make.wordpress.org/core/6-8/) is set to be released on April 15th, 2025. This release continues refining foundational features introduced in previous versions, focusing on improving data views, query loops, and block interactions. It introduces a more streamlined design experience with a Zoom Out editing approach, expanded style controls, and enhanced typography options. API developments, including the Block Hooks and Interactivity API, aim to enhance extensibility, while speculative loading integration and performance optimizations seek to improve site speed. Accessibility improvements and ongoing support for PHP 8.x ensure WordPress remains user-friendly and forward-compatible.

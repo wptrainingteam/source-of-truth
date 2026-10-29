@@ -6,18 +6,6 @@ As always, feedback is welcomed for improvements for future versions as I consid
 
 Finally, big thank you to the various editors, developers, designers, and more that contributed to this in so many ways from content reviews to technical reviews to creating specific assets.
 
-**Important Note/Guidelines**
-
-This should be used to inspire your own content and to ensure that you have the best information about this release. If you do copy and paste anything here, keep in mind that others might do the same, opening the door for some awkwardness around duplicated content out on the web. 
-
-*   If there are drastic changes, this post will be updated and a changelog will be added.
-*   Each item has been tagged using best guesses with different high level labels so that you can more readily see at a glance who is likely to be most impacted.
-*   Each item has a high level description, visuals (if relevant), adoption strategy (if relevant), and key resources if you want to learn more.
-
-**Changelog**
-
-March 13th, 2023: update “a new way to interact with the site editor” in [light of this PR to remove the navigation section](https://github.com/WordPress/gutenberg/pull/49043)
-
 WordPress 6.2 is set to be [released on March 28th](https://make.wordpress.org/core/2023/01/17/wordpress-6-2-planning-roundup/) with an exciting list of features. The main focus of this release is refinement and ease, with significant improvements in the site editing experience. This includes a revamped approach to navigating between templates and template parts, an additional way to manage menus with the navigation block, and the ability to import widgets to block themes. As always, we’ve improved the block experience with various features like a new distraction-free writing mode and better organized block settings. 
 
 Wrapping up Gutenberg Phase 2 [will be a two-part process](https://make.wordpress.org/core/2023/02/04/phase-2-finale/), beginning with 6.2 and finishing with 6.3. Notably, the Site Editor has improved so significantly that we’re able to [remove the beta label from the Site Editor](https://github.com/WordPress/gutenberg/issues/39293). The changes included in 6.2 create a strong foundation for breaking ground on Phase 3, [which will focus on collaborative workflows](https://wordpress.org/about/roadmap/). However, a new phase doesn’t mean work is done, and we will continue to make improvements to this more powerful experience. From site editing to post writing, blocks are everywhere, and we invite you to experience a new way to WordPress. 

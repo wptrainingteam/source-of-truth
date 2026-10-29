@@ -4,18 +4,6 @@ As always, feedback is welcomed for improvements for future versions as I consid
 
 Finally, big thank you to the various editors, developers, designers, and more that contributed to this in so many ways from content reviews to technical reviews to creating specific assets.
 
-**Important Note/Guidelines**
-
-This should be used to inspire your own content and to ensure that you have the best information about this release. If you do copy and paste anything here, keep in mind that others might do the same, opening the door for some awkwardness around duplicated content out on the web. 
-
-*   If there are drastic changes, this post will be updated and a changelog will be added.
-*   Each item has been tagged using best guesses with different high level labels so that you can more readily see at a glance who is likely to be most impacted.
-*   Each item has a high level description, visuals (if relevant), adoption strategy (if relevant), and key resources if you want to learn more.
-
-**Changelog**
-
-**July 17th:** initial public launch.
-
 WordPress 6.3 is set to launch on August 8th, 2023 bringing with it cohesive site editing thanks to expanded functionality, richer interfaces, and a focus on a polished experience. The culmination of this work enables you to build and launch your entire website seamlessly within the Site Editor. Create and edit pages or patterns, style every detail, manage your menus in isolation or within the context of templates, and navigate it all with the Command Palette. 
 
 Taken together with WordPress 6.2, this marks the wrap of Gutenberg Phase 2 (Customization) and the beginnings of Phase 3, [which will focus on collaborative workflows](https://wordpress.org/about/roadmap/). As before, a new phase doesn’t mean work is done, and we will continue to make improvements to this powerful experience. 
