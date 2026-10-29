@@ -29,6 +29,12 @@ test( 'htmlToMarkdown emits atx headings and unescaped bare tag lines', () => {
 	assert.match( md, /^\[end user\] \[site admin\]$/m );
 } );
 
+test( 'htmlToMarkdown unbolds tag lines as published posts write them', () => {
+	const md = htmlToMarkdown( '<p><strong>[developer][site admin]</strong></p><p><strong>[<strong>all</strong>]</strong></p>', URL_GT );
+	assert.match( md, /^\[developer\] \[site admin\]$/m );
+	assert.match( md, /^\[all\]$/m );
+} );
+
 test( 'importPost writes releases/<version> from the fixture', () => {
 	const repo = tmp();
 	const r = importPost( post, { repo, url: URL_GT, ...author } );

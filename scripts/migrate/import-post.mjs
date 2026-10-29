@@ -21,7 +21,9 @@ export function htmlToMarkdown( html, baseUrl ) {
 	const td = new TurndownService( { headingStyle: 'atx', codeBlockStyle: 'fenced' } );
 	td.keep( [ 'kbd', 'iframe', 'video', 'figure' ] );
 	// Keep "[end user] [site admin]" tag lines readable by split().
-	const md = td.turndown( abs ).replace( /\\([[\]])/g, '$1' );
+	const md = td.turndown( abs ).replace( /\\([[\]])/g, '$1' )
+		// Published posts bold their tag lines: "**[developer][site admin]**" or "**[**all**]**".
+		.replace( /^[* \t]*((?:\[[^\]]+\][* \t]*)+)$/gm, ( m, tags ) => tags.replace( /\*/g, '' ).replace( /\][ \t]*\[/g, '] [' ).trim() );
 	return md.replace( /\n{3,}/g, '\n\n' ).trim();
 }
 
