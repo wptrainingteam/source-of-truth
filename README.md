@@ -8,7 +8,7 @@ Markdown plus a `release.json`, and `npm run build` turns all of them into one s
 
 | Version | Source | Link |
 |---|---|---|
-| 7.2 | Google Doc, not imported yet | n/a |
+| 7.2 | Google Doc | [Draft](https://docs.google.com/document/d/1N2sSjT4sxgrbTneUhYFOjOkUvq0CNwsYiSgIhY134Tk/edit) |
 | 7.1 | Gutenberg Times | [Original post](https://gutenbergtimes.com/wordpress-7-1-source-of-truth/) |
 | 7.0 | Gutenberg Times | [Original post](https://gutenbergtimes.com/wordpress-7-0-source-of-truth/) |
 | 6.9 | Gutenberg Times | [Original post](https://gutenbergtimes.com/wordpress-6-9-source-of-truth/) |
