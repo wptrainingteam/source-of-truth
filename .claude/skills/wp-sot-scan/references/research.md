@@ -21,8 +21,8 @@ Replace `X-Y` with the release slug (for example `7-3`):
    (`https://core.trac.wordpress.org/report/6`) and tickets on the release milestone. Trac puts
    a JavaScript browser check in front of scripted requests. Get the same facts from the GitHub
    mirror instead: commits in `WordPress/wordpress-develop` whose message says `Fixes #N` or
-   `See #N`, and PRs there that reference the ticket. `scripts/check-status.mjs` already does
-   this.
+   `See #N`, and PRs there that reference the ticket. The scan's `scripts/lib/lookup.mjs`
+   already does this.
 5. **The previous release's punted list, now this release's Backlog tab.** Items carried over
    from the last release are the most likely to slip again, so check each one. For items
    punting from this release, also check the release's GitHub project board, which has a column
