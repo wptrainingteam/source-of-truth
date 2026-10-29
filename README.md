@@ -58,5 +58,5 @@ is nothing to install.
 ## Other folders
 
 - `scripts/migrate/` was a one-time import of 6.2 to 7.1 from Gutenberg Times and Nomad Blog.
-- `7.2/notes/` holds the 7.2 working notes used by the `wp-sot-scan` skill. It is not part of
-  the site.
+- `<version>/notes/` (for example `7.3/notes/`) is the `wp-sot-scan` skill's working folder. The
+  scan creates it on its first run for a release. It is not part of the site.
