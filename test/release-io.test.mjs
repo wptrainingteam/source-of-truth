@@ -66,3 +66,25 @@ test( 'empty changelog and punted write no file', () => {
 	assert.equal( r.changelog, '' );
 	assert.equal( r.punted, '' );
 } );
+
+test( 'order round-trips past the 10th section and 100th item', () => {
+	const d = tmp();
+	const s = structure();
+	s.sections = Array.from( { length: 12 }, ( _, i ) => ( {
+		title: `Section ${ i }`, slug: `section-${ i }`, tags: [], body: '',
+		items: Array.from( { length: i === 11 ? 101 : 12 }, ( _, j ) => item( `Item ${ j }`, `item-${ j }` ) ),
+	} ) );
+	writeRelease( d, s, {} );
+	assert.deepEqual( readRelease( d ).structure, s );
+} );
+
+test( 'missing frontmatter throws an error naming the file; CRLF is accepted', () => {
+	const d = tmp();
+	writeRelease( d, structure(), {} );
+	const f = join( d, 'content', '10-priority-items', '010-alpha-the-first.md' );
+	const text = readFileSync( f, 'utf8' );
+	writeFileSync( f, text.replace( /\n/g, '\r\n' ) );
+	assert.deepEqual( readRelease( d ).structure, structure() );
+	writeFileSync( f, 'no frontmatter here' );
+	assert.throws( () => readRelease( d ), /010-alpha-the-first\.md/ );
+} );

@@ -25,8 +25,9 @@ function frontmatter( fields, body ) {
 	return `---\n${ lines.join( '\n' ) }\n---\n\n${ body }\n`;
 }
 
-function parse( text ) {
-	const m = text.match( /^---\n([\s\S]*?)\n---\n([\s\S]*)$/ );
+function parse( text, file ) {
+	const m = text.replace( /\r\n/g, '\n' ).match( /^---\n([\s\S]*?)\n---\n([\s\S]*)$/ );
+	if ( ! m ) throw new Error( `Missing frontmatter in ${ file }` );
 	const data = {};
 	for ( const line of m[ 1 ].split( '\n' ) ) {
 		const i = line.indexOf( ': ' );
@@ -38,6 +39,7 @@ function parse( text ) {
 }
 
 const body = ( text ) => text.replace( /\n$/, '' );
+const num = ( name ) => parseInt( name, 10 );
 const pad = ( n, w ) => String( n ).padStart( w, '0' );
 
 function merge( base, meta ) {
@@ -81,15 +83,15 @@ export function readRelease( dir ) {
 	const sections = readdirSync( content, { withFileTypes: true } )
 		.filter( ( e ) => e.isDirectory() )
 		.map( ( e ) => e.name )
-		.sort()
+		.sort( ( a, b ) => num( a ) - num( b ) )
 		.map( ( name ) => {
 			const sdir = join( content, name );
-			const { data, body: sbody } = parse( readFileSync( join( sdir, '_section.md' ), 'utf8' ) );
+			const { data, body: sbody } = parse( readFileSync( join( sdir, '_section.md' ), 'utf8' ), join( sdir, '_section.md' ) );
 			const items = readdirSync( sdir )
 				.filter( ( f ) => f !== '_section.md' && f.endsWith( '.md' ) )
-				.sort()
+				.sort( ( a, b ) => num( a ) - num( b ) )
 				.map( ( f ) => {
-					const it = parse( readFileSync( join( sdir, f ), 'utf8' ) );
+					const it = parse( readFileSync( join( sdir, f ), 'utf8' ), join( sdir, f ) );
 					return { title: it.data.title, slug: it.data.slug, tags: it.data.tags ?? [], flags: it.data.flags ?? [], body: it.body };
 				} );
 			return { title: data.title, slug: data.slug, tags: data.tags ?? [], body: sbody, items };
