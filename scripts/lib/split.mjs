@@ -32,6 +32,59 @@ function headingTags( text ) {
 	if ( ! m ) return { text, tags: [] };
 	return { text: text.slice( 0, m.index ).trim(), tags: [ ...m[ 0 ].matchAll( /\[([^\]]+)\]/g ) ].map( ( t ) => t[ 1 ] ) };
 }
+// Older posts put "Important Note/Guidelines" and "Changelog" as bold-only paragraphs before the Overview H2.
+const BOLD_ONLY = /^\*\*([^*]+)\*\*$/;
+const OLD_BLOCKS = /^(important note|guidelines|changelog|table of contents)/i;
+function takeBoldBlocks( lines ) {
+	const kept = [];
+	let changelog = '';
+	for ( let i = 0; i < lines.length; i++ ) {
+		const m = lines[ i ].trim().match( BOLD_ONLY );
+		const name = m && OLD_BLOCKS.test( m[ 1 ].trim() ) ? m[ 1 ].trim().toLowerCase() : '';
+		if ( ! name || name.startsWith( 'table' ) ) {
+			kept.push( lines[ i ] );
+			continue;
+		}
+		let end = i + 1;
+		while ( end < lines.length ) {
+			const n = lines[ end ].trim().match( BOLD_ONLY );
+			if ( n && OLD_BLOCKS.test( n[ 1 ].trim() ) ) break;
+			end++;
+		}
+		if ( name === 'changelog' ) changelog = lines.slice( i + 1, end ).join( '\n' ).trim();
+		i = end - 1;
+	}
+	return { lines: kept, changelog };
+}
+
+// The post's own Table of Contents (a list of in-page #anchor links) and "Estimated reading time" lines.
+const TOC_ITEM = /^\s*(\d+\.|[*-])\s+\[.*\]\([^)\s]*#[^)\s]*\)\s*$/;
+function stripPostFurniture( lines ) {
+	const out = [];
+	for ( let i = 0; i < lines.length; i++ ) {
+		const t = lines[ i ].trim();
+		if ( /^(\*\*)?Table of Contents(\*\*)?$/i.test( t ) ) continue;
+		if ( TOC_ITEM.test( lines[ i ] ) ) {
+			let j = i;
+			while ( j < lines.length && ( TOC_ITEM.test( lines[ j ] ) || lines[ j ].trim() === '' ) ) j++;
+			// Only drop a list made up entirely of anchor links; a mixed list is real content.
+			const LIST = /^\s*(\d+\.|[*-])\s/;
+			const before = out.findLast( ( l ) => l.trim() !== '' );
+			if ( ! ( before && LIST.test( before ) ) && ! ( lines[ j ] && LIST.test( lines[ j ] ) ) ) {
+				i = j - 1;
+				continue;
+			}
+		}
+		if ( /^Estimated reading time$/i.test( t ) ) {
+			const end = lines.findIndex( ( l, k ) => k > i && /^[\d,]+ words$/.test( l.trim() ) );
+			if ( end !== -1 && end - i <= 8 ) i = end;
+			continue;
+		}
+		out.push( lines[ i ] );
+	}
+	return out;
+}
+
 const union = ( a, b ) => [ ...new Set( [ ...a, ...b ] ) ];
 
 const clean = ( lines ) => stripMarkers( stripComments( lines.join( '\n' ) ) ).replace( /[ \t]+$/gm, '' ).replace( /\n{3,}/g, '\n\n' ).trim();
@@ -46,8 +99,9 @@ export function split( markdown ) {
 	if ( /^# /.test( lines[ 0 ] ) ) lines = lines.slice( 1 );
 
 	const { before, blocks: h2s } = blocks( lines, headingIndexes( lines, '## ' ) );
-	const intro = [ ...before ];
-	let changelog = '';
+	const old = takeBoldBlocks( before );
+	const intro = [ ...old.lines ];
+	let changelog = old.changelog;
 	const entries = [];
 
 	h2s.forEach( ( block ) => {
@@ -97,5 +151,5 @@ export function split( markdown ) {
 		};
 	} );
 
-	return { intro: clean( intro ), changelog, punted: '', sections };
+	return { intro: clean( stripPostFurniture( intro ) ), changelog, punted: '', sections };
 }

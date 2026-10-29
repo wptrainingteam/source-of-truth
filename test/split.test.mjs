@@ -124,3 +124,43 @@ test( 'published posts: trailing [tags] in H2 and H3 headings become tags, not t
 	assert.deepEqual( sections[ 0 ].items[ 1 ].tags, [ 'site admin' ] );
 	assert.deepEqual( sections[ 0 ].items[ 2 ].tags, [ 'all' ] );
 } );
+
+const OLD_BEFORE = [
+	'Welcome line.', '',
+	'**Important Note/Guidelines**', '', 'Use this to inspire your own content.', '',
+	'*   Each item has been tagged using best guesses.', '*   Each item has a description.', '',
+	'**Changelog**', '', '**July 17th:** initial public launch.', '',
+	'## Overview', '', 'WordPress 6.3 is set to launch.', '',
+	'### Important links:', '', '*   [Roadmap](https://make.wordpress.org/x)', '',
+	'## Priority Items', '', '### One', '', 'A', '',
+].join( '\n' );
+
+test( 'old posts: bold Important Note and Changelog paragraphs before the Overview are not intro', () => {
+	const r = split( OLD_BEFORE );
+	assert.doesNotMatch( r.intro, /Important Note|Each item has been tagged|inspire your own|Changelog|initial public launch/ );
+	assert.match( r.intro, /Welcome line\./ );
+	assert.match( r.intro, /WordPress 6\.3 is set to launch\./ );
+	assert.match( r.intro, /Important links/ );
+	assert.equal( r.changelog, '**July 17th:** initial public launch.' );
+} );
+
+test( 'old posts: bold Changelog with several paragraphs stops at the next recognised heading', () => {
+	const r = split( 'Hi.\n\n**Changelog**\n\nMarch 13th: update.\n\nMarch 1st: first.\n\n## Overview\n\nBody.\n\n## Sec\n\n### I\n\nx\n' );
+	assert.equal( r.changelog, 'March 13th: update.\n\nMarch 1st: first.' );
+	assert.equal( r.intro, 'Hi.\n\nBody.' );
+} );
+
+test( 'the post\'s own Table of Contents and reading time are not intro', () => {
+	const toc = [
+		'**Table of Contents**', '',
+		'1.  [Overview](https://x.test/p/#overview) ',
+		'    1.  [Important links:](https://x.test/p/#important-links)',
+		'2.  [Create variations [theme author] [end user]](https://x.test/p/#create)', '',
+	].join( '\n' );
+	const md = `Hi.\n\nEstimated reading time\n\n37–56 minutes\n\nat\n\n8,851 words\n\nKeep me.\n\n## Overview\n\nOver.\n\n${ toc }\nAfter the list.\n\n## S\n\n### I\n\nx\n`;
+	const r = split( md );
+	assert.equal( r.intro, 'Hi.\n\nKeep me.\n\nOver.\n\nAfter the list.' );
+	const keep = split( '## Overview\n\nSee:\n\n*   [Roadmap](https://make.wordpress.org/x)\n*   [Elsewhere](https://x.test/p/#a)\n\n## S\n\n### I\n\nx\n' );
+	assert.match( keep.intro, /Roadmap/ );
+	assert.match( keep.intro, /Elsewhere/ );
+} );
