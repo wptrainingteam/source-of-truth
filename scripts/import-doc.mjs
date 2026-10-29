@@ -9,7 +9,7 @@ import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { split } from './lib/split.mjs';
 import { writeRelease } from './lib/release-io.mjs';
-import { unescapeGoogle } from './lib/clean.mjs';
+import { unescapeGoogle, stripComments, stripMarkers } from './lib/clean.mjs';
 
 const REPO = resolve( fileURLToPath( new URL( '..', import.meta.url ) ) );
 
@@ -33,10 +33,12 @@ export function importDoc( markdown, { repo = REPO, docId = '', docUrl = '' } = 
 	const releaseDate = postText.match( /scheduled for release on ([^.]+?)\./i )?.[ 1 ] ?? '';
 	const gutenbergRange = postText.match( /Gutenberg plugin versions ([\d.]+\s*[–-]\s*[\d.]+)/ )?.[ 1 ] ?? '';
 
-	// Milestones come from the Notes schedule table, e.g. "| Beta 1 | October 20, 15:00 UTC |".
+	// Milestones come from the Notes tab's schedule table, e.g. "| Beta 1 | October 20, 15:00 UTC |".
+	const notesH1 = h1s.find( ( i ) => /^# \**Notes\b/i.test( lines[ i ] ) );
+	const notes = notesH1 === undefined ? '' : block( notesH1 ).join( '\n' );
 	const year = releaseDate.match( /\d{4}/ )?.[ 0 ];
 	const milestone = ( label ) => {
-		const m = src.match( new RegExp( `^\\|\\s*${ label }\\b[^|]*\\|\\s*([A-Z][a-z]+ \\d{1,2})\\b`, 'm' ) );
+		const m = notes.match( new RegExp( `^\\|\\s*${ label }\\b[^|]*\\|\\s*([A-Z][a-z]+ \\d{1,2})\\b`, 'm' ) );
 		const d = m && year ? new Date( `${ m[ 1 ] }, ${ year } 12:00 UTC` ) : null;
 		return d && ! isNaN( d ) ? d.toISOString().slice( 0, 10 ) : undefined;
 	};
@@ -45,7 +47,7 @@ export function importDoc( markdown, { repo = REPO, docId = '', docUrl = '' } = 
 
 	const structure = split( postText );
 	const puntedH1 = h1s.find( ( i ) => i > postStart && /punt/i.test( lines[ i ] ) );
-	structure.punted = puntedH1 === undefined ? '' : block( puntedH1 ).join( '\n' ).trim();
+	structure.punted = puntedH1 === undefined ? '' : stripMarkers( stripComments( block( puntedH1 ).join( '\n' ) ) );
 
 	const meta = {
 		version, title: `WordPress ${ version } Source of Truth`, updated: new Date().toISOString().slice( 0, 10 ),

@@ -68,3 +68,26 @@ test( 'rejects a Google sign-in page', () => {
 test( 'rejects a single-tab export with no Source of Truth H1', () => {
 	assert.throws( () => importDoc( '# **Notes**\n\nstuff\n', { repo: tmp() } ), /tabs/ );
 } );
+
+test( 'punted text is stripped of markers and comments', () => {
+	const repo = tmp();
+	const doc = fixture.replace( '# **Punted from 7.2**\n', '# **Punted from 7.2**\n\nReal-time collaboration 🏈 <!-- check -->\n' );
+	importDoc( doc, { repo } );
+	const t = readFileSync( join( repo, 'releases/7.2/content/punted.md' ), 'utf8' );
+	assert.match( t, /Real-time collaboration/ );
+	assert.doesNotMatch( t, /🏈|<!--/ );
+} );
+
+test( 'an empty Punted tab writes no punted.md', () => {
+	const repo = tmp();
+	importDoc( fixture, { repo } );
+	assert.ok( ! existsSync( join( repo, 'releases/7.2/content/punted.md' ) ) );
+} );
+
+test( 'milestones come only from the Notes tab', () => {
+	const repo = tmp();
+	const doc = fixture.replace( '# **Notes**', '| Final | January 5 |\n\n# **Notes**' );
+	importDoc( doc, { repo } );
+	const meta = JSON.parse( readFileSync( join( repo, 'releases/7.2/release.json' ), 'utf8' ) );
+	assert.equal( meta.milestones.final, '2026-12-08' );
+} );
