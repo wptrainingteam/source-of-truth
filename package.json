@@ -9,7 +9,7 @@
 		"build": "node scripts/build.mjs",
 		"test": "node --test test/",
 		"import:doc": "node scripts/import-doc.mjs",
-		"migrate:post": "node scripts/migrate-post.mjs"
+		"migrate:post": "node scripts/migrate/import-post.mjs"
 	},
 	"dependencies": {
 		"marked": "18.0.14",
