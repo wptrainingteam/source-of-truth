@@ -20,6 +20,18 @@ Markdown plus a `release.json`, and `npm run build` turns all of them into one s
 | 6.3 | Nomad Blog | [Original post](https://nomad.blog/2023/07/17/wordpress-6-3-source-of-truth/) |
 | 6.2 | Nomad Blog | [Original post](https://nomad.blog/2023/03/01/wordpress-6-2-source-of-truth/) |
 
+## Prerequisites
+
+- Node 20 or later. Run `npm ci` once after you clone.
+- Push access to `wptrainingteam/source-of-truth`, and `gh` signed in (`gh auth status`).
+- Claude Code, run from inside the clone, to use the skills.
+- The release's Google Doc shared as "anyone with the link can view", so the import can download
+  it. The weekly scan needs "anyone with the link can comment".
+- For the weekly scan only: macOS, because the scan puts its block on the clipboard, and Claude in
+  Chrome connected with permission to act on `core.trac.wordpress.org` and `docs.google.com`. The
+  full checklist, including a Chrome download setting for Trac, is in "Before the first run" in
+  `.claude/skills/wp-sot-scan/SKILL.md`.
+
 ## Add or update a release
 
 1. Import the Google Doc: `npm run -s import:doc -- <doc-id-or-url>`. This writes
