@@ -10,3 +10,8 @@ test( 'parses release date and Gutenberg range', () => {
 test( 'leaves absent fields unset', () => {
 	assert.deepEqual( parseReleaseFacts( 'Nothing here.' ), {} );
 } );
+
+test( 'accepts singular "version" and a range that ends a sentence', () => {
+	assert.deepEqual( parseReleaseFacts( 'From the Gutenberg plugin version 22.7 – 23.6 here.' ), { gutenbergRange: '22.7 – 23.6' } );
+	assert.deepEqual( parseReleaseFacts( 'Gutenberg plugin versions 22.7 - 22.9.' ), { gutenbergRange: '22.7 - 22.9' } );
+} );
