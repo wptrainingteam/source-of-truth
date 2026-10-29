@@ -34,24 +34,24 @@ function blocks( lines, idx ) {
 }
 
 export function split( markdown ) {
-	let lines = markdown.split( '\n' );
+	let lines = stripComments( markdown ).split( '\n' );
 	if ( /^# /.test( lines[ 0 ] ) ) lines = lines.slice( 1 );
 
 	const { before, blocks: h2s } = blocks( lines, headingIndexes( lines, '## ' ) );
 	const intro = [ ...before ];
 	let changelog = '';
-	const sections = [];
+	const entries = [];
 
-	h2s.forEach( ( block, n ) => {
+	h2s.forEach( ( block ) => {
 		const { text: title } = parseFlags( block[ 0 ].slice( 3 ) );
-		let body = block.slice( 1 );
+		const body = block.slice( 1 );
 		const kind = title.toLowerCase();
 
 		if ( kind.startsWith( 'changelog' ) ) {
 			changelog = clean( body );
 			return;
 		}
-		if ( kind.startsWith( 'important note' ) || kind.includes( 'guidelines' ) || kind === 'tags' ) return;
+		if ( kind.startsWith( 'important note' ) || kind === 'guidelines' || kind === 'tags' ) return;
 		if ( kind.startsWith( 'overview' ) ) {
 			const o = blocks( body, headingIndexes( body, '### ' ) );
 			intro.push( ...o.before );
@@ -61,15 +61,20 @@ export function split( markdown ) {
 			return;
 		}
 
-		// The closing --- and thank-you line after the last H3 belong to the intro, not the last section.
-		if ( n === h2s.length - 1 ) {
-			const hr = body.findLastIndex( ( l ) => l.trim() === '---' );
-			if ( hr !== -1 && ! body.slice( hr ).some( ( l ) => /^### /.test( l ) ) ) body = body.slice( 0, hr );
-		}
+		entries.push( { title, body } );
+	} );
 
+	// The closing --- and thank-you line after the last item belong to the intro, not the last section.
+	const last = entries.at( -1 );
+	if ( last ) {
+		const hr = last.body.findLastIndex( ( l ) => l.trim() === '---' );
+		if ( hr !== -1 && ! last.body.slice( hr ).some( ( l ) => /^### /.test( l ) ) ) last.body = last.body.slice( 0, hr );
+	}
+
+	const sections = entries.map( ( { title, body } ) => {
 		const h3 = blocks( body, headingIndexes( body, '### ' ) );
 		const pre = takeTags( h3.before );
-		sections.push( {
+		return {
 			title,
 			slug: slugify( title ),
 			tags: pre.tags,
@@ -79,7 +84,7 @@ export function split( markdown ) {
 				const rest = takeTags( b.slice( 1 ) );
 				return { title: item.text, slug: slugify( item.text ), tags: rest.tags, flags: item.flags, body: clean( rest.lines ) };
 			} ),
-		} );
+		};
 	} );
 
 	return { intro: clean( intro ), changelog, punted: '', sections };

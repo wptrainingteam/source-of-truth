@@ -83,3 +83,31 @@ test( '6.9 style: no tag lines, items split on H3', () => {
 	assert.deepEqual( r.sections[ 0 ].items.map( ( i ) => i.title ), [ 'One', 'Two' ] );
 	assert.deepEqual( r.sections[ 0 ].items[ 0 ].tags, [] );
 } );
+
+test( 'closing hr and thank-you are trimmed from the last section even when Changelog is the last H2', () => {
+	const md = '## Sec\n\n### Item\n\nBody\n\n---\n\nThanks all.\n\n## Changelog\n\nFirst edition.\n';
+	const r = split( md );
+	assert.equal( r.sections[ 0 ].items[ 0 ].body, 'Body' );
+	assert.equal( r.changelog, 'First edition.' );
+} );
+
+test( 'multi-line comments containing structure are not parsed', () => {
+	const md = '## Sec\n\n### Item\n\nBody\n\n<!--\n## Fake\n### Fake item\n==[x]==\n---\n-->\n\nMore\n';
+	const r = split( md );
+	assert.deepEqual( r.sections.map( ( x ) => x.title ), [ 'Sec' ] );
+	assert.deepEqual( r.sections[ 0 ].items.map( ( i ) => i.title ), [ 'Item' ] );
+	assert.deepEqual( r.sections[ 0 ].items[ 0 ].tags, [] );
+	assert.equal( r.sections[ 0 ].items[ 0 ].body, 'Body\n\nMore' );
+} );
+
+test( 'comments in headings do not leak into titles or slugs', () => {
+	const r = split( '## Sec <!-- x -->\n\n### Foo <!-- todo -->\n\nB\n' );
+	assert.equal( r.sections[ 0 ].title, 'Sec' );
+	assert.equal( r.sections[ 0 ].items[ 0 ].title, 'Foo' );
+	assert.equal( r.sections[ 0 ].items[ 0 ].slug, 'foo' );
+} );
+
+test( 'only "important note" and an exact "guidelines" title are dropped', () => {
+	const r = split( '## Guidelines\n\nx\n\n## Important note/guidelines\n\ny\n\n## Block guidelines for themes\n\n### I\n\nz\n' );
+	assert.deepEqual( r.sections.map( ( x ) => x.title ), [ 'Block guidelines for themes' ] );
+} );
