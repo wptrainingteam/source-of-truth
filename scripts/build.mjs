@@ -75,8 +75,8 @@ export function build( repo = REPO, outDir = join( repo, 'dist' ), baseUrl = rea
 		pages.push( join( dir, 'index.html' ) );
 	};
 	rendered.forEach( ( page ) => write( join( outDir, page.slug ), page ) );
-	if ( rendered[ 0 ] ) write( outDir, rendered[ 0 ] );
 	if ( rendered[ 0 ] ) {
+		write( outDir, rendered[ 0 ] );
 		const generic = readFileSync( join( repo, 'layouts', 'generic', 'layout.html' ), 'utf8' );
 		const page404 = notFound( generic, renderHeader( rendered[ 0 ].version, all ), rendered[ 0 ] );
 		const leaks = findLeaks( page404 );
