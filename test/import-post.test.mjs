@@ -43,6 +43,8 @@ test( 'importPost writes releases/<version> from the fixture', () => {
 	assert.equal( r.items, 2 );
 	const { meta, structure } = readRelease( join( repo, 'releases/7.1' ) );
 	assert.equal( meta.title, 'WordPress 7.1 Source of Truth' );
+	assert.equal( meta.releaseDate, 'December 8, 2026' );
+	assert.equal( meta.gutenbergRange, '22.0 – 22.9' );
 	assert.equal( meta.published, '2026-10-20' );
 	assert.match( meta.updated, /^\d{4}-\d{2}-\d{2}$/ );
 	assert.deepEqual( meta.author, { name: 'Birgit Pauli-Haack', url: 'https://gutenbergtimes.com/author/bph/' } );

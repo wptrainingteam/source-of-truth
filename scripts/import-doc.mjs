@@ -9,6 +9,7 @@ import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { split } from './lib/split.mjs';
 import { writeRelease } from './lib/release-io.mjs';
+import { parseReleaseFacts } from './lib/release-facts.mjs';
 import { unescapeGoogle, stripComments, stripMarkers } from './lib/clean.mjs';
 
 const REPO = resolve( fileURLToPath( new URL( '..', import.meta.url ) ) );
@@ -30,8 +31,8 @@ export function importDoc( markdown, { repo = REPO, docId = '', docUrl = '' } = 
 	const version = lines[ postStart ].match( /(\d+\.\d+)/ )?.[ 1 ];
 	if ( ! version ) throw new Error( `No version number in heading: ${ lines[ postStart ] }` );
 
-	const releaseDate = postText.match( /scheduled for release on ([^.]+?)\./i )?.[ 1 ] ?? '';
-	const gutenbergRange = postText.match( /Gutenberg plugin versions ([\d.]+\s*[–-]\s*[\d.]+)/ )?.[ 1 ] ?? '';
+	const facts = parseReleaseFacts( postText );
+	const releaseDate = facts.releaseDate ?? '';
 
 	// Milestones come from the Notes tab's schedule table, e.g. "| Beta 1 | October 20, 15:00 UTC |".
 	const notesH1 = h1s.find( ( i ) => /^# \**Notes\b/i.test( lines[ i ] ) );
@@ -53,8 +54,7 @@ export function importDoc( markdown, { repo = REPO, docId = '', docUrl = '' } = 
 		version, title: `WordPress ${ version } Source of Truth`, updated: new Date().toISOString().slice( 0, 10 ),
 		source: { type: 'gdoc', id: docId, url: docUrl }, milestones,
 	};
-	if ( releaseDate ) meta.releaseDate = releaseDate;
-	if ( gutenbergRange ) meta.gutenbergRange = gutenbergRange;
+	Object.assign( meta, facts );
 	writeRelease( join( repo, 'releases', version ), structure, meta );
 
 	const items = structure.sections.flatMap( ( s ) => s.items );

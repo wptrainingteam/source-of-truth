@@ -6,6 +6,7 @@ import { resolve, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import TurndownService from 'turndown';
 import { split } from '../lib/split.mjs';
+import { parseReleaseFacts } from '../lib/release-facts.mjs';
 import { writeRelease } from '../lib/release-io.mjs';
 
 const REPO = resolve( fileURLToPath( new URL( '../..', import.meta.url ) ) );
@@ -32,7 +33,8 @@ export function importPost( restPost, { repo = REPO, url, authorName = '', autho
 	const version = title.match( /WordPress (\d+\.\d+)/ )?.[ 1 ];
 	if ( ! version ) throw new Error( `No version number in post title: ${ title }` );
 
-	const structure = split( htmlToMarkdown( restPost.content.rendered, url ) );
+	const markdown = htmlToMarkdown( restPost.content.rendered, url );
+	const structure = split( markdown );
 	structure.punted = '';
 
 	const host = new URL( url ).hostname;
@@ -42,6 +44,7 @@ export function importPost( restPost, { repo = REPO, url, authorName = '', autho
 		updated: new Date().toISOString().slice( 0, 10 ),
 		published: restPost.date.slice( 0, 10 ),
 		author: { name: authorName, url: authorUrl },
+		...parseReleaseFacts( markdown ),
 		source: { type: host.endsWith( 'nomad.blog' ) ? 'nomadblog' : 'gutenbergtimes', id: String( restPost.id ), url },
 	};
 	writeRelease( join( repo, 'releases', version ), structure, meta );
