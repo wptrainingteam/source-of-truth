@@ -26,6 +26,14 @@ function takeTags( lines ) {
 	return { tags, lines: lines.filter( ( _, j ) => j !== i ) };
 }
 
+// Published posts put the audience tags at the end of the heading: "Title [end user] [site admin]".
+function headingTags( text ) {
+	const m = text.match( /(?:\s*\[[^\][]+\](?!\())+\s*$/ );
+	if ( ! m ) return { text, tags: [] };
+	return { text: text.slice( 0, m.index ).trim(), tags: [ ...m[ 0 ].matchAll( /\[([^\]]+)\]/g ) ].map( ( t ) => t[ 1 ] ) };
+}
+const union = ( a, b ) => [ ...new Set( [ ...a, ...b ] ) ];
+
 const clean = ( lines ) => stripMarkers( stripComments( lines.join( '\n' ) ) ).replace( /[ \t]+$/gm, '' ).replace( /\n{3,}/g, '\n\n' ).trim();
 
 // Splits `lines` at the given heading indexes: [ before, ...blocks ] where each block starts at its heading.
@@ -61,7 +69,8 @@ export function split( markdown ) {
 			return;
 		}
 
-		entries.push( { title, body } );
+		const { text, tags } = headingTags( title );
+		entries.push( { title: text, headingTags: tags, body } );
 	} );
 
 	// The closing --- and thank-you line after the last item belong to the intro, not the last section.
@@ -71,18 +80,19 @@ export function split( markdown ) {
 		if ( hr !== -1 && ! last.body.slice( hr ).some( ( l ) => /^### /.test( l ) ) ) last.body = last.body.slice( 0, hr );
 	}
 
-	const sections = entries.map( ( { title, body } ) => {
+	const sections = entries.map( ( { title, headingTags: hTags, body } ) => {
 		const h3 = blocks( body, headingIndexes( body, '### ' ) );
 		const pre = takeTags( h3.before );
 		return {
 			title,
 			slug: slugify( title ),
-			tags: pre.tags,
+			tags: union( hTags, pre.tags ),
 			body: clean( pre.lines ),
 			items: h3.blocks.map( ( b ) => {
-				const item = parseFlags( b[ 0 ].slice( 4 ) );
+				const parsed = parseFlags( b[ 0 ].slice( 4 ) );
+				const item = { ...parsed, ...headingTags( parsed.text ) };
 				const rest = takeTags( b.slice( 1 ) );
-				return { title: item.text, slug: slugify( item.text ), tags: rest.tags, flags: item.flags, body: clean( rest.lines ) };
+				return { title: item.text, slug: slugify( item.text ), tags: union( item.tags, rest.tags ), flags: item.flags, body: clean( rest.lines ) };
 			} ),
 		};
 	} );

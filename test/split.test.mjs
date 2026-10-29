@@ -111,3 +111,16 @@ test( 'only "important note" and an exact "guidelines" title are dropped', () =>
 	const r = split( '## Guidelines\n\nx\n\n## Important note/guidelines\n\ny\n\n## Block guidelines for themes\n\n### I\n\nz\n' );
 	assert.deepEqual( r.sections.map( ( x ) => x.title ), [ 'Block guidelines for themes' ] );
 } );
+
+test( 'published posts: trailing [tags] in H2 and H3 headings become tags, not title text', () => {
+	const md = '## Theme.json and Global Styles [developers][enterprise] \n\n### Sticky Positioning, like Headers [end user] [theme author]\n\nBody\n\n### Item with link [text](https://x.test) and tag [site admin]\n\nB\n\n### Own line wins too\n\n[all]\n\nC\n';
+	const { sections } = split( md );
+	assert.equal( sections[ 0 ].title, 'Theme.json and Global Styles' );
+	assert.equal( sections[ 0 ].slug, 'theme-json-and-global-styles' );
+	assert.deepEqual( sections[ 0 ].tags, [ 'developers', 'enterprise' ] );
+	assert.equal( sections[ 0 ].items[ 0 ].title, 'Sticky Positioning, like Headers' );
+	assert.deepEqual( sections[ 0 ].items[ 0 ].tags, [ 'end user', 'theme author' ] );
+	assert.equal( sections[ 0 ].items[ 1 ].title, 'Item with link [text](https://x.test) and tag' );
+	assert.deepEqual( sections[ 0 ].items[ 1 ].tags, [ 'site admin' ] );
+	assert.deepEqual( sections[ 0 ].items[ 2 ].tags, [ 'all' ] );
+} );
