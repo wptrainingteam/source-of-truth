@@ -1,6 +1,6 @@
 # Status report
 
-Checked 188 refs (gh cli). Previous run: 2026-10-27T11:07:01.084Z
+Checked 188 refs (gh cli). Previous run: 2026-10-28T11:05:48.630Z
 
 ## Ref changes (0)
 (none)
@@ -17,7 +17,7 @@ trac#66015 patch-open — PRs #13682 open, #13348 open
 trac#63927 fixed — last commit 2026-10-09: Users: Fix the admin email placeholder in the Application Password Created email notification. — PRs #14118 open, #14721 open, #9795 closed
 trac#46744 patch-open — PRs #12977 open
 trac#57388 fixed — last commit 2026-10-05: Application Passwords: Clarify environment type required for non-SSL support. — PRs #13954 closed
-trac#66187 fixed — last commit 2026-10-14: Security: Use `str_starts_with()` in the Secrets API test mocks. — PRs #14270 open, #14773 open, #13759 closed
+trac#66187 fixed — last commit 2026-10-14: Security: Use `str_starts_with()` in the Secrets API test mocks. — PRs #14270 open, #15148 open, #14773 open, #15124 open, #13759 closed
 trac#66208 commits — last commit 2026-10-09: KSES: Normalize all block delimiters. — PRs #14841 open, #14770 open, #14120 closed, #14136 closed, #14092 closed, #13271 closed
 trac#65638 fixed — last commit 2026-10-13: AI: Introduce support for generating embeddings — PRs #13291 closed, #12530 closed
 
@@ -25,9 +25,9 @@ trac#65638 fixed — last commit 2026-10-13: AI: Introduce support for generatin
 (none)
 
 ## Latest Gutenberg releases
+v24.3.0 2026-10-28
 v24.3.0-rc.1 2026-10-20 (RC)
 v24.2.0 2026-10-14
 v24.2.0-rc.1 2026-10-07 (RC)
 v24.1.0 2026-09-30
 v24.1.0-rc.1 2026-09-23 (RC)
-v24.0.0 2026-09-16
