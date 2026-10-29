@@ -17,7 +17,7 @@ There is no support commitment for experimental and unstable APIs. They can and 
 WordPress 6.2 ships with WP\_HTML\_Tag\_Processor – a tool to adjust HTML tag attributes in the block markup:
 
 ```
-$p = new WP_HTML_Tag_Processor( '<a href="https://nomad.blog/2023/03/01/wordpress-6-2-source-of-truth/#"></a>' );
+$p = new WP_HTML_Tag_Processor( '<a href="#"></a>' );
 
 $p->next_tag( 'a' );
 

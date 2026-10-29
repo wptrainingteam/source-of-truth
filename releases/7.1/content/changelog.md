@@ -31,7 +31,7 @@ Any changes are cataloged here as the release goes on.
 
 **August 3, 2026**
 
-*   Added info on `[responsiveEditingEnabled](https://gutenbergtimes.com/wordpress-7-1-source-of-truth/#opt-out)` editor setting
+*   Added info on `[responsiveEditingEnabled](#opt-out)` editor setting
 *   Added link to [Iframed Editor Changes in WordPress 7.1](https://make.wordpress.org/core/2026/08/03/iframed-editor-changes-in-wordpress-7-1/)
 *   Added [updates to the Abitilites API](https://gutenbergtimes.com/wordpress-7-1-source-of-truth/#abilities-api-opens-up-its-execution-pipeline)
 *   Removed Tags from the headlines as they borked the TOC
