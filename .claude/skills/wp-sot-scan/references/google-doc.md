@@ -1,12 +1,12 @@
 # The Google Doc
 
 The Google Doc is the working draft for the whole release cycle, and the copy people read and
-comment on. The repo doesn't replace it. The repo runs the status checks, keeps a Markdown mirror
-of the Doc, and later builds the Spacefast site. When the Doc and the repo disagree, the Doc wins.
+comment on. The repo doesn't replace it. The repo imports the Doc into
+`releases/<version>/` and builds the Spacefast site from it. When the Doc and the repo disagree, the Doc wins.
 
-Record the Doc in `sot.json` under `googleDoc` (`id`, `url`). If it's empty, ask the user for
-the Doc in an interactive session. A scheduled run adds an open question and works on the repo
-mirror alone. The link must stay "anyone with the
+The Doc's ID and URL are in `releases/<version>/release.json` under `source` (`id`, `url`),
+written by `npm run import:doc`. If they're empty, ask the user for the Doc in an interactive
+session. A scheduled run adds an open question instead. The link must stay "anyone with the
 link can comment". The SoT exists so that news organizations and the Make teams get the facts
 right, so the draft is never private.
 
@@ -61,12 +61,9 @@ the tab automatically.
 - **Content and comments:** the Google Drive connector's `read_file_content` with
   `includeComments: true`. Read comments every time: an open comment on an item is often the
   answer to an open question, or a sign not to touch that text.
-- **Markdown export for the repo mirror:**
-  `curl -sL -o draft.md "https://docs.google.com/document/d/<DOC_ID>/export?format=md"`, then
-  `node <skill-dir>/scripts/import-gdoc.mjs draft.md <release-dir>`. The importer expects the
-  tabs as H1 blocks (Draft, then `# **Notes**`, Punted, Backlog). Check on the first run that the
-  export includes every tab. If it only has the first one, report that before you trust the
-  mirror.
+- **Markdown export for the site:** `npm run -s import:doc -- <doc-id-or-url>` (the wp-sot-site
+  skill). The importer expects the tabs as H1 blocks (Draft, then `# **Notes**`, Punted,
+  Backlog), and stops if the export has only the first one.
 
 ## 4. Writing to the Doc
 
@@ -82,10 +79,9 @@ key available to the routine. None of this exists yet.
 
 Until it does, every job that would write to the Doc does this instead:
 
-1. Make the change in the repo mirror as usual, so the status checks stay right.
-2. Write the Doc changes, grouped by tab, to `notes/doc-updates.md` under today's date, newest
+1. Write the Doc changes, grouped by tab, to `notes/doc-updates.md` under today's date, newest
    first, ready to paste: the exact text to add, and for an edit the old text and the new text.
-3. Tell the user the Doc wasn't updated and point them to `notes/doc-updates.md`.
+2. Tell the user the Doc wasn't updated and point them to `notes/doc-updates.md`.
 
 ## 5. Keeping comments safe
 
@@ -106,7 +102,8 @@ Losing comments is the one failure people won't forgive, so every write follows 
 | Beta 1 | First draft done. The Doc goes to people who work in Core and to news organizations, who know it's still in progress. |
 | About Beta 3 | The SoT is shared publicly on Gutenberg Times. |
 | RC 1 | The SoT is done. The Developer Field Guide goes live, so link it. |
-| Final release | Gutenberg Times has the text version. The Spacefast site goes public as the interactive version, linked from the top of the Gutenberg Times post (see `publishing.md`). |
+| Final release | Gutenberg Times has the text version. The Spacefast site goes public as the interactive version, linked from the top of the Gutenberg Times post. |
 
-Take the dates from the release's Make Core schedule and record them in `sot.json` →
-`milestones`.
+Take the dates from the release's Make Core schedule and put them in the Notes tab's schedule
+table (`| Beta 1 | October 20, 15:00 UTC |`). `npm run import:doc` copies Beta 1, RC 1 and Final
+into `releases/<version>/release.json` → `milestones`.

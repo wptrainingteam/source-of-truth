@@ -8,8 +8,8 @@ The content comes from each release's Google Doc, imported as Markdown into
 [`wptrainingteam/source-of-truth`](https://github.com/wptrainingteam/source-of-truth). The skill never writes copy. To change what a page says,
 fix the Doc and import again.
 
-This skill only builds and publishes. Tracking what lands in a release (sweeps, the Notes tab,
-proposals) is [`wp-source-of-truth`](../wp-source-of-truth/README.md).
+This skill only builds and publishes. Tracking what lands in a release (sweeps, the Notes tab)
+is [`wp-sot-scan`](../wp-sot-scan/SKILL.md).
 
 You use it by talking to Claude. The clone's own `README.md` and `CLAUDE.md` hold the release
 table, commands and content rules, and Claude reads them first.

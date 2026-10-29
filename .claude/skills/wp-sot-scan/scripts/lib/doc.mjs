@@ -3,7 +3,7 @@
 
 import { extractRefs } from './refs.mjs';
 
-// Google's export escapes most punctuation. Same rule as wp-source-of-truth's import-gdoc.mjs.
+// Google's export escapes most punctuation. Same rule as unescapeGoogle in scripts/lib/clean.mjs.
 export const unescapeExport = ( md ) => md.replace( /\\([!#<>\-=|\[\]()+.`~{}_&:'"])/g, '$1' );
 
 const plain = ( line ) => unescapeExport( line ).replace( /^#+\s*/, '' ).replace( /\*/g, '' ).trim();

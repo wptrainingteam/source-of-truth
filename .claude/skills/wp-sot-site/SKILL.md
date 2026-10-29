@@ -6,8 +6,8 @@ description: |
   re-import a release after the Doc changed, to rebuild and publish the site, to give a release
   its own layout, or to check the layout slot contract. Trigger on "build/update the Source of
   Truth site", "add 7.3 to the SoT site", "import the SoT doc into the site", "change the SoT
-  layout", "SoT site help". Not for tracking what lands in a release (sweeps, Notes tab,
-  proposals): that is wp-source-of-truth.
+  layout", "SoT site help". Not for tracking what lands in a release (sweeps, Notes tab):
+  that is wp-sot-scan.
 ---
 
 # WordPress Source of Truth site
@@ -20,7 +20,7 @@ release at `/<major>-<minor>/`, with the newest also at `/`. Spacefast rebuilds 
 
 The Google Doc is the source for a release. The site never edits content: it imports the Doc,
 and a fix means fixing the Doc and importing again. This skill only builds and publishes. The
-tracking work (sweeps, Notes tab, proposals) belongs to `wp-source-of-truth`.
+tracking work (sweeps, Notes tab) belongs to `wp-sot-scan`.
 
 Read the clone's `README.md` (release table, commands) and `CLAUDE.md` (content rules) before you
 change anything. They are the source of truth for both, so this file points to them instead of
@@ -126,8 +126,8 @@ If a check needs a sign-in you don't have, such as Spacefast, say so and don't g
 - **Sections stay in source order**, with the source's own headings.
 - **One release never changes another's output.** Importing or re-importing 7.3 leaves 7.2's page
   alone, apart from the header's version list.
-- **Never touch `7.2/` or `.github/workflows/status-7-2.yml`** in the clone. They belong to
-  the tracking skills, `wp-source-of-truth` and `wp-sot-scan`.
+- **Never touch `<version>/notes/`** (for example `7.2/notes/`) in the clone. It belongs to
+  `wp-sot-scan`.
 - **Run `npm test` and `npm run build` before every commit.**
 - **Never create a branch** without asking. Commit on `trunk`.
 

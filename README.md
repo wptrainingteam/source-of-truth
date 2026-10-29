@@ -40,12 +40,11 @@ The Claude Code skills that track, build and scan the Source of Truth live in th
 `.claude/skills/`. Clone the repo and run Claude Code from inside it, and the skills load. There
 is nothing to install.
 
-- `wp-source-of-truth`: start a release and track what's landing in it.
 - `wp-sot-site`: import a release's Google Doc and build the site.
 - `wp-sot-scan`: the weekly scan that checks every ticket, PR and dev note linked in the Doc.
 
 ## Other folders
 
 - `scripts/migrate/` was a one-time import of 6.2 to 7.1 from Gutenberg Times and Nomad Blog.
-- `7.2/` holds the 7.2 notes and status checks used by the tracking skill. It is not part of the
-  site.
+- `7.2/notes/` holds the 7.2 working notes used by the `wp-sot-scan` skill. It is not part of
+  the site.

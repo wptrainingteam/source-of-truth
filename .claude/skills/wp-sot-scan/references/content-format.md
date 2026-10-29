@@ -2,43 +2,32 @@
 
 ## Contents
 
-1. Files and ordering
-2. The intro file
-3. Item files
+1. Sections
+2. The intro
+3. Items
 4. Tags
 5. Working markers and notes
 6. House style
 7. Notes files
 
-## 1. Files and ordering
-
-`scripts/build.mjs` reads `content/post/` in filename order:
-
-- **Top-level `.md` files** are rendered as they are. Use `00-intro.md` for everything before
-  the first section and `99-outro.md` for the closing line.
-- **Folders** are sections. Each one has a `_section.md` (frontmatter `title`, optional `tags`,
-  optional body text) plus one file per item.
-- Number folders in tens (`10-`, `20-`) and items in tens with three digits (`010-`, `020-`),
-  so you can slot new ones in between without renaming.
+## 1. Sections
 
 Use the standard section order from past editions. Leave out a section if the release has
 nothing for it:
 
-| Folder | Section title |
-|---|---|
-| `10-priority-items` | Priority Items for WordPress X.Y |
-| `20-new-blocks` | New Blocks |
-| `30-improved-blocks` | Improved Blocks and Block handling |
-| `40-editor-enhancements` | Editor enhancements |
-| `50-admin-workflow` | Admin / Workflow updates |
-| `60-developer-goodies` | Developer Goodies |
+1. Priority Items for WordPress X.Y
+2. New Blocks
+3. Improved Blocks and Block handling
+4. Editor enhancements
+5. Admin / Workflow updates
+6. Developer Goodies
 
 Priority Items holds the 4–6 headline features. Everything else goes in the section where a
 reader would look for it.
 
-## 2. The intro file
+## 2. The intro
 
-`00-intro.md` follows the published layout, in this order:
+The intro follows the published layout, in this order:
 
 1. The welcome line ("Welcome to the Source of Truth for WordPress X.Y!"), the paragraph about
    how to use the post with the contact line, and the thank-you line naming the reviewers.
@@ -66,39 +55,10 @@ reader would look for it.
    - `### Assets`: the line linking the asset folder.
    - `### Tags`: the tag legend (section 4).
 
-The byline, reading time, "Updated" date and table of contents are generated from `sot.json`
-and the content. Don't write them in the intro.
+The site generates the byline, reading time, "Updated" date and table of contents. Don't write
+them in the intro.
 
-## 3. Item files
-
-```markdown
----
-title: Notes in the canvas margin
-tags: [end user, site admin, enterprise]
-flags: [check, visuals]
----
-
-Notes appear in a margin next to the canvas, so a thread stays open while you edit block
-settings ([#83786](https://github.com/WordPress/gutenberg/pull/83786)). Use the **Notes** submenu
-in the **Options** menu to show or hide them ([#83768](https://github.com/WordPress/gutenberg/pull/83768)).
-
-![Two note threads in the margin beside a paragraph block](assets/notes-margin.png)
-*Note threads in the margin on a narrow screen.*
-
-Tracking: [Notes iteration for WordPress 7.2](https://github.com/WordPress/gutenberg/issues/80015) (#80015)
-
-<!-- 🔍 Merged after the last plugin release before Beta 1; confirm it's in Beta 1. -->
-```
-
-Frontmatter keys:
-
-| Key | Meaning |
-|---|---|
-| `title` | The H3 heading. No emoji and no tags in it, because they break the table of contents. |
-| `tags` | Audience tags from section 4. Leave the list empty to inherit the section's tags. |
-| `flags` | Working markers as words: `edit`, `blessed`, `check`, `visuals`, `punted`. Never published. |
-| `slug` | Optional anchor override, so an existing link survives a title change. |
-| `published` | `false` keeps the item out of the page but in the repo, e.g. an at-risk item waiting for Beta 1. |
+## 3. Items
 
 Body anatomy, in this order:
 
@@ -106,8 +66,7 @@ Body anatomy, in this order:
    ticket link in parentheses right after the claim it supports: `([#12345](url))`. Several PRs
    go in one set of parentheses: `([#1](url), [#2](url))`.
 2. **Visuals**, if any: an image with real alt text, and an italic caption line below it when
-   the image needs context. Store files in `content/assets/` and reference them as
-   `assets/<name>`.
+   the image needs context.
 3. **Link lines**, each on its own line:
    - `Tracking: [Issue title](url) (#N)` for the iteration or tracking issue.
    - `Read more: [Dev note or Make post title](url)` once a dev note or proposal exists. Add a
@@ -128,8 +87,8 @@ browser searches both match on the exact string:
 `end user` · `theme builder` · `plugin author` · `developer` · `site admin` · `enterprise` · `all`
 
 Put the most affected audience first. The page's audience buttons are strict: with **developer** on, readers see only items tagged `developer` (or whose section is tagged `developer`), and the intro is hidden. So tag every audience an item really affects. `all` is a button of its own, not a wildcard. In
-the old Google Doc format, tags were a `==[end user] [site admin]==` line under the heading; the
-importer converts that line to frontmatter.
+the Doc, tags are a `==[end user] [site admin]==` line under the heading, and the importer reads
+that line as the item's tags.
 
 ## 5. Working markers and notes
 
@@ -141,9 +100,9 @@ importer converts that line to frontmatter.
 | 🎨 | `visuals` | Visuals being made |
 | 🏈 | `punted` | Confirmed punted to the next release |
 
-Markers go in `flags`, or inline inside a `<!-- -->` note. The build strips both from the page,
-and it also strips any emoji marker left in visible text, with a warning, so a missed marker
-never reaches readers. Clear a flag once nothing in the item's working notes still needs it.
+Markers go in the heading, or inline inside a `<!-- -->` note. The importer strips both, and the
+site build fails if a marker or comment still reaches a page, so a missed marker never reaches
+readers. Clear a flag once nothing in the item's working notes still needs it.
 
 A working note says what to check and what to do with the answer: "🔍 Merged Oct 18, after
 Gutenberg 24.2; confirm it's in Beta 1. Remove the sentence if not." Notes that say only "check
@@ -176,5 +135,4 @@ Match the published 7.1 post:
 | `notes/open-questions.md` | A numbered list of questions that block a decision. Remove a question once it's answered. |
 | `notes/punted.md` | Items confirmed out of the release, with the reason and a source link |
 | `notes/backlog.md` | Items carried over from the previous release, to re-check |
-| `notes/status.json` | Written by `npm run status`. Don't edit it by hand. |
 | `notes/doc-updates.md` | Doc changes waiting to be pasted in while the Doc write path isn't set up (`google-doc.md`, section 4) |

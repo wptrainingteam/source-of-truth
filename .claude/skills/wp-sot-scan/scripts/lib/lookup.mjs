@@ -1,4 +1,4 @@
-// GitHub and Make Core lookups for linked refs. Ported from wp-source-of-truth's check-status.mjs,
+// GitHub and Make Core lookups for linked refs. Ported from the retired per-release check-status.mjs,
 // minus its direct Trac requests (Trac blocks them).
 
 import { execFileSync } from 'node:child_process';

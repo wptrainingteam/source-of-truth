@@ -6,8 +6,7 @@ description: |
   the Doc yet, and hands over one dated "Automated scan results" block to paste at the bottom of
   the Notes tab (or another named tab). Never edits the Doc itself. Use for "run the SoT scan",
   "scan the 7.x Source of Truth", "sweep", "refresh the notes", "update the notes tab", "what
-  changed for 7.x this week". Not for building the site (wp-sot-site) or writing the draft
-  (wp-source-of-truth).
+  changed for 7.x this week". Not for building the site (wp-sot-site).
 ---
 
 # Source of Truth scan
@@ -33,6 +32,9 @@ The rules that matter most:
 People say no to a candidate by striking it out in the block where it appeared. A struck-out
 candidate never comes back. A candidate that isn't struck out keeps appearing in every block
 until someone adds it to the Doc.
+
+The `references/` folder holds how to research a release (`research.md`), the Doc's tabs and
+comment rules (`google-doc.md`), and the house style and tag vocabulary (`content-format.md`).
 
 ## Before the first run (once per machine)
 
@@ -69,8 +71,7 @@ scratchpad (written as `$SCRATCH` below).
    Create it with an empty `notes/` folder if it doesn't exist.
 
 2. **Get the Doc ID.** `releases/<version>/release.json` → `source.id` when `source.type` is
-   `gdoc`. Otherwise `<version>/sot.json` → `googleDoc.id`. Otherwise ask the user for the Doc
-   link.
+   `gdoc`. Otherwise ask the user for the Doc link.
 
 3. **Export the Doc.**
    `curl -sL -o "$SCRATCH/doc.md" "https://docs.google.com/document/d/<DOC_ID>/export?format=md"`
@@ -129,7 +130,7 @@ scratchpad (written as `$SCRATCH` below).
    or two, because GitHub search is rate limited.
 
 6. **Pass 2: find new candidates.** Follow
-   `../wp-source-of-truth/references/research.md` for sources and for what's in the release:
+   `references/research.md` for sources and for what's in the release:
    Make Core posts tagged for the release and its dev notes, Gutenberg releases in the range,
    iteration issues, the Gutenberg pin commits, wordpress-develop commits for the milestone. Also
    go through `newTickets` in `work.json` (tickets on the milestone that are new since last week).
