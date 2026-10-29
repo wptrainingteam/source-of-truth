@@ -2,6 +2,8 @@
 
 One site, built from `releases/<version>/` into `dist/`. Read `README.md` for the layout.
 
+The Source of Truth skills live in `.claude/skills/`. Edit them here, not in a plugin.
+
 ## Content rules
 
 - Page content comes only from the source (the Google Doc or the imported Markdown). Do not
