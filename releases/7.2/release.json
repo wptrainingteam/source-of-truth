@@ -1,0 +1,23 @@
+{
+	"version": "7.2",
+	"title": "WordPress 7.2 Source of Truth",
+	"releaseDate": "December 8, 2026",
+	"gutenbergRange": "23.7 – 24.2",
+	"author": {
+		"name": "",
+		"url": ""
+	},
+	"published": "",
+	"updated": "2026-10-29",
+	"source": {
+		"type": "gdoc",
+		"id": "1N2sSjT4sxgrbTneUhYFOjOkUvq0CNwsYiSgIhY134Tk",
+		"url": "https://docs.google.com/document/d/1N2sSjT4sxgrbTneUhYFOjOkUvq0CNwsYiSgIhY134Tk/edit"
+	},
+	"layout": "generic",
+	"milestones": {
+		"beta1": "2026-10-20",
+		"rc1": "2026-11-17",
+		"final": "2026-12-08"
+	}
+}
