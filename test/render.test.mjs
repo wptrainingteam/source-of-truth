@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { unescapeGoogle, findLeaks } from '../scripts/lib/clean.mjs';
 import { split } from '../scripts/lib/split.mjs';
 import { renderPage } from '../scripts/lib/render.mjs';
-import { renderHeader } from '../scripts/lib/header.mjs';
+import { renderHeader, versionEntry } from '../scripts/lib/header.mjs';
 
 const layout = readFileSync( new URL( '../layouts/generic/layout.html', import.meta.url ), 'utf8' );
 const raw = unescapeGoogle( readFileSync( new URL( './fixtures/doc-72.md', import.meta.url ), 'utf8' ) ).replace( /\r\n/g, '\n' );
@@ -21,10 +21,10 @@ const header = renderHeader( '7.2', [ { version: '7.2', slug: '7-2' }, { version
 const BASE = 'https://example.test';
 const render = ( s = structure(), meta = META ) => renderPage( layout, meta, s, header, BASE );
 
-test( 'one <section class="section"> per section, in order', () => {
+test( 'one <section class="sot-section"> per section, in order', () => {
 	const s = structure();
 	const out = render( s );
-	const ids = [ ...out.matchAll( /<section class="section" id="([^"]+)"/g ) ].map( ( m ) => m[ 1 ] );
+	const ids = [ ...out.matchAll( /<section class="sot-section[^"]*" id="([^"]+)"/g ) ].map( ( m ) => m[ 1 ] );
 	assert.deepEqual( ids, s.sections.map( ( x ) => x.slug ) );
 } );
 
@@ -55,33 +55,34 @@ test( 'items flagged punted are skipped', () => {
 test( 'punted block only when structure.punted has text', () => {
 	const s = structure();
 	s.punted = '';
-	assert.ok( ! /class="punted"/.test( render( s ) ) );
+	assert.ok( ! /id="punted"/.test( render( s ) ) );
 	s.punted = '**Real-time collaboration** moves to a feature plugin.';
 	const out = render( s );
-	assert.match( out, /class="punted"/ );
+	assert.match( out, /<section class="sot-card sot-punted" id="punted"/ );
 	assert.match( out, /<strong>Real-time collaboration<\/strong> moves to a feature plugin\./ );
 } );
 
 test( 'no milestones, no timeline', () => {
-	assert.match( render(), /class="timeline"/ );
+	assert.match( render(), /data-sot-timeline/ );
+	assert.match( render(), /<li class="sot-milestone" data-date="2026-10-20"><small>Oct 20<\/small><b>Beta 1<\/b><\/li>/ );
 	const out = render( structure(), { ...META, milestones: { beta1: '', rc1: '', final: '' } } );
-	assert.ok( ! /class="timeline"/.test( out ) );
+	assert.ok( ! /data-sot-timeline/.test( out ) );
 } );
 
 test( 'missing optional facts are skipped, not invented', () => {
 	const meta = { ...META, releaseDate: '', gutenbergRange: '', author: { name: '', url: '' } };
 	const out = render( structure(), meta );
-	assert.ok( ! /Gutenberg/.test( out.match( /<section class="stats"[\s\S]*?<\/section>/ )[ 0 ] ) );
+	assert.ok( ! /Gutenberg/.test( out.match( /<section class="sot-stats"[\s\S]*?<\/section>/ )[ 0 ] ) );
 	assert.ok( ! out.includes( 'Written by' ) );
-	assert.match( out, /<p class="eyebrow">WORDPRESS 7\.2<\/p>/ );
+	assert.match( out, /<span class="sot-hero__label">WORDPRESS 7\.2<\/span>/ );
 } );
 
 test( 'hero, byline and resources', () => {
 	const out = render();
-	assert.match( out, /<p class="eyebrow">WORDPRESS 7\.2 · SHIPS DECEMBER 8, 2026<\/p>/ );
-	assert.match( out, /<h1>WordPress 7\.2 Source of Truth<\/h1>/ );
-	assert.match( out, /<p class="intro">Welcome to the Source of Truth for WordPress 7\.2!<\/p>/ );
-	assert.match( out, /Written by <a href="https:\/\/example.com\/justin">Justin Tadlock<\/a> · Updated October 23, 2026 · \d+ minute read \([\d,]+ words\)/ );
+	assert.match( out, /<span class="sot-hero__label">WORDPRESS 7\.2 · SHIPS DECEMBER 8, 2026<\/span>/ );
+	assert.match( out, /<span class="sot-hero__headline">WordPress 7\.2 Source of Truth<\/span>/ );
+	assert.match( out, /<div class="sot-hero__intro"><p>Welcome to the Source of Truth for WordPress 7\.2!<\/p>/ );
+	assert.match( out, /<span>Written by <a href="https:\/\/example.com\/justin">Justin Tadlock<\/a><\/span>\s*<span>Updated October 23, 2026<\/span>\s*<span>\d+ minute read \([\d,]+ words\)<\/span>/ );
 	assert.match( out, /href="https:\/\/make.wordpress.org\/core\/7-2\/"/ );
 	assert.match( out, /href="https:\/\/make.wordpress.org\/core\/tag\/dev-notes\+7-2\/"/ );
 	assert.match( out, /<link rel="canonical" href="https:\/\/example.test\/7-2\/">/ );
@@ -94,12 +95,12 @@ test( 'released date and published-post credit', () => {
 	const out = render( structure(), meta );
 	assert.match( out, /WORDPRESS 7\.2 · RELEASED DECEMBER 8, 2026/ );
 	assert.match( out, /<a href="https:\/\/gutenbergtimes.com\/wordpress-7-2-source-of-truth\/">Originally published on gutenbergtimes.com ↗<\/a>/ );
-	assert.match( out, /class="resources"[\s\S]*href="https:\/\/gutenbergtimes.com\/wordpress-7-2-source-of-truth\/"/ );
+	assert.match( out, /class="sot-resources"[\s\S]*href="https:\/\/gutenbergtimes.com\/wordpress-7-2-source-of-truth\/"/ );
 } );
 
 test( 'filter has one pill per tag in first-seen order', () => {
 	const out = render();
-	const pills = [ ...out.matchAll( /<button class="pill" type="button" aria-pressed="false" data-aud="([^"]+)">/g ) ].map( ( m ) => m[ 1 ] );
+	const pills = [ ...out.matchAll( /<button class="sot-filter" type="button" aria-pressed="false" data-sot-aud="([^"]+)" data-sot-aud-label="[^"]+">/g ) ].map( ( m ) => m[ 1 ] );
 	assert.deepEqual( pills.slice( 0, 3 ), [ 'all', 'theme builder', 'end user' ] );
 	assert.equal( new Set( pills ).size, pills.length );
 	assert.ok( pills.includes( 'developer' ) );
@@ -117,13 +118,21 @@ test( 'a layout without the sections slot throws naming it', () => {
 	assert.throws( () => renderPage( layout.replace( '<!-- sot:sections -->', '' ), META, structure(), header ), ( e ) => e instanceof Error && /sot:sections/.test( e.message ) );
 } );
 
+test( 'picker entries carry the codename from release.json', () => {
+	const h = renderHeader( '7.1', [ { version: '7.1', slug: '7-1', entry: versionEntry( '7.1', '7-1', { codename: 'Mary Lou', releaseDate: 'August 19, 2026', published: '2026-08-19' } ) } ] );
+	assert.match( h, /"codename":"Mary Lou"/ );
+	assert.match( h, /"released":"Aug 19, 2026"/ );
+} );
+
 test( 'header lists versions newest first with the current one selected', () => {
 	const h = renderHeader( '7.1', [ { version: '7.2', slug: '7-2' }, { version: '7.1', slug: '7-1' } ] );
 	assert.match( h, /<select[^>]*aria-label="WordPress version"/ );
 	const opts = [ ...h.matchAll( /<option value="\/([^"]+)\/"( selected)?>/g ) ];
 	assert.deepEqual( opts.map( ( m ) => [ m[ 1 ], !! m[ 2 ] ] ), [ [ '7-2', false ], [ '7-1', true ] ] );
 	assert.match( h, /<noscript>[\s\S]*href="\/7-2\/"[\s\S]*href="\/7-1\/"[\s\S]*<\/noscript>/ );
-	assert.match( h, /class="brand-mark"[^>]*>7\.1</ );
+	assert.match( h, /class="sot-brand__mark"[^>]*>7\.1</ );
+	assert.match( h, /setAttribute\('data-sot-version', "7\.1"\)/ );
+	assert.match( h, /window\.SOT_VERSIONS = \[\{"version":"7\.2","path":"\/7-2\/"/ );
 } );
 
 const mini = () => ( {
@@ -144,36 +153,36 @@ const POST_META = { ...META, published: '2026-08-12', updated: '2026-09-01', sou
 
 test( 'published posts show Published and the post modified date, never the import date', () => {
 	const out = render( mini(), POST_META );
-	assert.match( out, /Written by <a [^>]*>Justin Tadlock<\/a> · Published August 12, 2026 · Updated September 1, 2026 · \d+ minute read/ );
+	assert.match( out, /<span>Written by <a [^>]*>Justin Tadlock<\/a><\/span>\s*<span>Published August 12, 2026<\/span>\s*<span>Updated September 1, 2026<\/span>\s*<span>\d+ minute read/ );
 	const same = render( mini(), { ...POST_META, updated: '2026-08-12' } );
-	assert.match( same, /· Published August 12, 2026 · \d+ minute read/ );
-	assert.ok( ! /Updated/.test( same.match( /<p class="byline">[\s\S]*?<\/p>/ )[ 0 ] ) );
+	assert.match( same, /<span>Published August 12, 2026<\/span>\s*<span>\d+ minute read/ );
+	assert.ok( ! /Updated/.test( same.match( /<p class="sot-meta">[\s\S]*?<\/p>/ )[ 0 ] ) );
 } );
 
 test( 'Doc releases keep Updated in the byline', () => {
 	const out = render( mini(), META );
-	assert.match( out, /· Updated October 23, 2026 · / );
+	assert.match( out, /<span>Updated October 23, 2026<\/span>/ );
 	assert.ok( ! out.includes( 'Published' ) );
 } );
 
 test( 'a tagged section matches its own tags and its items tags', () => {
 	const out = render( mini(), POST_META );
-	assert.match( out, /<section class="section" id="admin-things" data-tags="site admin,end user,plugin author"/ );
-	assert.match( out, /<section class="section" id="untagged" data-tags="developer"/ );
+	assert.match( out, /<section class="sot-section" id="admin-things" data-tags="site admin,end user,plugin author"/ );
+	assert.match( out, /<section class="sot-section" id="untagged" data-tags="developer"/ );
 } );
 
 test( 'item chips show only the item own tags; inherited tags stay in data-tags', () => {
 	const out = render( mini(), POST_META );
-	const art = out.match( /<article class="item" id="inherits-tags"[\s\S]*?<\/article>/ )[ 0 ];
+	const art = out.match( /<article class="sot-item" id="inherits-tags"[\s\S]*?<\/article>/ )[ 0 ];
 	assert.match( art, /data-tags="site admin,end user"/ );
-	assert.ok( ! art.includes( 'class="tags"' ) );
-	const hook = out.match( /<article class="item" id="plugin-hook"[\s\S]*?<\/article>/ )[ 0 ];
-	assert.match( hook, /<p class="tags">\[plugin author\]<\/p>/ );
+	assert.ok( ! art.includes( 'class="sot-tags"' ) );
+	const hook = out.match( /<article class="sot-item" id="plugin-hook"[\s\S]*?<\/article>/ )[ 0 ];
+	assert.match( hook, /<p class="sot-tags">\[plugin author\]<\/p>/ );
 } );
 
 test( 'section tag chips come after the section heading', () => {
 	const out = render( mini(), POST_META );
-	assert.match( out, /<section class="section" id="admin-things"[^>]*>\s*<h2 class="h2">Admin things<\/h2>\s*<p class="tags">\[site admin\] \[end user\]<\/p>/ );
+	assert.match( out, /<section class="sot-section" id="admin-things"[^>]*>\s*<header class="sot-section__head">\s*<p class="sot-section__num">\d+<\/p>\s*<h2>Admin things<\/h2>\s*<p class="sot-tags">\[site admin\] \[end user\]<\/p>/ );
 } );
 
 test( 'links to the original post anchors point on-page when the id exists', () => {
@@ -197,6 +206,6 @@ test( 'head carries absolute canonical and Open Graph tags', () => {
 	assert.match( head, /<meta property="og:type" content="article">/ );
 	assert.match( head, /<meta property="og:site_name" content="WordPress Source of Truth">/ );
 	assert.ok( ! head.includes( 'og:image' ) );
-	assert.equal( ( out.match( /<h1>/g ) || [] ).length, 1 );
+	assert.equal( ( out.match( /<h1[ >]/g ) || [] ).length, 1 );
 	assert.match( out, /<html lang="en">/ );
 } );

@@ -1,7 +1,8 @@
 {
 	"version": "6.9",
 	"title": "WordPress 6.9 Source of Truth",
-	"releaseDate": "",
+	"codename": "Gene",
+	"releaseDate": "December 2, 2025",
 	"gutenbergRange": "20.5 – 21.9",
 	"author": {
 		"name": "Birgit Pauli-Haack",

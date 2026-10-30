@@ -1,7 +1,8 @@
 {
 	"version": "6.3",
 	"title": "WordPress 6.3 Source of Truth",
-	"releaseDate": "August 8th 2023",
+	"codename": "Lionel",
+	"releaseDate": "August 8, 2023",
 	"gutenbergRange": "",
 	"author": {
 		"name": "Anne McCarthy",

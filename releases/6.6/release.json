@@ -1,7 +1,8 @@
 {
 	"version": "6.6",
 	"title": "WordPress 6.6 Source of Truth",
-	"releaseDate": "",
+	"codename": "Dorsey",
+	"releaseDate": "July 16, 2024",
 	"gutenbergRange": "",
 	"author": {
 		"name": "Anne McCarthy",

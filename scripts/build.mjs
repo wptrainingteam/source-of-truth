@@ -8,12 +8,14 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { listReleases } from './lib/versions.mjs';
 import { readRelease } from './lib/release-io.mjs';
 import { renderPage } from './lib/render.mjs';
-import { renderHeader } from './lib/header.mjs';
+import { renderHeader, versionEntry } from './lib/header.mjs';
 import { findLeaks } from './lib/clean.mjs';
 
 const REPO = resolve( fileURLToPath( new URL( '..', import.meta.url ) ) );
 
 const layoutDir = ( repo, dir, meta ) => ( meta.layout === 'own' ? join( dir, 'layout' ) : join( repo, 'layouts', meta.layout || 'generic' ) );
+// An own layout builds on the generic shell: its page gets the generic assets, then its own on top.
+const assetDirs = ( repo, lDir ) => [ ...new Set( [ join( repo, 'layouts', 'generic' ), lDir ] ) ];
 const assets = ( dir ) => readdirSync( dir ).filter( ( f ) => /\.(js|css)$/.test( f ) );
 
 const readBaseUrl = ( repo ) => JSON.parse( readFileSync( join( repo, 'site.json' ), 'utf8' ) ).baseUrl.replace( /\/+$/, '' );
@@ -31,7 +33,7 @@ ${ entries.map( ( { slug, lastmod } ) => `  <url><loc>${ baseUrl }/${ slug }/</l
 function notFound( layoutHtml, header, newest ) {
 	const body = `<body>
 ${ header }
-<div class="wrap">
+<div class="sot-wrap">
   <h1>Page not found</h1>
   <p><a href="/${ newest.slug }/">Go to WordPress ${ newest.version }</a></p>
 </div>
@@ -45,11 +47,12 @@ ${ header }
 
 export function build( repo = REPO, outDir = join( repo, 'dist' ), baseUrl = readBaseUrl( repo ) ) {
 	const releases = listReleases( repo );
-	const all = releases.map( ( { version, slug } ) => ( { version, slug } ) );
+	const read = releases.map( ( r ) => ( { ...r, ...readRelease( r.dir ) } ) );
+	const all = read.map( ( { version, slug, meta } ) => ( { version, slug, entry: versionEntry( version, slug, meta ) } ) );
 
 	// Render and check every page before writing anything.
-	const rendered = releases.map( ( r ) => {
-		const { meta, structure } = readRelease( r.dir );
+	const rendered = read.map( ( r ) => {
+		const { meta, structure } = r;
 		const lDir = layoutDir( repo, r.dir, meta );
 		const file = join( lDir, 'layout.html' );
 		if ( ! existsSync( file ) ) throw new Error( `Release ${ r.version }: no layout at ${ file }` );
@@ -63,7 +66,7 @@ export function build( repo = REPO, outDir = join( repo, 'dist' ), baseUrl = rea
 		if ( leaks.length ) {
 			throw new Error( `Release ${ r.version }: ${ leaks.length } leak(s) in the rendered page:\n${ leaks.map( ( l ) => `  …${ l.replace( /\s+/g, ' ' ) }…` ).join( '\n' ) }` );
 		}
-		return { ...r, html, lDir, lastmod: meta.updated || meta.published || '' };
+		return { version: r.version, slug: r.slug, html, lDir, lastmod: meta.updated || meta.published || '' };
 	} );
 
 	rmSync( outDir, { recursive: true, force: true } );
@@ -71,7 +74,7 @@ export function build( repo = REPO, outDir = join( repo, 'dist' ), baseUrl = rea
 	const write = ( dir, page ) => {
 		mkdirSync( dir, { recursive: true } );
 		writeFileSync( join( dir, 'index.html' ), page.html );
-		for ( const f of assets( page.lDir ) ) copyFileSync( join( page.lDir, f ), join( dir, f ) );
+		for ( const d of assetDirs( repo, page.lDir ) ) for ( const f of assets( d ) ) copyFileSync( join( d, f ), join( dir, f ) );
 		pages.push( join( dir, 'index.html' ) );
 	};
 	rendered.forEach( ( page ) => write( join( outDir, page.slug ), page ) );

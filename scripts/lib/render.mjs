@@ -10,9 +10,9 @@ const inline = ( s ) => marked.parseInline( s, { async: false } );
 const plain = ( s ) => s.replace( /<[^>]+>/g, '' ).replace( /!?\[([^\]]*)\]\([^)]*\)/g, '$1' ).replace( /[*_`]/g, '' ).replace( /\s+/g, ' ' ).trim();
 
 const PUBLISHED_POST = [ 'gutenbergtimes', 'nomadblog' ];
-const RESERVED = [ 'top', 'content', 'progress', 'chips', 'matchLabel', 'aud-h', 'tocDetails', 'tocList', 'toTop', 'timeline-h', 'punted', 'changelog', 'resources' ];
+const RESERVED = [ 'top', 'start', 'toc', 'content', 'welcome', 'page-title', 'road', 'timeline-title', 'audience', 'audience-title', 'punted', 'punted-title', 'changelog', 'changelog-title', 'resources', 'resources-title' ];
 
-function parseDate( s ) {
+export function parseDate( s ) {
 	if ( ! s ) return null;
 	const d = /^\d{4}-\d{2}-\d{2}$/.test( s ) ? new Date( `${ s }T12:00:00Z` ) : new Date( `${ s } 12:00 UTC` );
 	return isNaN( d ) ? null : d;
@@ -26,7 +26,7 @@ const host = ( url ) => {
 		return url;
 	}
 };
-const tagLine = ( tags ) => ( tags.length ? `<p class="tags">${ tags.map( ( t ) => `[${ esc( t ) }]` ).join( ' ' ) }</p>` : '' );
+const tagLine = ( tags ) => ( tags.length ? `<p class="sot-tags">${ tags.map( ( t ) => `[${ esc( t ) }]` ).join( ' ' ) }</p>` : '' );
 
 // Sections and items as they appear on the page: punted items dropped, effective tags and unique ids resolved.
 function model( structure ) {
@@ -58,7 +58,7 @@ export function renderPage( layoutHtml, meta, structure, header, baseUrl = '' ) 
 	const items = sections.flatMap( ( s ) => s.items );
 	const isPost = PUBLISHED_POST.includes( meta.source?.type ) && meta.source?.url;
 
-	const [ first = '', ...rest ] = structure.intro.split( /\n\s*\n/ );
+	const [ first = '' ] = structure.intro.split( /\n\s*\n/ );
 	const description = ( () => {
 		const p = plain( first );
 		return p.length > 160 ? p.slice( 0, 157 ).replace( /\s+\S*$/, '' ) + '…' : p;
@@ -83,15 +83,20 @@ export function renderPage( layoutHtml, meta, structure, header, baseUrl = '' ) 
 		isPost && meta.published ? `Published ${ esc( longDate( meta.published ) ) }` : '',
 		meta.updated && ! ( isPost && meta.updated === meta.published ) ? `Updated ${ esc( longDate( meta.updated ) ) }` : '',
 		`${ Math.ceil( count / 200 ) } minute read (${ count.toLocaleString( 'en-US' ) } words)`,
-	].filter( Boolean ).join( ' · ' );
+	].filter( Boolean ).map( ( b ) => `<span>${ b }</span>` ).join( '\n    ' );
 	const eyebrow = `WORDPRESS ${ esc( meta.version ) }${ meta.releaseDate ? ` · ${ meta.published ? 'RELEASED' : 'SHIPS' } ${ esc( meta.releaseDate.toUpperCase() ) }` : '' }`;
-	const hero = `<section class="hero">
-  <p class="eyebrow">${ eyebrow }</p>
-  <h1>${ esc( meta.title ) }</h1>
-  ${ first ? `<p class="intro">${ inline( first ) }</p>` : '' }
-  ${ rest.length ? `<div class="prose more">${ md( rest.join( '\n\n' ) ) }</div>` : '' }
-  <p class="byline">${ byline }</p>
-  ${ isPost ? `<p class="byline"><a href="${ esc( meta.source.url ) }">Originally published on ${ esc( host( meta.source.url ) ) } ↗</a></p>` : '' }
+	const hero = `<section class="sot-hero" id="welcome" data-sot-start="Welcome" aria-labelledby="page-title">
+  <div>
+    <h1 class="sot-hero__title" id="page-title">
+      <span class="sot-hero__label">${ eyebrow }</span>
+      <span class="sot-hero__headline">${ esc( meta.title ) }</span>
+    </h1>
+    ${ structure.intro ? `<div class="sot-hero__intro">${ md( structure.intro ) }</div>` : '' }
+    <p class="sot-meta">
+    ${ byline }
+    </p>
+    ${ isPost ? `<p class="sot-meta"><a href="${ esc( meta.source.url ) }">Originally published on ${ esc( host( meta.source.url ) ) } ↗</a></p>` : '' }
+  </div>
 </section>`;
 
 	const year = parseDate( meta.releaseDate )?.getUTCFullYear();
@@ -101,60 +106,66 @@ export function renderPage( layoutHtml, meta, structure, header, baseUrl = '' ) 
 		[ String( items.length ), items.length === 1 ? 'Item' : 'Items' ],
 		meta.gutenbergRange ? [ meta.gutenbergRange, 'Gutenberg releases' ] : null,
 	].filter( Boolean );
-	const statsHtml = `<section class="stats" aria-label="At a glance">
-${ stats.map( ( [ b, s ] ) => `  <div class="stat"><b>${ esc( b ) }</b><span>${ esc( s ) }</span></div>` ).join( '\n' ) }
+	const statsHtml = `<section class="sot-stats" aria-label="At a glance">
+${ stats.map( ( [ b, s ] ) => `  <div class="sot-stat"><b>${ esc( b ) }</b><span>${ esc( s ) }</span></div>` ).join( '\n' ) }
 </section>`;
 
 	const ms = [ [ 'beta1', 'Beta 1' ], [ 'rc1', 'RC 1' ], [ 'final', 'Release' ] ].filter( ( [ k ] ) => meta.milestones?.[ k ] );
-	const timeline = ms.length ? `<section class="timeline" aria-labelledby="timeline-h">
-  <div class="wrap">
-    <div class="timeline-head">
-      <h2 id="timeline-h">${ meta.milestones.final ? `The road to ${ esc( shortDate( meta.milestones.final ) ) }` : 'Release milestones' }</h2>
+	const roadTitle = meta.milestones?.final ? `The road to ${ shortDate( meta.milestones.final ) }` : 'Release milestones';
+	const isoDate = ( s ) => parseDate( s )?.toISOString().slice( 0, 10 ) ?? '';
+	const timeline = ms.length ? `<section class="sot-band" id="road" data-sot-start="${ esc( roadTitle ) }" aria-labelledby="timeline-title">
+  <div class="sot-timeline" data-sot-timeline>
+    <div class="sot-timeline__head">
+      <h2 id="timeline-title">${ esc( roadTitle ) }</h2>
+      <p>Today is <strong data-sot-today>today</strong> · <strong data-sot-countdown></strong> · <a href="https://make.wordpress.org/core/${ slug }/">Development cycle</a></p>
     </div>
-    <ol class="milestones" aria-label="Release milestones">
-${ ms.map( ( [ k, label ] ) => `      <li class="ms"><small>${ esc( shortDate( meta.milestones[ k ] ) ) }</small><b>${ label }</b></li>` ).join( '\n' ) }
+    <div class="sot-timeline__track" aria-hidden="true"><span></span></div>
+    <ol class="sot-milestones" aria-label="Release milestones">
+${ ms.map( ( [ k, label ] ) => `      <li class="sot-milestone" data-date="${ isoDate( meta.milestones[ k ] ) }"><small>${ esc( shortDate( meta.milestones[ k ] ) ) }</small><b>${ label }</b></li>` ).join( '\n' ) }
     </ol>
   </div>
 </section>` : '';
 
 	const seen = [];
 	for ( const s of sections ) for ( const t of [ ...s.ownTags, ...s.items.flatMap( ( it ) => it.tags ) ] ) if ( ! seen.includes( t ) ) seen.push( t );
-	const filter = `<div class="pill-row" id="chips" role="group" aria-label="Filter by audience">
-${ seen.map( ( t ) => `  <button class="pill" type="button" aria-pressed="false" data-aud="${ esc( t ) }">${ esc( t ) }</button>` ).join( '\n' ) }
-</div>`;
+	const label = ( t ) => t.replace( /\b\p{L}/gu, ( c ) => c.toUpperCase() );
+	const filter = seen.length ? `<div class="sot-audience__chips" role="group" aria-label="Filter by audience">
+${ seen.map( ( t ) => `  <button class="sot-filter" type="button" aria-pressed="false" data-sot-aud="${ esc( t ) }" data-sot-aud-label="${ esc( label( t ) ) }">${ esc( label( t ) ) }</button>` ).join( '\n' ) }
+</div>` : '';
 
-	const toc = `<ol id="tocList">
-${ sections.map( ( s, i ) => `  <li><a href="#${ s.id }"><span class="n">${ String( i + 1 ).padStart( 2, '0' ) }</span><span>${ esc( s.title ) }</span></a>${ s.items.length ? `
-    <ol>
+	const toc = `<ol>
+${ sections.map( ( s, i ) => `  <li class="sot-toc__section"><a href="#${ s.id }"><span class="n">${ String( i + 1 ).padStart( 2, '0' ) }</span><span class="t">${ esc( plain( s.title ) ) }</span></a>${ s.items.length ? `
+    <ol class="sot-toc__items">
 ${ s.items.map( ( it ) => `      <li><a href="#${ it.id }"><span>${ esc( plain( it.title ) ) }</span></a></li>` ).join( '\n' ) }
     </ol>
   ` : '' }</li>` ).join( '\n' ) }
 </ol>`;
 
-	const sectionsHtml = sections.map( ( s ) => `<section class="section" id="${ s.id }" data-tags="${ esc( s.tags.join( ',' ) ) }" data-title="${ esc( s.title ) }">
-  <h2 class="h2">${ inline( s.title ) }</h2>
-  ${ tagLine( s.ownTags ) }
-  ${ s.body ? `<div class="prose">${ md( s.body ) }</div>` : '' }
-${ s.items.map( ( it ) => `  <article class="item" id="${ it.id }" data-tags="${ esc( it.tags.join( ',' ) ) }" data-title="${ esc( plain( it.title ) ) }">
-    <h3>${ inline( it.title ) }</h3>
+	// The first "Priority" section gets the larger item titles and "Developer" sections the inset panel, as in the design.
+	const sectionsHtml = sections.map( ( s, i ) => `<section class="sot-section${ /developer/i.test( s.title ) ? ' sot-section--dev' : '' }" id="${ s.id }" data-tags="${ esc( s.tags.join( ',' ) ) }" data-title="${ esc( s.title ) }">
+  <header class="sot-section__head">
+    <p class="sot-section__num">${ String( i + 1 ).padStart( 2, '0' ) }</p>
+    <h2>${ inline( s.title ) }</h2>
+    ${ tagLine( s.ownTags ) }
+  </header>
+  ${ s.body ? `<div class="sot-prose">${ md( s.body ) }</div>` : '' }
+${ s.items.map( ( it ) => `  <article class="sot-item${ /^priority/i.test( s.title ) ? ' sot-item--priority' : '' }" id="${ it.id }" data-tags="${ esc( it.tags.join( ',' ) ) }" data-title="${ esc( plain( it.title ) ) }">
+    <h3 class="sot-item__title">${ inline( it.title ) }</h3>
     ${ tagLine( it.ownTags ) }
-    <div class="prose">${ md( it.body ) }</div>
+    <div class="sot-item__body">${ md( it.body ) }</div>
   </article>` ).join( '\n' ) }
 </section>` ).join( '\n' );
 
-	const punted = structure.punted ? `<section id="punted" aria-labelledby="punted-h">
-  <div class="punted">
-    <svg role="img" aria-label="Football, for punted items" width="72" height="72" viewBox="0 0 64 64" fill="none" stroke="#7A4A1F" stroke-width="2.5" stroke-linecap="round"><ellipse cx="32" cy="32" rx="26" ry="15" transform="rotate(-35 32 32)"/><path d="M24 40 40 24M28 30l4 4M31 27l4 4M34 24l4 4"/></svg>
-    <div style="flex:999 1 260px;min-width:0">
-      <h2 id="punted-h">Punted to a later release</h2>
-      <div class="prose">${ md( structure.punted ) }</div>
-    </div>
-  </div>
+	const punted = structure.punted ? `<section class="sot-card sot-punted" id="punted" aria-labelledby="punted-title">
+  <p class="sot-eyebrow">Punted</p>
+  <h2 class="sot-h2" id="punted-title">Punted to a later release</h2>
+  <div class="sot-prose">${ md( structure.punted ) }</div>
 </section>` : '';
 
-	const changelog = structure.changelog ? `<section class="changelog" id="changelog">
-  <h2>Changelog</h2>
-  <div class="prose">${ md( structure.changelog ) }</div>
+	const changelog = structure.changelog ? `<section class="sot-card" id="changelog" data-sot-start="Changelog" aria-labelledby="changelog-title">
+  <p class="sot-eyebrow">Changelog</p>
+  <h2 class="sot-sr" id="changelog-title">Changelog</h2>
+  <div class="sot-prose">${ md( structure.changelog ).replace( /<ul>/g, '<ul class="sot-changelog">' ) }</div>
 </section>` : '';
 
 	const links = [
@@ -162,11 +173,11 @@ ${ s.items.map( ( it ) => `  <article class="item" id="${ it.id }" data-tags="${
 		[ `https://make.wordpress.org/core/tag/dev-notes+${ slug }/`, 'Dev notes', 'Make WordPress Core' ],
 		isPost ? [ meta.source.url, 'Original post', host( meta.source.url ) ] : null,
 	].filter( Boolean );
-	const resources = `<section class="resources-wrap" id="resources">
-  <h2>Keep reading</h2>
-  <div class="resources">
-${ links.map( ( [ href, b, s ] ) => `    <a href="${ esc( href ) }"><b>${ esc( b ) }</b><span>${ esc( s ) }</span></a>` ).join( '\n' ) }
-  </div>
+	const resources = `<section class="sot-resources-block" id="resources" data-sot-start="Resources" aria-labelledby="resources-title">
+  <h2 class="sot-resources-block__title" id="resources-title">Resources</h2>
+  <ul class="sot-resources">
+${ links.map( ( [ href, b, s ] ) => `    <li><a href="${ esc( href ) }"><b>${ esc( b ) }</b><span>${ esc( s ) }</span></a></li>` ).join( '\n' ) }
+  </ul>
 </section>`;
 
 	const fill = { head, header, hero, stats: statsHtml, timeline, filter, toc, sections: sectionsHtml, punted, changelog, resources };

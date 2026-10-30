@@ -1,7 +1,8 @@
 {
 	"version": "6.8",
 	"title": "WordPress 6.8 Source of Truth",
-	"releaseDate": "",
+	"codename": "Cecil",
+	"releaseDate": "April 15, 2025",
 	"gutenbergRange": "",
 	"author": {
 		"name": "Birgit Pauli-Haack",

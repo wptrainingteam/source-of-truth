@@ -1,7 +1,8 @@
 {
 	"version": "7.1",
 	"title": "WordPress 7.1 Source of Truth",
-	"releaseDate": "",
+	"codename": "Mary Lou",
+	"releaseDate": "August 19, 2026",
 	"gutenbergRange": "22.7 – 23.6",
 	"author": {
 		"name": "Birgit Pauli-Haack",

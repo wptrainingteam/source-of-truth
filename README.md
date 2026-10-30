@@ -38,7 +38,8 @@ Markdown plus a `release.json`, and `npm run build` turns all of them into one s
    `releases/<version>/`. Do not hand-edit the imported Markdown. To change content, fix the Doc
    and import again.
 2. Optional: give a release its own layout by adding `releases/<version>/layout/` and setting
-   `"layout": "own"` in its `release.json`. Otherwise it uses `layouts/generic/`.
+   `"layout": "own"` in its `release.json`. Otherwise it uses `layouts/generic/`. 7.2 has its
+   own layout, which adds interactive demos on top of the generic one.
 3. Run `npm test` and `npm run build`.
 4. Commit. Spacefast rebuilds the site on every push to `trunk`.
 

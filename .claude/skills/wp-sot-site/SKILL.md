@@ -31,6 +31,7 @@ repeating them.
 | Request sounds like | Job |
 |---|---|
 | "Add 7.3 to the SoT site", "import the doc", "rebuild 7.2 from the Doc", "update the SoT site" | **Add or update a release** |
+| "Add the 7.3 codename", "7.3 shipped" | **Add or update a release** (codename, after release) |
 | "Change the layout", "give 7.3 its own layout", "does my layout work" | **Layouts** |
 | "Help", "how does the site work", "what's set up" | **Help** |
 
@@ -65,6 +66,13 @@ and `npm ci` if `node_modules` is missing.
    repo is visible to the whole wptrainingteam org. A cloud run follows the push rule in
    [Cloud runs](#cloud-runs) instead.
 
+A release's codename is only announced on release day, so a new release starts with an empty
+`codename` in its `release.json`, and the version picker shows none. Once the release
+announcement is out, set `codename` to the name in its title (for example `"Mary Lou"` from
+WordPress 7.1 “Mary Lou”) and `published` to the release date (`YYYY-MM-DD`), which removes the
+"Upcoming" badge and turns "SHIPS" into "RELEASED". Then run steps 5 to 7. Take the name from the announcement, never
+from memory or a guess.
+
 The old editions (6.2 to 7.1) were imported once from their published posts. That migration is
 done and isn't a job. Rebuild them like any other release.
 
@@ -94,7 +102,11 @@ Rules for a custom layout:
 - Keep every slot. Style them freely, but don't drop one.
 - Leave `data-tags` and `data-title` alone on sections and items: `site.js` (or the layout's own
   script) filters from them.
-- Put any `.js` or `.css` files next to `layout.html`. The build copies them beside the page.
+- Put any `.js` or `.css` files next to `layout.html`. The build copies them beside the page,
+  on top of the generic layout's `sot.css` and `site.js`, so an own layout can start from
+  `layouts/generic/layout.html` and only add its own files.
+- The 7.2 layout adds interactive demos to items with `releases/7.2/layout/mount.js`, keyed by item
+  id. If an item's heading changes in the Doc, its id changes: update the key there.
 - A layout changes how a release looks, never what it says. Content stays as imported.
 
 ## Help

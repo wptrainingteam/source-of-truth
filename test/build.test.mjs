@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, readFileSync, existsSync, cpSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, readFileSync, existsSync, cpSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -49,6 +49,19 @@ test( 'layout assets sit next to every page', () => {
 	assert.match( read( join( out, '7-1/index.html' ) ), /<script src="site.js"/ );
 } );
 
+test( 'an own layout gets the generic assets, then its own', () => {
+	const { repo, out } = setup();
+	const dir = join( repo, 'releases', '7.2' );
+	const metaFile = join( dir, 'release.json' );
+	writeFileSync( metaFile, JSON.stringify( { ...JSON.parse( read( metaFile ) ), layout: 'own' } ) );
+	mkdirSync( join( dir, 'layout' ) );
+	writeFileSync( join( dir, 'layout', 'layout.html' ), read( join( repo, 'layouts', 'generic', 'layout.html' ) ) );
+	writeFileSync( join( dir, 'layout', 'demo.js' ), '' );
+	build( repo, out, BASE );
+	for ( const f of [ 'site.js', 'sot.css', 'demo.js' ] ) assert.ok( existsSync( join( out, '7-2', f ) ), `${ f } in /7-2` );
+	assert.ok( ! existsSync( join( out, '7-1', 'demo.js' ) ) );
+} );
+
 test( 'headers list both versions newest first, current selected', () => {
 	const { repo, out } = setup();
 	build( repo, out, BASE );
@@ -65,7 +78,7 @@ test( 'adding a release only changes the version list on other pages', () => {
 	const after = read( join( out, '7-1/index.html' ) );
 	assert.notEqual( before, after );
 	assert.deepEqual( versionsIn( after ), [ '7-2', '7-1*', '6-9' ] );
-	const strip = ( h ) => h.replace( /<select[\s\S]*?<\/select>/, '' ).replace( /<noscript>[\s\S]*?<\/noscript>/, '' );
+	const strip = ( h ) => h.replace( /<select[\s\S]*?<\/select>/, '' ).replace( /<noscript>[\s\S]*?<\/noscript>/, '' ).replace( /window\.SOT_VERSIONS = .*?;<\/script>/, '' );
 	assert.equal( strip( after ), strip( before ) );
 } );
 

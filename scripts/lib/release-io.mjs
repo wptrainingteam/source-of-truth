@@ -3,7 +3,7 @@ import { mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync, existsSync
 import { join } from 'node:path';
 
 const DEFAULT_META = {
-	version: '', title: '', releaseDate: '', gutenbergRange: '',
+	version: '', title: '', codename: '', releaseDate: '', gutenbergRange: '',
 	author: { name: '', url: '' }, published: '', updated: '',
 	source: { type: '', id: '', url: '' }, layout: 'generic',
 	milestones: { beta1: '', rc1: '', final: '' },
