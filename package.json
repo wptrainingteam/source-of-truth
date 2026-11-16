@@ -7,7 +7,7 @@
 	},
 	"scripts": {
 		"build": "node scripts/build.mjs",
-		"test": "node --test test/",
+		"test": "node --test",
 		"import:doc": "node scripts/import-doc.mjs",
 		"migrate:post": "node scripts/migrate/import-post.mjs"
 	},

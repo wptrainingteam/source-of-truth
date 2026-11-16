@@ -84,7 +84,9 @@
 
 /* ---------- 3. Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--sot-header-h) + 16px); -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+/* Anchors stop just under the sticky header. (Only scroll-margin: adding scroll-padding on html too would double it.) */
+[id] { scroll-margin-top: calc(var(--sot-header-h) + 16px); }
 body {
   margin: 0; background: var(--sot-bg); color: var(--sot-ink);
   font-family: var(--sot-font-body); font-size: clamp(16px, .35vw + 15px, 17.5px); line-height: 1.65;
@@ -808,4 +810,16 @@ a.sot-ref:hover { color: var(--sot-accent-strong); text-decoration-style: solid;
 .sot-audience__defs dd { margin: 0; color: var(--sot-ink-2); }
 @media (max-width: 520px) { .sot-audience__defs div { grid-template-columns: 1fr; gap: 0; } }
 @media (max-width: 699px) { .sot-aud__pop { position: static; margin-top: 2px; box-shadow: none; } }
+
+/* Arrow-key stepping: where you landed, briefly */
+.sot-stop-focus:focus { outline: none; }
+.sot-stepper {
+  position: fixed; left: 50%; bottom: 24px; z-index: 75; display: flex; align-items: center; gap: 10px; max-width: min(520px, calc(100vw - 32px));
+  padding: 9px 16px; border-radius: 999px; background: var(--sot-ink); color: var(--sot-bg); font-size: 13.5px; box-shadow: var(--sot-shadow);
+  opacity: 0; transform: translate(-50%, 8px); transition: opacity .18s, transform .18s; pointer-events: none;
+}
+.sot-stepper.is-on { opacity: 1; transform: translate(-50%, 0); }
+.sot-stepper b { flex: none; font-family: var(--sot-font-mono); font-size: 12px; font-weight: 500; opacity: .75; }
+.sot-stepper span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+@media print { .sot-stepper { display: none !important; } }
 

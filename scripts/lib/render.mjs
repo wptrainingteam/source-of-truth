@@ -193,6 +193,28 @@ ${ links.map( ( [ href, b, s ] ) => `    <li><a href="${ esc( href ) }"><b>${ es
 	return localAnchors( out, meta.source?.url, sections );
 }
 
+// A hand-written page ("layout": "page"): its own content and head, plus the shared header and the
+// canonical and og tags. Its authoring comments are dropped.
+export function renderHandPage( pageHtml, meta, header, baseUrl = '' ) {
+	const url = `${ baseUrl.replace( /\/+$/, '' ) }/${ versionSlug( meta.version ) }/`;
+	const description = pageHtml.match( /<meta name="description" content="([^"]*)">/ )?.[ 1 ] ?? '';
+	const head = [
+		`<link rel="canonical" href="${ esc( url ) }">`,
+		`<meta property="og:url" content="${ esc( url ) }">`,
+		`<meta property="og:title" content="${ esc( meta.title ) }">`,
+		description ? `<meta property="og:description" content="${ description }">` : '',
+		'<meta property="og:type" content="article">',
+		'<meta property="og:site_name" content="WordPress Source of Truth">',
+	].filter( Boolean ).join( '\n' );
+	for ( const slot of [ 'head', 'header' ] ) {
+		if ( ! pageHtml.includes( `<!-- sot:${ slot } -->` ) ) throw new Error( `Page is missing the sot:${ slot } slot` );
+	}
+	return pageHtml
+		.split( '<!-- sot:head -->' ).join( head )
+		.split( '<!-- sot:header -->' ).join( header )
+		.replace( /[ \t]*<!--[\s\S]*?-->[ \t]*\n?/g, '' );
+}
+
 // Links to an anchor in the original post point at the same spot on this page when it exists here.
 const bare = ( url ) => url.replace( /^https?:\/\//i, '' ).replace( /\/$/, '' );
 function localAnchors( html, sourceUrl, sections ) {

@@ -2,21 +2,23 @@
 // Builds every release in releases/ into one static site: /<major>-<minor>/ per release, the newest also at /.
 //
 //   node scripts/build.mjs
-import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { copyFileSync, cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { listReleases } from './lib/versions.mjs';
 import { readRelease } from './lib/release-io.mjs';
-import { renderPage } from './lib/render.mjs';
+import { renderHandPage, renderPage } from './lib/render.mjs';
 import { renderHeader, versionEntry } from './lib/header.mjs';
 import { findLeaks } from './lib/clean.mjs';
 
 const REPO = resolve( fileURLToPath( new URL( '..', import.meta.url ) ) );
 
-const layoutDir = ( repo, dir, meta ) => ( meta.layout === 'own' ? join( dir, 'layout' ) : join( repo, 'layouts', meta.layout || 'generic' ) );
+// "own" fills the release's layout.html from its content; "page" uses its hand-written page.html as is.
+const layoutDir = ( repo, dir, meta ) => ( [ 'own', 'page' ].includes( meta.layout ) ? join( dir, 'layout' ) : join( repo, 'layouts', meta.layout || 'generic' ) );
 // An own layout builds on the generic shell: its page gets the generic assets, then its own on top.
 const assetDirs = ( repo, lDir ) => [ ...new Set( [ join( repo, 'layouts', 'generic' ), lDir ] ) ];
 const assets = ( dir ) => readdirSync( dir ).filter( ( f ) => /\.(js|css)$/.test( f ) );
+// A layout's images/ folder is published next to its page.
 
 const readBaseUrl = ( repo ) => JSON.parse( readFileSync( join( repo, 'site.json' ), 'utf8' ) ).baseUrl.replace( /\/+$/, '' );
 
@@ -54,11 +56,14 @@ export function build( repo = REPO, outDir = join( repo, 'dist' ), baseUrl = rea
 	const rendered = read.map( ( r ) => {
 		const { meta, structure } = r;
 		const lDir = layoutDir( repo, r.dir, meta );
-		const file = join( lDir, 'layout.html' );
+		const file = join( lDir, meta.layout === 'page' ? 'page.html' : 'layout.html' );
 		if ( ! existsSync( file ) ) throw new Error( `Release ${ r.version }: no layout at ${ file }` );
 		let html;
 		try {
-			html = renderPage( readFileSync( file, 'utf8' ), { ...meta, version: r.version }, structure, renderHeader( r.version, all ), baseUrl );
+			const header = renderHeader( r.version, all );
+			html = meta.layout === 'page'
+				? renderHandPage( readFileSync( file, 'utf8' ), { ...meta, version: r.version }, header, baseUrl )
+				: renderPage( readFileSync( file, 'utf8' ), { ...meta, version: r.version }, structure, header, baseUrl );
 		} catch ( e ) {
 			throw new Error( `Release ${ r.version }: ${ e.message }` );
 		}
@@ -74,7 +79,10 @@ export function build( repo = REPO, outDir = join( repo, 'dist' ), baseUrl = rea
 	const write = ( dir, page ) => {
 		mkdirSync( dir, { recursive: true } );
 		writeFileSync( join( dir, 'index.html' ), page.html );
-		for ( const d of assetDirs( repo, page.lDir ) ) for ( const f of assets( d ) ) copyFileSync( join( d, f ), join( dir, f ) );
+		for ( const d of assetDirs( repo, page.lDir ) ) {
+			for ( const f of assets( d ) ) copyFileSync( join( d, f ), join( dir, f ) );
+			if ( existsSync( join( d, 'images' ) ) ) cpSync( join( d, 'images' ), join( dir, 'images' ), { recursive: true } );
+		}
 		pages.push( join( dir, 'index.html' ) );
 	};
 	rendered.forEach( ( page ) => write( join( outDir, page.slug ), page ) );

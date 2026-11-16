@@ -478,7 +478,7 @@
       if (on) tocLinks[id].setAttribute('aria-current', 'location'); else tocLinks[id].removeAttribute('aria-current');
     });
     var spy = current || curStart;
-    if (spy && toc && window.innerWidth >= 1100 && tocLinks[spy.id]) {
+    if (spy && toc && !tocApi.hold && window.innerWidth >= 1100 && tocLinks[spy.id]) {
       var a = tocLinks[spy.id], tr = toc.getBoundingClientRect(), ar = a.getBoundingClientRect();
       if (ar.top < tr.top + 40 || ar.bottom > tr.bottom - 40) toc.scrollTop += ar.top - tr.top - tr.height / 3;
     }
@@ -687,7 +687,7 @@
       '<input type="text" role="combobox" aria-expanded="true" aria-controls="sot-finder-list" aria-autocomplete="list" aria-label="Search items, things to try, tags and actions" placeholder="Search items, demos, [tags] and actions" autocomplete="off" spellcheck="false">' +
       '<button type="button" class="sot-finder__esc" data-close aria-label="Close">esc</button></div>' +
       '<div class="sot-finder__list" id="sot-finder-list" role="listbox" aria-label="Results"></div>' +
-      '<div class="sot-finder__foot" aria-hidden="true"><span><kbd>↑</kbd><kbd>↓</kbd> move</span><span><kbd>↵</kbd> go</span><span><kbd>[</kbd> type a tag</span><span class="sot-finder__status"></span></div></div>';
+      '<div class="sot-finder__foot" aria-hidden="true"><span><kbd>↑</kbd><kbd>↓</kbd> move</span><span><kbd>↵</kbd> go</span><span><kbd>[</kbd> type a tag</span><span><kbd>←</kbd><kbd>→</kbd> on the page: previous / next item</span><span class="sot-finder__status"></span></div></div>';
     doc.body.appendChild(finder);
     fInput = $('input', finder); fList = $('.sot-finder__list', finder);
     $('.sot-finder__status', finder).setAttribute('aria-live', 'polite');
@@ -737,6 +737,64 @@
   updateRead();
   onScroll();
   if (location.hash) { var target = doc.getElementById(location.hash.slice(1)); if (target && target.classList.contains('sot-item')) setTimeout(function () { target.classList.add('is-flash'); }, 300); }
+
+  /* ---------- Arrow keys: step through items ----------
+     ← / → previous / next stop (the Start here parts, then every item; folded items are skipped).
+     Shift + ← / → previous / next section. Only when focus is on the page itself, never inside
+     a control, recreation or menu, so their own arrow keys keep working. */
+  (function () {
+    var WIDGET = 'input, textarea, select, [contenteditable=""], [contenteditable="true"], .sot-demo, .wpui, .sot-milestones, .sot-picker, .sot-aud, .sot-finder, .sot-toc, ' +
+      '[role="toolbar"], [role="tablist"], [role="menu"], [role="menubar"], [role="listbox"], [role="slider"], [role="radiogroup"], [role="grid"], [role="tree"], [role="dialog"], [role="application"]';
+    // Where a stop lands: just under the sticky header (its scroll-margin).
+    var line = function () { return (parseFloat(getComputedStyle(root).getPropertyValue('--sot-header-h')) || 64) + 16; };
+    var lastTarget = null;
+    function stops(bySection) {
+      var list = bySection ? [doc.getElementById('top')].concat(sections) : startAnchors.concat(items.filter(function (i) { return !i.classList.contains('is-out'); }));
+      return list.filter(function (el) { return el && el.offsetParent !== null; })
+        .sort(function (a, b) { return a.compareDocumentPosition(b) & 4 ? -1 : 1; })
+        // A stop sitting beside the previous one (same row) is read along with it.
+        .filter(function (el, i, all) { return !i || Math.abs(el.getBoundingClientRect().top - all[i - 1].getBoundingClientRect().top) > 4; });
+    }
+    var pill = doc.createElement('div'); pill.className = 'sot-stepper'; pill.setAttribute('aria-hidden', 'true'); doc.body.appendChild(pill);
+    var pillTimer;
+    function step(dir, bySection) {
+      var list = stops(bySection), y = line(), target = null, at = list.indexOf(lastTarget);
+      if (tocApi.hold && at > -1) target = list[at + dir];   // still gliding from the last press: count from where it's headed
+      else if (dir > 0) target = list.filter(function (el) { return el.getBoundingClientRect().top > y + 8; })[0];
+      else { var before = list.filter(function (el) { return el.getBoundingClientRect().top < y - 8; }); target = before[before.length - 1]; }
+      if (!target) return false;
+      lastTarget = target;
+      // Hold the rail still while the page glides, or Chrome cuts the page's smooth scroll short.
+      tocApi.hold = true; clearTimeout(step.t);
+      var release = function () { if (!tocApi.hold) return; tocApi.hold = false; window.removeEventListener('scrollend', release); onScroll(); };
+      window.addEventListener('scrollend', release); step.t = setTimeout(release, 1200);
+      target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+      var focusEl = $('.sot-section__head h2', target) || $('.sot-item__title', target) || $('h1, h2, h3', target) || target;
+      if (!focusEl.hasAttribute('tabindex')) focusEl.setAttribute('tabindex', '-1');
+      focusEl.classList.add('sot-stop-focus');
+      focusEl.focus({ preventScroll: true });
+      var title = target.id === 'top' ? 'Start here' : target.getAttribute('data-sot-start') || target.getAttribute('data-toc-title') ||
+        (target._sot && target._sot.title) || (focusEl.textContent || '').trim();
+      var n = list.indexOf(target) + 1;
+      pill.innerHTML = '<b>' + n + ' / ' + list.length + '</b><span></span>'; $('span', pill).textContent = title;
+      pill.classList.add('is-on'); clearTimeout(pillTimer); pillTimer = setTimeout(function () { pill.classList.remove('is-on'); }, 1400);
+      return true;
+    }
+    doc.addEventListener('keydown', function (e) {
+      if (e.defaultPrevented || e.altKey || e.metaKey || e.ctrlKey) return;
+      var t = e.target;
+      if (root.classList.contains('sot-drawer-open') || root.classList.contains('sot-finder-open')) return;
+      var inWidget = t && t.closest && t !== doc.body && t.closest(WIDGET);
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        if (inWidget) return;
+        if (step(e.key === 'ArrowRight' ? 1 : -1, e.shiftKey)) { e.preventDefault(); store.set('arrowtip', 1); }
+      } else if (!inWidget && !store.get('arrowtip', 0) && (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ')) {
+        // First time someone reads with the keyboard: mention the shortcut once.
+        store.set('arrowtip', 1); toast('Tip: ← → move between items');
+      }
+    });
+    doc.addEventListener('focusout', function (e) { if (e.target.classList && e.target.classList.contains('sot-stop-focus')) e.target.classList.remove('sot-stop-focus'); });
+  })();
 
   window.SOT = { version: VERSION, items: items, sections: sections, random: random, goTo: goTo, toast: toast, store: store, svg: svg, find: openFinder };
 })();

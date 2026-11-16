@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en" data-sot-version="7.2">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WordPress 7.2 Source of Truth</title>
+<meta name="description" content="Everything coming in WordPress 7.2: the Ipsum default theme, SVG admin icons, Notes reactions, design tools for nearly every block, and more, with links to every PR and dev note.">
+<!-- sot:head -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Archivo:wdth,wght@62..125,400..700&family=Besley:wght@400;500&family=STIX+Two+Text:wght@400;500&display=swap">
+<link rel="stylesheet" href="sot.css">
+<link rel="stylesheet" href="wpui.css">
+<link rel="stylesheet" href="edition.css">
+<script>try{var t=localStorage.getItem('sot:theme');if(t)document.documentElement.setAttribute('data-theme',JSON.parse(t));}catch(e){}</script>
+</head>
+<body>
+<a class="sot-skip" href="#content">Skip to content</a>
+<div class="sot-progress" aria-hidden="true"><span></span></div>
+
+<!-- sot:header -->
+
+<!-- ============ SHELL: table of contents + content ============ -->
+<div class="sot-wrap sot-layout" id="top">
+<button class="sot-rail-handle" type="button" data-sot-rail-toggle aria-controls="toc" aria-expanded="true" aria-label="Collapse contents" title="Collapse contents  [">
+  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5 9 12l5.5 5.5"/></svg>
+</button>
+  <nav class="sot-toc" id="toc" data-sot-toc aria-label="Contents" tabindex="-1">
+    <button class="sot-btn sot-btn--ghost sot-btn--icon sot-toc__close" type="button" data-sot-toc-close aria-label="Close contents"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <div class="sot-toc__top">
+      <button class="sot-find-btn" type="button" data-sot-find aria-haspopup="dialog">
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-5-5"/></svg>
+      <span>Find in 7.2</span><kbd data-sot-kbd>⌘K</kbd>
+      </button>
+    </div>
+    <div class="sot-toc__head"><p class="sot-toc__title">Contents</p><span class="sot-toc__count"></span></div>
+    <div class="sot-toc__meter" aria-hidden="true"><span></span></div>
+    <div class="sot-toc__aud" data-sot-aud-picker></div>
+    <ol></ol>
+    <div class="sot-toc__tools">
+      <button class="sot-btn sot-btn--try" type="button" data-sot-try-open>
+        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5l12 7-12 7z"/></svg><span><span data-sot-count="try">15</span> things to try</span>
+      </button>
+      <button class="sot-btn sot-btn--ghost" type="button" data-sot-random>
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>Jump to a random item
+      </button>
+      <button class="sot-btn sot-btn--ghost sot-btn--quiet" type="button" data-sot-reset-read>Clear reading progress</button>
+    </div>
+  </nav>
+
+  <div class="sot-main">
+<div class="sot-start" id="start" aria-label="Start here">
+<!-- ============ EDITION: hero (00 Start here) ============ -->
+<div class="sot-start__hero">
+  <section class="sot-hero" id="welcome" data-sot-start="Welcome" aria-labelledby="page-title">
+    <div>
+      <h1 class="sot-hero__title" id="page-title">
+        <span class="sot-hero__label">WordPress 7.2 Source of Truth</span>
+        <span class="sot-hero__headline">Every site starts as <em class="ed-dotted">placeholder</em> text.</span>
+      </h1>
+      <div class="sot-hero__intro">
+        <p><strong>Welcome to the Source of Truth for WordPress 7.2!</strong></p>
+        <p>Before you dive headfirst into all the big and small changes and pick your favorites, make sure to read <a href="#guidelines">these preliminary thoughts about this post</a> and how to use it. If you have any questions, leave a comment.</p>
+        <p>A huge “Thank you” to everyone who helped review this post. It still takes a village. Also, huge respect to the whole release squad for getting WordPress 7.2 over the finish line.</p>
+        <p class="sot-small sot-muted"><span class="sot-pending">Needed</span> Collaborator credits and contact line.</p>
+      </div>
+      <p class="sot-meta">
+        <span>Updated <span class="sot-pending">Month Day</span>, 2026</span>
+        <span data-sot-reading-time>Reading time</span>
+      </p>
+    </div>
+
+    <!-- Edition art: a Paragraph block that starts as lorem ipsum -->
+    <div class="ed-block" aria-label="Example Paragraph block">
+      <div class="ed-block__bar">
+        <span class="ed-block__name"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M13 4v16M17 4v16M19 4H9.5a4.5 4.5 0 0 0 0 9H13"/></svg>Paragraph</span>
+        <span class="ed-block__state" id="edHeroState">Placeholder</span>
+      </div>
+      <div class="ed-block__body" aria-live="polite">
+        <p class="ed-block__lorem" id="edHeroLorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam, quis nostrud exercitation.</p>
+        <p class="ed-block__real" id="edHeroReal" hidden>WordPress 7.2 brings a fresh starting point with Ipsum, a minimal new default theme and the first since Twenty Ten that isn’t named after the year. It’s designed as a blank canvas for blogging, with nearly all of its design editable in Global Styles.</p>
+      </div>
+      <div class="ed-block__foot">
+        <span class="sot-small sot-muted">Ipsum is named for this text.</span>
+        <button class="sot-btn sot-btn--accent" type="button" id="edHeroBtn">Replace placeholder</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sot-stats" aria-label="At a glance">
+    <div class="sot-stat"><b>Dec 8</b><span>Scheduled release, 2026</span></div>
+    <div class="sot-stat"><b data-sot-count="items">33</b><span>Changes covered, each with its links</span></div>
+    <div class="sot-stat"><b data-sot-count="sections">5</b><span>Sections, from priority items to developer goodies</span></div>
+    <div class="sot-stat"><b>23.7–24.3</b><span>Gutenberg plugin releases included</span></div>
+  </section>
+</div>
+
+<!-- ============ SHELL: timeline ============ -->
+<section class="sot-band" id="road" data-sot-start="The road to December 8" aria-labelledby="timeline-title">
+  <div class="sot-timeline" data-sot-timeline>
+    <div class="sot-timeline__head">
+      <h2 id="timeline-title">The road to December 8</h2>
+      <p>Today is <strong data-sot-today>today</strong> · <strong data-sot-countdown>Release day</strong> · <a href="https://make.wordpress.org/core/7-2/">Development cycle</a></p>
+    </div>
+    <div class="sot-timeline__track" aria-hidden="true"><span></span></div>
+    <ol class="sot-milestones">
+      <li class="sot-milestone" data-date="2026-10-20"><small>Oct 20</small><b>Beta 1</b></li>
+      <li class="sot-milestone" data-date="2026-10-27"><small>Oct 27</small><b>Beta 2</b></li>
+      <li class="sot-milestone" data-date="2026-11-03"><small>Nov 3</small><b>Beta 3</b></li>
+      <li class="sot-milestone" data-date="2026-11-10"><small>Nov 10</small><b>Beta 4</b></li>
+      <li class="sot-milestone" data-date="2026-11-17"><small>Nov 17</small><b>RC 1</b></li>
+      <li class="sot-milestone" data-date="2026-11-24"><small>Nov 24</small><b>RC 2</b></li>
+      <li class="sot-milestone" data-date="2026-12-01"><small>Dec 1</small><b>RC 3</b></li>
+      <li class="sot-milestone" data-date="2026-12-08"><small>Dec 8</small><b>Release</b></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ SHELL: intro (overview, changelog, guidelines, tags) ============ -->
+<div class="sot-intro">
+  <div class="sot-intro__grid">
+    <section id="overview" data-sot-start="Overview" class="sot-prose" aria-labelledby="overview-title">
+      <p class="sot-eyebrow">The short version</p>
+      <h2 class="sot-h2" id="overview-title">Overview</h2>
+      <p class="sot-note">Note: As always, what’s shared here is being actively pursued but doesn’t necessarily mean each will make it into the final release of WordPress 7.2.</p>
+      <p>WordPress 7.2 brings a fresh starting point with Ipsum, a minimal new default theme and the first since Twenty Ten that isn’t named after the year. It’s designed as a blank canvas for blogging, with nearly all of its design editable in Global Styles.</p>
+      <p>The admin gets a visual refresh, too. The admin bar and admin menu replace the Dashicons icon font with SVG icons drawn in the same style as the block editor’s. It’s one of the most visible changes in the release, and the new icons are also more reliable for screen readers and high-contrast modes.</p>
+      <p>Much of this release fills in gaps. Dozens of Core blocks pick up design tools they were missing, from backgrounds and shadows to minimum widths and duotone. Responsive styles and interactive states from 7.1 reach more controls, and Global Styles can now style form elements, custom duotone palettes, and Navigation Link states.</p>
+      <p>Collaboration inside the editor keeps improving. Notes move into a margin beside the canvas, where they stay visible while you work, and you can expand, minimize, or hide them. You can react to a note with a small set of emoji instead of writing a reply.</p>
+      <p>Beyond that, writing in the editor gets smoother with a long list of small fixes. Image processing in the browser, which arrived in the block editor in 7.1, now extends to uploads in the Media Library and the editor’s media modal, meaning fewer timeouts and memory errors on large images. Developers get public APIs for responsive controls, Interactivity API additions, and new components.</p>
+      <p><strong>WordPress 7.2 is scheduled for release on December 8, 2026.</strong></p>
+      <figure class="sot-media ed-highlights">
+        <img class="ed-highlights__light" src="images/highlights-light.png" alt="WordPress 7.2 highlights: Ipsum, the new default theme; Notes in the margin; design tools for nearly every Core block; responsive styles and states, round two; Global Styles for form elements; SVG icons in the admin; and faster image uploads." width="1600" height="900" loading="lazy" decoding="async">
+        <img class="ed-highlights__dark" src="images/highlights-dark.png" alt="WordPress 7.2 highlights: Ipsum, the new default theme; Notes in the margin; design tools for nearly every Core block; responsive styles and states, round two; Global Styles for form elements; SVG icons in the admin; and faster image uploads." width="1600" height="900" loading="lazy" decoding="async">
+        <figcaption><span class="sot-pending">Needed</span> Caption linking the highlight grid’s GitHub comment.</figcaption>
+      </figure>
+
+    </section>
+
+    <aside class="sot-stack" id="about-this-post" data-sot-start="Changelog and guidelines" aria-label="About this post">
+      <section class="sot-card" id="changelog" aria-labelledby="changelog-title">
+        <p class="sot-eyebrow">Changelog</p>
+        <h2 id="changelog-title" class="sr-only sot-sr">Changelog</h2>
+        <p class="sot-small sot-muted" style="margin:0 0 12px">Any changes are cataloged here as the release goes on.</p>
+        <ul class="sot-changelog">
+          <li><b><span class="sot-pending">Month Day</span>, 2026</b>: First edition.</li>
+        </ul>
+      </section>
+      <section class="sot-card" id="guidelines" aria-labelledby="guidelines-title">
+        <p class="sot-eyebrow">Before you dive in</p>
+        <h2 id="guidelines-title">Important note/guidelines</h2>
+        <p>Try not to just copy and paste what’s in this post since it’s going to be shared with plenty of folks. Use this as inspiration for your own stuff and to get the best info about this release. If you do copy and paste, just remember that others might do the same, and it could lead to some awkward moments with duplicate content floating around online.</p>
+        <ul>
+          <li>Each item has been tagged using best guesses with different high-level labels so that you can more readily see at a glance who is likely to be most impacted.</li>
+          <li>Each item has a high-level description, visuals (if relevant), and key resources if you would like to learn more.</li>
+        </ul>
+      </section>
+      <section class="sot-card" id="assets" aria-labelledby="assets-title">
+        <p class="sot-eyebrow">Assets</p>
+        <h2 id="assets-title" class="sot-sr">Assets</h2>
+        <p>In this Google Drive folder <span class="sot-pending">Link needed</span> you can view all assets in this document.</p>
+      </section>
+    </aside>
+  </div>
+
+  <section class="sot-resources-block" id="resources" data-sot-start="Resources" aria-labelledby="resources-title">
+    <h2 class="sot-resources-block__title" id="resources-title">Resources</h2>
+    <ul class="sot-resources">
+        <li><a href="https://make.wordpress.org/test/2026/10/20/help-test-wordpress-7-2/"><b>Help Test WordPress 7.2</b><span>Make Test, October 20</span></a></li>
+        <li><a href="https://make.wordpress.org/core/tag/dev-notes+7-2/"><b>Dev Notes published</b><span>Follow along on Make Core</span></a></li>
+        <li><span class="sot-resource-pending"><b>WordPress 7.2 Field Guide</b><span>Expected at RC 1</span></span></li>
+        <li><a href="https://make.wordpress.org/core/2026/09/18/roadmap-to-7-2/"><b>Roadmap to 7.2</b><span>Make Core, September 18</span></a></li>
+        <li><a href="https://make.wordpress.org/core/7-2/"><b>WordPress 7.2 Development Cycle</b><span>Dates and release squad</span></a></li>
+        <li><a href="https://developer.wordpress.org/news/2026/09/whats-new-for-developers-september-2026/"><b>What’s new for developers: September</b><span>Developer Blog</span></a></li>
+        <li><a href="https://developer.wordpress.org/news/2026/10/whats-new-for-developers-october-2026/"><b>What’s new for developers: October</b><span>Developer Blog</span></a></li>
+    </ul>
+    <div class="sot-gb">
+      <p>This release consists of features from the Gutenberg plugin versions 23.7 – 24.3. Here are the release posts of those plugin releases:</p>
+      <ul class="sot-gb-range" aria-label="Gutenberg release posts">
+        <li><a href="https://make.wordpress.org/core/2026/08/06/whats-new-in-gutenberg-23-7-05-august/">23.7</a></li>
+        <li><a href="https://make.wordpress.org/core/2026/08/19/whats-new-in-gutenberg-23-8-19-august/">23.8</a></li>
+        <li><a href="https://make.wordpress.org/core/2026/09/02/whats-new-in-gutenberg-23-9-2-september/">23.9</a></li>
+        <li><a href="https://make.wordpress.org/core/2026/09/16/whats-new-in-gutenberg-24-0-16-september/">24.0</a></li>
+        <li><a href="https://make.wordpress.org/core/2026/09/30/whats-new-in-gutenberg-24-1-30-september/">24.1</a></li>
+        <li><a href="https://make.wordpress.org/core/2026/10/14/whats-new-in-gutenberg-24-2-14-october/">24.2</a></li>
+        <li><span title="Release post link needed">24.3 · link needed</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Tags: definitions double as the audience filter -->
+  <section class="sot-audience" id="tags" data-sot-start="Who are you reading as?" aria-labelledby="tags-title">
+    <p class="sot-eyebrow">Tags</p>
+    <h2 id="tags-title" class="sot-audience__title">Who are you reading as?</h2>
+    <p class="sot-audience__intro">To make this document easier to navigate based on specific audiences, the following tags are used liberally. Pick one or more to filter the page.</p>
+    <div class="sot-audience__chips" role="group" aria-label="Filter by audience">
+      <button class="sot-filter" type="button" data-sot-aud="end user" data-sot-aud-label="End User" data-sot-aud-desc="End user focus." aria-pressed="false">End User</button>
+      <button class="sot-filter" type="button" data-sot-aud="theme builder" data-sot-aud-label="Theme Builder" data-sot-aud-desc="Block or classic theme author." aria-pressed="false">Theme Builder</button>
+      <button class="sot-filter" type="button" data-sot-aud="plugin author" data-sot-aud-label="Plugin Author" data-sot-aud-desc="Plugin author, whether block or otherwise." aria-pressed="false">Plugin Author</button>
+      <button class="sot-filter" type="button" data-sot-aud="developer" data-sot-aud-label="Developer" data-sot-aud-desc="Catch-all term for more technical folks." aria-pressed="false">Developer</button>
+      <button class="sot-filter" type="button" data-sot-aud="site admin" data-sot-aud-label="Site Admin" data-sot-aud-desc="This includes a &ldquo;builder&rdquo; type." aria-pressed="false">Site Admin</button>
+      <button class="sot-filter" type="button" data-sot-aud="enterprise" data-sot-aud-label="Enterprise" data-sot-aud-desc="Items of particular interest to or impact on enterprise-level folks." aria-pressed="false">Enterprise</button>
+      <button class="sot-filter" type="button" data-sot-aud="all" data-sot-aud-label="Broad Impact" data-sot-aud-desc="Broad impact to every kind of WordPress user." aria-pressed="false">Broad Impact</button>
+    </div>
+    <p class="sot-audience__status" data-sot-aud-status aria-live="polite"></p>
+    <details class="sot-audience__more">
+      <summary>What each tag means</summary>
+      <dl class="sot-audience__defs">
+        <div><dt>[end user]</dt><dd>End user focus.</dd></div>
+        <div><dt>[theme builder]</dt><dd>Block or classic theme author.</dd></div>
+        <div><dt>[plugin author]</dt><dd>Plugin author, whether block or otherwise.</dd></div>
+        <div><dt>[developer]</dt><dd>Catch-all term for more technical folks.</dd></div>
+        <div><dt>[site admin]</dt><dd>This includes a “builder” type.</dd></div>
+        <div><dt>[enterprise]</dt><dd>Items of particular interest to or impact on enterprise-level folks.</dd></div>
+        <div><dt>[all]</dt><dd>Broad impact to every kind of WordPress user.</dd></div>
+      </dl>
+    </details>
+  </section>
+</div>
+
+</div>
+
+
+
+  <main class="sot-content" id="content">
+
+    <!-- ===================== 01 PRIORITY ITEMS ===================== -->
+    <section class="sot-section" id="priority-items" data-toc-title="Priority Items">
+      <header class="sot-section__head">
+        <p class="sot-section__num">01</p>
+        <h2>Priority Items for WordPress 7.2</h2>
+      </header>
+
+      <!-- Ipsum -->
+      <article class="sot-item sot-item--priority" id="ipsum">
+        <h3 class="sot-item__title">Ipsum, the new default theme</h3>
+        <p class="sot-tags">[all] [theme builder]</p>
+        <div class="sot-item__body">
+          <p>WordPress 7.2 ships with Ipsum, a new default theme and the first since Twenty Ten that isn’t named after the year. It’s an intentionally minimal blog theme built as a blank canvas: headers, heroes, and sidebars are there when you need them and stay out of the way when you just want to write. Style variations restyle the whole page, images included, and every color combination meets WCAG AA contrast.</p>
+          <p>Ipsum ships with very little CSS. Most of its design lives in <code>theme.json</code>, so nearly everything is editable in Global Styles, which also makes it a good reference for anyone building block themes.</p>
+          <p>Ipsum is bundled with WordPress starting with Beta 2 (<a href="https://core.trac.wordpress.org/changeset/64677">r64677</a>). The theme is still being refined, so expect changes during the beta period. You can <a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/WordPress/ipsum/trunk/.github/blueprint.json">try Ipsum in Playground</a> or download it from the <a href="https://github.com/WordPress/ipsum">Ipsum GitHub repository</a> and <a href="https://github.com/WordPress/ipsum/issues">report issues</a> there.</p>
+
+          <div class="ed-rec" data-wpui="ipsum" data-sot-try="Switch Ipsum’s style variations and type sets" role="region" aria-label="Ipsum style variations, recreated"></div>
+          <div class="sot-pill-row" style="margin-top:16px"><a class="sot-btn sot-btn--solid" href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/WordPress/ipsum/trunk/.github/blueprint.json">Try it in Playground</a><a class="sot-btn" href="https://github.com/WordPress/ipsum">GitHub repo</a></div>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Read</b><span>The announcement: <a href="https://make.wordpress.org/core/2026/09/16/introducing-ipsum-the-new-default-theme/">Introducing Ipsum, the new default theme</a></span></p>
+        </footer>
+      </article>
+
+      <!-- Notes -->
+      <article class="sot-item sot-item--priority" id="notes" data-toc-title="Notes: emoji, UI controls, and usability">
+        <h3 class="sot-item__title">Notes add emoji support, UI controls, and usability improvements</h3>
+        <p class="sot-tags">[end user] [site admin] [enterprise]</p>
+        <div class="sot-item__body">
+          <p>Notes now sit in a margin beside the editor canvas instead of floating over it, so you can keep a conversation open while you change block or post settings (<a href="https://github.com/WordPress/gutenberg/pull/83786">#83786</a>, <a href="https://github.com/WordPress/gutenberg/pull/83852">#83852</a>). On narrower screens, threads collapse to the author’s avatar. A new <strong>Notes</strong> submenu in the <strong>Options</strong> menu lets you expand, minimize, or hide them (<a href="https://github.com/WordPress/gutenberg/pull/83768">#83768</a>).</p>
+          <p>Notes also get emoji reactions, so you can acknowledge feedback without adding another reply. Rather than the full emoji set, reactions come from a small, fixed set: 👍 ➕ ❤️ 🎉 😄 👀 🚀 (<a href="https://github.com/WordPress/gutenberg/pull/76767">#76767</a>, <a href="https://github.com/WordPress/gutenberg/pull/85565">#85565</a>).</p>
+
+          
+          <p>After you add a note to a post, a <strong>Note</strong> icon appears in the block toolbar, making it quicker to leave notes on other blocks as you work through the post. The icon only shows up once a post has a note, so people writing solo keep a focused toolbar (<a href="https://github.com/WordPress/gutenberg/pull/84635">#84635</a>). Highlights also connect more clearly to the text they’re attached to (<a href="https://github.com/WordPress/gutenberg/pull/80578">#80578</a>).</p>
+          <p>A few smaller changes protect your work: deleting a note offers Undo (<a href="https://github.com/WordPress/gutenberg/pull/83988">#83988</a>), and unsent notes and replies are kept when you select another block (<a href="https://github.com/WordPress/gutenberg/pull/84110">#84110</a>).</p>
+          <div class="ed-rec" data-wpui="notes" data-sot-try="React, reply and resolve Notes" role="region" aria-label="Notes in the post editor, recreated"></div>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Tracking</b><span><a href="https://github.com/WordPress/gutenberg/issues/80015">Notes iteration for WordPress 7.2</a> (#80015)</span></p>
+        </footer>
+      </article>
+
+      <!-- Design tools -->
+      <article class="sot-item sot-item--priority" id="design-tools">
+        <h3 class="sot-item__title">Design tools for nearly every Core block</h3>
+        <p class="sot-tags">[theme builder] [site admin] [end user]</p>
+        <div class="sot-item__body">
+          <p>Across Gutenberg 24.1 and 24.2, contributors switched on existing design tools for dozens of Core blocks that didn’t have them yet. There are no new controls to learn, just fewer cases where you need a wrapper Group block or custom CSS to get the look you want. Highlights include:</p>
+
+          
+          <ul>
+            <li><strong>Background image, size, and gradient:</strong> Buttons, Columns, Heading, List, Media &amp; Text, Gallery, Tabs, and more (<a href="https://github.com/WordPress/gutenberg/pull/83203">#83203</a>, <a href="https://github.com/WordPress/gutenberg/pull/83226">#83226</a>).</li>
+            <li><strong>Shadow:</strong> Paragraph, Heading, List, Buttons, Gallery, Quote, Video, and more (<a href="https://github.com/WordPress/gutenberg/pull/83926">#83926</a>, <a href="https://github.com/WordPress/gutenberg/pull/83045">#83045</a>).</li>
+            <li><strong>Minimum width and height:</strong> Heading, Columns, Buttons, Embed, Gallery, and more (<a href="https://github.com/WordPress/gutenberg/pull/83580">#83580</a>, <a href="https://github.com/WordPress/gutenberg/pull/83895">#83895</a>).</li>
+            <li><strong>Link, heading, and button colors:</strong> Accordion, Tabs, Quote, Details, Post Template (<a href="https://github.com/WordPress/gutenberg/pull/83390">#83390</a>, <a href="https://github.com/WordPress/gutenberg/pull/83371">#83371</a>).</li>
+            <li><strong>Duotone:</strong> Gallery, Video, and Media &amp; Text (<a href="https://github.com/WordPress/gutenberg/pull/83978">#83978</a>, <a href="https://github.com/WordPress/gutenberg/pull/83979">#83979</a>, <a href="https://github.com/WordPress/gutenberg/pull/83981">#83981</a>).</li>
+            <li><strong>Fit text:</strong> Post Title, Site Title, Site Tagline, and Poetry (<a href="https://github.com/WordPress/gutenberg/pull/83036">#83036</a>, <a href="https://github.com/WordPress/gutenberg/pull/82074">#82074</a>, <a href="https://github.com/WordPress/gutenberg/pull/83980">#83980</a>).</li>
+          </ul>
+          <p>The Group block can also set separate horizontal and vertical gaps in flex and grid layouts (<a href="https://github.com/WordPress/gutenberg/pull/81476">#81476</a>).</p>
+          <p>Theme builders can set all of these in <code>theme.json</code> under <code>styles.blocks</code>. If your theme styles links inside Accordion, Tabs, or Post Template with custom CSS, check for specificity conflicts with the new <code>has-link-color</code> classes. The full list is in the <a href="https://github.com/WordPress/gutenberg/releases/tag/v24.1.0">Gutenberg 24.1</a> and <a href="https://make.wordpress.org/core/2026/10/14/whats-new-in-gutenberg-24-2-14-october/">Gutenberg 24.2</a> changelogs.</p>
+          <div class="ed-rec" data-wpui="inspector" data-sot-try="Add design tools from each panel’s ⋮ menu" role="region" aria-label="Block inspector design tools, recreated"></div>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Tracking</b><span><a href="https://github.com/WordPress/gutenberg/issues/76525">Block supports and design tools</a> (#76525)</span></p>
+        </footer>
+      </article>
+
+      <!-- Responsive -->
+      <article class="sot-item sot-item--priority" id="responsive-styles">
+        <h3 class="sot-item__title">Responsive styles and states, round two</h3>
+        <p class="sot-tags">[theme builder] [plugin author] [site admin]</p>
+        <div class="sot-item__body">
+          <p>Responsive styles and interactive states arrived in WordPress 7.1, and 7.2 extends them. You can now set a block’s position per viewport (<a href="https://github.com/WordPress/gutenberg/pull/83094">#83094</a>) and add custom CSS for a specific state (<a href="https://github.com/WordPress/gutenberg/pull/83539">#83539</a>). The Gallery block’s columns, crop, and aspect ratio can change by screen size, too (<a href="https://github.com/WordPress/gutenberg/pull/82003">#82003</a>, <a href="https://github.com/WordPress/gutenberg/pull/82233">#82233</a>).</p>
+
+          
+          <p>Navigation Link blocks get hover, focus, and active controls in Global Styles (<a href="https://github.com/WordPress/gutenberg/pull/83451">#83451</a>), so you can style menu states across your site without editing <code>theme.json</code>.</p>
+          <p>For block developers, the viewport API is now public. Custom blocks can use <code>getStyleForState()</code> and <code>setStyleForState()</code> from <code>@wordpress/block-editor</code> to make their own controls work per viewport (<a href="https://github.com/WordPress/gutenberg/pull/82741">#82741</a>).</p>
+          <div class="ed-rec" data-wpui="states" data-sot-try="Style a link’s hover and focus states per viewport" role="region" aria-label="Navigation Link states in Global Styles, recreated"></div>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Tracking</b><span><a href="https://github.com/WordPress/gutenberg/issues/80388">Responsive style states for blocks, 7.2 tasks</a> (#80388)</span></p>
+        </footer>
+      </article>
+
+      <!-- Global Styles -->
+      <article class="sot-item sot-item--priority" id="global-styles" data-toc-title="Global Styles: form elements and duotone">
+        <h3 class="sot-item__title">Global Styles: form elements, duotone palettes, and more</h3>
+        <p class="sot-tags">[site admin] [theme builder] [end user]</p>
+        <div class="sot-item__body">
+          <p>Global Styles can now style more of the elements that make up your site. Citations, text inputs, and select dropdowns get typography and color controls (<a href="https://github.com/WordPress/gutenberg/pull/80852">#80852</a>), and themes can style <code>&lt;label&gt;</code> elements through <code>theme.json</code> (<a href="https://github.com/WordPress/gutenberg/pull/81160">#81160</a>). Search, comment, and plugin forms can now match the rest of your design without custom CSS.</p>
+
+          <div class="ed-rec" data-wpui="gsform" data-sot-try="Restyle every form input from Global Styles" role="region" aria-label="Form input styles in Global Styles, recreated"></div>
+
+          <p>Elements like links, buttons, and headings are now listed alongside blocks in Global Styles (<a href="https://github.com/WordPress/gutenberg/pull/81645">#81645</a>), and element screens preview the state you’re styling, such as hover (<a href="https://github.com/WordPress/gutenberg/pull/83787">#83787</a>).</p>
+          <p>You can also create your own duotone palettes in a new <strong>Duotone</strong> tab instead of relying only on the theme’s (<a href="https://github.com/WordPress/gutenberg/pull/81605">#81605</a>). And when you’re tracking down a stray style, Global Styles can filter the block list to show only the blocks you’ve customized (<a href="https://github.com/WordPress/gutenberg/pull/81373">#81373</a>, <a href="https://github.com/WordPress/gutenberg/pull/84657">#84657</a>).</p>
+          <div class="ed-rec" data-wpui="duotone" data-sot-try="Make a custom duotone palette" role="region" aria-label="Duotone palettes in Global Styles, recreated"></div>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Tracking</b><span><a href="https://github.com/WordPress/gutenberg/issues/34198">Form elements in Global Styles</a> (#34198)</span></p>
+        </footer>
+      </article>
+    </section>
+
+    <!-- ===================== 02 IMPROVED BLOCKS ===================== -->
+    <section class="sot-section" id="improved-blocks" data-toc-title="Improved Blocks">
+      <header class="sot-section__head">
+        <p class="sot-section__num">02</p>
+        <h2>Improved Blocks and Block handling</h2>
+        <p>Core blocks pick up a long list of refinements in 7.2, from sorting galleries to finding links and icons faster.</p>
+      </header>
+
+      <!-- Gallery -->
+      <article class="sot-item" id="gallery" data-toc-title="Gallery: sorting, Grid, swipeable lightboxes">
+        <h3 class="sot-item__title">Gallery: sorting, a Grid variation, and swipeable lightboxes</h3>
+        <p class="sot-tags">[end user] [site admin]</p>
+        <div class="sot-item__body">
+          <p>Galleries you put together by hand can now be sorted, not just dynamic ones. Pick an option from the <strong>Order by</strong> control, and the images reorder themselves. If you’ve arranged them yourself, the control shows <strong>Custom</strong>. The existing <strong>Random</strong> option, which shuffles images on each page load, now sits in the same dropdown, and the ordering controls for both kinds of gallery live together in the <strong>Settings</strong> panel (<a href="https://github.com/WordPress/gutenberg/pull/83438">#83438</a>).</p>
+
+          
+          <p>A new Grid variation gives you control over the gallery’s layout that the default version doesn’t offer. The default Gallery uses a fixed flex layout. The Grid variation switches to the editor’s grid layout, so you can resize individual images to span more space and build layouts like a large featured image next to smaller ones. You can switch between the two from the inspector, and your layout settings are kept if you switch back (<a href="https://github.com/WordPress/gutenberg/pull/81909">#81909</a>).</p>
+          <div class="ed-rec" data-wpui="gallery" data-sot-try="Sort a gallery and resize images in Gallery Grid" role="region" aria-label="Gallery block and settings, recreated"></div>
+          <p>On phones, swiping between images in a gallery’s lightbox is now animated, so visitors can tell they can swipe through the gallery instead of closing it to see the next image (<a href="https://github.com/WordPress/gutenberg/pull/79114">#79114</a>).</p>
+          <div class="ed-rec" data-wpui="lightbox" data-sot-try="Swipe through a gallery lightbox on a phone" role="region" aria-label="Gallery lightbox on a phone, recreated"></div>
+          
+        </div>
+        <footer class="sot-refs">
+          <p><b>Tracking</b><span><a href="https://github.com/WordPress/gutenberg/issues/81370">WordPress 7.2: Dynamic galleries and media inserter</a> (#81370)</span></p>
+        </footer>
+      </article>
+
+      <!-- Navigation -->
+      <article class="sot-item" id="navigation">
+        <h3 class="sot-item__title">Navigation: one search for every link</h3>
+        <p class="sot-tags">[site admin] [end user]</p>
+        <div class="sot-item__body">
+          <p>When you add a link to a Navigation block, a single search now covers every kind of content at once and shows each result’s type. Posts and pages are ranked ahead of categories, tags, and media, so the link you most likely want is near the top (<a href="https://github.com/WordPress/gutenberg/pull/83408">#83408</a>, <a href="https://github.com/WordPress/gutenberg/pull/83652">#83652</a>, <a href="https://github.com/WordPress/gutenberg/pull/83407">#83407</a>). The Navigation Link block also has a new name in the editor, with Custom Link as its default variation (<a href="https://github.com/WordPress/gutenberg/pull/82375">#82375</a>).</p>
+          <div class="ed-rec" data-wpui="linksearch" role="region" aria-label="Navigation link search, mockup"></div>
+          <p>In the Site Editor sidebar, you can now edit menu links in a popover straight from List View (<a href="https://github.com/WordPress/gutenberg/pull/84005">#84005</a>), and an empty menu shows an inserter so you can start adding links (<a href="https://github.com/WordPress/gutenberg/pull/84003">#84003</a>). The link popover can also set <strong>Open in new tab</strong> directly (<a href="https://github.com/WordPress/gutenberg/pull/83506">#83506</a>).</p>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Tracking</b><span><a href="https://github.com/WordPress/gutenberg/issues/77069">Improve Navigation Editing in the Extensible Site Editor Sidebar</a> (#77069)</span></p>
+        </footer>
+      </article>
+
+      <!-- Icon block -->
+      <article class="sot-item" id="icon-block">
+        <h3 class="sot-item__title">Icon block: search by keyword</h3>
+        <p class="sot-tags">[end user] [site admin]</p>
+        <div class="sot-item__body">
+          <p>Searching in the Icon block now matches keywords, not just icon names, so typing “hamburger” finds the Menu icon (<a href="https://github.com/WordPress/gutenberg/pull/82367">#82367</a>, <a href="https://github.com/WordPress/gutenberg/pull/83884">#83884</a>). The block’s <code>icon</code> attribute also supports Block Bindings, so the icon can come from a custom field or other source (<a href="https://github.com/WordPress/gutenberg/pull/80730">#80730</a>).</p>
+          <div class="sot-demo ed-icons" data-sot-try="Search the icon library by keyword">
+            <p class="sot-demo__label">Try it · search by keyword</p>
+            <label class="ed-field-label" for="edIconQ">Search icons</label>
+            <input class="ed-input" id="edIconQ" type="search" value="delete" placeholder="delete, arrow, settings…" autocomplete="off">
+            <div class="ed-icons__results" id="edIconResults" aria-live="polite"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- General QoL -->
+      <article class="sot-item" id="quality-of-life">
+        <h3 class="sot-item__title">General quality of life improvements</h3>
+        <p class="sot-tags">[end user] [site admin]</p>
+        <div class="sot-item__body">
+          <ul class="sot-grid-list">
+            <li><b>Query Loop</b>The Categories, Tags, and other taxonomy filters now list existing terms as soon as you open them, so you can browse and pick terms instead of having to remember and type their exact names. Selected terms show as chips you can remove, and a term can’t be both included and excluded (<a href="https://github.com/WordPress/gutenberg/pull/82583">#82583</a>). The “Keyword” filter is also renamed “Search terms,” with help text (<a href="https://github.com/WordPress/gutenberg/pull/82387">#82387</a>).</li>
+            <li><b>Columns</b>The column count slider is gone. Add columns with a plus button instead (<a href="https://github.com/WordPress/gutenberg/pull/83262">#83262</a>), and transform Columns into a Row (<a href="https://github.com/WordPress/gutenberg/pull/81802">#81802</a>).</li>
+            <li><b>Button</b>The link popover opens only when you ask for it, not every time you select the block (<a href="https://github.com/WordPress/gutenberg/pull/30166">#30166</a>).</li>
+            <li><b>Cover and Media &amp; Text</b>A new Media section in the block inspector (<a href="https://github.com/WordPress/gutenberg/pull/82751">#82751</a>, <a href="https://github.com/WordPress/gutenberg/pull/82593">#82593</a>), plus an <strong>Add Media</strong> button in the Media &amp; Text toolbar (<a href="https://github.com/WordPress/gutenberg/pull/82420">#82420</a>).</li>
+            <li><b>Video and Cover</b>Autoplay respects the visitor’s reduced-motion preference (<a href="https://github.com/WordPress/gutenberg/pull/83337">#83337</a>, <a href="https://github.com/WordPress/gutenberg/pull/83452">#83452</a>).</li>
+            <li><b>List</b><kbd>Tab</kbd> indents and <kbd>Shift</kbd>+<kbd>Tab</kbd> outdents selected list items, including multiple at once (<a href="https://github.com/WordPress/gutenberg/pull/82411">#82411</a>, <a href="https://github.com/WordPress/gutenberg/pull/82460">#82460</a>). The block also supports alignment (<a href="https://github.com/WordPress/gutenberg/pull/68002">#68002</a>).</li>
+            <li><b>Tabs</b>Content in inactive tabs can be found with your browser’s Find feature (<a href="https://github.com/WordPress/gutenberg/pull/81743">#81743</a>).</li>
+            <li><b>Playlist</b>Edit metadata for several tracks at once (<a href="https://github.com/WordPress/gutenberg/pull/81441">#81441</a>).</li>
+            <li><b>Math</b>Improved inline math UI (<a href="https://github.com/WordPress/gutenberg/pull/77743">#77743</a>), and LaTeX errors appear when you leave the field instead of on every keystroke (<a href="https://github.com/WordPress/gutenberg/pull/80500">#80500</a>).</li>
+            <li><b>Page List</b>Converting to a static list is now a confirmed <strong>Detach</strong> action (<a href="https://github.com/WordPress/gutenberg/pull/80847">#80847</a>).</li>
+            <li><b>Backgrounds</b>Set a background image from a URL (<a href="https://github.com/WordPress/gutenberg/pull/82230">#82230</a>).</li>
+            <li><b>Alignments</b>Wide and full alignment options show as unavailable instead of disappearing when a theme doesn’t support them (<a href="https://github.com/WordPress/gutenberg/pull/82600">#82600</a>).</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===================== 03 EDITOR ===================== -->
+    <section class="sot-section" id="editor-enhancements">
+      <header class="sot-section__head">
+        <p class="sot-section__num">03</p>
+        <h2>Editor enhancements</h2>
+        <p>Beyond blocks, the editing experience itself gets smoother, with fewer paper cuts and better ways to work with media and revisions.</p>
+      </header>
+
+      <article class="sot-item" id="paper-cuts">
+        <h3 class="sot-item__title">Fewer paper cuts while writing</h3>
+        <p class="sot-tags">[end user]</p>
+        <div class="sot-item__body">
+          <p>A long-running effort to fix everyday editing annoyances continues. You can now insert a block straight from the parent selector in the block toolbar (<a href="https://github.com/WordPress/gutenberg/pull/81532">#81532</a>), press <kbd>Enter</kbd> to select the next block (<a href="https://github.com/WordPress/gutenberg/pull/63484">#63484</a>), and apply formatting across several blocks at once (<a href="https://github.com/WordPress/gutenberg/pull/58913">#58913</a>). Multi-selection works on mobile browsers (<a href="https://github.com/WordPress/gutenberg/pull/81542">#81542</a>), and the in-between inserter shows up on wrapped lines (<a href="https://github.com/WordPress/gutenberg/pull/83276">#83276</a>).</p>
+          <p>Keyboard users can press <kbd>Escape</kbd> to leave the editor canvas and <kbd>Enter</kbd> to go back in (<a href="https://github.com/WordPress/gutenberg/pull/82314">#82314</a>), and non-breaking spaces are now marked while you edit, with a button to replace them (<a href="https://github.com/WordPress/gutenberg/pull/74040">#74040</a>, <a href="https://github.com/WordPress/gutenberg/pull/84737">#84737</a>). You can also drag a multi-selection by grabbing anywhere inside it (<a href="https://github.com/WordPress/gutenberg/pull/81602">#81602</a>).</p>
+          <div class="sot-demo ed-keys">
+            <p class="sot-demo__label">New muscle memory</p>
+            <dl>
+              <div><dt><kbd>Escape</kbd></dt><dd>Leave the editor canvas</dd></div>
+              <div><dt><kbd>Enter</kbd></dt><dd>Go back into the canvas, or select the next block</dd></div>
+              <div><dt>Drag</dt><dd>Grab a multi-selection from anywhere inside it</dd></div>
+              <div><dt>Toolbar</dt><dd>Insert a block from the parent selector</dd></div>
+            </dl>
+          </div>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Tracking</b><span><a href="https://github.com/WordPress/gutenberg/issues/81453">Block Editor Paper Cuts</a> (#81453)</span></p>
+        </footer>
+      </article>
+
+      <article class="sot-item" id="media-editor">
+        <h3 class="sot-item__title">Media editor: restore the original image</h3>
+        <p class="sot-tags">[end user] [site admin]</p>
+        <div class="sot-item__body">
+          <p>The media editor modal from 7.1 can now restore an image to its original, uncropped version from the <strong>More options</strong> menu (<a href="https://github.com/WordPress/gutenberg/pull/81805">#81805</a>). WordPress keeps track of which original an edited image came from to make this possible (<a href="https://github.com/WordPress/gutenberg/pull/81803">#81803</a>).</p>
+          <p>Images are also attached to the post when you save it. Unattached images in Image and Gallery blocks get the current post as their parent, which makes the <strong>Uploaded to this post</strong> filter and dynamic galleries more useful (<a href="https://github.com/WordPress/gutenberg/pull/81977">#81977</a>). This is skipped on sites with attachment pages turned on, and on published posts only newly added images are attached (<a href="https://github.com/WordPress/gutenberg/pull/84851">#84851</a>, <a href="https://github.com/WordPress/gutenberg/pull/84890">#84890</a>).</p>
+          <div class="ed-rec" data-wpui="mediaeditor" data-sot-try="Rotate, crop and restore an image in Edit media" role="region" aria-label="Edit media modal, recreated"></div>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Tracking</b><span><a href="https://github.com/WordPress/gutenberg/issues/80389">WordPress 7.2 Iteration: Media Editor Modal</a> (#80389)</span></p>
+        </footer>
+      </article>
+
+      <article class="sot-item" id="visual-revisions">
+        <h3 class="sot-item__title">Visual revisions polish</h3>
+        <p class="sot-tags">[end user] [site admin]</p>
+        <div class="sot-item__body">
+          <p>Visual revisions now show changes to the post title (<a href="https://github.com/WordPress/gutenberg/pull/82586">#82586</a>), and adjacent inline changes are merged so the differences are easier to read (<a href="https://github.com/WordPress/gutenberg/pull/80579">#80579</a>). The Global Styles revisions screen also moved to the same DataViews layout used elsewhere in the editor (<a href="https://github.com/WordPress/gutenberg/pull/80856">#80856</a>). You can also compare revisions in a code diff view from the <strong>Options</strong> menu (<a href="https://github.com/WordPress/gutenberg/pull/80314">#80314</a>).</p>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Tracking</b><span><a href="https://github.com/WordPress/gutenberg/issues/79120">Visual Revisions: post-7.0 polish</a> (#79120)</span></p>
+        </footer>
+      </article>
+
+      <article class="sot-item" id="error-screens">
+        <h3 class="sot-item__title">Clearer error screens</h3>
+        <p class="sot-tags">[all]</p>
+        <div class="sot-item__body">
+          <p>When something breaks in the editor, the error screen now explains what happened in plainer language and includes a button to copy the error details, so it’s easier to report the problem or share it with your developer (<a href="https://github.com/WordPress/gutenberg/pull/76470">#76470</a>, <a href="https://github.com/WordPress/gutenberg/pull/82496">#82496</a>). Debugging details are available right in the error screen (<a href="https://github.com/WordPress/gutenberg/pull/81642">#81642</a>), and the Site Editor no longer falls back to a blank screen when one part fails (<a href="https://github.com/WordPress/gutenberg/pull/82486">#82486</a>).</p>
+          <div class="ed-rec" data-wpui="crash" data-sot-try="Copy the error from the editor crash screen" role="region" aria-label="Editor crash screen, recreated"></div>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Background</b><span><a href="https://make.wordpress.org/core/2026/08/04/defensive-data-design/">Defensive data design</a></span></p>
+        </footer>
+      </article>
+
+      <article class="sot-item" id="smaller-editor-improvements">
+        <h3 class="sot-item__title">Smaller editor improvements</h3>
+        <div class="sot-item__body">
+          <div class="sot-demo ed-speed" id="edSpeed" data-sot-try="Race Select all in List View, 7.1 vs 7.2">
+            <p class="sot-demo__label"><strong>Select all</strong> in List View, post with 1,000 blocks</p>
+            <div class="ed-speed__row"><span>Before</span><div class="ed-speed__bar"><i data-w="100%"></i></div><b>16.8s</b></div>
+            <div class="ed-speed__row is-new"><span>WordPress 7.2</span><div class="ed-speed__bar"><i data-w="2.4%"></i></div><b>0.4s</b></div>
+          </div>
+          <ul class="sot-grid-list">
+            <li>The <strong>Options</strong> menu groups its view settings into <strong>Appearance</strong>, <strong>Notes</strong>, and <strong>Panels</strong> submenus (<a href="https://github.com/WordPress/gutenberg/pull/82976">#82976</a>).</li>
+            <li>The post author field is searchable and finds users on the server, which helps on sites with many authors (<a href="https://github.com/WordPress/gutenberg/pull/83323">#83323</a>).</li>
+            <li>New posts no longer get published with an <code>auto-draft</code> slug (<a href="https://github.com/WordPress/gutenberg/pull/83518">#83518</a>).</li>
+            <li>The starter patterns modal can filter patterns by category (<a href="https://github.com/WordPress/gutenberg/pull/81396">#81396</a>).</li>
+            <li>The Command Palette has a <strong>View post</strong> command (<a href="https://github.com/WordPress/gutenberg/pull/66720">#66720</a>).</li>
+            <li>In the inserter, “My patterns” is now “Site patterns,” with a filter by author (<a href="https://github.com/WordPress/gutenberg/pull/84680">#84680</a>).</li>
+            <li>Restoring a revision first saves any unsaved changes as their own revision, so nothing is lost (<a href="https://github.com/WordPress/gutenberg/pull/84590">#84590</a>), and the browser backup notice shows the backup’s date before you restore it (<a href="https://github.com/WordPress/gutenberg/pull/84735">#84735</a>).</li>
+            <li>Snackbar notices with an action, like <strong>Undo</strong>, stay on screen longer (<a href="https://github.com/WordPress/gutenberg/pull/84842">#84842</a>).</li>
+            <li>The inserter opens faster and doesn’t re-render every item when the selection changes (<a href="https://github.com/WordPress/gutenberg/pull/83437">#83437</a>, <a href="https://github.com/WordPress/gutenberg/pull/83284">#83284</a>).</li>
+            <li><strong>Select all</strong> in List View is much faster on long posts: on a post with 1,000 blocks, it dropped from 16.8 seconds to 0.4 seconds (<a href="https://github.com/WordPress/gutenberg/pull/81210">#81210</a>).</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===================== 04 ADMIN ===================== -->
+    <section class="sot-section" id="admin-workflow" data-toc-title="Admin / Workflow">
+      <header class="sot-section__head">
+        <p class="sot-section__num">04</p>
+        <h2>Admin / Workflow updates</h2>
+      </header>
+
+      <article class="sot-item" id="on-this-day">
+        <h3 class="sot-item__title">On This Day in the Activity widget</h3>
+        <p class="sot-tags">[end user] [site admin]</p>
+        <div class="sot-item__body">
+          <p>The Dashboard’s <strong>Activity</strong> widget gains a <strong>Published On This Day</strong> section that lists posts you published on today’s date in previous years. It only appears on days when there’s something to show. To make room, <strong>Recent Comments</strong> moves out of the Activity widget into its own dashboard widget, which you can rearrange or hide like any other (<a href="https://core.trac.wordpress.org/changeset/64593">r64593</a>).</p>
+          <p>The section shows up to 10 posts. Developers can change the query with the <code>wp_dashboard_on_this_day_query_args</code> filter.</p>
+          <div class="ed-rec" data-wpui="dashboard" role="region" aria-label="Dashboard Activity widget, recreated"></div>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Tracking</b><span><a href="https://core.trac.wordpress.org/ticket/65116">Feature request: On This Day dashboard widget</a> (#65116)</span></p>
+        </footer>
+      </article>
+
+      <article class="sot-item" id="random-content">
+        <h3 class="sot-item__title">Random content redirects</h3>
+        <p class="sot-tags">[site admin] [end user] [developer]</p>
+        <div class="sot-item__body">
+          <p>WordPress can now send visitors to a random post. Visiting <code>/random/</code> redirects to a randomly selected published post, and it also works within categories, tags, authors, and post type archives, like <code>/random/category/news/</code> (<a href="https://core.trac.wordpress.org/changeset/64402">r64402</a>). You can change the <code>random</code> base on the <strong>Settings &gt; Permalinks</strong> screen, and it’s translated for sites in other languages. If a post or page already uses that slug, the content takes priority.</p>
+          <div class="sot-demo ed-random" data-sot-try="Jump to a random post, like /random/">
+            <div>
+              <p class="sot-demo__label">Try it on this page</p>
+              <p class="ed-random__url"><span class="sot-muted">source-of-truth/7-2</span>/random/</p>
+            </div>
+            <button class="sot-btn sot-btn--accent" type="button" data-sot-random>
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>Take me somewhere random
+            </button>
+          </div>
+          <p>The feature is on by default. Developers can control which post types are eligible with the new <code>randomable</code> argument in <code>register_post_type()</code>, or turn the feature off with the <code>wp_enable_random_content_redirect</code> filter. After turning it off, flush the rewrite rules.</p>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Tracking</b><span><a href="https://core.trac.wordpress.org/ticket/64498">Add core support for random content redirects</a> (#64498)</span></p>
+        </footer>
+      </article>
+
+      <article class="sot-item" id="browser-image-processing" data-toc-title="Browser image processing in the Media Library">
+        <h3 class="sot-item__title">Browser-based image processing comes to the Media Library</h3>
+        <p class="sot-tags">[site admin] [end user] [enterprise]</p>
+        <div class="sot-item__body">
+          <p>Browser-based image processing, which arrived for block editor uploads in 7.1, now also covers the <strong>Media Library</strong> grid, the <strong>Add New Media File</strong> screen, and the editor’s media modal (<a href="https://core.trac.wordpress.org/changeset/64588">r64588</a>). Your browser creates the image sizes instead of the server, so large uploads are far less likely to fail with timeouts or memory errors. Animated images also keep their animation in their sub-sizes now (<a href="https://core.trac.wordpress.org/changeset/64490">r64490</a>).</p>
+          <p>It runs in supported browsers only. Other browsers, audio files, and the Customizer and classic editor keep the classic upload flow. Developers can turn it off with the <code>wp_client_side_media_processing_enabled</code> filter.</p>
+          <div class="ed-rec" data-wpui="upload" role="region" aria-label="Upload Media screen, recreated"></div>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Tracking</b><span><a href="https://core.trac.wordpress.org/ticket/65661">#65661</a> <span class="sot-pending">Ticket title needed</span></span></p>
+        </footer>
+      </article>
+
+      <article class="sot-item" id="svg-admin-icons">
+        <h3 class="sot-item__title">SVG icons replace Dashicons in the admin</h3>
+        <p class="sot-tags">[all]</p>
+        <div class="sot-item__body">
+          <p>The admin bar and admin menu now use SVG icons instead of the Dashicons icon font (<a href="https://core.trac.wordpress.org/changeset/64583">r64583</a>). The icons are rendered with <code>wp_get_icon()</code>, the icon API added in 7.1, and the Dashboard’s <strong>At a Glance</strong> widget uses them too (<a href="https://core.trac.wordpress.org/changeset/64799">r64799</a>). SVG icons are announced more reliably by screen readers, work with forced-colors modes, and don’t break when an icon font is blocked.</p>
+          <div class="ed-rec" data-wpui="adminmenu" data-sot-try="Compare Dashicons with the new SVG admin icons" role="region" aria-label="Admin menu with SVG icons, recreated"></div>
+          <p>Plugins and custom post types that set a Dashicon for their menu item get the matching SVG icon automatically. If a Dashicon has no replacement, it keeps using the icon font. Developers can look up the replacement with <code>WP_Icons_Registry::get_admin_icon_name_for_dashicon()</code> (<a href="https://core.trac.wordpress.org/changeset/64798">r64798</a>). If your plugin styles its admin menu icon, check it against the new markup.</p>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/09/04/replacing-dashicons-in-the-admin-bar-and-menu/">Replacing Dashicons in the admin bar and menu</a> (<a href="https://core.trac.wordpress.org/ticket/65089">#65089</a>)</span></p>
+          <p><b>Tracking</b><span><a href="https://github.com/WordPress/gutenberg/issues/82723">Omnibar: WP 7.2 Iteration Issue</a> (#82723)</span></p>
+        </footer>
+      </article>
+
+      <article class="sot-item" id="admin-accessibility">
+        <h3 class="sot-item__title">Admin accessibility improvements</h3>
+        <p class="sot-tags">[all]</p>
+        <div class="sot-item__body">
+          <p>A new screen option lets you turn off moving meta boxes, so they stay where they are on edit screens (<a href="https://core.trac.wordpress.org/changeset/64301">r64301</a>, <a href="https://core.trac.wordpress.org/ticket/50699">#50699</a>). Focus states are also easier to see in high contrast mode (<a href="https://core.trac.wordpress.org/changeset/64823">r64823</a>, <a href="https://core.trac.wordpress.org/ticket/45910">#45910</a>).</p>
+          <p>Two more tickets are on the 7.2 roadmap: removing the separate accessibility mode for widgets (<a href="https://core.trac.wordpress.org/ticket/52399">#52399</a>) and adding automated axe-core checks to catch regressions (<a href="https://core.trac.wordpress.org/ticket/66015">#66015</a>).</p>
+        </div>
+      </article>
+
+      <article class="sot-item" id="application-passwords">
+        <h3 class="sot-item__title">Application password improvements</h3>
+        <p class="sot-tags">[site admin] [enterprise]</p>
+        <div class="sot-item__body">
+          <p>WordPress now sends an email notification when a new application password is created, so an unexpected one is easier to spot (<a href="https://core.trac.wordpress.org/changeset/63582">r63582</a>, <a href="https://core.trac.wordpress.org/ticket/63927">#63927</a>). On sites without HTTPS, WordPress also explains more clearly which environment type is required to use application passwords (<a href="https://core.trac.wordpress.org/changeset/64091">r64091</a>, <a href="https://core.trac.wordpress.org/ticket/57388">#57388</a>).</p>
+          <p>Safer handling of <code>default_role</code> values is also on the 7.2 roadmap (<a href="https://core.trac.wordpress.org/ticket/46744">#46744</a>).</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===================== 05 DEVELOPER GOODIES ===================== -->
+    <section class="sot-section sot-section--dev" id="developer-goodies">
+      <header class="sot-section__head">
+        <p class="sot-section__num">05</p>
+        <h2>Developer Goodies</h2>
+        <p class="sot-tags">[developer] [theme builder] [plugin author] [enterprise]</p>
+        <p>WordPress 7.2 gives developers public APIs for responsive controls, Interactivity API additions, a growing component library, and a handful of changes worth testing before the release.</p>
+        <ul class="sot-jump" aria-label="Jump to a developer topic">
+          <li><a href="#dev-global-styles">theme.json</a></li>
+          <li><a href="#dataform-sidebar">DataForm sidebar</a></li>
+          <li><a href="#dataviews">DataViews</a></li>
+          <li><a href="#interactivity-api">Interactivity API</a></li>
+          <li><a href="#block-api">Block API</a></li>
+          <li><a href="#plugin-menu-apifetch">apiFetch</a></li>
+          <li><a href="#components">Components</a></li>
+          <li><a href="#icon-collections">Icon collections</a></li>
+          <li><a href="#deprecations">Breaking changes</a></li>
+          <li><a href="#secrets-api">Secrets API</a></li>
+          <li><a href="#wp-kses">wp_kses()</a></li>
+          <li><a href="#ai-embeddings">AI embeddings</a></li>
+          <li><a href="#no-backslash-escapes">SQL mode</a></li>
+        </ul>
+      </header>
+
+      <article class="sot-item" id="dev-global-styles">
+        <h3 class="sot-item__title">Global Styles and theme.json</h3>
+        <div class="sot-item__body">
+          <h4 id="text-shadow">Text shadow block support and presets</h4>
+          <p>Text shadow, added to Global Styles in 7.1, is now a block support with a UI. Paragraph and Heading opt in through <code>supports.typography.textShadow</code>, and themes can define presets in <code>theme.json</code> under <code>settings.typography.textShadowPresets</code>. Core ships two defaults, Light and Strong (<a href="https://github.com/WordPress/gutenberg/pull/79584">#79584</a>).</p>
+          <h4 id="preset-slugs">Preset slug references fixed</h4>
+          <p>Since WordPress 5.8, <code>var:preset|…</code> references used the raw slug while the generated CSS custom property used a kebab-cased version, so a slug like <code>n27</code> silently pointed to the wrong variable. References are now kebab-cased to match (<a href="https://github.com/WordPress/gutenberg/pull/80583">#80583</a>). Slugs that already worked are unaffected.</p>
+          <h4 id="background-padding">Override background-color padding</h4>
+          <p>Themes can now override the padding WordPress adds to blocks that have a background color (<a href="https://github.com/WordPress/gutenberg/pull/82024">#82024</a>).</p>
+          <h4 id="background-clip">Background-clip block support</h4>
+          <p>A new background-clip block support controls how far a block’s background extends, including clipping it to the block’s text (<a href="https://github.com/WordPress/gutenberg/pull/77141">#77141</a>, <a href="https://github.com/WordPress/gutenberg/pull/77142">#77142</a>).</p>
+        </div>
+      </article>
+
+      <article class="sot-item" id="dataform-sidebar">
+        <h3 class="sot-item__title">Post editor sidebar moves to DataForm</h3>
+        <div class="sot-item__body">
+          <p>The post and page settings sidebar is now built on DataForm, the same form system used for Quick Edit (<a href="https://github.com/WordPress/gutenberg/pull/85081">#85081</a>). <code>PluginDocumentSettingPanel</code>, <code>PluginSidebar</code>, <code>PluginPostStatusInfo</code>, the publish panels, and <code>removeEditorPanel</code> keep working, but <code>PluginPostExcerpt</code> hasn’t been ported and may be removed. If your plugin extends the sidebar, test it now.</p>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/09/17/call-for-testing-dataform-editor-inspector/">Call for testing: DataForm editor inspector</a></span></p>
+        </footer>
+      </article>
+
+      <article class="sot-item" id="dataviews">
+        <h3 class="sot-item__title">DataViews, DataForm, and the Fields API</h3>
+        <div class="sot-item__body">
+          <p>The Fields API gains a server-side registry and REST route (<a href="https://github.com/WordPress/gutenberg/pull/84078">#84078</a>). DataViews adds a <code>time</code> field type (<a href="https://github.com/WordPress/gutenberg/pull/80830">#80830</a>), <code>aspectRatio</code> and <code>mediaFit</code> options for grid previews (<a href="https://github.com/WordPress/gutenberg/pull/79329">#79329</a>, <a href="https://github.com/WordPress/gutenberg/pull/81604">#81604</a>), and <code>isAny</code> and <code>isNone</code> filters for numeric fields (<a href="https://github.com/WordPress/gutenberg/pull/77942">#77942</a>). Core actions, like setting the homepage or posts page, are now registered on the server and live in a new <code>@wordpress/core-actions</code> package (<a href="https://github.com/WordPress/gutenberg/pull/84660">#84660</a>, <a href="https://github.com/WordPress/gutenberg/pull/84643">#84643</a>).</p>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Tracking</b><span><a href="https://github.com/WordPress/gutenberg/issues/81228">DataViews, DataViewsPicker, DataForm, Fields in WordPress 7.2</a> (#81228)</span></p>
+        </footer>
+      </article>
+
+      <article class="sot-item" id="interactivity-api">
+        <h3 class="sot-item__title">Interactivity API</h3>
+        <div class="sot-item__body">
+          <p>A new <code>data-wp-html</code> directive renders trusted HTML from the store (<a href="https://github.com/WordPress/gutenberg/pull/83092">#83092</a>). The router also exposes <code>state.navigating</code> and <code>state.initiator</code> so you can react to client-side navigations, replacing the deprecated <code>state.navigation.hasStarted</code> and <code>hasFinished</code> (<a href="https://github.com/WordPress/gutenberg/pull/83280">#83280</a>).</p>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Tracking</b><span><a href="https://github.com/WordPress/gutenberg/issues/83078">Interactivity API for WordPress 7.2</a> (#83078)</span></p>
+        </footer>
+      </article>
+
+      <article class="sot-item" id="block-api">
+        <h3 class="sot-item__title">Block API changes</h3>
+        <div class="sot-item__body">
+          <ul>
+            <li>Inner block templates move into <code>registerBlockType()</code> settings. The <code>template</code> and <code>templateInsertUpdatesSelection</code> props on <code>&lt;InnerBlocks&gt;</code> are deprecated (<a href="https://github.com/WordPress/gutenberg/pull/80027">#80027</a>).</li>
+            <li>PHP-only blocks: an attribute with <code>items.enum</code> now gets a token field in the inspector (<a href="https://github.com/WordPress/gutenberg/pull/83394">#83394</a>).</li>
+            <li><code>InspectorControls</code>’ <code>__experimentalGroup</code> prop is removed; use <code>group</code> (<a href="https://github.com/WordPress/gutenberg/pull/83171">#83171</a>).</li>
+            <li>The empty-state block appender is now a real “ghost” block. CSS or tests that target <code>.block-editor-default-block-appender</code> need updating (<a href="https://github.com/WordPress/gutenberg/pull/81231">#81231</a>).</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sot-item" id="plugin-menu-apifetch">
+        <h3 class="sot-item__title">Plugin menu items and apiFetch</h3>
+        <div class="sot-item__body">
+          <p><code>PluginMoreMenuItem</code>, <code>PluginSidebarMoreMenuItem</code>, and <code>PluginPreviewMenuItem</code> now render with the new <code>Menu</code> component. The <code>as</code> prop is deprecated and ignored (<a href="https://github.com/WordPress/gutenberg/pull/81564">#81564</a>, <a href="https://github.com/WordPress/gutenberg/pull/82321">#82321</a>).</p>
+          <p><code>apiFetch</code> now resolves an empty <code>200</code> response to <code>null</code> instead of rejecting with <code>invalid_json</code> (<a href="https://github.com/WordPress/gutenberg/pull/79325">#79325</a>). It also adds <code>apiFetch.unregister()</code> for removing middleware (<a href="https://github.com/WordPress/gutenberg/pull/82408">#82408</a>) and exposes <code>defaultFetchHandler</code> (<a href="https://github.com/WordPress/gutenberg/pull/82553">#82553</a>).</p>
+        </div>
+      </article>
+
+      <article class="sot-item" id="components">
+        <h3 class="sot-item__title">Components and icons</h3>
+        <div class="sot-item__body">
+          <p><code>@wordpress/ui</code> adds a large set of components, including Menu, CheckboxControl, RadioGroupControl, SwitchControl, SearchableSelectControl, Calendar, Spinner, Meter, and Progress (<a href="https://github.com/WordPress/gutenberg/pull/79560">#79560</a>, <a href="https://github.com/WordPress/gutenberg/pull/82213">#82213</a>, <a href="https://github.com/WordPress/gutenberg/pull/83143">#83143</a>, <a href="https://github.com/WordPress/gutenberg/pull/83146">#83146</a>, <a href="https://github.com/WordPress/gutenberg/pull/80979">#80979</a>, <a href="https://github.com/WordPress/gutenberg/pull/81337">#81337</a>).</p>
+          <p>A few utilities that used to be private are now public: <code>withIgnoreIMEEvents</code> in <code>@wordpress/keycodes</code>, for keyboard handlers that shouldn’t fire while someone is typing with an input method editor (<a href="https://github.com/WordPress/gutenberg/pull/81343">#81343</a>), and a new <code>@wordpress/kebab-case</code> package that matches how PHP generates slugs (<a href="https://github.com/WordPress/gutenberg/pull/81294">#81294</a>).</p>
+        </div>
+      </article>
+
+      <article class="sot-item" id="icon-collections">
+        <h3 class="sot-item__title">Icon collections: private icons and core-admin</h3>
+        <div class="sot-item__body">
+          <p>Icon collections can now be marked as not public, so icons can ship with WordPress for use in the admin without showing up in the Icon block (<a href="https://github.com/WordPress/gutenberg/pull/82634">#82634</a>, <a href="https://github.com/WordPress/gutenberg/pull/83277">#83277</a>). A new <code>core-admin</code> collection holds the icons used by the admin interface, including a set of popular icons (<a href="https://github.com/WordPress/gutenberg/pull/83261">#83261</a>, <a href="https://github.com/WordPress/gutenberg/pull/85072">#85072</a>), and the Icon block won’t render non-public icons on the front end (<a href="https://github.com/WordPress/gutenberg/pull/82774">#82774</a>).</p>
+        </div>
+      </article>
+
+      <article class="sot-item" id="deprecations">
+        <h3 class="sot-item__title">Deprecations and breaking changes</h3>
+        <div class="sot-item__body">
+          <p>Test your plugins and themes against these before 7.2 is released. Tick them off as you go; your progress stays in this browser.</p>
+          <ul class="sot-checklist" id="deprecation-checklist">
+            <li><strong>Icons are stroke-based.</strong> Core icons were redrawn as strokes, so setting <code>fill</code> no longer recolors them. Use CSS <code>color</code> instead (<a href="https://github.com/WordPress/gutenberg/pull/78812">#78812</a>, <a href="https://github.com/WordPress/gutenberg/pull/82754">#82754</a>).</li>
+            <li><strong>Deprecated components:</strong> Badge (<a href="https://github.com/WordPress/gutenberg/pull/82379">#82379</a>), Divider (<a href="https://github.com/WordPress/gutenberg/pull/83040">#83040</a>), ResponsiveWrapper (<a href="https://github.com/WordPress/gutenberg/pull/83347">#83347</a>), Scrollable (<a href="https://github.com/WordPress/gutenberg/pull/83273">#83273</a>), ZStack (<a href="https://github.com/WordPress/gutenberg/pull/83344">#83344</a>), Elevation (<a href="https://github.com/WordPress/gutenberg/pull/83269">#83269</a>), Animate (<a href="https://github.com/WordPress/gutenberg/pull/80931">#80931</a>), and <code>__experimentalSurface</code> (<a href="https://github.com/WordPress/gutenberg/pull/80943">#80943</a>). The private Menu API is also deprecated in favor of the <code>@wordpress/ui</code> Menu (<a href="https://github.com/WordPress/gutenberg/pull/82947">#82947</a>).</li>
+            <li><strong>Interactivity API:</strong> Deprecated behaviors that reached their removal date are gone (<a href="https://github.com/WordPress/gutenberg/pull/84098">#84098</a>).</li>
+            <li><strong><code>@wordpress/reusable-blocks</code></strong> is now a no-op package (<a href="https://github.com/WordPress/gutenberg/pull/79186">#79186</a>).</li>
+            <li><strong>DataViews:</strong> The RichText control moved from DataViews’ private exports to the editor package (<a href="https://github.com/WordPress/gutenberg/pull/81430">#81430</a>).</li>
+            <li><strong>Footnotes:</strong> Footnote IDs now start with an <code>fn-</code> prefix. Update any CSS or links that target the old IDs (<a href="https://github.com/WordPress/gutenberg/pull/82398">#82398</a>).</li>
+            <li><strong>Block gap:</strong> A block that doesn’t declare <code>blockGap</code> support is now treated as not supporting it (<a href="https://github.com/WordPress/gutenberg/pull/82401">#82401</a>).</li>
+            <li><strong>Cross-origin isolation:</strong> The editor no longer adds <code>crossorigin</code> attributes to scripts, styles, audio, and video, which caused fatal errors on Chromium 137+ and broke media served from CDNs. <code>wp_start_cross_origin_isolation_output_buffer()</code> and <code>wp_add_crossorigin_attributes()</code> are deprecated, and the header is now sent by the new <code>wp_send_document_isolation_policy_header()</code> (<a href="https://core.trac.wordpress.org/changeset/64489">r64489</a>).</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sot-item" id="secrets-api">
+        <h3 class="sot-item__title">Secrets API</h3>
+        <div class="sot-item__body">
+          <p>WordPress 7.2 adds a Secrets API, which gives plugins a standard, encrypted place to store credentials like API keys, with <code>wp_set_secret()</code>, <code>wp_get_secret()</code>, and <code>wp_delete_secret()</code> (<a href="https://core.trac.wordpress.org/changeset/64337">r64337</a>). WP-CLI support is in scope, and an admin UI is planned for a later release.</p>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/08/25/proposal-a-secrets-api-for-wordpress-7-2/">Proposal: A Secrets API for WordPress 7.2</a> (<a href="https://core.trac.wordpress.org/ticket/66187">#66187</a>)</span></p>
+        </footer>
+      </article>
+
+      <article class="sot-item" id="wp-kses">
+        <h3 class="sot-item__title">wp_kses() rebuilt on the HTML API</h3>
+        <div class="sot-item__body">
+          <p><code>wp_kses()</code> is being rebuilt on the HTML API instead of regular expressions. Output is normalized, <code>&lt;script&gt;</code> and <code>&lt;style&gt;</code> contents are stripped, and some malformed SVG, MathML, and comments are rejected. The <code>wp_kses_force_legacy_parser</code> filter restores the old behavior if you need it.</p>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/10/07/progress-report-wp_kses/">Progress Report: wp_kses()</a> (<a href="https://core.trac.wordpress.org/ticket/66208">#66208</a>)</span></p>
+          <p><b>Try it</b><span><a href="https://wp-kses-new-parser-tester.space.fast/">wp_kses() new parser tester</a>: compare the old and new output for your own HTML</span></p>
+        </footer>
+      </article>
+
+      <article class="sot-item" id="ai-embeddings">
+        <h3 class="sot-item__title">AI: embeddings in the PHP AI Client</h3>
+        <div class="sot-item__body">
+          <p>WordPress 7.2 adds embedding generation through a new <code>wp_ai_client_embedding()</code> function that follows the same pattern as AI prompts (<a href="https://core.trac.wordpress.org/changeset/64327">r64327</a>, <a href="https://core.trac.wordpress.org/ticket/65638">#65638</a>). It’s infrastructure only: there’s no indexing or search built in. The bundled PHP AI Client is updated to version 1.5.1 (<a href="https://core.trac.wordpress.org/changeset/65001">r65001</a>, <a href="https://core.trac.wordpress.org/ticket/66400">#66400</a>).</p>
+        </div>
+      </article>
+
+      <article class="sot-item" id="no-backslash-escapes">
+        <h3 class="sot-item__title">NO_BACKSLASH_ESCAPES SQL mode turned off</h3>
+        <div class="sot-item__body">
+          <p>WordPress 7.2 turns off the <code>NO_BACKSLASH_ESCAPES</code> SQL mode by default, since it can break WordPress’s escaped queries. Sites that need it can turn it back on with a filter in a <code>db.php</code> drop-in.</p>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/10/09/no_backslash_escapes-sql-mode-is-now-turned-off-by-default-in-wordpress-7-2/">NO_BACKSLASH_ESCAPES SQL mode is now turned off by default in WordPress 7.2</a></span></p>
+        </footer>
+      </article>
+    </section>
+
+    <div class="sot-closing">
+      <p>A list of <a href="https://make.wordpress.org/core/tag/dev-notes+7-2/">all the dev notes can be reviewed from the Make Core blog</a>.</p>
+      <p class="sot-done" role="status"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>You’ve read every item in WordPress 7.2. See you at State of the Word.</p>
+    </div>
+  </main>
+  </div>
+</div>
+
+<!-- ============ SHELL: footer ============ -->
+<footer class="sot-footer">
+  <div class="sot-wrap">
+    <span class="sot-footer__poetry">Code is poetry.</span>
+    <span>WordPress 7.2 Source of Truth · <a href="#changelog">Changelog</a> · <a href="#top">Back to top</a></span>
+  </div>
+</footer>
+<button class="sot-to-top" type="button" aria-label="Back to top"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<script src="site.js" defer></script>
+<script src="wpui.js" defer></script>
+<script src="wp-icons.js" defer></script>
+<script src="edition.js" defer></script>
+<script src="recreations.js" defer></script>
+</body>
+</html>

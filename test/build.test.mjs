@@ -62,6 +62,39 @@ test( 'an own layout gets the generic assets, then its own', () => {
 	assert.ok( ! existsSync( join( out, '7-1', 'demo.js' ) ) );
 } );
 
+test( 'a hand-written page keeps its own content and gets the shared header and canonical', () => {
+	const { repo, out } = setup();
+	const dir = join( repo, 'releases', '7.2' );
+	const metaFile = join( dir, 'release.json' );
+	writeFileSync( metaFile, JSON.stringify( { ...JSON.parse( read( metaFile ) ), layout: 'page' } ) );
+	mkdirSync( join( dir, 'layout' ) );
+	writeFileSync( join( dir, 'layout', 'page.html' ), `<!doctype html>
+<html><head><title>Hand-written 7.2</title>
+<meta name="description" content="Written by hand.">
+<!-- sot:head -->
+</head><body>
+<!-- sot:header -->
+<!-- ===== a working note ===== -->
+<h1>Hand-written content</h1>
+<script src="site.js"></script>
+</body></html>
+` );
+	mkdirSync( join( dir, 'layout', 'images' ) );
+	writeFileSync( join( dir, 'layout', 'images', 'grid.png' ), 'png' );
+	build( repo, out, BASE );
+	for ( const d of [ '', '7-2' ] ) assert.ok( existsSync( join( out, d, 'images', 'grid.png' ) ), `images/grid.png in /${ d }` );
+	assert.ok( ! existsSync( join( out, '7-1', 'images' ) ) );
+	const page = read( join( out, '7-2/index.html' ) );
+	assert.match( page, /<h1>Hand-written content<\/h1>/ );
+	assert.doesNotMatch( page, /Thing in 7\.2/ );
+	assert.match( page, /<link rel="canonical" href="https:\/\/example.test\/7-2\/">/ );
+	assert.match( page, /<meta property="og:description" content="Written by hand.">/ );
+	assert.deepEqual( versionsIn( page ), [ '7-2*', '7-1' ] );
+	assert.deepEqual( findLeaks( page ), [] );
+	assert.ok( existsSync( join( out, '7-2', 'site.js' ) ) );
+	assert.equal( read( join( out, 'index.html' ) ), page );
+} );
+
 test( 'headers list both versions newest first, current selected', () => {
 	const { repo, out } = setup();
 	build( repo, out, BASE );

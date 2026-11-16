@@ -10,6 +10,27 @@
   var SOT = window.SOT || { toast: function () {} };
   function el(tag, attrs, html) { var e = document.createElement(tag); for (var k in (attrs || {})) e.setAttribute(k, attrs[k]); if (html != null) e.innerHTML = html; return e; }
   function icon(d, size) { return '<svg aria-hidden="true" width="' + (size || 16) + '" height="' + (size || 16) + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="' + d + '"/></svg>'; }
+  /* ---------- Hero: replace the placeholder ---------- */
+  var heroBtn = $('#edHeroBtn');
+  if (heroBtn) {
+    var lorem = $('#edHeroLorem'), real = $('#edHeroReal'), state = $('#edHeroState');
+    var full = real.textContent, filled = false, timer;
+    heroBtn.addEventListener('click', function () {
+      filled = !filled; clearInterval(timer);
+      lorem.hidden = filled; real.hidden = !filled;
+      state.textContent = filled ? 'Edited' : 'Placeholder';
+      state.classList.toggle('is-live', filled);
+      heroBtn.textContent = filled ? 'Back to placeholder' : 'Replace placeholder';
+      if (filled && !reduced) {
+        var n = 0; real.textContent = ''; real.classList.add('is-typing');
+        timer = setInterval(function () {
+          n += 1; real.textContent = full.slice(0, n);
+          if (n >= full.length) { clearInterval(timer); real.classList.remove('is-typing'); }
+        }, 42);
+      } else real.textContent = full;
+    });
+  }
+
   /* Ipsum, Notes, design tools, states, Global Styles and Gallery are
      recreations of the real 7.2 UI: see recreations.js. */
 
@@ -39,4 +60,3 @@
     } else go();
   }
 })();
-

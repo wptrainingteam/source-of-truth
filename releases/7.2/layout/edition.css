@@ -1,6 +1,6 @@
 /* ==========================================================================
-   WordPress 7.2 layout: the look of the 7.2 demos.
-   The shared shell is layouts/generic/sot.css.
+   WordPress 7.2 edition — "Every site starts as placeholder text."
+   Only 7.2-specific look and demos live here. The shared shell is layouts/generic/sot.css.
    ========================================================================== */
 
 /* Edition tokens: Blueberry accent, highlighter yellow, EB Garamond display */
@@ -13,6 +13,23 @@
   --ed-highlight: #FFE27A;
   --ed-font-display: 'EB Garamond', Georgia, serif;
 }
+
+/* Ipsum's dotted underline motif */
+.ed-dotted { font-style: italic; text-decoration: underline dotted var(--sot-accent); text-decoration-thickness: .06em; text-underline-offset: .14em; }
+
+/* ---------- Hero: the Paragraph block ---------- */
+.ed-block { background: var(--sot-surface); border: 1px solid var(--sot-line); border-radius: var(--sot-radius-lg); box-shadow: var(--sot-shadow); overflow: hidden; }
+.ed-block__bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--sot-sunk); font-size: 13px; color: var(--sot-muted); }
+.ed-block__name { display: inline-flex; align-items: center; gap: 8px; color: var(--sot-ink); font-weight: 600; }
+.ed-block__state { font-family: var(--sot-font-mono); font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--sot-sunk); }
+.ed-block__state.is-live { background: var(--sot-accent-soft); color: var(--sot-accent); }
+.ed-block__body { padding: clamp(20px, 3vw, 30px); min-height: 230px; }
+.ed-block__body p { margin: 0; font-family: var(--sot-font-display); font-size: clamp(20px, 2vw, 25px); line-height: 1.45; }
+.ed-block__lorem { color: var(--sot-faint); }
+.ed-block__real { color: var(--sot-ink); }
+.ed-block__real.is-typing::after { content: ""; display: inline-block; width: 2px; height: 1em; margin-left: 2px; vertical-align: -.12em; background: var(--sot-accent); animation: ed-blink 1s steps(1) infinite; }
+@keyframes ed-blink { 50% { opacity: 0; } }
+.ed-block__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; background: var(--sot-surface-2); border-top: 1px solid var(--sot-sunk); }
 
 /* ---------- Shared demo bits ---------- */
 .ed-seg { display: inline-flex; gap: 4px; padding: 4px; border-radius: 10px; background: var(--sot-sunk); max-width: 100%; overflow-x: auto; }
@@ -560,3 +577,12 @@
 .ed-el-preview { display: flex; align-items: center; justify-content: center; height: 100%; min-height: 112px; padding: 16px; background: #fcfcfc; }
 .ed-el-preview input { width: 100%; font: 15px 'Inter', sans-serif; padding: 10px 12px; border: 1px solid #0a0a0a33; background: #fff; color: #000000bf; }
 
+/* Overview highlight grid: one image per theme. Lazy loading means the hidden one isn't fetched. */
+.ed-highlights img { height: auto; }
+.ed-highlights__dark { display: none; }
+:root[data-theme="dark"] .ed-highlights__light { display: none; }
+:root[data-theme="dark"] .ed-highlights__dark { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .ed-highlights__light { display: none; }
+  :root:not([data-theme="light"]) .ed-highlights__dark { display: block; }
+}

@@ -15,7 +15,7 @@
 		"id": "1N2sSjT4sxgrbTneUhYFOjOkUvq0CNwsYiSgIhY134Tk",
 		"url": "https://docs.google.com/document/d/1N2sSjT4sxgrbTneUhYFOjOkUvq0CNwsYiSgIhY134Tk/edit"
 	},
-	"layout": "own",
+	"layout": "page",
 	"milestones": {
 		"beta1": "2026-10-20",
 		"rc1": "2026-11-17",
