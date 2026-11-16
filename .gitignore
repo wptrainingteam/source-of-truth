@@ -4,3 +4,5 @@ dist/
 /.spacefast-*
 .spacefast/.spacefast-*
 .spacefast/.space-link-*.tmp
+.DS_Store
+.idea
