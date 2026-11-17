@@ -89,7 +89,7 @@
 
   <section class="sot-stats" aria-label="At a glance">
     <div class="sot-stat"><b>Dec 8</b><span>Scheduled release, 2026</span></div>
-    <div class="sot-stat"><b data-sot-count="items">33</b><span>Changes covered, each with its links</span></div>
+    <div class="sot-stat"><b data-sot-count="items">35</b><span>Changes covered, each with its links</span></div>
     <div class="sot-stat"><b data-sot-count="sections">5</b><span>Sections, from priority items to developer goodies</span></div>
     <div class="sot-stat"><b>23.7–24.3</b><span>Gutenberg plugin releases included</span></div>
   </section>
@@ -440,10 +440,11 @@
         <p class="sot-tags">[end user] [site admin]</p>
         <div class="sot-item__body">
           <p>The media editor modal from 7.1 can now restore an image to its original, uncropped version from the <strong>More options</strong> menu (<a href="https://github.com/WordPress/gutenberg/pull/81805">#81805</a>). WordPress keeps track of which original an edited image came from to make this possible (<a href="https://github.com/WordPress/gutenberg/pull/81803">#81803</a>).</p>
-          <p>Images are also attached to the post when you save it. Unattached images in Image and Gallery blocks get the current post as their parent, which makes the <strong>Uploaded to this post</strong> filter and dynamic galleries more useful (<a href="https://github.com/WordPress/gutenberg/pull/81977">#81977</a>). This is skipped on sites with attachment pages turned on, and on published posts only newly added images are attached (<a href="https://github.com/WordPress/gutenberg/pull/84851">#84851</a>, <a href="https://github.com/WordPress/gutenberg/pull/84890">#84890</a>).</p>
+          <p>Images are also attached to the post when you save it. Unattached images in Image and Gallery blocks get the current post as their parent, which makes the <strong>Uploaded to this post</strong> filter and dynamic galleries more useful (<a href="https://github.com/WordPress/gutenberg/pull/81977">#81977</a>). This is skipped on sites with attachment pages turned on, and on published posts only newly added images are attached (<a href="https://github.com/WordPress/gutenberg/pull/84851">#84851</a>, <a href="https://github.com/WordPress/gutenberg/pull/84890">#84890</a>). Developers can turn it off by setting <code>autoAttachMediaEnabled</code> to <code>false</code> with the <code>block_editor_settings_all</code> filter.</p>
           <div class="ed-rec" data-wpui="mediaeditor" data-sot-try="Rotate, crop and restore an image in Edit media" role="region" aria-label="Edit media modal, recreated"></div>
         </div>
         <footer class="sot-refs">
+          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/11/17/media-changes-in-wordpress-7-2/">Media changes in WordPress 7.2</a></span></p>
           <p><b>Tracking</b><span><a href="https://github.com/WordPress/gutenberg/issues/80389">WordPress 7.2 Iteration: Media Editor Modal</a> (#80389)</span></p>
         </footer>
       </article>
@@ -541,11 +542,13 @@
         <h3 class="sot-item__title">Browser-based image processing comes to the Media Library</h3>
         <p class="sot-tags">[site admin] [end user] [enterprise]</p>
         <div class="sot-item__body">
-          <p>Browser-based image processing, which arrived for block editor uploads in 7.1, now also covers the <strong>Media Library</strong> grid, the <strong>Add New Media File</strong> screen, and the editor’s media modal (<a href="https://core.trac.wordpress.org/changeset/64588">r64588</a>). Your browser creates the image sizes instead of the server, so large uploads are far less likely to fail with timeouts or memory errors. Animated images also keep their animation in their sub-sizes now (<a href="https://core.trac.wordpress.org/changeset/64490">r64490</a>).</p>
-          <p>It runs in supported browsers only. Other browsers, audio files, and the Customizer and classic editor keep the classic upload flow. Developers can turn it off with the <code>wp_client_side_media_processing_enabled</code> filter.</p>
+          <p>Browser-based image processing, which arrived for block editor uploads in 7.1, now also covers the <strong>Media Library</strong> grid, the <strong>Add New Media File</strong> screen, and the editor’s media modal (<a href="https://core.trac.wordpress.org/changeset/64588">r64588</a>). Your browser creates the image sizes instead of the server, so large uploads are far less likely to fail with timeouts or memory errors. Animated GIFs and WebPs also keep their animation in their sub-sizes now, including cropped sizes like thumbnails (<a href="https://core.trac.wordpress.org/changeset/64490">r64490</a>).</p>
+          <p>It runs in Chromium-based browsers, version 137 and newer. Firefox, Safari, non-image files, the Customizer, and the classic editor keep the classic upload flow. On multisite networks with upload quotas, every generated sub-size now counts against the quota.</p>
+          <p>Developers can turn it off with the <code>wp_client_side_media_processing_enabled</code> filter, or keep sub-sizes static with the <code>wp_generate_animated_image_subsizes</code> filter. These uploads go through the REST API, so code that detects uploads with <code>$_POST['action']</code> or <code>DOING_AJAX</code> needs updating.</p>
           <div class="ed-rec" data-wpui="upload" role="region" aria-label="Upload Media screen, recreated"></div>
         </div>
         <footer class="sot-refs">
+          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/11/17/media-changes-in-wordpress-7-2/">Media changes in WordPress 7.2</a></span></p>
           <p><b>Tracking</b><span><a href="https://core.trac.wordpress.org/ticket/65661">Media: Enable client-side media uploads in the Media Library</a> (#65661)</span></p>
         </footer>
       </article>
@@ -594,6 +597,8 @@
           <li><a href="#dataviews">DataViews</a></li>
           <li><a href="#interactivity-api">Interactivity API</a></li>
           <li><a href="#block-api">Block API</a></li>
+          <li><a href="#rest-api">REST API</a></li>
+          <li><a href="#jquery-migrate">jQuery Migrate</a></li>
           <li><a href="#plugin-menu-apifetch">apiFetch</a></li>
           <li><a href="#components">Components</a></li>
           <li><a href="#icon-collections">Icon collections</a></li>
@@ -665,6 +670,31 @@
         </div>
       </article>
 
+      <article class="sot-item" id="rest-api">
+        <h3 class="sot-item__title">REST API changes</h3>
+        <div class="sot-item__body">
+          <ul>
+            <li><strong>Revision meta:</strong> Revision and autosave responses now include only revisioned meta keys, so restoring a revision in the block editor no longer overwrites other post meta. If your plugin needs meta in revisions, register it with <code>'revisions_enabled' =&gt; true</code> or add it with the <code>wp_post_revision_meta_keys</code> filter.</li>
+            <li><strong>Comments:</strong> The <code>/wp/v2/comments</code> <code>status</code> parameter accepts several statuses at once, like <code>?status=approve,hold</code>. <code>$request['status']</code> is now always an array, including in the <code>rest_comment_query</code> filter, so update any string comparisons.</li>
+            <li><strong>CORS:</strong> The new <code>rest_allowed_cors_methods</code> filter controls the <code>Access-Control-Allow-Methods</code> header (<a href="https://core.trac.wordpress.org/changeset/64730">r64730</a>). Use it instead of unhooking <code>rest_send_cors_headers()</code>.</li>
+            <li><strong>Response options:</strong> Routes can now turn off <code>_fields</code>, <code>_embed</code>, and response links (<a href="https://core.trac.wordpress.org/changeset/64689">r64689</a>).</li>
+          </ul>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/11/17/rest-api-changes-in-wordpress-7-2/">REST API changes in WordPress 7.2</a></span></p>
+        </footer>
+      </article>
+
+      <article class="sot-item" id="jquery-migrate">
+        <h3 class="sot-item__title">jQuery Migrate 3.6.0, ahead of jQuery 4</h3>
+        <div class="sot-item__body">
+          <p>WordPress 7.2 updates jQuery Migrate to 3.6.0, which flags code that relies on features jQuery 4 is expected to remove. jQuery itself isn’t updated in 7.2: the jQuery 4 and jQuery UI updates are planned for 7.3, and jQuery Migrate may be turned off by default around the end of 2027. If your plugin or theme uses jQuery, test it on 7.2 and fix any deprecation notices.</p>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/11/17/preparing-for-jquery-4-with-wordpress-7-2/">Preparing for jQuery 4 with WordPress 7.2</a> (<a href="https://core.trac.wordpress.org/ticket/60478">#60478</a>)</span></p>
+        </footer>
+      </article>
+
       <article class="sot-item" id="plugin-menu-apifetch">
         <h3 class="sot-item__title">Plugin menu items and apiFetch</h3>
         <div class="sot-item__body">
@@ -702,7 +732,7 @@
             <li><strong>DataViews:</strong> The RichText control moved from DataViews’ private exports to the editor package (<a href="https://github.com/WordPress/gutenberg/pull/81430">#81430</a>).</li>
             <li><strong>Footnotes:</strong> Footnote IDs now start with an <code>fn-</code> prefix. Update any CSS or links that target the old IDs (<a href="https://github.com/WordPress/gutenberg/pull/82398">#82398</a>).</li>
             <li><strong>Block gap:</strong> A block that doesn’t declare <code>blockGap</code> support is now treated as not supporting it (<a href="https://github.com/WordPress/gutenberg/pull/82401">#82401</a>).</li>
-            <li><strong>Cross-origin isolation:</strong> The editor no longer adds <code>crossorigin</code> attributes to scripts, styles, audio, and video, which caused fatal errors on Chromium 137+ and broke media served from CDNs. <code>wp_start_cross_origin_isolation_output_buffer()</code> and <code>wp_add_crossorigin_attributes()</code> are deprecated, and the header is now sent by the new <code>wp_send_document_isolation_policy_header()</code> (<a href="https://core.trac.wordpress.org/changeset/64489">r64489</a>).</li>
+            <li><strong>Cross-origin isolation:</strong> The editor no longer adds <code>crossorigin</code> attributes to scripts, styles, audio, and video, which caused fatal errors on Chromium 137+ and broke media served from CDNs. <code>wp_start_cross_origin_isolation_output_buffer()</code> and <code>wp_add_crossorigin_attributes()</code> are deprecated, and the header is now sent by the new <code>wp_send_document_isolation_policy_header()</code>. <code>wp_add_crossorigin_attributes()</code> has no replacement, so remove any calls to it (<a href="https://core.trac.wordpress.org/changeset/64489">r64489</a>). See <a href="https://make.wordpress.org/core/2026/11/17/media-changes-in-wordpress-7-2/">Media changes in WordPress 7.2</a>.</li>
             <li><strong>CSS module class names:</strong> Plugins that bundle their own copy of <code>@wordpress/ui</code>, <code>@wordpress/dataviews</code>, <code>@wordpress/admin-ui</code>, <code>@wordpress/grid</code>, or <code>@wordpress/components</code> could have their styles collide with the copy WordPress loads. Update to the fixed versions (for example, <code>@wordpress/ui</code> 0.26.0 or <code>@wordpress/components</code> 44.0.0) and release before 7.2. If you build your own CSS modules with <code>@wordpress/build</code>, update it to 0.27.0 and rebuild. Plugins that load the <code>wp-components</code> script aren’t affected. See <a href="https://make.wordpress.org/core/2026/11/16/update-bundled-wordpress-packages-and-wordpress-build-to-fix-css-module-class-name-collisions/">Update bundled @wordpress/* packages and @wordpress/build</a>.</li>
           </ul>
         </div>

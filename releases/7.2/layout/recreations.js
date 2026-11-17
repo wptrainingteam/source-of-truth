@@ -754,8 +754,8 @@
     gsMount(host, {
       cls: 'ed-gsf-frame', snap: 'gs-form',
       caption: 'Change the Input font size. The preview in the panel and every form on the site follow',
-      markup: '<p class="ed-site__title">My WordPress Website</p><form class="ed-site__search" onsubmit="return false"><label for="edS' + uid + '">Search</label><div><input id="edS' + uid + '" type="search" value="duotone palettes" tabindex="-1"><button type="button" tabindex="-1">Search</button></div></form>' +
-        '<h3 class="ed-site__h">Leave a Reply</h3><p><label>Name <span>*</span><input type="text" value="Ada" tabindex="-1"></label></p><p><label>Email <span>*</span><input type="email" value="ada@example.com" tabindex="-1"></label></p>',
+      markup: '<p class="ed-site__title">My WordPress Website</p><form class="ed-site__search" onsubmit="return false"><label for="edS' + uid + '">Search</label><div><input id="edS' + uid + '" type="search" value="duotone palettes" tabindex="-1" autocomplete="off" data-1p-ignore data-lpignore="true"><button type="button" tabindex="-1">Search</button></div></form>' +
+        '<h3 class="ed-site__h">Leave a Reply</h3><p class="ed-site__field"><label>Name <span>*</span><input type="text" value="Ada" tabindex="-1" autocomplete="off" data-1p-ignore data-lpignore="true"></label></p><p class="ed-site__field"><label>Email <span>*</span><input type="email" value="ada@example.com" tabindex="-1" autocomplete="off" data-1p-ignore data-lpignore="true"></label></p>',
       init: function (gs, site) {
         fontSizeWiring(gs, function (v) { $$('input', site).concat($$('input, textarea', $('.global-styles-ui-sidebar__panel', gs) || gs)).forEach(function (i) { i.style.fontSize = v; }); });
       }
@@ -1065,7 +1065,7 @@
         $('select', panel).addEventListener('change', function () { var v = this.value; change(function () { work.ratio = v; }); });
       } else {
         panel.innerHTML = '' +
-          '<div><label class="wpui-label" for="edMt' + uid + '">Title</label><input class="wpui-input" id="edMt' + uid + '" data-m="title" value="' + esc(meta.title) + '"></div>' +
+          '<div><label class="wpui-label" for="edMt' + uid + '">Title</label><input class="wpui-input" id="edMt' + uid + '" data-m="title" autocomplete="off" data-1p-ignore data-lpignore="true" value="' + esc(meta.title) + '"></div>' +
           '<div><label class="wpui-label" for="edMa' + uid + '">Alt text</label><textarea class="wpui-input ed-me__ta" id="edMa' + uid + '" data-m="alt">' + esc(meta.alt) + '</textarea><p class="wpui-help"><a href="https://www.w3.org/WAI/tutorials/images/decision-tree/" target="_blank" rel="noopener">Describe the purpose of the image.<span class="sot-sr"> (opens in a new tab)</span> ↗</a><br>Leave empty if decorative.</p></div>' +
           '<div><label class="wpui-label" for="edMc' + uid + '">Caption</label><textarea class="wpui-input ed-me__ta" id="edMc' + uid + '" data-m="caption">' + esc(meta.caption) + '</textarea></div>' +
           '<div><label class="wpui-label" for="edMd' + uid + '">Description</label><textarea class="wpui-input ed-me__ta" id="edMd' + uid + '" data-m="desc">' + esc(meta.desc) + '</textarea></div>' +

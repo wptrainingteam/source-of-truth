@@ -19,7 +19,8 @@ When you make a new deliberate change to the page that the design doesn't have, 
 | #65661 tracking line | Full ticket title, then "(#65661)" | "Ticket title needed" | `118b8bc` |
 
 Items the Doc still has are kept even when an export drops them. Right now that's
-**Secrets API**: the Nov 17 export drops it, but the Doc still has it.
+**Secrets API**: both Nov 17 exports (`sot-site-11-17-002.zip` too) drop it, but the Doc still
+has it. That's why the static item count is one higher than the export's (35, not 34).
 
 ## Wiring for the build
 
@@ -42,3 +43,5 @@ Items the Doc still has are kept even when an export drops them. Right now that'
 | `recreations.js` | Admin screen titles are `<p class="wpui-h1">`, so the page's `h1` styles don't hit them | `<h1>` |
 | `wp-icons.js`, `wp-snapshots.css`, `wp-snapshots.js` | Line ending or newline differences only | — |
 | `edition.js` | Same as the export | — |
+| `recreations.js` | The Global Styles form demo's fields and the media editor's Title field have `autocomplete="off" data-1p-ignore data-lpignore="true"`, so password managers don't offer to log in | No attributes |
+| `recreations.js`, `edition.css` | The demo's Name and Email fields are `<p class="ed-site__field">`, spaced 16px apart | Plain `<p>`, no gap |
