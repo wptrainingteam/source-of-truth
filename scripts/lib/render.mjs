@@ -33,8 +33,10 @@ const socialTags = ( image, url ) => ( image?.src ? [
 	image.height ? `<meta property="og:image:height" content="${ esc( image.height ) }">` : '',
 	image.alt ? `<meta property="og:image:alt" content="${ esc( image.alt ) }">` : '',
 	'<meta name="twitter:card" content="summary_large_image">',
+	`<meta name="twitter:image" content="${ esc( url + image.src ) }">`,
+	image.alt ? `<meta name="twitter:image:alt" content="${ esc( image.alt ) }">` : '',
 ] : [] );
-const tagLine = ( tags ) =>( tags.length ? `<p class="sot-tags">${ tags.map( ( t ) => `[${ esc( t ) }]` ).join( ' ' ) }</p>` : '' );
+const tagLine = ( tags ) => ( tags.length ? `<p class="sot-tags">${ tags.map( ( t ) => `[${ esc( t ) }]` ).join( ' ' ) }</p>` : '' );
 
 // Sections and items as they appear on the page: punted items dropped, effective tags and unique ids resolved.
 function model( structure ) {

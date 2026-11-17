@@ -218,4 +218,6 @@ test( 'a socialImage adds an absolute og:image, its size and alt, and a large X 
 	assert.match( head, /<meta property="og:image:height" content="1260">/ );
 	assert.match( head, /<meta property="og:image:alt" content="A &quot;card&quot;">/ );
 	assert.match( head, /<meta name="twitter:card" content="summary_large_image">/ );
+	assert.match( head, /<meta name="twitter:image" content="https:\/\/example.test\/7-2\/images\/social.png">/ );
+	assert.match( head, /<meta name="twitter:image:alt" content="A &quot;card&quot;">/ );
 } );
