@@ -740,7 +740,7 @@
       <article class="sot-item" id="wp-kses">
         <h3 class="sot-item__title">wp_kses() rebuilt on the HTML API</h3>
         <div class="sot-item__body">
-          <p><code>wp_kses()</code> has been rebuilt on the HTML API instead of regular expressions (<a href="https://core.trac.wordpress.org/changeset/64233">r64233</a>). In 7.2 the new parser is opt-in: the <code>wp_kses_force_legacy_parser</code> filter defaults to <code>true</code>, so sites keep the old behavior unless they return <code>false</code> to try the new one. With the new parser, output is normalized, <code>&lt;script&gt;</code> and <code>&lt;style&gt;</code> contents are stripped, and some malformed SVG, MathML, and comments are rejected. Plugins that filter post content should test with it turned on.</p>
+          <p><code>wp_kses()</code> has been rebuilt on the HTML API instead of regular expressions, and the new parser is on by default (<a href="https://core.trac.wordpress.org/changeset/64233">r64233</a>). Output is normalized, <code>&lt;script&gt;</code> and <code>&lt;style&gt;</code> contents are stripped, and some malformed SVG, MathML, and comments are rejected. If your plugin or theme relies on the old behavior, you can switch back to the legacy parser by returning <code>true</code> from the <code>wp_kses_force_legacy_parser</code> filter. Plugins that filter or sanitize post content should test against 7.2.</p>
         </div>
         <footer class="sot-refs">
           <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/10/07/progress-report-wp_kses/">Progress Report: wp_kses()</a> (<a href="https://core.trac.wordpress.org/ticket/66208">#66208</a>)</span></p>
