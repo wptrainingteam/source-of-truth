@@ -89,7 +89,7 @@
 
   <section class="sot-stats" aria-label="At a glance">
     <div class="sot-stat"><b>Dec 8</b><span>Scheduled release, 2026</span></div>
-    <div class="sot-stat"><b data-sot-count="items">35</b><span>Changes covered, each with its links</span></div>
+    <div class="sot-stat"><b data-sot-count="items">34</b><span>Changes covered, each with its links</span></div>
     <div class="sot-stat"><b data-sot-count="sections">5</b><span>Sections, from priority items to developer goodies</span></div>
     <div class="sot-stat"><b>23.7–24.3</b><span>Gutenberg plugin releases included</span></div>
   </section>
@@ -603,7 +603,6 @@
           <li><a href="#components">Components</a></li>
           <li><a href="#icon-collections">Icon collections</a></li>
           <li><a href="#deprecations">Breaking changes</a></li>
-          <li><a href="#secrets-api">Secrets API</a></li>
           <li><a href="#wp-kses">wp_kses()</a></li>
           <li><a href="#ai-embeddings">AI embeddings</a></li>
           <li><a href="#no-backslash-escapes">SQL mode</a></li>
@@ -736,16 +735,6 @@
             <li><strong>CSS module class names:</strong> Plugins that bundle their own copy of <code>@wordpress/ui</code>, <code>@wordpress/dataviews</code>, <code>@wordpress/admin-ui</code>, <code>@wordpress/grid</code>, or <code>@wordpress/components</code> could have their styles collide with the copy WordPress loads. Update to the fixed versions (for example, <code>@wordpress/ui</code> 0.26.0 or <code>@wordpress/components</code> 44.0.0) and release before 7.2. If you build your own CSS modules with <code>@wordpress/build</code>, update it to 0.27.0 and rebuild. Plugins that load the <code>wp-components</code> script aren’t affected. See <a href="https://make.wordpress.org/core/2026/11/16/update-bundled-wordpress-packages-and-wordpress-build-to-fix-css-module-class-name-collisions/">Update bundled @wordpress/* packages and @wordpress/build</a>.</li>
           </ul>
         </div>
-      </article>
-
-      <article class="sot-item" id="secrets-api">
-        <h3 class="sot-item__title">Secrets API</h3>
-        <div class="sot-item__body">
-          <p>WordPress 7.2 adds a Secrets API, which gives plugins a standard, encrypted place to store credentials like API keys, with <code>wp_set_secret()</code>, <code>wp_get_secret()</code>, and <code>wp_delete_secret()</code> (<a href="https://core.trac.wordpress.org/changeset/64337">r64337</a>). WP-CLI support is in scope, and an admin UI is planned for a later release.</p>
-        </div>
-        <footer class="sot-refs">
-          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/08/25/proposal-a-secrets-api-for-wordpress-7-2/">Proposal: A Secrets API for WordPress 7.2</a> (<a href="https://core.trac.wordpress.org/ticket/66187">#66187</a>)</span></p>
-        </footer>
       </article>
 
       <article class="sot-item" id="wp-kses">

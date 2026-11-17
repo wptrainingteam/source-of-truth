@@ -18,9 +18,9 @@ When you make a new deliberate change to the page that the design doesn't have, 
 | Google Drive folder link | Linked | "Link needed" | `88a6cb1` |
 | #65661 tracking line | Full ticket title, then "(#65661)" | "Ticket title needed" | `118b8bc` |
 
-Items the Doc still has are kept even when an export drops them. Right now that's
-**Secrets API**: both Nov 17 exports (`sot-site-11-17-002.zip` too) drop it, but the Doc still
-has it. That's why the static item count is one higher than the export's (35, not 34).
+The Secrets API was kept here for a while because the Doc's Developer Goodies still listed it.
+It was reverted before RC 1 (r65538, see the Doc's Punted tab), and the designs drop it, so the
+page follows the design. Don't keep an item an export drops without asking.
 
 ## Wiring for the build
 
