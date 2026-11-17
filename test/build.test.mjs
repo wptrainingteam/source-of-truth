@@ -66,7 +66,7 @@ test( 'a hand-written page keeps its own content and gets the shared header and 
 	const { repo, out } = setup();
 	const dir = join( repo, 'releases', '7.2' );
 	const metaFile = join( dir, 'release.json' );
-	writeFileSync( metaFile, JSON.stringify( { ...JSON.parse( read( metaFile ) ), layout: 'page' } ) );
+	writeFileSync( metaFile, JSON.stringify( { ...JSON.parse( read( metaFile ) ), layout: 'page', socialImage: { src: 'images/grid.png' } } ) );
 	mkdirSync( join( dir, 'layout' ) );
 	writeFileSync( join( dir, 'layout', 'page.html' ), `<!doctype html>
 <html><head><title>Hand-written 7.2</title>
@@ -89,6 +89,8 @@ test( 'a hand-written page keeps its own content and gets the shared header and 
 	assert.doesNotMatch( page, /Thing in 7\.2/ );
 	assert.match( page, /<link rel="canonical" href="https:\/\/example.test\/7-2\/">/ );
 	assert.match( page, /<meta property="og:description" content="Written by hand.">/ );
+	assert.match( page, /<meta property="og:image" content="https:\/\/example.test\/7-2\/images\/grid.png">/ );
+	assert.match( page, /<meta name="twitter:card" content="summary_large_image">/ );
 	assert.deepEqual( versionsIn( page ), [ '7-2*', '7-1' ] );
 	assert.deepEqual( findLeaks( page ), [] );
 	assert.ok( existsSync( join( out, '7-2', 'site.js' ) ) );

@@ -26,7 +26,15 @@ const host = ( url ) => {
 		return url;
 	}
 };
-const tagLine = ( tags ) => ( tags.length ? `<p class="sot-tags">${ tags.map( ( t ) => `[${ esc( t ) }]` ).join( ' ' ) }</p>` : '' );
+// A release's optional socialImage ({ src, width, height, alt }), published under its own URL; crawlers need it absolute.
+const socialTags = ( image, url ) => ( image?.src ? [
+	`<meta property="og:image" content="${ esc( url + image.src ) }">`,
+	image.width ? `<meta property="og:image:width" content="${ esc( image.width ) }">` : '',
+	image.height ? `<meta property="og:image:height" content="${ esc( image.height ) }">` : '',
+	image.alt ? `<meta property="og:image:alt" content="${ esc( image.alt ) }">` : '',
+	'<meta name="twitter:card" content="summary_large_image">',
+] : [] );
+const tagLine = ( tags ) =>( tags.length ? `<p class="sot-tags">${ tags.map( ( t ) => `[${ esc( t ) }]` ).join( ' ' ) }</p>` : '' );
 
 // Sections and items as they appear on the page: punted items dropped, effective tags and unique ids resolved.
 function model( structure ) {
@@ -74,6 +82,7 @@ export function renderPage( layoutHtml, meta, structure, header, baseUrl = '' ) 
 		description ? `<meta property="og:description" content="${ esc( description ) }">` : '',
 		'<meta property="og:type" content="article">',
 		'<meta property="og:site_name" content="WordPress Source of Truth">',
+		...socialTags( meta.socialImage, url ),
 	].filter( Boolean ).join( '\n' );
 
 	const count = words( structure.intro, ...sections.flatMap( ( s ) => [ s.title, s.body, ...s.items.flatMap( ( it ) => [ it.title, it.body ] ) ] ) );
@@ -205,6 +214,7 @@ export function renderHandPage( pageHtml, meta, header, baseUrl = '' ) {
 		description ? `<meta property="og:description" content="${ description }">` : '',
 		'<meta property="og:type" content="article">',
 		'<meta property="og:site_name" content="WordPress Source of Truth">',
+		...socialTags( meta.socialImage, url ),
 	].filter( Boolean ).join( '\n' );
 	for ( const slot of [ 'head', 'header' ] ) {
 		if ( ! pageHtml.includes( `<!-- sot:${ slot } -->` ) ) throw new Error( `Page is missing the sot:${ slot } slot` );

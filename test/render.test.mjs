@@ -209,3 +209,13 @@ test( 'head carries absolute canonical and Open Graph tags', () => {
 	assert.equal( ( out.match( /<h1[ >]/g ) || [] ).length, 1 );
 	assert.match( out, /<html lang="en">/ );
 } );
+
+test( 'a socialImage adds an absolute og:image, its size and alt, and a large X card', () => {
+	const out = render( structure(), { ...META, socialImage: { src: 'images/social.png', width: 2400, height: 1260, alt: 'A "card"' } } );
+	const head = out.slice( 0, out.indexOf( '</head>' ) );
+	assert.match( head, /<meta property="og:image" content="https:\/\/example.test\/7-2\/images\/social.png">/ );
+	assert.match( head, /<meta property="og:image:width" content="2400">/ );
+	assert.match( head, /<meta property="og:image:height" content="1260">/ );
+	assert.match( head, /<meta property="og:image:alt" content="A &quot;card&quot;">/ );
+	assert.match( head, /<meta name="twitter:card" content="summary_large_image">/ );
+} );
