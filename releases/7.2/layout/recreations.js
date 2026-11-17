@@ -106,7 +106,7 @@
         '<li><span>' + MONTHS[earlier.getMonth()] + ' ' + ordinal(earlier.getDate()) + ', ' + timeStr(earlier) + '</span><a href="#">Hello world!</a></li></ul></div>' +
       '<div class="activity-block"><h3>Published On This Day</h3><ul>' +
         '<li><span>' + MONTHS[NOW.getMonth()] + ' ' + ordinal(NOW.getDate()) + ', ' + (NOW.getFullYear() - 1) + '</span><span><a href="#">Our first State of the Word recap</a> <span class="wpui-ontheday-author">by Anne</span></span></li>' +
-        '<li><span>' + MONTHS[NOW.getMonth()] + ' ' + ordinal(NOW.getDate()) + ', ' + (NOW.getFullYear() - 3) + '</span><span><a href="#">Five block themes we loved this fall</a></span></li></ul></div>', 'ed-activity');
+        '<li><span>' + MONTHS[NOW.getMonth()] + ' ' + ordinal(NOW.getDate()) + ', ' + (NOW.getFullYear() - 3) + '</span><span><a href="#">Five block themes we loved this fall</a></span></li></ul></div>', 'ed-activity-' + (activityWidget.n = (activityWidget.n || 0) + 1));
   }
 
   /* Post editor header (static mockup), in the 7.2 order */

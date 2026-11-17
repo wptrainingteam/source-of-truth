@@ -9,6 +9,4 @@ The media editor modal from 7.1 can now restore an image to its original, uncrop
 
 Images are also attached to the post when you save it. Unattached images in Image and Gallery blocks get the current post as their parent, which makes the **Uploaded to this post** filter and dynamic galleries more useful ([#81977](https://github.com/WordPress/gutenberg/pull/81977)). This is skipped on sites with attachment pages turned on, and on published posts only newly added images are attached ([#84851](https://github.com/WordPress/gutenberg/pull/84851), [#84890](https://github.com/WordPress/gutenberg/pull/84890)).
 
-Animated images now get animated sub-sizes when you upload them, instead of only a still first frame ([#80385](https://github.com/WordPress/gutenberg/pull/80385)).
-
 Tracking: [WordPress 7.2 Iteration: Media Editor Modal](https://github.com/WordPress/gutenberg/issues/80389) (#80389)

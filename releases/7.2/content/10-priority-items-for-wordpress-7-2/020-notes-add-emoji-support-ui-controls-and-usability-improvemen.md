@@ -11,6 +11,6 @@ Notes also get emoji reactions, so you can acknowledge feedback without adding a
 
 After you add a note to a post, a **Note** icon appears in the block toolbar, making it quicker to leave notes on other blocks as you work through the post. The icon only shows up once a post has a note, so people writing solo keep a focused toolbar ([#84635](https://github.com/WordPress/gutenberg/pull/84635)). Highlights also connect more clearly to the text they’re attached to ([#80578](https://github.com/WordPress/gutenberg/pull/80578)).
 
-A few smaller changes protect your work: deleting a note offers **Undo** ([#83988](https://github.com/WordPress/gutenberg/pull/83988)), unsent notes and replies are kept when you select another block ([#84110](https://github.com/WordPress/gutenberg/pull/84110)), and people you @mention now get an email linking to the post ([#79606](https://github.com/WordPress/gutenberg/pull/79606)).
+A few smaller changes protect your work: deleting a note offers Undo ([#83988](https://github.com/WordPress/gutenberg/pull/83988)), and unsent notes and replies are kept when you select another block ([#84110](https://github.com/WordPress/gutenberg/pull/84110)).
 
 Tracking: [Notes iteration for WordPress 7.2](https://github.com/WordPress/gutenberg/issues/80015) (#80015)

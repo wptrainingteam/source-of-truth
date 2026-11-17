@@ -129,9 +129,9 @@
       <p>Collaboration inside the editor keeps improving. Notes move into a margin beside the canvas, where they stay visible while you work, and you can expand, minimize, or hide them. You can react to a note with a small set of emoji instead of writing a reply.</p>
       <p>Beyond that, writing in the editor gets smoother with a long list of small fixes. Image processing in the browser, which arrived in the block editor in 7.1, now extends to uploads in the Media Library and the editor’s media modal, meaning fewer timeouts and memory errors on large images. Developers get public APIs for responsive controls, Interactivity API additions, and new components.</p>
       <p><strong>WordPress 7.2 is scheduled for release on December 8, 2026.</strong></p>
-      <figure class="sot-media ed-highlights">
-        <img class="ed-highlights__light" src="images/highlights-light.png" alt="WordPress 7.2 highlights: Ipsum, the new default theme; Notes in the margin; design tools for nearly every Core block; responsive styles and states, round two; Global Styles for form elements; SVG icons in the admin; and faster image uploads." width="1600" height="900" loading="lazy" decoding="async">
-        <img class="ed-highlights__dark" src="images/highlights-dark.png" alt="WordPress 7.2 highlights: Ipsum, the new default theme; Notes in the margin; design tools for nearly every Core block; responsive styles and states, round two; Global Styles for form elements; SVG icons in the admin; and faster image uploads." width="1600" height="900" loading="lazy" decoding="async">
+      <figure class="sot-media ed-highlights" id="highlights">
+        <img class="ed-highlights__light" src="images/highlights-7-2-light.webp" srcset="images/highlights-7-2-light.webp 1600w, images/highlights-7-2-light@2x.webp 3200w" sizes="(min-width: 1100px) 760px, 100vw" width="1600" height="900" loading="lazy" decoding="async" alt="WordPress 7.2 highlights, December 8, 2026: Ipsum, the new default theme; Notes in the margin beside the canvas, with emoji reactions; design tools for nearly every Core block (background, shadow, min height, border, duotone, color); responsive styles and states, round two; Global Styles for form elements; SVG icons in the admin bar and menu; faster image uploads processed in the browser.">
+        <img class="ed-highlights__dark" src="images/highlights-7-2-dark.webp" srcset="images/highlights-7-2-dark.webp 1600w, images/highlights-7-2-dark@2x.webp 3200w" sizes="(min-width: 1100px) 760px, 100vw" width="1600" height="900" loading="lazy" decoding="async" alt="WordPress 7.2 highlights, December 8, 2026: Ipsum, the new default theme; Notes in the margin beside the canvas, with emoji reactions; design tools for nearly every Core block (background, shadow, min height, border, duotone, color); responsive styles and states, round two; Global Styles for form elements; SVG icons in the admin bar and menu; faster image uploads processed in the browser.">
       </figure>
 
     </section>
@@ -519,7 +519,7 @@
         <h3 class="sot-item__title">Random content redirects</h3>
         <p class="sot-tags">[site admin] [end user] [developer]</p>
         <div class="sot-item__body">
-          <p>WordPress can now send visitors to a random post. Visiting <code>/random/</code> redirects to a randomly selected published post, and it also works within categories, tags, authors, and post type archives, like <code>/random/category/news/</code> (<a href="https://core.trac.wordpress.org/changeset/64402">r64402</a>). You can change the <code>random</code> base on the <strong>Settings &gt; Permalinks</strong> screen, and it’s translated for sites in other languages. If a post or page already uses that slug, the content takes priority.</p>
+          <p>WordPress can now send visitors to a random post. Visiting <code>/random/</code> redirects to a randomly selected published post, and it also works within categories, tags, authors, and post types, like <code>/random/category/news/</code> (<a href="https://core.trac.wordpress.org/changeset/64402">r64402</a>). It needs pretty permalinks. You can change the <code>random</code> base on the <strong>Settings &gt; Permalinks</strong> screen, and it’s translated for sites in other languages. If a page already uses that slug, the page takes priority.</p>
           <div class="sot-demo ed-random" data-sot-try="Jump to a random post, like /random/">
             <div>
               <p class="sot-demo__label">Try it on this page</p>
@@ -529,9 +529,10 @@
               <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>Take me somewhere random
             </button>
           </div>
-          <p>The feature is on by default. Developers can control which post types are eligible with the new <code>randomable</code> argument in <code>register_post_type()</code>, or turn the feature off with the <code>wp_enable_random_content_redirect</code> filter. After turning it off, flush the rewrite rules.</p>
+          <p>The feature is on by default. Post types are eligible when they’re publicly queryable and have an archive, and developers can change that with the new <code>randomable</code> argument in <code>register_post_type()</code>. Turn the feature off with the <code>wp_enable_random_content_redirect</code> filter, or check <code>wp_is_random_content_query()</code> in a <code>pre_get_posts</code> callback to change only random requests. The redirect is sent on <code>template_redirect</code>, so plugins that lock down a site still apply (<a href="https://core.trac.wordpress.org/changeset/65515">r65515</a>).</p>
         </div>
         <footer class="sot-refs">
+          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/11/05/your-content-is-going-to-get-more-random/">Your Content Is Going To Get More Random!</a></span></p>
           <p><b>Tracking</b><span><a href="https://core.trac.wordpress.org/ticket/64498">Add core support for random content redirects</a> (#64498)</span></p>
         </footer>
       </article>
@@ -553,12 +554,12 @@
         <h3 class="sot-item__title">SVG icons replace Dashicons in the admin</h3>
         <p class="sot-tags">[all]</p>
         <div class="sot-item__body">
-          <p>The admin bar and admin menu now use SVG icons instead of the Dashicons icon font (<a href="https://core.trac.wordpress.org/changeset/64583">r64583</a>). The icons are rendered with <code>wp_get_icon()</code>, the icon API added in 7.1, and the Dashboard’s <strong>At a Glance</strong> widget uses them too (<a href="https://core.trac.wordpress.org/changeset/64799">r64799</a>). SVG icons are announced more reliably by screen readers, work with forced-colors modes, and don’t break when an icon font is blocked.</p>
+          <p>The admin bar and admin menu now use SVG icons instead of the Dashicons icon font (<a href="https://core.trac.wordpress.org/changeset/64583">r64583</a>), and so does the Dashboard’s <strong>At a Glance</strong> widget (<a href="https://core.trac.wordpress.org/changeset/64799">r64799</a>). SVG icons are announced more reliably by screen readers, work with forced-colors modes, and don’t break when an icon font is blocked.</p>
           <div class="ed-rec" data-wpui="adminmenu" data-sot-try="Compare Dashicons with the new SVG admin icons" role="region" aria-label="Admin menu with SVG icons, recreated"></div>
-          <p>Plugins and custom post types that set a Dashicon for their menu item get the matching SVG icon automatically. If a Dashicon has no replacement, it keeps using the icon font. Developers can look up the replacement with <code>WP_Icons_Registry::get_admin_icon_name_for_dashicon()</code> (<a href="https://core.trac.wordpress.org/changeset/64798">r64798</a>). If your plugin styles its admin menu icon, check it against the new markup.</p>
+          <p>Plugins and custom post types that use a Dashicon in their menu get the matching SVG icon automatically, and Dashicons without a match keep using the font (<a href="https://core.trac.wordpress.org/changeset/64798">r64798</a>). You can also pass an icon name like <code>core-admin/pin</code> to <code>add_menu_page()</code> or <code>register_post_type()</code>. Admin bar icons aren’t replaced automatically, so pass the icon name in the new <code>icon</code> argument of <code>WP_Admin_Bar::add_node()</code>. When a node has an SVG icon, its old Dashicon is hidden, so the same code works on 7.2 and earlier versions (<a href="https://core.trac.wordpress.org/changeset/65223">r65223</a>). If your plugin styles icons through <code>::before</code>, check it against the new markup.</p>
         </div>
         <footer class="sot-refs">
-          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/09/04/replacing-dashicons-in-the-admin-bar-and-menu/">Replacing Dashicons in the admin bar and menu</a> (<a href="https://core.trac.wordpress.org/ticket/65089">#65089</a>)</span></p>
+          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/11/05/svg-icons-in-the-admin-bar-and-menu-in-wordpress-7-2/">SVG icons in the admin bar and menu in WordPress 7.2</a> (<a href="https://core.trac.wordpress.org/ticket/65089">#65089</a>)</span></p>
           <p><b>Tracking</b><span><a href="https://github.com/WordPress/gutenberg/issues/82723">Omnibar: WP 7.2 Iteration Issue</a> (#82723)</span></p>
         </footer>
       </article>
@@ -568,7 +569,6 @@
         <p class="sot-tags">[all]</p>
         <div class="sot-item__body">
           <p>A new screen option lets you turn off moving meta boxes, so they stay where they are on edit screens (<a href="https://core.trac.wordpress.org/changeset/64301">r64301</a>, <a href="https://core.trac.wordpress.org/ticket/50699">#50699</a>). Focus states are also easier to see in high contrast mode (<a href="https://core.trac.wordpress.org/changeset/64823">r64823</a>, <a href="https://core.trac.wordpress.org/ticket/45910">#45910</a>).</p>
-          <p>Two more tickets are on the 7.2 roadmap: removing the separate accessibility mode for widgets (<a href="https://core.trac.wordpress.org/ticket/52399">#52399</a>) and adding automated axe-core checks to catch regressions (<a href="https://core.trac.wordpress.org/ticket/66015">#66015</a>).</p>
         </div>
       </article>
 
@@ -577,7 +577,6 @@
         <p class="sot-tags">[site admin] [enterprise]</p>
         <div class="sot-item__body">
           <p>WordPress now sends an email notification when a new application password is created, so an unexpected one is easier to spot (<a href="https://core.trac.wordpress.org/changeset/63582">r63582</a>, <a href="https://core.trac.wordpress.org/ticket/63927">#63927</a>). On sites without HTTPS, WordPress also explains more clearly which environment type is required to use application passwords (<a href="https://core.trac.wordpress.org/changeset/64091">r64091</a>, <a href="https://core.trac.wordpress.org/ticket/57388">#57388</a>).</p>
-          <p>Safer handling of <code>default_role</code> values is also on the 7.2 roadmap (<a href="https://core.trac.wordpress.org/ticket/46744">#46744</a>).</p>
         </div>
       </article>
     </section>
@@ -610,7 +609,8 @@
         <h3 class="sot-item__title">Global Styles and theme.json</h3>
         <div class="sot-item__body">
           <h4 id="text-shadow">Text shadow block support and presets</h4>
-          <p>Text shadow, added to Global Styles in 7.1, is now a block support with a UI. Paragraph and Heading opt in through <code>supports.typography.textShadow</code>, and themes can define presets in <code>theme.json</code> under <code>settings.typography.textShadowPresets</code>. Core ships two defaults, Light and Strong (<a href="https://github.com/WordPress/gutenberg/pull/79584">#79584</a>).</p>
+          <p>Text shadow, added to Global Styles in 7.1, is now a block support with a UI. Paragraph and Heading opt in through <code>supports.typography.textShadow</code>, and other blocks can do the same. Themes can define presets in <code>theme.json</code> under <code>settings.typography.textShadowPresets</code>, and Core ships two defaults, Light and Strong, which you can hide with <code>defaultTextShadowPresets</code> (<a href="https://github.com/WordPress/gutenberg/pull/79584">#79584</a>). Users can edit or add presets in Global Styles under <strong>Typography &gt; Text shadow presets</strong>.</p>
+          <p>Read more: <a href="https://make.wordpress.org/core/2026/11/11/new-block-support-in-wordpress-7-2-text-shadow/">New Block Support in WordPress 7.2: Text Shadow</a></p>
           <h4 id="preset-slugs">Preset slug references fixed</h4>
           <p>Since WordPress 5.8, <code>var:preset|…</code> references used the raw slug while the generated CSS custom property used a kebab-cased version, so a slug like <code>n27</code> silently pointed to the wrong variable. References are now kebab-cased to match (<a href="https://github.com/WordPress/gutenberg/pull/80583">#80583</a>). Slugs that already worked are unaffected.</p>
           <h4 id="background-padding">Override background-color padding</h4>
@@ -643,9 +643,12 @@
       <article class="sot-item" id="interactivity-api">
         <h3 class="sot-item__title">Interactivity API</h3>
         <div class="sot-item__body">
-          <p>A new <code>data-wp-html</code> directive renders trusted HTML from the store (<a href="https://github.com/WordPress/gutenberg/pull/83092">#83092</a>). The router also exposes <code>state.navigating</code> and <code>state.initiator</code> so you can react to client-side navigations, replacing the deprecated <code>state.navigation.hasStarted</code> and <code>hasFinished</code> (<a href="https://github.com/WordPress/gutenberg/pull/83280">#83280</a>).</p>
+          <p>A new <code>data-wp-html</code> directive renders trusted HTML from the store (<a href="https://github.com/WordPress/gutenberg/pull/83092">#83092</a>). It only renders values wrapped in <code>asDangerousHTML()</code>, or <code>wp_interactivity_as_dangerous_html()</code> on the server. Neither function sanitizes anything, so never pass it untrusted input.</p>
+          <p>The router also exposes <code>state.navigating</code> and <code>state.initiator</code> so you can react to client-side navigations, replacing the deprecated <code>state.navigation.hasStarted</code> and <code>hasFinished</code> (<a href="https://github.com/WordPress/gutenberg/pull/83280">#83280</a>).</p>
+          <p>Deprecated behaviors that reached their removal date are gone (<a href="https://github.com/WordPress/gutenberg/pull/84098">#84098</a>): unique IDs with two hyphens (<code>--id</code>), negating a function like <code>!actions.isEmpty</code>, and <code>data-wp-ignore</code>.</p>
         </div>
         <footer class="sot-refs">
+          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/11/17/changes-to-the-interactivity-api-in-wordpress-7-2/">Changes to the Interactivity API in WordPress 7.2</a></span></p>
           <p><b>Tracking</b><span><a href="https://github.com/WordPress/gutenberg/issues/83078">Interactivity API for WordPress 7.2</a> (#83078)</span></p>
         </footer>
       </article>
@@ -665,9 +668,12 @@
       <article class="sot-item" id="plugin-menu-apifetch">
         <h3 class="sot-item__title">Plugin menu items and apiFetch</h3>
         <div class="sot-item__body">
-          <p><code>PluginMoreMenuItem</code>, <code>PluginSidebarMoreMenuItem</code>, and <code>PluginPreviewMenuItem</code> now render with the new <code>Menu</code> component. The <code>as</code> prop is deprecated and ignored (<a href="https://github.com/WordPress/gutenberg/pull/81564">#81564</a>, <a href="https://github.com/WordPress/gutenberg/pull/82321">#82321</a>).</p>
+          <p>The editor’s <strong>Options</strong> and <strong>View</strong> menus now use the new <code>Menu</code> component from <code>@wordpress/ui</code>. <code>PluginMoreMenuItem</code>, <code>PluginSidebarMoreMenuItem</code>, and <code>PluginPreviewMenuItem</code> keep working, and their items now appear in a <strong>Panels</strong> submenu of the Options menu. The <code>as</code> prop is deprecated and ignored, and styles that target <code>.components-menu-item__button</code> no longer match (<a href="https://github.com/WordPress/gutenberg/pull/81564">#81564</a>, <a href="https://github.com/WordPress/gutenberg/pull/82321">#82321</a>).</p>
           <p><code>apiFetch</code> now resolves an empty <code>200</code> response to <code>null</code> instead of rejecting with <code>invalid_json</code> (<a href="https://github.com/WordPress/gutenberg/pull/79325">#79325</a>). It also adds <code>apiFetch.unregister()</code> for removing middleware (<a href="https://github.com/WordPress/gutenberg/pull/82408">#82408</a>) and exposes <code>defaultFetchHandler</code> (<a href="https://github.com/WordPress/gutenberg/pull/82553">#82553</a>).</p>
         </div>
+        <footer class="sot-refs">
+          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/11/11/editor-the-options-and-view-menus-now-use-the-new-menu-component/">Editor: The Options and View menus now use the new Menu component</a></span></p>
+        </footer>
       </article>
 
       <article class="sot-item" id="components">
@@ -691,13 +697,13 @@
           <p>Test your plugins and themes against these before 7.2 is released. Tick them off as you go; your progress stays in this browser.</p>
           <ul class="sot-checklist" id="deprecation-checklist">
             <li><strong>Icons are stroke-based.</strong> Core icons were redrawn as strokes, so setting <code>fill</code> no longer recolors them. Use CSS <code>color</code> instead (<a href="https://github.com/WordPress/gutenberg/pull/78812">#78812</a>, <a href="https://github.com/WordPress/gutenberg/pull/82754">#82754</a>).</li>
-            <li><strong>Deprecated components:</strong> Badge (<a href="https://github.com/WordPress/gutenberg/pull/82379">#82379</a>), Divider (<a href="https://github.com/WordPress/gutenberg/pull/83040">#83040</a>), ResponsiveWrapper (<a href="https://github.com/WordPress/gutenberg/pull/83347">#83347</a>), Scrollable (<a href="https://github.com/WordPress/gutenberg/pull/83273">#83273</a>), ZStack (<a href="https://github.com/WordPress/gutenberg/pull/83344">#83344</a>), Elevation (<a href="https://github.com/WordPress/gutenberg/pull/83269">#83269</a>), Animate (<a href="https://github.com/WordPress/gutenberg/pull/80931">#80931</a>), and <code>__experimentalSurface</code> (<a href="https://github.com/WordPress/gutenberg/pull/80943">#80943</a>). The private Menu API is also deprecated in favor of the <code>@wordpress/ui</code> Menu (<a href="https://github.com/WordPress/gutenberg/pull/82947">#82947</a>).</li>
-            <li><strong>Interactivity API:</strong> Deprecated behaviors that reached their removal date are gone (<a href="https://github.com/WordPress/gutenberg/pull/84098">#84098</a>).</li>
+            <li><strong>Deprecated components:</strong> Animate (<a href="https://github.com/WordPress/gutenberg/pull/80931">#80931</a>), Divider (<a href="https://github.com/WordPress/gutenberg/pull/83040">#83040</a>), Elevation (<a href="https://github.com/WordPress/gutenberg/pull/83269">#83269</a>), ResponsiveWrapper (<a href="https://github.com/WordPress/gutenberg/pull/83347">#83347</a>), Scrollable (<a href="https://github.com/WordPress/gutenberg/pull/83273">#83273</a>), <code>__experimentalSurface</code> (<a href="https://github.com/WordPress/gutenberg/pull/80943">#80943</a>), Tip, and ZStack (<a href="https://github.com/WordPress/gutenberg/pull/83344">#83344</a>) are deprecated and scheduled for removal in WordPress 7.4. <code>__experimentalView</code> now ignores its <code>css</code> prop, and the color pickers’ <code>asButtons</code> prop is replaced by <code>presentation</code>. The private Menu API is also deprecated in favor of the <code>@wordpress/ui</code> Menu (<a href="https://github.com/WordPress/gutenberg/pull/82947">#82947</a>). See <a href="https://make.wordpress.org/core/2026/11/10/editor-components-updates-in-wordpress-7-2/">Editor components updates in WordPress 7.2</a>.</li>
             <li><strong><code>@wordpress/reusable-blocks</code></strong> is now a no-op package (<a href="https://github.com/WordPress/gutenberg/pull/79186">#79186</a>).</li>
             <li><strong>DataViews:</strong> The RichText control moved from DataViews’ private exports to the editor package (<a href="https://github.com/WordPress/gutenberg/pull/81430">#81430</a>).</li>
             <li><strong>Footnotes:</strong> Footnote IDs now start with an <code>fn-</code> prefix. Update any CSS or links that target the old IDs (<a href="https://github.com/WordPress/gutenberg/pull/82398">#82398</a>).</li>
             <li><strong>Block gap:</strong> A block that doesn’t declare <code>blockGap</code> support is now treated as not supporting it (<a href="https://github.com/WordPress/gutenberg/pull/82401">#82401</a>).</li>
             <li><strong>Cross-origin isolation:</strong> The editor no longer adds <code>crossorigin</code> attributes to scripts, styles, audio, and video, which caused fatal errors on Chromium 137+ and broke media served from CDNs. <code>wp_start_cross_origin_isolation_output_buffer()</code> and <code>wp_add_crossorigin_attributes()</code> are deprecated, and the header is now sent by the new <code>wp_send_document_isolation_policy_header()</code> (<a href="https://core.trac.wordpress.org/changeset/64489">r64489</a>).</li>
+            <li><strong>CSS module class names:</strong> Plugins that bundle their own copy of <code>@wordpress/ui</code>, <code>@wordpress/dataviews</code>, <code>@wordpress/admin-ui</code>, <code>@wordpress/grid</code>, or <code>@wordpress/components</code> could have their styles collide with the copy WordPress loads. Update to the fixed versions (for example, <code>@wordpress/ui</code> 0.26.0 or <code>@wordpress/components</code> 44.0.0) and release before 7.2. If you build your own CSS modules with <code>@wordpress/build</code>, update it to 0.27.0 and rebuild. Plugins that load the <code>wp-components</code> script aren’t affected. See <a href="https://make.wordpress.org/core/2026/11/16/update-bundled-wordpress-packages-and-wordpress-build-to-fix-css-module-class-name-collisions/">Update bundled @wordpress/* packages and @wordpress/build</a>.</li>
           </ul>
         </div>
       </article>
@@ -715,11 +721,10 @@
       <article class="sot-item" id="wp-kses">
         <h3 class="sot-item__title">wp_kses() rebuilt on the HTML API</h3>
         <div class="sot-item__body">
-          <p><code>wp_kses()</code> is being rebuilt on the HTML API instead of regular expressions. Output is normalized, <code>&lt;script&gt;</code> and <code>&lt;style&gt;</code> contents are stripped, and some malformed SVG, MathML, and comments are rejected. The <code>wp_kses_force_legacy_parser</code> filter restores the old behavior if you need it.</p>
+          <p><code>wp_kses()</code> has been rebuilt on the HTML API instead of regular expressions (<a href="https://core.trac.wordpress.org/changeset/64233">r64233</a>). In 7.2 the new parser is opt-in: the <code>wp_kses_force_legacy_parser</code> filter defaults to <code>true</code>, so sites keep the old behavior unless they return <code>false</code> to try the new one. With the new parser, output is normalized, <code>&lt;script&gt;</code> and <code>&lt;style&gt;</code> contents are stripped, and some malformed SVG, MathML, and comments are rejected. Plugins that filter post content should test with it turned on.</p>
         </div>
         <footer class="sot-refs">
           <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/10/07/progress-report-wp_kses/">Progress Report: wp_kses()</a> (<a href="https://core.trac.wordpress.org/ticket/66208">#66208</a>)</span></p>
-          <p><b>Try it</b><span><a href="https://wp-kses-new-parser-tester.space.fast/">wp_kses() new parser tester</a>: compare the old and new output for your own HTML</span></p>
         </footer>
       </article>
 

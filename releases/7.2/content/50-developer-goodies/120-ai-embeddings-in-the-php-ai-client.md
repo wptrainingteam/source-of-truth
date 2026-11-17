@@ -5,4 +5,4 @@ tags: []
 flags: [check]
 ---
 
-The bundled PHP AI Client updates to 1.4.0, adding embedding generation through a new `wp_ai_client_embedding()` function that follows the same pattern as AI prompts. It's infrastructure only: there's no indexing or search built in ([#65638](https://core.trac.wordpress.org/ticket/65638)).
+WordPress 7.2 adds embedding generation through a new `wp_ai_client_embedding()` function that follows the same pattern as AI prompts ([r64327](https://core.trac.wordpress.org/changeset/64327), [#65638](https://core.trac.wordpress.org/ticket/65638)). It’s infrastructure only: there’s no indexing or search built in. The bundled PHP AI Client is updated to version 1.5.1 ([r65001](https://core.trac.wordpress.org/changeset/65001), [#66400](https://core.trac.wordpress.org/ticket/66400)).

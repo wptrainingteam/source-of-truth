@@ -1,3 +1,7 @@
+## Secrets API
+
+ **Secrets API.** Committed in r64337 (Oct 13), then reverted before RC 1 in [r65538](https://core.trac.wordpress.org/changeset/65538) (Nov 17) “to allow more time for the API to mature.” Feedback questioned whether writing secrets belongs in the same API as reading host-provided secrets, and the `manage_secrets` capabilities weren’t checked when secrets were set. Tracking: [#66187](https://core.trac.wordpress.org/ticket/66187). Dev note (now outdated): [The Secrets API in WordPress 7.2](https://make.wordpress.org/core/2026/11/11/the-secrets-api-in-wordpress-7-2/).
+
 ## New Blocks
 
 ### Description List block

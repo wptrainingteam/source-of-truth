@@ -108,6 +108,10 @@ Rules for a custom layout:
 - The 7.2 layout adds interactive demos to items with `releases/7.2/layout/mount.js`, keyed by item
   id. If an item's heading changes in the Doc, its id changes: update the key there.
 - A layout changes how a release looks, never what it says. Content stays as imported.
+- A new design export for a release never gets copied over its page. Merge it, and keep
+  everything listed in that release's `layout/DEPARTURES.md` (for example
+  `releases/7.2/layout/DEPARTURES.md`). When you make a deliberate change the design doesn't
+  have, add it to that file.
 - Whenever you change a release's page, set its "Updated" date to the day of that change: the
   `Updated` line in the hero of a hand-written page (`"layout": "page"`, such as 7.2's
   `page.html`), written as `Month Day, Year`, and `updated` in `release.json` as `YYYY-MM-DD`.
