@@ -65,7 +65,7 @@
         <p class="sot-small sot-muted">Written by <a href="https://profiles.wordpress.org/greenshady/">Justin Tadlock</a> with <a href="https://profiles.wordpress.org/welcher/">Ryan Welcher</a>, <a href="https://profiles.wordpress.org/annezazu/">Anne McCarthy</a>, and <a href="https://profiles.wordpress.org/psykro/">Jonathan Bossenger</a>.</p>
       </div>
       <p class="sot-meta">
-        <span>Updated November 17, 2026</span>
+        <span>Updated November 23, 2026</span>
         <span data-sot-reading-time>Reading time</span>
       </p>
     </div>
@@ -89,7 +89,7 @@
 
   <section class="sot-stats" aria-label="At a glance">
     <div class="sot-stat"><b>Dec 8</b><span>Scheduled release, 2026</span></div>
-    <div class="sot-stat"><b data-sot-count="items">34</b><span>Changes covered, each with its links</span></div>
+    <div class="sot-stat"><b data-sot-count="items">35</b><span>Changes covered, each with its links</span></div>
     <div class="sot-stat"><b data-sot-count="sections">5</b><span>Sections, from priority items to developer goodies</span></div>
     <div class="sot-stat"><b>23.7–24.3</b><span>Gutenberg plugin releases included</span></div>
   </section>
@@ -142,6 +142,15 @@
         <h2 id="changelog-title" class="sr-only sot-sr">Changelog</h2>
         <p class="sot-small sot-muted" style="margin:0 0 12px">Any changes are cataloged here as the release goes on.</p>
         <ul class="sot-changelog">
+          <li><b>November 23, 2026</b>:
+            <ul>
+              <li>Removed On This Day in the Activity widget, which was reverted from the 7.2 release (<a href="https://core.trac.wordpress.org/changeset/65732">r65732</a>).</li>
+              <li>Corrected <a href="#wp-kses"><code>wp_kses()</code> rebuilt on the HTML API</a>: the new parser is on by default, not opt-in.</li>
+              <li>Added <a href="#abilities-api">Abilities API updates</a> and <a href="#more-developer-changes">More developer changes</a>.</li>
+              <li>Updated <a href="#responsive-styles">Responsive styles and states</a>, <a href="#application-passwords">Application password improvements</a>, and <a href="#block-api">Block API changes</a> with details and links from new dev notes.</li>
+              <li>Added the WordPress 7.2 Field Guide and November’s What’s new for developers to <a href="#resources">Resources</a>.</li>
+            </ul>
+          </li>
           <li><b>November 17, 2026</b>: First edition.</li>
         </ul>
       </section>
@@ -167,7 +176,7 @@
     <ul class="sot-resources">
         <li><a href="https://make.wordpress.org/test/2026/10/20/help-test-wordpress-7-2/"><b>Help Test WordPress 7.2</b><span>Make Test, October 20</span></a></li>
         <li><a href="https://make.wordpress.org/core/tag/dev-notes+7-2/"><b>Dev Notes published</b><span>Follow along on Make Core</span></a></li>
-        <li><span class="sot-resource-pending"><b>WordPress 7.2 Field Guide</b><span>Expected at RC 1</span></span></li>
+        <li><a href="https://make.wordpress.org/core/2026/11/20/wordpress-7-2-field-guide/"><b>WordPress 7.2 Field Guide</b><span>Make Core, November 20</span></a></li>
         <li><a href="https://make.wordpress.org/core/2026/09/18/roadmap-to-7-2/"><b>Roadmap to 7.2</b><span>Make Core, September 18</span></a></li>
         <li><a href="https://make.wordpress.org/core/7-2/"><b>WordPress 7.2 Development Cycle</b><span>Dates and release squad</span></a></li>
         <li><a href="https://developer.wordpress.org/news/2026/09/whats-new-for-developers-september-2026/"><b>What’s new for developers: September</b><span>Developer Blog</span></a></li>
@@ -300,10 +309,11 @@
 
           
           <p>Navigation Link blocks get hover, focus, and active controls in Global Styles (<a href="https://github.com/WordPress/gutenberg/pull/83451">#83451</a>), so you can style menu states across your site without editing <code>theme.json</code>.</p>
-          <p>For block developers, the viewport API is now public. Custom blocks can use <code>getStyleForState()</code> and <code>setStyleForState()</code> from <code>@wordpress/block-editor</code> to make their own controls work per viewport (<a href="https://github.com/WordPress/gutenberg/pull/82741">#82741</a>).</p>
+          <p>For block developers, the API behind these controls is now public (<a href="https://github.com/WordPress/gutenberg/pull/82741">#82741</a>). Custom controls can read the selected state with <code>getSelectedBlockStyleState()</code> and update styles for it with <code>getStyleForState()</code> and <code>setStyleForState()</code> from <code>@wordpress/block-editor</code>. Wrap them in <code>InspectorControls</code> or <code>BlockControls</code> with <code>group="style-state"</code> so they stay visible when a state is selected. For matching media queries, use <code>getViewportMediaQueries()</code> in JavaScript or <code>wp_get_viewport_media_queries()</code> in PHP.</p>
           <div class="ed-rec" data-wpui="states" data-sot-try="Style a link’s hover and focus states per viewport" role="region" aria-label="Navigation Link states in Global Styles, recreated"></div>
         </div>
         <footer class="sot-refs">
+          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/11/18/api-for-style-state-aware-block-styling-controls/">API for style state-aware block styling controls</a></span></p>
           <p><b>Tracking</b><span><a href="https://github.com/WordPress/gutenberg/issues/80388">Responsive style states for blocks, 7.2 tasks</a> (#80388)</span></p>
         </footer>
       </article>
@@ -503,19 +513,6 @@
         <h2>Admin / Workflow updates</h2>
       </header>
 
-      <article class="sot-item" id="on-this-day">
-        <h3 class="sot-item__title">On This Day in the Activity widget</h3>
-        <p class="sot-tags">[end user] [site admin]</p>
-        <div class="sot-item__body">
-          <p>The Dashboard’s <strong>Activity</strong> widget gains a <strong>Published On This Day</strong> section that lists posts you published on today’s date in previous years. It only appears on days when there’s something to show. To make room, <strong>Recent Comments</strong> moves out of the Activity widget into its own dashboard widget, which you can rearrange or hide like any other (<a href="https://core.trac.wordpress.org/changeset/64593">r64593</a>).</p>
-          <p>The section shows up to 10 posts. Developers can change the query with the <code>wp_dashboard_on_this_day_query_args</code> filter.</p>
-          <div class="ed-rec" data-wpui="dashboard" role="region" aria-label="Dashboard Activity widget, recreated"></div>
-        </div>
-        <footer class="sot-refs">
-          <p><b>Tracking</b><span><a href="https://core.trac.wordpress.org/ticket/65116">Feature request: On This Day dashboard widget</a> (#65116)</span></p>
-        </footer>
-      </article>
-
       <article class="sot-item" id="random-content">
         <h3 class="sot-item__title">Random content redirects</h3>
         <p class="sot-tags">[site admin] [end user] [developer]</p>
@@ -579,8 +576,12 @@
         <h3 class="sot-item__title">Application password improvements</h3>
         <p class="sot-tags">[site admin] [enterprise]</p>
         <div class="sot-item__body">
-          <p>WordPress now sends an email notification when a new application password is created, so an unexpected one is easier to spot (<a href="https://core.trac.wordpress.org/changeset/63582">r63582</a>, <a href="https://core.trac.wordpress.org/ticket/63927">#63927</a>). On sites without HTTPS, WordPress also explains more clearly which environment type is required to use application passwords (<a href="https://core.trac.wordpress.org/changeset/64091">r64091</a>, <a href="https://core.trac.wordpress.org/ticket/57388">#57388</a>).</p>
+          <p>WordPress now emails users when a new application password is created, so an unexpected one is easier to spot (<a href="https://core.trac.wordpress.org/changeset/63582">r63582</a>, <a href="https://core.trac.wordpress.org/ticket/63927">#63927</a>). The email is sent in the user’s locale. Developers can turn it off with the <code>wp_send_application_password_created_email</code> filter or change it with <code>wp_application_password_created_email</code>. If your site already sends its own notification, turn one of them off to avoid duplicate emails. On sites without HTTPS, WordPress also explains more clearly which environment type is required to use application passwords (<a href="https://core.trac.wordpress.org/changeset/64091">r64091</a>, <a href="https://core.trac.wordpress.org/ticket/57388">#57388</a>).</p>
+          <p>Application password data is now unslashed before it reaches the <code>wp_create_application_password</code> and <code>wp_update_application_password</code> hooks (<a href="https://core.trac.wordpress.org/changeset/65361">r65361</a>). Remove any <code>wp_unslash()</code> calls in those callbacks.</p>
         </div>
+        <footer class="sot-refs">
+          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/11/19/miscellaneous-developer-changes-in-wordpress-7-2/">Miscellaneous Developer Changes in WordPress 7.2</a></span></p>
+        </footer>
       </article>
     </section>
 
@@ -602,6 +603,8 @@
           <li><a href="#plugin-menu-apifetch">apiFetch</a></li>
           <li><a href="#components">Components</a></li>
           <li><a href="#icon-collections">Icon collections</a></li>
+          <li><a href="#abilities-api">Abilities API</a></li>
+          <li><a href="#more-developer-changes">More changes</a></li>
           <li><a href="#deprecations">Breaking changes</a></li>
           <li><a href="#wp-kses">wp_kses()</a></li>
           <li><a href="#ai-embeddings">AI embeddings</a></li>
@@ -663,10 +666,16 @@
           <ul>
             <li>Inner block templates move into <code>registerBlockType()</code> settings. The <code>template</code> and <code>templateInsertUpdatesSelection</code> props on <code>&lt;InnerBlocks&gt;</code> are deprecated (<a href="https://github.com/WordPress/gutenberg/pull/80027">#80027</a>).</li>
             <li>PHP-only blocks: an attribute with <code>items.enum</code> now gets a token field in the inspector (<a href="https://github.com/WordPress/gutenberg/pull/83394">#83394</a>).</li>
-            <li><code>InspectorControls</code>’ <code>__experimentalGroup</code> prop is removed; use <code>group</code> (<a href="https://github.com/WordPress/gutenberg/pull/83171">#83171</a>).</li>
+            <li><code>InspectorControls</code>’ <code>__experimentalGroup</code> prop is removed. Controls that still use it render in the default group instead, so rename it to <code>group</code> (<a href="https://github.com/WordPress/gutenberg/pull/83171">#83171</a>).</li>
             <li>The empty-state block appender is now a real “ghost” block. CSS or tests that target <code>.block-editor-default-block-appender</code> need updating (<a href="https://github.com/WordPress/gutenberg/pull/81231">#81231</a>).</li>
+            <li>Additional CSS now applies to blocks rendered by a parent block, like a Navigation Link inside a Navigation block. Rules that were ignored before will now apply (<a href="https://github.com/WordPress/gutenberg/pull/82590">#82590</a>).</li>
+            <li>The Paragraph block supports native multi-selection on iOS and Android, so key, input, and composition events now fire on the canvas instead of the block. Plugins that add editing event handlers to Paragraph blocks through filters should test them (<a href="https://github.com/WordPress/gutenberg/pull/79105">#79105</a>, <a href="https://github.com/WordPress/gutenberg/pull/80287">#80287</a>).</li>
+            <li><code>registry.subscribe()</code> with a store that isn’t registered yet now waits for that store instead of listening to every store (<a href="https://github.com/WordPress/gutenberg/pull/83346">#83346</a>).</li>
           </ul>
         </div>
+        <footer class="sot-refs">
+          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/11/18/miscellaneous-editor-changes-in-wordpress-7-2/">Miscellaneous Editor Changes in WordPress 7.2</a></span></p>
+        </footer>
       </article>
 
       <article class="sot-item" id="rest-api">
@@ -718,6 +727,35 @@
         <div class="sot-item__body">
           <p>Icon collections can now be marked as not public, so icons can ship with WordPress for use in the admin without showing up in the Icon block (<a href="https://github.com/WordPress/gutenberg/pull/82634">#82634</a>, <a href="https://github.com/WordPress/gutenberg/pull/83277">#83277</a>). A new <code>core-admin</code> collection holds the icons used by the admin interface, including a set of popular icons (<a href="https://github.com/WordPress/gutenberg/pull/83261">#83261</a>, <a href="https://github.com/WordPress/gutenberg/pull/85072">#85072</a>), and the Icon block won’t render non-public icons on the front end (<a href="https://github.com/WordPress/gutenberg/pull/82774">#82774</a>).</p>
         </div>
+      </article>
+
+      <article class="sot-item" id="abilities-api">
+        <h3 class="sot-item__title">Abilities API updates</h3>
+        <div class="sot-item__body">
+          <p>Abilities can now declare <code>required_capabilities</code>, a list of capabilities WordPress checks before any <code>permission_callback</code> runs. If the list covers every check, you can leave out <code>permission_callback</code>. Input is now normalized, validated, and then sanitized through a new <code>prepare_input()</code> method, and input that fails sanitization is rejected with <code>ability_invalid_input</code> (HTTP 400 over REST). Results keep empty objects as <code>{}</code> through the new <code>wp_prepare_json_value_for_client()</code>.</p>
+          <p>Callbacks that depend on the original PHP type may need updates. For example, <code>number</code> inputs now arrive as floats.</p>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/11/19/abilities-api-updates-in-wordpress-7-2/">Abilities API updates in WordPress 7.2</a></span></p>
+        </footer>
+      </article>
+
+      <article class="sot-item" id="more-developer-changes">
+        <h3 class="sot-item__title">More developer changes</h3>
+        <div class="sot-item__body">
+          <ul>
+            <li><strong><code>WP_DEBUG</code> on for local sites:</strong> When <code>WP_DEBUG</code> isn’t defined, it now defaults to <code>true</code> for the <code>local</code> environment type, so local sites display notices and warnings (<a href="https://core.trac.wordpress.org/changeset/64115">r64115</a>). Define it in <code>wp-config.php</code> to keep the old behavior.</li>
+            <li><strong>“Howdy” moves into the user menu:</strong> The toolbar’s account item shows only the display name and avatar. Code that edits the greeting in the <code>my-account</code> node should target <code>user-info</code> instead (<a href="https://core.trac.wordpress.org/changeset/64312">r64312</a>).</li>
+            <li><strong>Add Theme is back in the Appearance menu:</strong> On single sites, the submenu positions after it shift by one. Find menu items by slug, not by numeric key (<a href="https://core.trac.wordpress.org/changeset/64352">r64352</a>).</li>
+            <li><strong>Site meta:</strong> New <code>register_site_meta()</code> and <code>unregister_site_meta()</code> functions for multisite (<a href="https://core.trac.wordpress.org/changeset/63603">r63603</a>).</li>
+            <li><strong>Version-control detection:</strong> A <code>.git</code> file, used by worktrees and submodules, now marks a site as a checkout, which turns off automatic updates (<a href="https://core.trac.wordpress.org/changeset/65259">r65259</a>).</li>
+            <li><strong>Script compression leftovers removed:</strong> <code>COMPRESS_SCRIPTS</code>, <code>COMPRESS_CSS</code>, and <code>ENFORCE_GZIP</code> do nothing now, and <code>compression_test()</code> and <code>script_concat_settings()</code> are deprecated (<a href="https://core.trac.wordpress.org/changeset/64485">r64485</a>).</li>
+            <li><strong>New <code>.delete-link</code> CSS class</strong> for destructive action links in the admin (<a href="https://core.trac.wordpress.org/changeset/64603">r64603</a>).</li>
+          </ul>
+        </div>
+        <footer class="sot-refs">
+          <p><b>Read more</b><span><a href="https://make.wordpress.org/core/2026/11/19/miscellaneous-developer-changes-in-wordpress-7-2/">Miscellaneous Developer Changes in WordPress 7.2</a></span></p>
+        </footer>
       </article>
 
       <article class="sot-item" id="deprecations">

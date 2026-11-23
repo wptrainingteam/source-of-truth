@@ -1,3 +1,15 @@
+## On This Day in the Activity widget
+
+==[end user] [site admin]==
+
+The Dashboard’s **Activity** widget gains a **Published On This Day** section that lists posts you published on today’s date in previous years. It only appears on days when there’s something to show. To make room, **Recent Comments** moves out of the Activity widget into its own dashboard widget, which you can rearrange or hide like any other ([r64593](https://core.trac.wordpress.org/changeset/64593)).
+
+The section shows up to 10 posts. Developers can change the query with the `wp_dashboard_on_this_day_query_args` filter.
+
+Tracking: [Feature request: On This Day dashboard widget](https://core.trac.wordpress.org/ticket/65116) (#65116)
+
+
+
 ## Secrets API
 
  **Secrets API.** Committed in r64337 (Oct 13), then reverted before RC 1 in [r65538](https://core.trac.wordpress.org/changeset/65538) (Nov 17) “to allow more time for the API to mature.” Feedback questioned whether writing secrets belongs in the same API as reading host-provided secrets, and the `manage_secrets` capabilities weren’t checked when secrets were set. Tracking: [#66187](https://core.trac.wordpress.org/ticket/66187). Dev note (now outdated): [The Secrets API in WordPress 7.2](https://make.wordpress.org/core/2026/11/11/the-secrets-api-in-wordpress-7-2/).
