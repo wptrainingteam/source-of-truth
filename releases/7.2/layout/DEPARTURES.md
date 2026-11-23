@@ -17,6 +17,7 @@ When you make a new deliberate change to the page that the design doesn't have, 
 | "Updated" date in hero, changelog date | Real dates (`Month Day, Year`) | "Month Day" placeholder | `b300bde` |
 | Google Drive folder link | Linked | "Link needed" | `88a6cb1` |
 | #65661 tracking line | Full ticket title, then "(#65661)" | "Ticket title needed" | `118b8bc` |
+| November 23 changelog entry | "Added the WordPress 7.2 Field Guide to Resources." The November Dev Blog post was already linked in the first edition. | "…Field Guide and November’s What’s new for developers to Resources" | uncommitted |
 
 The Secrets API was kept here for a while because the Doc's Developer Goodies still listed it.
 It was reverted before RC 1 (r65538, see the Doc's Punted tab), and the designs drop it, so the

@@ -348,6 +348,10 @@ hr { border: 0; border-top: 1px solid var(--sot-line); margin: 48px 0; }
 .sot-changelog { margin: 0; padding: 0; list-style: none; }
 .sot-changelog li { position: relative; padding: 0 0 0 20px; margin: 0 0 10px; font-size: 15px; }
 .sot-changelog li::before { content: ""; position: absolute; left: 0; top: .55em; width: 8px; height: 8px; border-radius: 50%; background: var(--sot-accent); }
+/* An entry with several changes: bullets under the date, smaller and hollow. */
+.sot-changelog ul { list-style: none; margin: 8px 0 0; padding: 0; }
+.sot-changelog ul li { padding-left: 16px; margin-bottom: 6px; font-size: 14px; line-height: 1.5; }
+.sot-changelog ul li::before { top: .6em; width: 6px; height: 6px; background: transparent; border: 1.5px solid var(--sot-accent); box-sizing: border-box; }
 
 /* Audience filter (the Tags section) */
 .sot-audience { scroll-margin-top: calc(var(--sot-header-h) + 16px); }
